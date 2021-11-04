@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 18:48:17
+ * @LastEditTime: 2021-11-04 18:55:31
  * @Description: architecture
 -->
 <template>
@@ -111,7 +111,7 @@
             </el-col>
             <el-col :xs="24" :lg="12">
               <div class="home-new-img wow fadeInUp">
-                <img src="../../assets/images/supply-2.png" alt="supply-2" />
+                <img src="../../assets/images/supply-2.jpg" alt="supply-2" />
               </div>
             </el-col>
           </el-row>
