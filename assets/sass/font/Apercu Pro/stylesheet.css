@@ -1,0 +1,168 @@
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Medium.eot');
+  src: local('Apercu Pro Medium'), local('ApercuPro-Medium'),
+    url('ApercuPro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Medium.woff2') format('woff2'),
+    url('ApercuPro-Medium.woff') format('woff'),
+    url('ApercuPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-MediumItalic.eot');
+  src: local('Apercu Pro Medium Italic'), local('ApercuPro-MediumItalic'),
+    url('ApercuPro-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-MediumItalic.woff2') format('woff2'),
+    url('ApercuPro-MediumItalic.woff') format('woff'),
+    url('ApercuPro-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-ExtraLight.eot');
+  src: local('Apercu Pro ExtraLight'), local('ApercuPro-ExtraLight'),
+    url('ApercuPro-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-ExtraLight.woff2') format('woff2'),
+    url('ApercuPro-ExtraLight.woff') format('woff'),
+    url('ApercuPro-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Black.eot');
+  src: local('Apercu Pro Black'), local('ApercuPro-Black'),
+    url('ApercuPro-Black.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Black.woff2') format('woff2'),
+    url('ApercuPro-Black.woff') format('woff'),
+    url('ApercuPro-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Bold.eot');
+  src: local('Apercu Pro Bold'), local('ApercuPro-Bold'),
+    url('ApercuPro-Bold.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Bold.woff2') format('woff2'),
+    url('ApercuPro-Bold.woff') format('woff'),
+    url('ApercuPro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-BoldItalic.eot');
+  src: local('Apercu Pro Bold Italic'), local('ApercuPro-BoldItalic'),
+    url('ApercuPro-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-BoldItalic.woff2') format('woff2'),
+    url('ApercuPro-BoldItalic.woff') format('woff'),
+    url('ApercuPro-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Thin.eot');
+  src: local('Apercu Pro Thin'), local('ApercuPro-Thin'),
+    url('ApercuPro-Thin.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Thin.woff2') format('woff2'),
+    url('ApercuPro-Thin.woff') format('woff'),
+    url('ApercuPro-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-ThinItalic.eot');
+  src: local('Apercu Pro Thin Italic'), local('ApercuPro-ThinItalic'),
+    url('ApercuPro-ThinItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-ThinItalic.woff2') format('woff2'),
+    url('ApercuPro-ThinItalic.woff') format('woff'),
+    url('ApercuPro-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Regular.eot');
+  src: local('Apercu Pro Regular'), local('ApercuPro-Regular'),
+    url('ApercuPro-Regular.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Regular.woff2') format('woff2'),
+    url('ApercuPro-Regular.woff') format('woff'),
+    url('ApercuPro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Italic.eot');
+  src: local('Apercu Pro Italic'), local('ApercuPro-Italic'),
+    url('ApercuPro-Italic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Italic.woff2') format('woff2'),
+    url('ApercuPro-Italic.woff') format('woff'),
+    url('ApercuPro-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-ExtraLightItalic.eot');
+  src: local('Apercu Pro ExtraLight Italic'),
+    local('ApercuPro-ExtraLightItalic'),
+    url('ApercuPro-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-ExtraLightItalic.woff2') format('woff2'),
+    url('ApercuPro-ExtraLightItalic.woff') format('woff'),
+    url('ApercuPro-ExtraLightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-Light.eot');
+  src: local('Apercu Pro Light'), local('ApercuPro-Light'),
+    url('ApercuPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-Light.woff2') format('woff2'),
+    url('ApercuPro-Light.woff') format('woff'),
+    url('ApercuPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-LightItalic.eot');
+  src: local('Apercu Pro Light Italic'), local('ApercuPro-LightItalic'),
+    url('ApercuPro-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-LightItalic.woff2') format('woff2'),
+    url('ApercuPro-LightItalic.woff') format('woff'),
+    url('ApercuPro-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Apercu Pro';
+  src: url('ApercuPro-BlackItalic.eot');
+  src: local('Apercu Pro Black Italic'), local('ApercuPro-BlackItalic'),
+    url('ApercuPro-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('ApercuPro-BlackItalic.woff2') format('woff2'),
+    url('ApercuPro-BlackItalic.woff') format('woff'),
+    url('ApercuPro-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}

@@ -1,0 +1,446 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none;
+}
+html,
+body {
+  width: 100%;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q,
+blockquote {
+  quotes: none;
+}
+
+q::before,
+q::after,
+blockquote::before,
+blockquote::after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+/* @font-face {
+  font-family: "Apercu Pro";
+  src: url("./font/Apercu Pro/ApercuPro-Bold.eot");
+  src: url("./font/Apercu Pro/ApercuPro-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./font/Apercu Pro/ApercuPro-Bold.woff2") format("woff2"),
+    url("./font/Apercu Pro/ApercuPro-Bold.woff") format("woff"),
+    url("./font/Apercu Pro/ApercuPro-Bold.ttf") format("truetype");
+  font-style: italic;
+} */
+@font-face {
+  font-family: "Untitled Sans Regular";
+  src: url("./font/Untitled Sans Regular/Untitled Sans Regular.eot") format("truetype");
+  src: url("./font/Untitled Sans Regular/Untitled Sans Regular.woff2") format("woff2"),
+    url("./font/Untitled Sans Regular/Untitled Sans Regular.woff") format("woff"),
+    url("./font/Untitled Sans Regular/Untitled Sans Regular.ttf") format("truetype"),
+    url("./font/Untitled Sans Regular/Untitled Sans Regular.svg") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Untitled Sans Light";
+  src: url("./font/Untitled Sans/Untitled Sans Light.eot") format("truetype");
+  src: url("./font/Untitled Sans/Untitled Sans Light.woff2") format("woff2"),
+    url("./font/Untitled Sans/Untitled Sans Light.woff") format("woff"),
+    url("./font/Untitled Sans/Untitled Sans Light.ttf") format("truetype"),
+    url("./font/Untitled Sans/Untitled Sans Light.svg") format("svg");
+}
+.h,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.media-section .wysiwyg-editor h2,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 700;
+  margin: 0 0 0.5em;
+  color: inherit;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+}
+h1,
+h2 {
+  font-size: 84px;
+  line-height: 1.095;
+}
+img {
+  width: 100%;
+}
+html,
+body,
+#__nuxt {
+  font: 18px/1.778 "Untitled Sans Regular", "Helvetica Neue", Helvetica, sans-serif;
+  // background-color: #1f1f24;
+  // background-color: $primary-color;
+  color: #fff;
+  height: 100%;
+  letter-spacing: -0.03em;
+}
+p {
+  margin: 0 0 1em;
+}
+.global {
+  height: 100vh;
+  &-screen {
+    min-height: 100vh;
+  }
+  .el-header,
+  .el-main,
+  .el-footer {
+    padding: 0;
+  }
+  .global-header {
+    height: 140px !important;
+    background-color: $primary-color;
+    & > .el-row--flex {
+      padding-top: 20px;
+      height: 105px;
+    }
+  }
+  .el-scrollbar,
+  .el-scrollbar__wrap {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  .global-screen-main {
+    flex: auto;
+  }
+  &-h1 {
+    font-size: 90px;
+  }
+  &-h2 {
+    font-size: 70px;
+  }
+  &-h3 {
+    font-size: 50px;
+  }
+  &-h4 {
+    font-size: 24px;
+  }
+  &-h5 {
+    font-size: 20px;
+  }
+  &-h6 {
+    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: 0.1em;
+  }
+  .global-fixed {
+    position: fixed;
+    top: 20px;
+    z-index: 999;
+    .nav {
+      padding: 0;
+    }
+    .nav-white {
+      padding: 0;
+    }
+    .global-fiexd-limes {
+      border-radius: 16px;
+      padding: 14px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 2px rgb(0 0 0 / 80%), 0 4px 12px rgb(0 0 0 / 36%), inset 0 0 0 0.5px rgb(237 237 237 / 36%);
+      background-color: $primary-color;
+    }
+    .global-fixed-white {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: inset 0 0 0 0.5px rgb(114 111 111 / 20%), 0 0 15px rgb(0 0 0 / 5%);
+      background-color: #fff;
+    }
+    /* moblie */
+    .moblie-fiexd-limes {
+      background-color: $primary-color;
+      .m-nav .el-collapse .el-collapse-item__header {
+        color: #fff;
+      }
+      // box-shadow: 0 0 2px rgb(0 0 0 / 80%), 0 4px 12px rgb(0 0 0 / 36%), inset 0 0 0 0.5px rgb(237 237 237 / 36%);
+      a.nav-active-link {
+        color: #f3ac34 !important;
+        opacity: 1;
+        border-radius: 10px;
+        .iconfont {
+          font-size: 25px;
+          color: #fff;
+        }
+      }
+    }
+    .mobile-fixed-white {
+      background-color: #fff;
+      // box-shadow: inset 0 0 0 0.5px rgb(114 111 111 / 20%), 0 0 15px rgb(0 0 0 / 5%);
+      .m-nav .el-collapse .el-collapse-item__header {
+        color: $primary-color;
+      }
+      a.nav-active-link {
+        color: #f3ac34 !important;
+        opacity: 1;
+        border-radius: 10px;
+        .iconfont {
+          font-size: 25px;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  .global-fixed-bottom {
+    position: fixed;
+    top: 20px;
+    z-index: 999;
+    padding: 14px 20px;
+    background-color: $primary-color;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    .nav {
+      padding: 0;
+    }
+  }
+  .el-backtop {
+    color: $primary-color;
+  }
+  .subtitle {
+    display: block;
+    text-transform: uppercase;
+    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: 0.1em;
+    position: relative;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  font: 500 16px/1 "Apercu Pro", "Helvetica Neue", "Helvetica", sans-serif;
+  padding: 16px 26px;
+  text-align: center;
+  border-radius: 8px;
+  color: #fff;
+  letter-spacing: 0;
+  position: relative;
+  border: 2px solid transparent;
+  text-transform: capitalize;
+  &-primary {
+    background-color: $btn-color;
+    color: #fff;
+    &:hover {
+      background-color: $btn-color-hover;
+    }
+  }
+  &-default {
+    background-color: transparent;
+    border: 2px solid #fff;
+    &:hover {
+      color: #1e1e1e;
+      background-color: #fcfcfc;
+    }
+  }
+  &[disabled="disabled"] {
+    background-color: rgb(236, 245, 255, 0.5);
+    cursor: not-allowed;
+    color: rgba($color: #1e1e1e, $alpha: 0.5);
+  }
+}
+.scrolltop {
+  background: #f4f4f4;
+  margin-top: 20px;
+  &.s1 {
+    li {
+      line-height: 50px;
+    }
+  }
+  &.s2 {
+    .vue-loop-scroll-box {
+      height: 200px;
+    }
+  }
+}
+.footer {
+  background: #fcfcfc;
+  padding: 50px 0 !important;
+  height: auto !important;
+  color: $footer-color;
+  border-top: 1px solid #e0e3ed;
+  .title-h6 {
+    color: #1f1f24;
+    font: 700 13px/1.3 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  &-link {
+    font-size: 14px;
+    margin-bottom: 15px;
+    a {
+      color: $footer-color;
+      &:hover {
+        color: #1e1e1e;
+        border-bottom: 2px solid #1e1e1e;
+      }
+    }
+  }
+  &-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 55px;
+    flex-wrap: wrap;
+    &-content {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      a {
+        i {
+          color: #1e1e1e;
+          margin-right: 20px;
+          font-size: 25px;
+          cursor: pointer;
+          &:hover {
+            color: #f5c367;
+          }
+        }
+      }
+    }
+    &-text {
+      font-size: 14px;
+    }
+  }
+}
+.el-dropdown-menu {
+  background-color: $primary-color !important;
+  border: 1px solid #8f8989 !important;
+  padding: 20px !important;
+  border-radius: 14px !important;
+}
+.el-dropdown-menu.el-popper[x-placement^="bottom"] .popper__arrow {
+  border-bottom-color: #8f8989 !important;
+}
+.el-dropdown-menu.el-popper[x-placement^="bottom"] .popper__arrow::after {
+  border-bottom-color: $primary-color !important;
+}
+
+.link {
+  transition: color 0.1s ease-out;
+  font: 700 18px/1.3 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  color: $btn-color;
+  position: relative;
+  &:hover {
+    color: $btn-color-hover;
+  }
+}
+.blue {
+  transition: color 0.1s ease-out;
+  font: 700 18px/1.3 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  color: $primary-color;
+  position: relative;
+  &:hover {
+    color: rgb(39, 66, 53);
+  }
+}
+.icon {
+  width: 2em;
+  height: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.el-iconfont {
+  font-size: 35px;
+  color: #f3ac34;
+}
+.video {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  &-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  &-poster {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    background: url("/video/poster.jpg") no-repeat center;
+    background-size: 100% 100%;
+    img {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      cursor: pointer;
+    }
+  }
+}

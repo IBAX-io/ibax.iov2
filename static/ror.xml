@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://ibax.io/</title>
+  <link>https://ibax.io/</link>
+
+<item>
+     <link>https://ibax.io/</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/login</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/login/register</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/architecture</link>
+     <title>Blockchain Framework-IBAX</title>
+     <description>Blockchain Framework</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/security-privacy</link>
+     <title>Security and Privacy-IBAX</title>
+     <description>Security and Privacy</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/virtual-macine</link>
+     <title>Multilingual Virtual Machine-IBAX</title>
+     <description>Multilingual Virtual Machine</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/cross-chain</link>
+     <title>Cross-chain communication-IBAX</title>
+     <description>Cross-chain communication</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/sharding</link>
+     <title>Sharding-IBAX</title>
+     <description>Sharding</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/clb</link>
+     <title>CLB-IBAX</title>
+     <description>CLB</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/multisig</link>
+     <title>Multi-signature-IBAX</title>
+     <description>Multi-signature</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/privite-transaction</link>
+     <title>Private Transaction-IBAX</title>
+     <description>Private Transaction</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/feature/ecolib-governance</link>
+     <title>Ecological Self-charging and Governance-IBAX</title>
+     <description>Ecological Self-charging and Governance</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/resource/team</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/resource/video-resources</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/resource/news</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/resource/events</link>
+     <title>Eco-incentives-IBAX</title>
+     <description>Eco-incentives</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/solutions/supply-chain</link>
+     <title>Supply chain finance-IBAX</title>
+     <description>Supply chain finance</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/solutions/copyright</link>
+     <title>Blockchain Copyright-IBAX</title>
+     <description>Blockchain Copyright</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/solutions/assets</link>
+     <title>Asset Management-IBAX</title>
+     <description>Asset Management</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/bass-markeplace</link>
+     <title>BaaS Market-IBAX</title>
+     <description>BaaS Market</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/developer</link>
+     <title>Development-IBAX</title>
+     <description>Development</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/about</link>
+     <title>Contact-IBAX</title>
+     <description>Contact</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/bass-markeplace/ecolibs</link>
+     <title>Eco-incentives-IBAX</title>
+     <description>Eco-incentives</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/server/privacy-policy</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/server/terms-service</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://ibax.io/server/cookie</link>
+     <title>Home-IBAX</title>
+     <description>Home</description>
+     <ror:updatePeriod></ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

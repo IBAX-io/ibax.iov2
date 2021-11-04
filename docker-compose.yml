@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  ibaxiov2:
+    build: ./
+    hostname: ibaxiov2
+    restart: always
+    image: ibax/ibaxiov2:latest
+    container_name: ibaxiov2
+    ports:
+      - "8084:8084"
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./data/ibax.io.conf:/etc/nginx/conf.d/ibax.io.conf
+      - ./data/robots.txt:/usr/share/nginx/html/robots.txt
+      - ./data/uploads:/usr/share/nginx/html/uploads
+      - ./data/cert:/etc/nginx/conf.d/cert
+    depends_on:
+      - ibaxiov2
+    links:
+      - ibaxiov2:ibaxiov2
+    ports:
+      - "8083:443"
