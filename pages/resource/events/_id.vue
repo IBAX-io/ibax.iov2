@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-09-28 16:09:11
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 17:09:21
+ * @LastEditTime: 2021-11-09 19:14:58
  * @Description: 
 -->
 <template>
@@ -203,7 +203,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.objEvents.icon
+          content: `${this.baseUrl}${this.objEvents.icon}`
         }
       ]
     };

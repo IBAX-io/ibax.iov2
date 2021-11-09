@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 17:10:47
+ * @LastEditTime: 2021-11-09 19:16:07
  * @Description: news  news
 -->
 <template>
@@ -177,7 +177,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.objNews.icon
+          content: `${this.baseUrl}${this.objNews.icon}`
         }
       ]
     };
