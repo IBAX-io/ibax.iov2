@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 12:03:46
+ * @LastEditTime: 2021-11-09 19:38:31
  * @Description: 
 -->
 <template>
@@ -316,12 +316,12 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.multi')} | IBAX`,
+      title: `${this.$t('nav.multi')} | IBAX Network`,
       meta: [
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${this.$t('nav.multi')} | IBAX`
+          content: `${this.$t('nav.multi')} | IBAX Network`
         },
         {
           hid: 'keywords',
@@ -338,6 +338,16 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: `Decentralized ledger authority`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.multi')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `The CLB is a gateway for data to cross-chain as well as a bridge for assets to cross-chain, and you can use it to get data outside blockchain to use it inside blockchain`
         }
       ]
     };
