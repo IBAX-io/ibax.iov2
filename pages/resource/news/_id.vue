@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:37:29
+ * @LastEditTime: 2021-11-09 19:54:24
  * @Description: news  news
 -->
 <template>
@@ -177,6 +177,11 @@ export default {
         {
           hid: 'og-image',
           property: 'og:image',
+          content: `${this.baseUrl}${this.objNews.icon}`
+        },
+        {
+          hid: 'og-image',
+          property: 'twitter:image',
           content: `${this.baseUrl}${this.objNews.icon}`
         }
       ]

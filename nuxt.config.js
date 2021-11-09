@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:32:05
+ * @LastEditTime: 2021-11-09 19:57:01
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -58,7 +58,7 @@ export default {
         content: 'IBAX NetWork'
       },
       {
-        hid: 'og-url',
+        hid: 'og:url',
         property: 'og:url',
         content: 'https://ibax.io'
       },
@@ -69,32 +69,37 @@ export default {
       },
       {
         hid: 'twitter:title',
-        name: 'twitter:title',
+        property: 'twitter:title',
         content: `Welcome to IBAX Network`
       },
       {
-        hid: 'og-image',
+        hid: 'og:image',
         property: 'og:image',
         content: 'https://ibax.io/image/mate-twitter.png'
       },
       {
-        hid: 't-type',
+        hid: 'twitter:image',
+        property: 'twitter:image',
+        content: 'https://ibax.io/image/mate-twitter.png'
+      },
+      {
+        hid: 'twitter:type',
         name: 'twitter:card',
         content: 'summary_large_image'
       },
       {
         hid: 'twitter:site',
-        name: 'twitter:site',
+        property: 'twitter:site',
         content: '@IbaxNetwork'
       },
       {
         hid: 'twitter:creator',
-        name: 'twitter:creator',
+        property: 'twitter:creator',
         content: '@IbaxNetwork'
       },
       {
         hid: 'twitter:description',
-        name: 'twitter:description',
+        property: 'twitter:description',
         content: 'Secure and high performance blockchain infrastructure'
       },
       {

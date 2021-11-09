@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:11:41
+ * @LastEditTime: 2021-11-09 19:57:59
  * @Description: home
 -->
 <template>
@@ -850,7 +850,7 @@ export default {
       meta: [
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `Welcome to IBAX Network`
         },
         {
@@ -866,17 +866,17 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Secure and high performance blockchain infrastructure`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `Welcome to IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Secure and high performance blockchain infrastructure`
         }
       ]
