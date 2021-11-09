@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:54:24
+ * @LastEditTime: 2021-11-09 20:02:07
  * @Description: news  news
 -->
 <template>
@@ -131,6 +131,7 @@ export default {
     };
   },
   head() {
+    console.log(`${this.baseUrl}${this.objNews.icon}`);
     return {
       title: ` ${this.objNews.title} | IBAX Network`,
       meta: [
@@ -175,12 +176,12 @@ export default {
           content: this.objNews.introduction
         },
         {
-          hid: 'og-image',
+          hid: 'og:image',
           property: 'og:image',
           content: `${this.baseUrl}${this.objNews.icon}`
         },
         {
-          hid: 'og-image',
+          hid: 'twitter:image',
           property: 'twitter:image',
           content: `${this.baseUrl}${this.objNews.icon}`
         }
