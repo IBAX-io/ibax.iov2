@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 20:02:07
+ * @LastEditTime: 2021-11-09 20:09:17
  * @Description: news  news
 -->
 <template>
@@ -136,12 +136,12 @@ export default {
       title: ` ${this.objNews.title} | IBAX Network`,
       meta: [
         {
-          hid: 'og-type',
+          hid: 'og:type',
           property: 'og:type',
           content: 'article'
         },
         {
-          hid: 'og-title',
+          hid: 'og:title',
           property: 'og:title',
           content: `${this.objNews.title} | IBAX Network`
         },
@@ -172,7 +172,7 @@ export default {
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.objNews.introduction
         },
         {

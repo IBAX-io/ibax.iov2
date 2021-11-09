@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:57:01
+ * @LastEditTime: 2021-11-09 20:08:14
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -84,7 +84,7 @@ export default {
       },
       {
         hid: 'twitter:type',
-        name: 'twitter:card',
+        property: 'twitter:card',
         content: 'summary_large_image'
       },
       {
@@ -104,12 +104,12 @@ export default {
       },
       {
         hid: 'og:type',
-        name: 'og:type',
+        property: 'og:type',
         content: 'website'
       },
       {
         hid: 'og:site_name',
-        name: 'og:site_name',
+        property: 'og:site_name',
         content: 'IBAX NetWork'
       },
       {
@@ -125,7 +125,7 @@ export default {
       },
       {
         hid: 'og:description',
-        name: 'og:description',
+        property: 'og:description',
         content: `Secure and high performance blockchain infrastructure`
       },
       {
