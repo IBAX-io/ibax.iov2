@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 09:32:42
+ * @LastEditTime: 2021-11-09 10:51:48
  * @Description: nav
 -->
 <template>
@@ -241,7 +241,7 @@ export default {
         },
         {
           title: 'nav.bass',
-          path: '/bass-markeplace',
+          path: '/baas-marketplace',
           key: '2'
         },
         {

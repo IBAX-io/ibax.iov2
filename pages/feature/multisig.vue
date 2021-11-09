@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 16:29:56
+ * @LastEditTime: 2021-11-09 12:03:46
  * @Description: 
 -->
 <template>
@@ -82,7 +82,7 @@
             align="middle"
             class="el-row-wrap"
           >
-            <el-col :xs="23" :lg="8">
+            <el-col :xs="24" :lg="8">
               <p class="home-new-title wow fadeInUp">
                 <i class="el-iconfont iconfont el-a-059"></i>
                 <span class="home-new-text">
@@ -94,7 +94,7 @@
                 {{ $t('bass.insecure') }}
               </p>
             </el-col>
-            <el-col :xs="23" :lg="14">
+            <el-col :xs="24" :lg="14">
               <div class="home-new-img wow fadeInUp">
                 <img src="@/assets/images/wallet.png" alt="wallet" />
               </div>
@@ -316,8 +316,13 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.multi')}-IBAX`,
+      title: `${this.$t('nav.multi')} | IBAX`,
       meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.multi')} | IBAX`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -327,12 +332,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.multi')}`
+          content: `Decentralized ledger authority`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.multi')}`
+          content: `Decentralized ledger authority`
         }
       ]
     };

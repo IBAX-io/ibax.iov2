@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 16:31:59
+ * @LastEditTime: 2021-11-09 18:25:36
  * @Description:
 -->
 <template>
@@ -334,7 +334,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.self')}-IBAX`,
+      title: `${this.$t('nav.self')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -343,14 +343,29 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,DAO,GAS,ecoLib'
         },
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.self')} | IBAX Network`
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.self')}`
+          content: `Ecological Self-Governance (DAO) and Gas Charge`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.self')}`
+          content: `Ecological Self-Governance (DAO) and Gas Charge`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.self')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Ecological Self-Governance (DAO) and Gas Charge`
         }
       ],
       numImplement: 0,

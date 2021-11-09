@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 17:51:24
+ * @LastEditTime: 2021-11-09 17:14:04
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -31,12 +31,12 @@ export default {
   mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Home-IBAX',
+    title: 'Welcome to IBAX Network | IBAX',
     meta: [
       { charset: 'utf-8' },
       {
         name: 'robots',
-        content: 'noindex,nofollow'
+        content: 'index, follow'
       },
       {
         hid: 'Pragma',
@@ -51,6 +51,62 @@ export default {
       },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'mobile-web-app-capable', content: 'no' },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: 'IBAX NetWork'
+      },
+      {
+        hid: 'og:url',
+        name: 'og:url',
+        content: 'https://ibax.io'
+      },
+      {
+        hid: 'og:title',
+        name: 'og:title',
+        content: `Welcome to IBAX Network`
+      },
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: `Welcome to IBAX Network`
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://ibax.io/image/mate-twitter.png'
+      },
+      {
+        hid: 'twitter:card',
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+      {
+        hid: 'twitter:site',
+        name: 'twitter:site',
+        content: '@IbaxNetwork'
+      },
+      {
+        hid: 'twitter:creator',
+        name: 'twitter:creator',
+        content: '@IbaxNetwork'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'Secure and high performance blockchain infrastructure'
+      },
+      {
+        hid: 'og:type',
+        name: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:site_name',
+        name: 'og:site_name',
+        content: 'IBAX NetWork'
+      },
       {
         hid: 'keywords',
         name: 'keywords',
@@ -60,12 +116,12 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: `Home`
+        content: `Secure and high performance blockchain infrastructure`
       },
       {
         hid: 'og:description',
         name: 'og:description',
-        content: `Home`
+        content: `Secure and high performance blockchain infrastructure`
       },
       {
         hid: 'ie',

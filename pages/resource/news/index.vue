@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:15:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:05:40
+ * @LastEditTime: 2021-11-09 17:52:26
  * @Description: news
 -->
 <template>
@@ -185,6 +185,43 @@ export default {
       },
       arrNews: [],
       objTop: []
+    };
+  },
+  head() {
+    return {
+      title: `News | IBAX Network`,
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `News | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `News | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `News about IBAX`
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'News,IBAX Network,Blcokchain,Resource '
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `News about IBAX`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `News about IBAX`
+        }
+      ]
     };
   },
   computed: {},

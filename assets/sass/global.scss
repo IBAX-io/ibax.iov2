@@ -339,6 +339,9 @@ p {
         border-bottom: 2px solid #1e1e1e;
       }
     }
+    a.nav-active-link {
+      border-radius: 0;
+    }
   }
   &-icon {
     display: flex;

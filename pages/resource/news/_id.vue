@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:07:07
+ * @LastEditTime: 2021-11-09 17:10:47
  * @Description: news  news
 -->
 <template>
@@ -132,8 +132,28 @@ export default {
   },
   head() {
     return {
-      title: ` ${this.objNews.title} - IBAX`,
+      title: ` ${this.objNews.title} | IBAX Network`,
       meta: [
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'article'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.objNews.title} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.objNews.title} | IBAX Network`
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -148,6 +168,16 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: this.objNews.introduction
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.objNews.introduction
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.objNews.icon
         }
       ]
     };

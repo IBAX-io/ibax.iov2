@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 16:57:35
+ * @LastEditTime: 2021-11-09 18:19:29
  * @Description: sharding
 -->
 <template>
@@ -318,7 +318,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.tran')}-IBAX`,
+      title: `${this.$t('nav.tran')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -327,14 +327,29 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain BaaS,Mining,Sharding'
         },
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.tran')} | IBAX Network`
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.tran')}`
+          content: `Improve transaction efficiency`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.tran')}`
+          content: `Improve transaction efficiency`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.tran')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Improve transaction efficiency`
         }
       ]
     };

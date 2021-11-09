@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:44:39
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 20:53:38
+ * @LastEditTime: 2021-11-09 10:52:33
  * @Description: footer
 -->
 <template>
@@ -151,11 +151,11 @@ export default {
       arrBass: [
         {
           title: 'market.application',
-          key: '/bass-markeplace'
+          key: '/baas-marketplace'
         },
         {
           title: 'bass.ecological',
-          key: '/bass-markeplace/ecolibs'
+          key: '/baas-marketplace/ecolibs'
         }
       ],
       arrResource: [

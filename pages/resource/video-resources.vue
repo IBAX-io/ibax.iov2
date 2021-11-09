@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:43:39
  * @LastEditors: abc
- * @LastEditTime: 2021-10-22 17:39:43
+ * @LastEditTime: 2021-11-09 18:10:44
  * @Description: video resources
 -->
 <template>
@@ -191,6 +191,43 @@ export default {
           text: 'IBAX Network General Marketing Manager Gianluca gave a 1 minute brief introduction of IBAX.',
           img: img3,
           href: 'https://youtu.be/MVNppxG8DLM'
+        }
+      ]
+    };
+  },
+  head() {
+    return {
+      title: `Video | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'Intro, IBAX Network, Video, Weaver, Create'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Get To Know IBAX In A Video`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Video | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `Get To Know IBAX In A Video`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Video | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Get To Know IBAX In A Video`
         }
       ]
     };

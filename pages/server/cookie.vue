@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-10-15 11:47:53
  * @LastEditors: abc
- * @LastEditTime: 2021-10-19 14:29:22
+ * @LastEditTime: 2021-11-09 18:44:44
  * @Description: cookie
 -->
 <template>
@@ -295,6 +295,43 @@ export default {
   props: {},
   data() {
     return {};
+  },
+  head() {
+    return {
+      title: `Cookie policy | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'IBAX Network,policy'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `cookie policy`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Cookie policy | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `cookie policy`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Cookie policy | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `cookie policy`
+        }
+      ]
+    };
   },
   computed: {},
   watch: {},

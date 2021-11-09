@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 19:00:27
+ * @LastEditTime: 2021-11-09 17:42:21
  * @Description: architecture
 -->
 <template>
@@ -245,8 +245,23 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('solutions.copyright')}-IBAX`,
+      title: `${this.$t('solutions.copyright')} | IBAX Network`,
       meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('solutions.copyright')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('solutions.copyright')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Reduce costs and increase efficiency for the industry`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -256,12 +271,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('solutions.copyright')}`
+          content: `Reduce costs and increase efficiency for the industry`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('solutions.copyright')}`
+          content: `Reduce costs and increase efficiency for the industry`
         }
       ]
     };

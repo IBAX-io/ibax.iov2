@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 17:50:10
  * @LastEditors: abc
- * @LastEditTime: 2021-10-21 15:01:40
+ * @LastEditTime: 2021-11-09 18:31:05
  * @Description: conact us
 -->
 <template>
@@ -13,7 +13,10 @@
           <nuxt-link to="/">
             <i class="iconfont el-logo1"></i>
           </nuxt-link>
-          <div class="nav-right-dropdown about-left-box-icon-right">
+          <div
+            class="nav-right-dropdown about-left-box-icon-right"
+            style="display: none"
+          >
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 <i class="iconfont el-translate" style="color: #274235"></i>
@@ -130,8 +133,23 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.about')}-IBAX`,
+      title: `${this.$t('nav.about')} | IBAX Network`,
       meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.about')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.about')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -141,12 +159,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.about')}`
+          content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.about')}`
+          content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.about')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
         }
       ]
     };

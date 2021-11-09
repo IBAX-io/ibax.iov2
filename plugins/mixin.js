@@ -5,22 +5,35 @@ Vue.mixin({
     return {
       domGlobal: '',
       domHeaderTop: '',
+      baseUrl: 'https://ibax.io',
       arrLang: [
         {
           label: 'English',
           lang: 'en'
         },
-        /* {
+        {
           label: 'Français',
           lang: 'fr'
-        }, */
+        },
+        {
+          label: 'Español',
+          lang: 'es'
+        },
         {
           label: '简体中文',
           lang: 'zh'
         },
         {
-          label: '繁体中文',
+          label: '繁體中文',
           lang: 'tw'
+        },
+        {
+          label: '한국인',
+          lang: 'sk'
+        },
+        {
+          label: '日本語',
+          lang: 'jp'
         }
       ],
       arrType: [

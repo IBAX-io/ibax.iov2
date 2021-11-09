@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-10-27 18:34:45
+ * @LastEditTime: 2021-11-09 18:24:22
  * @Description: 
 -->
 <template>
@@ -312,7 +312,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.private')}-IBAX`,
+      title: `${this.$t('nav.private')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -321,14 +321,29 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,CLB,HybridSmartContracts'
         },
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.private')} | IBAX Network`
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.private')}`
+          content: `Zero-knowledge proof by using smart contracts to ensure data security and privacy of private transactions`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.private')}`
+          content: `Zero-knowledge proof by using smart contracts to ensure data security and privacy of private transactions`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.private')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Zero-knowledge proof by using smart contracts to ensure data security and privacy of private transactions`
         }
       ]
     };

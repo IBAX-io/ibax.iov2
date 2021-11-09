@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:15:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:52:40
+ * @LastEditTime: 2021-11-09 18:10:24
  * @Description: team
 -->
 <template>
@@ -422,6 +422,44 @@ export default {
           }
         ]
       }
+    };
+  },
+  head() {
+    return {
+      title: `Team | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content:
+            'IBAX, Blockchain, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,DAO,Token,contract,LowCode,Reward'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Committed To Changing Society With Blockchain Technology`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Evnets | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `Committed To Changing Society With Blockchain Technology`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Evnets | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Committed To Changing Society With Blockchain Technology`
+        }
+      ]
     };
   },
   computed: {},

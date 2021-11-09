@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-09-28 16:09:11
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:07:28
+ * @LastEditTime: 2021-11-09 17:09:21
  * @Description: 
 -->
 <template>
@@ -156,9 +156,30 @@ export default {
     };
   },
   head() {
+    console.log(this.$route.path);
     return {
-      title: ` ${this.objEvents.name} - IBAX`,
+      title: `${this.objEvents.name} | IBAX Network`,
       meta: [
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'article'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.objEvents.name} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.objEvents.name} | IBAX Network`
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -173,6 +194,16 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: this.objEvents.introduction
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.objEvents.introduction
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.objEvents.icon
         }
       ]
     };

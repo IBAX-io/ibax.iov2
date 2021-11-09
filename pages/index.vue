@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-03 09:52:22
+ * @LastEditTime: 2021-11-09 18:11:41
  * @Description: home
 -->
 <template>
@@ -846,8 +846,13 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.home')}-IBAX`,
+      title: `Welcome to IBAX Network`,
       meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Welcome to IBAX Network`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -857,12 +862,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.home')}`
+          content: `Secure and high performance blockchain infrastructure`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.home')}`
+          content: `Secure and high performance blockchain infrastructure`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Welcome to IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Secure and high performance blockchain infrastructure`
         }
       ]
     };

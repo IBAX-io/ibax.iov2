@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:07:58
+ * @LastEditTime: 2021-11-09 17:53:28
  * @Description: ecolibs
 -->
 <template>
@@ -341,23 +341,37 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('home.ecological')}-IBAX`,
+      title: `Evnets | IBAX`,
       meta: [
         {
           hid: 'keywords',
           name: 'keywords',
-          content:
-            'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,DAO,Token,contract,LowCode,Reward'
+          content: 'Activity, IBAX, Network, blcokchain, Reward'
         },
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('home.ecological')}`
+          content: `IBAX events here and you can earn great rewards!`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('home.ecological')}`
+          content: `IBAX events here and you can earn great rewards!`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Evnets | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Evnets | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `IBAX events here and you can earn great rewards!`
         }
       ]
     };

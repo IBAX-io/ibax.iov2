@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:24:26
  * @LastEditors: abc
- * @LastEditTime: 2021-10-15 11:31:32
+ * @LastEditTime: 2021-11-09 18:28:03
  * @Description: 
 -->
 <template>
@@ -171,7 +171,7 @@
                 </el-col>
                 <el-col :xs="23" :lg="4">
                   <nuxt-link
-                    to="/bass-markeplace/ecolibs"
+                    to="/baas-marketplace/ecolibs"
                     class="btn btn-primary wow fadeInUp"
                     >{{ $t('bass.learn') }}</nuxt-link
                   >
@@ -427,7 +427,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.bass')}-IBAX`,
+      title: `${this.$t('nav.bass')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -438,12 +438,27 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.bass')}`
+          content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.bass')}`
+          content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.bass')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.bass')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
         }
       ]
     };

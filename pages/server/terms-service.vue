@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-10-15 11:47:26
  * @LastEditors: abc
- * @LastEditTime: 2021-10-19 11:51:37
+ * @LastEditTime: 2021-11-09 18:42:33
  * @Description: Terms of service
 -->
 <template>
@@ -448,6 +448,43 @@ export default {
   props: {},
   data() {
     return {};
+  },
+  head() {
+    return {
+      title: `Terms of service | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'IBAX Network,terms'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `TERMS AND CONDITIONS`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Terms of service | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `TERMS AND CONDITIONS`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Terms of service | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `TERMS AND CONDITIONS`
+        }
+      ]
+    };
   },
   computed: {},
   watch: {},

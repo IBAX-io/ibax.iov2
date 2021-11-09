@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 09:52:02
+ * @LastEditTime: 2021-11-09 18:13:04
  * @Description: architecture
 -->
 <template>
@@ -442,8 +442,13 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.high')}-IBAX`,
+      title: `${this.$t('nav.high')} | IBAX`,
       meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.high')} | IBAX`
+        },
         {
           hid: 'keywords',
           name: 'keywords',
@@ -453,12 +458,22 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.high')}`
+          content: `Use database to improve execution efficiency`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.high')}`
+          content: `Use database to improve execution efficiency`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.high')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Use database to improve execution efficiency`
         }
       ],
       numArchite: 0,

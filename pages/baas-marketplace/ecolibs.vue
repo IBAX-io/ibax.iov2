@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 16:53:41
+ * @LastEditTime: 2021-11-09 18:29:23
  * @Description: ecolibs
 -->
 <template>
@@ -394,7 +394,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('home.ecological')}-IBAX`,
+      title: `${this.$t('home.ecological')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -405,12 +405,27 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('home.ecological')}`
+          content: `The IBAX Foundation has created a variety of ecoLib incentive plans. You can join the corresponding project team according to the team size and application type, and these activities are held regularly on time`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('home.ecological')} | IBAX Network`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('home.ecological')}`
+          content: `The IBAX Foundation has created a variety of ecoLib incentive plans. You can join the corresponding project team according to the team size and application type, and these activities are held regularly on time`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('home.ecological')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `The IBAX Foundation has created a variety of ecoLib incentive plans. You can join the corresponding project team according to the team size and application type, and these activities are held regularly on time`
         }
       ]
     };

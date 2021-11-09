@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-10-15 11:46:31
  * @LastEditors: abc
- * @LastEditTime: 2021-10-19 11:23:19
+ * @LastEditTime: 2021-11-09 18:41:39
  * @Description: Privacy policy
 -->
 <template>
@@ -842,6 +842,43 @@ export default {
   props: {},
   data() {
     return {};
+  },
+  head() {
+    return {
+      title: `Legal | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'IBAX Network,privacy'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Privacy notice`
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Legal | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `Privacy notice`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Legal | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Privacy notice`
+        }
+      ]
+    };
   },
   computed: {},
   watch: {},

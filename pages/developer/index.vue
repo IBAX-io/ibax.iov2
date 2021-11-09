@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:32:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-02 10:30:11
+ * @LastEditTime: 2021-11-09 17:46:49
  * @Description:
 -->
 <template>
@@ -490,6 +490,21 @@ export default {
       title: `${this.$t('nav.development')}-IBAX`,
       meta: [
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.development')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.development')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `The BaaS function has been added to Weaver and you can use it to create and manage your ecosystem.`
+        },
+        {
           hid: 'keywords',
           name: 'keywords',
           content:
@@ -498,12 +513,12 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.development')}`
+          content: `The BaaS function has been added to Weaver and you can use it to create and manage your ecosystem.`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.development')}`
+          content: `The BaaS function has been added to Weaver and you can use it to create and manage your ecosystem.`
         }
       ]
     };

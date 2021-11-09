@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 11:00:37
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 21:27:31
+ * @LastEditTime: 2021-11-09 10:52:21
  * @Description: mobile nav
 -->
 <template>
@@ -135,7 +135,7 @@ export default {
       arrSingle: [
         {
           title: 'nav.bass',
-          path: '/bass-markeplace',
+          path: '/baas-marketplace',
           key: 'm-2'
         },
         {

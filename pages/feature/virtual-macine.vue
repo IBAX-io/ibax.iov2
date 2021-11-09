@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 18:59:24
+ * @LastEditTime: 2021-11-09 18:17:29
  * @Description: virtual macine
 -->
 <template>
@@ -318,7 +318,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.virtual')}-IBAX`,
+      title: `${this.$t('nav.virtual')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -327,14 +327,29 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BaaS,Mining,PostgreSQL, Honor Node,Guardian Node,Mint Node,Sub Nodes, CLB (CROSS LEDGERS BASE),Smart contracts,ecoLib,ecoGroup, Weaver,Oracle,Solidity,Go,Rust,DAO'
         },
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.virtual')} | IBAX Network`
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.virtual')}`
+          content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.security')}`
+          content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.virtual')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         }
       ]
     };

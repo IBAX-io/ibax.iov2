@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-10-27 18:33:16
+ * @LastEditTime: 2021-11-09 18:20:03
  * @Description: 
 -->
 <template>
@@ -321,7 +321,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.$t('nav.clb')}-IBAX`,
+      title: `${this.$t('nav.clb')} | IBAX Network`,
       meta: [
         {
           hid: 'keywords',
@@ -330,14 +330,29 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,CLB,HybridSmartContracts'
         },
         {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `${this.$t('nav.clb')} | IBAX Network`
+        },
+        {
           hid: 'description',
           name: 'description',
-          content: `${this.$t('nav.clb')}`
+          content: `The CLB is a gateway for data to cross-chain as well as a bridge for assets to cross-chain, and you can use it to get data outside blockchain to use it inside blockchain`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.$t('nav.clb')}`
+          content: `The CLB is a gateway for data to cross-chain as well as a bridge for assets to cross-chain, and you can use it to get data outside blockchain to use it inside blockchain`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `${this.$t('nav.clb')} | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `The CLB is a gateway for data to cross-chain as well as a bridge for assets to cross-chain, and you can use it to get data outside blockchain to use it inside blockchain`
         }
       ]
     };
