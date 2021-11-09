@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 17:14:04
+ * @LastEditTime: 2021-11-09 19:32:05
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -58,13 +58,13 @@ export default {
         content: 'IBAX NetWork'
       },
       {
-        hid: 'og:url',
-        name: 'og:url',
+        hid: 'og-url',
+        property: 'og:url',
         content: 'https://ibax.io'
       },
       {
         hid: 'og:title',
-        name: 'og:title',
+        property: 'og:title',
         content: `Welcome to IBAX Network`
       },
       {
@@ -73,12 +73,12 @@ export default {
         content: `Welcome to IBAX Network`
       },
       {
-        hid: 'twitter:image',
-        name: 'twitter:image',
+        hid: 'og-image',
+        property: 'og:image',
         content: 'https://ibax.io/image/mate-twitter.png'
       },
       {
-        hid: 'twitter:card',
+        hid: 't-type',
         name: 'twitter:card',
         content: 'summary_large_image'
       },

@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-09-28 16:09:11
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:14:58
+ * @LastEditTime: 2021-11-09 19:36:20
  * @Description: 
 -->
 <template>
@@ -162,22 +162,22 @@ export default {
       meta: [
         {
           hid: 'og:type',
-          name: 'og:type',
+          property: 'og:type',
           content: 'article'
         },
         {
-          hid: 'og:title',
-          name: 'og:title',
+          hid: 'og-title',
+          property: 'og:title',
           content: `${this.objEvents.name} | IBAX Network`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.objEvents.name} | IBAX Network`
         },
         {
-          hid: 'og:url',
-          name: 'og:url',
+          hid: 'og-url',
+          property: 'og:url',
           content: `${this.baseUrl}${this.$route.path}`
         },
         {
@@ -201,8 +201,8 @@ export default {
           content: this.objEvents.introduction
         },
         {
-          hid: 'twitter:image',
-          name: 'twitter:image',
+          hid: 'og-image',
+          property: 'og:image',
           content: `${this.baseUrl}${this.objEvents.icon}`
         }
       ]
