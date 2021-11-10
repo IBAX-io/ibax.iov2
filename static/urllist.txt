@@ -17,10 +17,10 @@ https://ibax.io/resource/events
 https://ibax.io/solutions/supply-chain
 https://ibax.io/solutions/copyright
 https://ibax.io/solutions/assets
-https://ibax.io/bass-markeplace
+https://ibax.io/baas-marketplace
 https://ibax.io/developer
 https://ibax.io/about
-https://ibax.io/bass-markeplace/ecolibs
+https://ibax.io/baas-marketplace/ecolibs
 https://ibax.io/server/privacy-policy
 https://ibax.io/server/terms-service
 https://ibax.io/server/cookie
