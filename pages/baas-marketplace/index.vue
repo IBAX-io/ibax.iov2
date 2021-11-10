@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:24:26
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:28:03
+ * @LastEditTime: 2021-11-10 10:53:12
  * @Description: 
 -->
 <template>
@@ -441,23 +441,33 @@ export default {
           content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.bass')} | IBAX Network`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.bass')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `How To Create An EcoLib Quickly and Effectively on IBAX Network`
         }
       ]

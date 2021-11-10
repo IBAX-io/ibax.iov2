@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:16:48
+ * @LastEditTime: 2021-11-10 11:34:15
  * @Description: 
 -->
 <template>
@@ -316,7 +316,7 @@ export default {
       meta: [
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.security')} | IBAX Network`
         },
         {
@@ -331,18 +331,28 @@ export default {
           content: `Encryption machine to ensure the safety of funds and communicationsThe security of funds and communication is ensured by the encryption machine`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Encryption machine to ensure the safety of funds and communicationsThe security of funds and communication is ensured by the encryption machine`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.security')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Encryption machine to ensure the safety of funds and communicationsThe security of funds and communication is ensured by the encryption machine`
         }
       ]

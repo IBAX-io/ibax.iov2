@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-10-15 11:47:26
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:42:33
+ * @LastEditTime: 2021-11-10 11:01:15
  * @Description: Terms of service
 -->
 <template>
@@ -464,23 +464,33 @@ export default {
           content: `TERMS AND CONDITIONS`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `Terms of service | IBAX Network`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `TERMS AND CONDITIONS`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `Terms of service | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `TERMS AND CONDITIONS`
         }
       ]

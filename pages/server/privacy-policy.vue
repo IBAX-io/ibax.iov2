@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-10-15 11:46:31
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:41:39
+ * @LastEditTime: 2021-11-10 11:00:34
  * @Description: Privacy policy
 -->
 <template>
@@ -858,23 +858,33 @@ export default {
           content: `Privacy notice`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `Legal | IBAX Network`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Privacy notice`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `Legal | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Privacy notice`
         }
       ]

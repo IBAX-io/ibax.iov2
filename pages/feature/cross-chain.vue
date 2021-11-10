@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:18:39
+ * @LastEditTime: 2021-11-10 11:32:01
  * @Description: 
 -->
 <template>
@@ -329,28 +329,38 @@ export default {
             'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain,BaaS,NFT'
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.cross-chain')} | IBAX Network`
         },
         {
           hid: 'description',
-          name: 'description',
+          property: 'description',
           content: `Integrated decentralised & trustless cross-chain`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Integrated decentralised & trustless cross-chain`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.cross-chain')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         }
       ]

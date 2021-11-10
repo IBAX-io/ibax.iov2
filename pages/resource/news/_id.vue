@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-26 14:35:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 20:09:17
+ * @LastEditTime: 2021-11-10 10:23:52
  * @Description: news  news
 -->
 <template>
@@ -153,6 +153,11 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
           content: `${this.baseUrl}${this.$route.path}`
         },
         {

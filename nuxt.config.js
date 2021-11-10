@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 20:08:14
+ * @LastEditTime: 2021-11-09 20:18:24
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -125,7 +125,7 @@ export default {
       },
       {
         hid: 'og:description',
-        property: 'og:description',
+        name: 'og:description',
         content: `Secure and high performance blockchain infrastructure`
       },
       {

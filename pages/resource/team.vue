@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:15:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:10:24
+ * @LastEditTime: 2021-11-10 10:44:09
  * @Description: team
 -->
 <template>
@@ -440,23 +440,33 @@ export default {
           content: `Committed To Changing Society With Blockchain Technology`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `Evnets | IBAX Network`
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Committed To Changing Society With Blockchain Technology`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `Evnets | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Committed To Changing Society With Blockchain Technology`
         }
       ]

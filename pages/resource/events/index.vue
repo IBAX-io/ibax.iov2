@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 17:53:28
+ * @LastEditTime: 2021-11-10 10:08:39
  * @Description: ecolibs
 -->
 <template>
@@ -355,22 +355,22 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `IBAX events here and you can earn great rewards!`
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `Evnets | IBAX Network`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `Evnets | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `IBAX events here and you can earn great rewards!`
         }
       ]

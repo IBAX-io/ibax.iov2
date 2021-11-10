@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 17:50:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:31:05
+ * @LastEditTime: 2021-11-10 10:46:13
  * @Description: conact us
 -->
 <template>
@@ -137,18 +137,23 @@ export default {
       meta: [
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.about')} | IBAX Network`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.about')} | IBAX Network`
         },
         {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
         },
         {
           hid: 'keywords',
@@ -163,17 +168,12 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
         },
         {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: `${this.$t('nav.about')} | IBAX Network`
-        },
-        {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `We have social accounts on various media platforms, you can interact with us by leaving comments`
         }
       ]

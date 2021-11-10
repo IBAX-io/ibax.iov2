@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:57:59
+ * @LastEditTime: 2021-11-10 11:36:58
  * @Description: home
 -->
 <template>
@@ -848,6 +848,16 @@ export default {
     return {
       title: `Welcome to IBAX Network`,
       meta: [
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
         {
           hid: 'og:title',
           property: 'og:title',

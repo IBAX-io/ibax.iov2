@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 17:43:14
+ * @LastEditTime: 2021-11-10 10:54:52
  * @Description: architecture
 -->
 <template>
@@ -236,18 +236,28 @@ export default {
       title: `${this.$t('nav.assets')}-IBAX`,
       meta: [
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.assets')} | IBAX Network`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.assets')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `A flexible, credible and diversified asset management platform built on IBAX Network`
         },
         {
@@ -263,7 +273,7 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `A flexible, credible and diversified asset management platform built on IBAX Network`
         }
       ]

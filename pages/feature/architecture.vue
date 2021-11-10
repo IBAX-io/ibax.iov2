@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:13:04
+ * @LastEditTime: 2021-11-10 11:02:41
  * @Description: architecture
 -->
 <template>
@@ -461,18 +461,28 @@ export default {
           content: `Use database to improve execution efficiency`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Use database to improve execution efficiency`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.high')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Use database to improve execution efficiency`
         }
       ],

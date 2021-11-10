@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-09-28 16:09:11
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 19:36:20
+ * @LastEditTime: 2021-11-10 11:46:56
  * @Description: 
 -->
 <template>
@@ -166,7 +166,7 @@ export default {
           content: 'article'
         },
         {
-          hid: 'og-title',
+          hid: 'og:title',
           property: 'og:title',
           content: `${this.objEvents.name} | IBAX Network`
         },
@@ -176,8 +176,13 @@ export default {
           content: `${this.objEvents.name} | IBAX Network`
         },
         {
-          hid: 'og-url',
+          hid: 'og:url',
           property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
           content: `${this.baseUrl}${this.$route.path}`
         },
         {
@@ -192,17 +197,22 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.objEvents.introduction
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.objEvents.introduction
         },
         {
-          hid: 'og-image',
+          hid: 'og:image',
           property: 'og:image',
+          content: `${this.baseUrl}${this.objEvents.icon}`
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
           content: `${this.baseUrl}${this.objEvents.icon}`
         }
       ]
