@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 18:17:29
+ * @LastEditTime: 2021-11-10 14:17:44
  * @Description: virtual macine
 -->
 <template>
@@ -328,7 +328,7 @@ export default {
         },
         {
           hid: 'og:title',
-          name: 'og:title',
+          property: 'og:title',
           content: `${this.$t('nav.virtual')} | IBAX Network`
         },
         {
@@ -337,18 +337,28 @@ export default {
           content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         },
         {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         },
         {
           hid: 'twitter:title',
-          name: 'twitter:title',
+          property: 'twitter:title',
           content: `${this.$t('nav.virtual')} | IBAX Network`
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: `Smart contracts of Ethereum and Binance Chain are seamlessly connected`
         }
       ]
