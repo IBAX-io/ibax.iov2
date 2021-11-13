@@ -1,0 +1,149 @@
+.login {
+  background: url("../images/login/login.png") center no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  padding-top: 200px;
+  padding-bottom: 50px;
+  h6 {
+    margin-bottom: 0;
+  }
+  &-text {
+    letter-spacing: 2px;
+    padding: 30px 0;
+  }
+  &-btn {
+    color: #fff;
+    background: #4c96e3;
+    padding: 12px 40px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 150px;
+    .iconfont {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+  }
+  &-rules {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+.personal {
+  color: #37383c;
+  padding-bottom: 50px;
+  &-score {
+    .title-h6 {
+      margin-bottom: 0;
+    }
+    &-text {
+      color: #37383c;
+      margin-bottom: 30px;
+      .el-icon-arrow-right {
+        font-weight: bold;
+      }
+    }
+    &-link {
+      color: #f3ac30;
+      font-weight: bolder;
+      margin-left: 20px;
+    }
+  }
+  .el-tabs__nav-scroll {
+    display: flex;
+    justify-content: center;
+  }
+  .el-tabs__nav-wrap::after {
+    background-color: transparent;
+  }
+  .el-tabs__active-bar {
+    background-color: #264234;
+    height: 3px;
+  }
+  .el-tabs__item {
+    font-size: 16px;
+  }
+  .el-tabs__item.is-active {
+    color: #37383c;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .el-tabs__item:hover {
+    color: #37383c;
+  }
+  &-tabs {
+    &-task {
+      margin-top: 20px;
+      padding: 10px 10px 10px 50px;
+      border: 1px solid #999;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bolder;
+      &-btn {
+        text-align: center;
+      }
+      .el-icon-arrow-right {
+        font-weight: bold;
+      }
+      &-left {
+        font-size: 18px;
+        &-bottom {
+          text-align: right;
+        }
+      }
+      &-right {
+        width: 20%;
+        img {
+          vertical-align: bottom;
+        }
+      }
+    }
+    &-points {
+      margin-top: 20px;
+      padding: 30px 50px;
+      &-img {
+        text-align: center;
+        img {
+          width: 300px;
+        }
+      }
+      .title-h6 {
+        margin-bottom: 0;
+        text-align: center;
+        line-height: 30px;
+      }
+    }
+    &-record {
+      margin-top: 20px;
+      background-color: #364f43;
+      color: #ead2b8;
+      padding: 50px 0;
+      font-size: 18px;
+      font-weight: bolder;
+      &-head {
+        display: flex;
+        justify-content: space-between;
+        & > * {
+          flex: 1;
+          &:first-child {
+            text-align: left;
+          }
+          &:nth-child(2) {
+            text-align: center;
+          }
+          &:last-child {
+            text-align: right;
+          }
+        }
+        &-text {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

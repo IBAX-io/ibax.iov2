@@ -75,6 +75,12 @@ Vue.mixin({
     },
     isTop() {
       return this.$store.getters.handleIsTop;
+    },
+    token() {
+      return this.$store.getters.handleToken;
+    },
+    userInfo() {
+      return this.$store.getters.handleUserInfo;
     }
   },
   mounted() {

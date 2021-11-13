@@ -2,13 +2,13 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 11:53:01
+ * @LastEditTime: 2021-11-13 16:32:03
  * @Description:nuxt setting
  */
 // const path = require('path')
 // import path from 'path';
 // import fs from 'fs';
-
+import sitemap from './config/sitemap';
 let pattern = false;
 const plugins = [
   [
@@ -192,7 +192,7 @@ export default {
     '@nuxtjs/stylelint-module'
   ],
   router: {
-    middleware: ['i18n', 'router'],
+    middleware: ['i18n', 'router', 'auth'],
     linkActiveClass: 'nav-active-link'
     /* scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 };
@@ -212,8 +212,10 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/sitemap'
   ],
+  sitemap,
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseUrl: 'https://node23.ibax.io:9095/',
@@ -226,6 +228,7 @@ export default {
     '/api': {
       target: 'https://ibax.io:9095/',
       // target: 'http://192.168.1.191:8888/',
+      // target: 'https://node23.ibax.io:9095',
       changeOrigin: true,
       pathRewrite: {
         '^/api/*': ''

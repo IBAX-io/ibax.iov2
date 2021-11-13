@@ -2,11 +2,11 @@
  * @Author: abc
  * @Date: 2021-09-07 14:08:14
  * @LastEditors: abc
- * @LastEditTime: 2021-11-01 09:36:49
+ * @LastEditTime: 2021-11-12 18:21:56
  * @Description:
  */
-import { handleGetLang } from '../assets/js/public';
-console.log(handleGetLang());
+import { handleGetLang, handleTokenCookie } from '../assets/js/public';
+// console.log(handleGetToken());
 // console.log(handleGetLang());
 export const state = () => ({
   headerColor: '#274235',
@@ -16,13 +16,23 @@ export const state = () => ({
   domClass: 'subMenu--horizontal',
   isTop: true,
   isFixed: false,
-  isWhite: true
+  isWhite: true,
+  token: '',
+  userInfo: ''
 });
 export const mutations = {
   handleChangeLang(state, lang) {
     if (state.locales.includes(lang)) {
       state.lang = lang;
     }
+  },
+  handleChangeToken(state, token) {
+    console.log(token);
+    state.token = token;
+  },
+  handleUserInfo(state, obj) {
+    console.log(obj);
+    state.userInfo = obj;
   },
   handleChangeColor(state, { headerColor, color }) {
     state.headerColor = headerColor;
@@ -46,14 +56,50 @@ export const mutations = {
 };
 
 export const actions = {
-  // nuxtServerIni Nuxt.j
-  async nuxtServerInit({ dispatch, commit }, { req }) {}
+  // nuxtServerIni Nuxt.js
+  nuxtServerInit({ dispatch, commit }, { req }) {
+    if (req.headers.cookie && req.headers) {
+      const strCookie = req.headers.cookie;
+      const serviceCookie = {};
+      strCookie.split(';').forEach(function (val) {
+        const parts = val.split('=');
+        serviceCookie[parts[0].trim()] = (parts[1] || '').trim();
+      });
+      console.log(serviceCookie.token);
+      const { token } = serviceCookie;
+
+      if (token) {
+        // console.log(token);
+        commit('handleChangeToken', token);
+      } else {
+        commit('handleChangeToken', '');
+      }
+    }
+  },
+  async handleGetUser({ commit }) {
+    const res = await this.$axios.$post('/tw/getuser');
+    console.log(res);
+    if (res.code === 0) {
+      commit('handleUserInfo', res.data);
+    } else {
+      commit('handleChangeToken', '');
+      handleTokenCookie('token', '', -1);
+    }
+  }
 };
 export const getters = {
   handdleLang(state) {
     const { lang } = state;
     // console.log(authUser);
     return lang;
+  },
+  handleToken(state) {
+    const { token } = state;
+    return token;
+  },
+  handleUserInfo(state) {
+    const { userInfo } = state;
+    return userInfo;
   },
   handleHeaderColor(state) {
     const { headerColor } = state;

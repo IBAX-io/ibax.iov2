@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-09-24 15:54:12
+ * @LastEditTime: 2021-11-11 16:59:53
  * @Description:axios
  */
 import { Message } from 'element-ui';
@@ -10,6 +10,11 @@ import { Message } from 'element-ui';
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {
+      //  console.log(store.state.token);
+      if (store.state.token) {
+        // console.log(store.state.token);
+        config.headers.Authorization = store.state.token;
+      }
       config.headers['Content-Type'] = 'application/json';
       config.headers.Accept = 'application/json';
       config.retry = 4;
