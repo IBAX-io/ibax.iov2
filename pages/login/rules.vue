@@ -1,12 +1,12 @@
 <!--
  * @Author: abc
- * @Date: 2021-08-19 14:16:42
+ * @Date: 2021-11-10 15:38:57
  * @LastEditors: abc
- * @LastEditTime: 2021-09-24 15:53:46
+ * @LastEditTime: 2021-11-10 15:43:24
  * @Description: 
 -->
 <template>
-  <div>register</div>
+  <div>rules</div>
 </template>
 <script>
 export default {

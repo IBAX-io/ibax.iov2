@@ -3,7 +3,7 @@
  * @LastEditors: abc
  * @Description:
  * @Date: 2019-04-10 14:49:19
- * @LastEditTime: 2021-11-01 09:36:18
+ * @LastEditTime: 2021-11-11 16:49:08
  */
 import Cookie from 'js-cookie';
 // translate router.meta.title, be used in breadcrumb sidebar tagsview
@@ -66,7 +66,6 @@ export function handleGetCookie(str) {
     return obj;
   }
 }
-
 /**
  * @name: handleSaveCookies
  * @description cooki
@@ -79,6 +78,43 @@ export function handleSaveCookie(str, objdata, time) {
   // const strData = encodeURIComponent(JSON.stringify(objdata));
   const strData = JSON.stringify(objdata);
   Cookie.set(str, strData, { expires: time });
+}
+/**
+ * @name: handleTokenCookie
+ * @description cooki
+ * @param {str} :{ string }
+ * @param {objdata} :{ object or array }
+ * @param {time} :{ number }
+ * @return:
+ */
+export function handleTokenCookie(str, token, time) {
+  Cookie.set(str, token, { expires: time });
+}
+// get token
+export function handleGetToken() {
+  const token = Cookie.get('token');
+  let str = '';
+  if (token) {
+    // str = JSON.parse(decodeURIComponent(objLang)).lang;
+    str = token;
+    return str;
+  } else {
+    return '';
+  }
+}
+/**
+ * @name: handleSaveCookies
+ * @description cooki
+ * @param {str} :{ string }
+ * @param {objdata} :{ object or array }
+ * @param {time} :{ number }
+ * @return:
+ */
+export function handleSaveStorage(str, token) {
+  // const strData = encodeURIComponent(JSON.stringify(objdata));
+  if (process.client) {
+    localStorage.setItem(str, token);
+  }
 }
 /**
  * @name: handleCheck

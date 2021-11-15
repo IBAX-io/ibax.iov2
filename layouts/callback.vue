@@ -1,15 +1,12 @@
 <!--
  * @Author: abc
- * @Date: 2021-09-07 14:08:13
+ * @Date: 2021-11-11 09:55:33
  * @LastEditors: abc
- * @LastEditTime: 2021-11-11 16:52:47
+ * @LastEditTime: 2021-11-11 09:55:33
  * @Description: 
 -->
 <template>
-  <div>
-    <nuxt />
-    <show-cookie></show-cookie>
-  </div>
+  <nuxt />
 </template>
 <script>
 export default {

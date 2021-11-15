@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 10:51:48
+ * @LastEditTime: 2021-11-13 16:34:45
  * @Description: nav
 -->
 <template>
@@ -118,19 +118,23 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
+      <!--  <nuxt-link
+        v-if="userInfo && userInfo.name"
+        :to="{ name: 'login-personal' }"
+        class="nav-link"
+        :style="{ color: colorText }"
+      >
+        <span v-if="userInfo">
+          {{ userInfo.name }}
+        </span>
+      </nuxt-link>
       <nuxt-link
+        v-else
         :to="{ name: 'login' }"
         class="nav-link nav-link-middle"
-        style="display: none"
         :style="{ color: colorText }"
         >{{ $t('nav.log') }}</nuxt-link
-      >
-      <nuxt-link
-        style="display: none"
-        :to="{ name: 'login-register' }"
-        class="btn btn-primary"
-        >{{ $t('nav.sign') }}</nuxt-link
-      >
+      > -->
     </div>
   </div>
 </template>
@@ -401,8 +405,7 @@ export default {
       immediate: true
     }
   },
-  created() {},
-  mounted() {
+  created() {
     const val = handleGetLang();
     this.arrLang.map((item) => {
       if (val === item.lang) {
@@ -410,6 +413,9 @@ export default {
       }
     });
     this.$store.commit('handleChangeLang', val);
+  },
+  mounted() {
+    // this.$store.dispatch('handleGetUser');
   },
   methods: {
     handleSelect(path, keyPath) {

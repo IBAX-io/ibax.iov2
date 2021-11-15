@@ -2,10 +2,10 @@
  * @Author: abc
  * @Date: 2020-10-16 16:45:00
  * @LastEditors: abc
- * @LastEditTime: 2021-10-26 12:10:13
+ * @LastEditTime: 2021-11-11 16:34:22
  * @Description:
  */
-export default ({ app }) => {
+export default ({ app, store }) => {
   app.router.afterEach((to, from, next) => {
     if (process.client) {
       window.location.reload();

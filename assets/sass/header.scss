@@ -239,7 +239,9 @@
   }
 }
 .nav-link {
-  font-size: 14px;
+  font: 700 16px/2 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
   &-middle {
     margin-right: 30px;
   }

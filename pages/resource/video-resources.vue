@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:43:39
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:44:27
+ * @LastEditTime: 2021-11-11 14:35:13
  * @Description: video resources
 -->
 <template>
@@ -120,12 +120,18 @@
           <div class="resource-middle-h3">
             <h3 class="title-h3 wow fadeInUp">{{ $t('resourse.video') }}</h3>
           </div>
-          <el-row type="flex" justify="space-between" class="el-row-wrap">
+          <el-row
+            type="flex"
+            justify="space-between"
+            class="el-row-wrap"
+            style="flex-wrap: wrap"
+          >
             <el-col
               v-for="item in arrVideos"
               :key="item.videoId"
               :xs="24"
               :lg="7"
+              style="margin-bottom: 30px"
             >
               <div class="resource-img wow fadeInUp">
                 <youtube
@@ -161,9 +167,9 @@
   </div>
 </template>
 <script>
-const img1 = require('../../assets/images/video-stuart.jpg');
+/* const img1 = require('../../assets/images/video-stuart.jpg');
 const img2 = require('../../assets/images/video-gianluca.jpg');
-const img3 = require('../../assets/images/video-an.png');
+const img3 = require('../../assets/images/video-an.png'); */
 export default {
   props: {},
   data() {
@@ -177,20 +183,29 @@ export default {
         {
           videoId: '5yFY9vF2eIU',
           text: 'IBAX Network CEO Stuart Nichols gave a brief introduction and shares his vision of IBAX.',
-          img: img1,
           href: 'https://www.youtube.com/watch?v=5yFY9vF2eIU'
         },
         {
           videoId: 'Iu8UdTljh1g',
           text: 'IBAX Network COO Alan Mclvor gave us a 1 minute brief introduction of IBAX Network.',
-          img: img2,
+
           href: 'https://youtu.be/Iu8UdTljh1g'
         },
         {
           videoId: 'MVNppxG8DLM',
           text: 'IBAX Network General Marketing Manager Gianluca gave a 1 minute brief introduction of IBAX.',
-          img: img3,
+
           href: 'https://youtu.be/MVNppxG8DLM'
+        },
+        {
+          videoId: 'hNtcP8d32x0',
+          text: 'IBAX Network COO Alan Mclvor welcome everyone to join IBAX testnet, our testnet is online!.',
+          href: 'https://youtu.be/hNtcP8d32x0'
+        },
+        {
+          videoId: 'PJp473U8GJU',
+          text: 'IBAX A fast and reliable new blockchain network.',
+          href: 'https://youtu.be/PJp473U8GJU'
         }
       ]
     };
