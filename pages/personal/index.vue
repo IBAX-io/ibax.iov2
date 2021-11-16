@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-15 17:56:30
+ * @LastEditTime: 2021-11-16 14:19:06
  * @Description: 
 -->
 <template>
@@ -263,6 +263,7 @@ export default {
                     done();
                     instance.confirmButtonLoading = false;
                     this.handleGetFollow(this.objFollow);
+                    this.handlePointRecord();
                     this.$message({
                       type: 'success',
                       message: this.$t('personal.followed')
@@ -323,6 +324,7 @@ export default {
                     done();
                     instance.confirmButtonLoading = false;
                     this.handleGetForward(this.objForward);
+                    this.handlePointRecord();
                     this.$message({
                       type: 'success',
                       message: this.$t('personal.forwarded')

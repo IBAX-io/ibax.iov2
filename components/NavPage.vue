@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-15 18:58:56
+ * @LastEditTime: 2021-11-16 14:14:59
  * @Description: nav
 -->
 <template>
@@ -120,7 +120,7 @@
       </div>
       <nuxt-link
         v-if="userInfo && userInfo.name"
-        :to="{ name: 'login-personal' }"
+        :to="{ name: 'personal' }"
         class="nav-link"
       >
         <el-dropdown v-if="userInfo" @command="handleSignOut">

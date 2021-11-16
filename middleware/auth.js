@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 15:42:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-13 17:13:18
+ * @LastEditTime: 2021-11-16 14:18:15
  * @Description:
  */
 export default function ({
@@ -14,7 +14,7 @@ export default function ({
   error,
   redirect
 }) {
-  const arrIntercept = ['login', 'login-personal'];
+  const arrIntercept = ['login', 'personal'];
   //  current leave route
   const fromRouter = app.router.currentRoute;
   console.log(fromRouter.name);
@@ -23,9 +23,9 @@ export default function ({
   console.log(token);
   if (arrIntercept.includes(strToName)) {
     if (token && fromRouter.name === 'login') {
-      redirect('/login/personal');
+      redirect('/personal');
     }
-    if (!token && fromRouter.name === 'login-personal') {
+    if (!token && fromRouter.name === 'personal') {
       redirect('/login');
     }
   }
