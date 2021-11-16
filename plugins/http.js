@@ -2,10 +2,11 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-11 16:59:53
+ * @LastEditTime: 2021-11-15 19:15:34
  * @Description:axios
  */
 import { Message } from 'element-ui';
+import { handleTokenCookie } from '../assets/js/public';
 // import qs from "qs";
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
@@ -27,15 +28,17 @@ export default function ({ $axios, redirect, store }) {
     }
   );
   $axios.onResponse((response) => {
+    console.log(response);
     return response;
   });
   $axios.onError((error) => {
     console.log(error.response);
-    const code = parseInt(error.response && error.response.status);
+    store.commit('handleChangeToken', '');
+    handleTokenCookie('token', '', -1);
+    /* const code = parseInt(error.response && error.response.status);
     Message.error({
       message: `Data call error, status code：${code}`,
-      duration: 0,
       showClose: true
-    });
+    }); */
   });
 }

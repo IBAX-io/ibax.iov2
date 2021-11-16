@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-13 16:34:45
+ * @LastEditTime: 2021-11-15 18:58:56
  * @Description: nav
 -->
 <template>
@@ -118,15 +118,21 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-      <!--  <nuxt-link
+      <nuxt-link
         v-if="userInfo && userInfo.name"
         :to="{ name: 'login-personal' }"
         class="nav-link"
-        :style="{ color: colorText }"
       >
-        <span v-if="userInfo">
-          {{ userInfo.name }}
-        </span>
+        <el-dropdown v-if="userInfo" @command="handleSignOut">
+          <span class="el-dropdown-span" :style="{ color: colorText }">
+            {{ userInfo.name }}
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="out">
+              {{ $t('nav.out') }}
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </nuxt-link>
       <nuxt-link
         v-else
@@ -134,7 +140,7 @@
         class="nav-link nav-link-middle"
         :style="{ color: colorText }"
         >{{ $t('nav.log') }}</nuxt-link
-      > -->
+      >
     </div>
   </div>
 </template>
@@ -415,7 +421,9 @@ export default {
     this.$store.commit('handleChangeLang', val);
   },
   mounted() {
-    // this.$store.dispatch('handleGetUser');
+    if (this.token) {
+      this.$store.dispatch('handleGetUser');
+    }
   },
   methods: {
     handleSelect(path, keyPath) {

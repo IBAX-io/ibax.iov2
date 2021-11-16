@@ -1,11 +1,13 @@
 import Vue from 'vue';
-import { handleSaveCookie } from '../assets/js/public.js';
+import { handleSaveCookie, handleTokenCookie } from '../assets/js/public.js';
+console.log(process.env.NODE_ENV);
 Vue.mixin({
   data() {
     return {
       domGlobal: '',
       domHeaderTop: '',
       baseUrl: 'https://ibax.io',
+      linkBase: 'https://ibax.io',
       arrLang: [
         {
           label: 'English',
@@ -83,6 +85,13 @@ Vue.mixin({
       return this.$store.getters.handleUserInfo;
     }
   },
+  created() {
+    if (process.env.NODE_ENV === 'development') {
+      this.linkBase = 'http://192.168.1.191:8888';
+    } else {
+      this.linkBase = 'https://ibax.io';
+    }
+  },
   mounted() {
     if (document.getElementById('global')) {
       this.domGlobal = document.getElementById('global').firstChild;
@@ -94,6 +103,15 @@ Vue.mixin({
     });
   },
   methods: {
+    handleReduce(arr, key = 'id') {
+      const obj = {};
+      const arrResult = arr.reduce((cur, next) => {
+        // eslint-disable-next-line no-unused-expressions
+        obj[next[key]] ? '' : (obj[next[key]] = true && cur.push(next));
+        return cur;
+      }, []);
+      return arrResult;
+    },
     handleGetLanguage(lang) {
       // const lang = handleGetLang();
       let type = 1;
@@ -142,6 +160,16 @@ Vue.mixin({
       this.$store.commit('handleChangeLang', val);
       this.$i18n.locale = val;
       handleSaveCookie('lang', { lang: val }, 7);
+    },
+    async handleSignOut(val) {
+      if (val === 'out') {
+        const res = await this.$axios.$post('/tw/loginout');
+        console.log(res);
+        console.log('+++++++==');
+        this.$store.commit('handleChangeToken', '');
+        handleTokenCookie('token', '', -1);
+        window.location.reload();
+      }
     },
     handleType(val) {
       const obj = this.arrType.find((item) => item.value === val);

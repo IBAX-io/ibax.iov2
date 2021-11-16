@@ -38,6 +38,7 @@
   "nav.about": "联系我们",
   "nav.log": "登录 / 注册",
   "nav.sign": "注册",
+  "nav.out": "退出",
   "nav.case": "案例",
   "nav.supply": "供应链金融",
   "nav.copyright": "版权",
@@ -686,5 +687,13 @@
   "road.construct": "全面构造完善区块链基础建设 \n 支持跨链资产协议 \n 基金会投资引入商业生态",
   "road.improve": "完善元宇宙基础设施 \n 开放NFT、DEFI生态市场",
   "road.upgrade": "升级完成IBAX Network下P2P分布式网络服务",
-  "road.no": "无数据"
+  "road.no": "无数据",
+  "personal.on": "关注IBAX推特",
+  "personal.please": "请在推特关注IBAX，关注完成后点击“已关注”",
+  "personal.followed": "已关注",
+  "personal.not": "未关注",
+  "personal.repost": "转发推特领取空投积分",
+  "personal.follow": "请在推特转发IBAX活动，转发完成后可获得IBAX空投积分。",
+  "personal.forwarded": "已转发",
+  "personal.notf": "未转发"
 }

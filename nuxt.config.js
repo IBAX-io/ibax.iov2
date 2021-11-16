@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-13 16:32:03
+ * @LastEditTime: 2021-11-13 17:32:12
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -226,8 +226,8 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'https://ibax.io:9095/',
-      // target: 'http://192.168.1.191:8888/',
+      //  target: 'https://ibax.io:9095/',
+      target: 'http://192.168.1.191:8888/',
       // target: 'https://node23.ibax.io:9095',
       changeOrigin: true,
       pathRewrite: {

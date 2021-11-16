@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-11 16:26:23
+ * @LastEditTime: 2021-11-15 17:39:15
  * @Description: 
 -->
 <template>
@@ -56,6 +56,11 @@ export default {
       console.log(res);
       if (res.code === 0) {
         window.location.href = res.data.url;
+      } else {
+        this.$message({
+          type: 'warning',
+          message: 'The request failed. Please handle it later'
+        });
       }
     }
   }

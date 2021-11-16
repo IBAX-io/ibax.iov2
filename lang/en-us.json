@@ -38,6 +38,7 @@
   "nav.about": "Contact",
   "nav.log": "Log In",
   "nav.sign": "Sign Up",
+  "nav.out": "Sign Out",
   "nav.case": "Cases",
   "nav.supply": "Supply Chain Finance",
   "nav.copyright": "Copyright",
@@ -686,5 +687,13 @@
   "road.construct": "Comprehensively construct and improve the blockchain infrastructure \n Support cross-chain asset agreement \n Foundation investment to introduce business ecology",
   "road.improve": "Improve meta-universe infrastructure \n Open NFT, DEFI ecological market",
   "road.upgrade": "Upgrade the P2P distributed network service under IBAX Network",
-  "road.no": "No Data"
+  "road.no": "No Data",
+  "personal.on": "Follow IBAX on Twitter",
+  "personal.please": "Please follow IBAX on Twitter, and click \"Followed\"",
+  "personal.followed": "Followed",
+  "personal.not": "Not followed",
+  "personal.repost": "Repost Twitter to receive airdrop points",
+  "personal.follow": "Please repost the IBAX event on Twitter, you can get IBAX airdrop points after the repost is completed.",
+  "personal.forwarded": "Forwarded",
+  "personal.notf": "Not forwarded"
 }
