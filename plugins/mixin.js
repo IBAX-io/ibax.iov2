@@ -165,7 +165,6 @@ Vue.mixin({
       if (val === 'out') {
         const res = await this.$axios.$post('/tw/loginout');
         console.log(res);
-        console.log('+++++++==');
         this.$store.commit('handleChangeToken', '');
         handleTokenCookie('token', '', -1);
         window.location.reload();
