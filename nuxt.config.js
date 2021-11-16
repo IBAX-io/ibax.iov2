@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-13 17:32:12
+ * @LastEditTime: 2021-11-16 09:58:54
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -215,7 +215,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/sitemap'
   ],
-  sitemap,
+  sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // baseUrl: 'https://node23.ibax.io:9095/',
@@ -227,7 +227,7 @@ export default {
   proxy: {
     '/api': {
       //  target: 'https://ibax.io:9095/',
-      target: 'http://192.168.1.191:8888/',
+      target: 'https://testnet-us-34-86-177-19.ibax.io:9095/',
       // target: 'https://node23.ibax.io:9095',
       changeOrigin: true,
       pathRewrite: {
