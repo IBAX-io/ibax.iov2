@@ -2,11 +2,11 @@
  * @Author: abc
  * @Date: 2021-11-11 09:54:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-16 14:39:32
+ * @LastEditTime: 2021-11-16 14:40:39
  * @Description: 
 -->
 <template>
-  <div style="color: #37383c">Callback</div>
+  <div style="color: #37383c"></div>
 </template>
 <script>
 import { handleTokenCookie } from '../../assets/js/public';
