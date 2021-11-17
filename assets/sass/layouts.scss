@@ -850,4 +850,89 @@
   .server-content-bottom {
     padding: 30px 30px;
   }
+  .login {
+    padding-top: 50px;
+  }
+  .login-btn {
+    margin-bottom: 50px;
+  }
+  .personal-score {
+    padding: 30px;
+  }
+  .personal {
+    .el-tabs__nav-scroll {
+      display: block;
+      justify-content: none;
+    }
+  }
+  .el-message-box__wrapper {
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    .el-message-box {
+      width: 80%;
+    }
+    .el-message-box__message {
+      p {
+        text-align: left;
+      }
+    }
+  }
+  .personal .el-tabs__item {
+    font-size: 14px;
+  }
+  .personal .el-tabs__item.is-active {
+    font-size: 16px;
+    font-weight: bolder;
+  }
+  .personal-tabs-task {
+    flex-wrap: wrap;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .personal-tabs-task-left,
+  .personal-tabs-task-middle,
+  .personal-tabs-task-right {
+    width: 100%;
+  }
+  .personal-tabs-task-left {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .personal-tabs-task-middle {
+    margin-bottom: 15px;
+  }
+  .personal-tabs-points {
+    padding: 0;
+  }
+  .personal-tabs-points-img img {
+    width: 50%;
+  }
+  .personal-rules-box {
+    flex-wrap: wrap;
+    margin-top: 0;
+  }
+  .personal-rules-left {
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .personal-rules-right {
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .personal-rules {
+    margin-top: 20px;
+  }
+  .personal {
+    padding-bottom: 0;
+  }
+  .personal-tabs-record {
+    margin-top: 20px;
+  }
 }

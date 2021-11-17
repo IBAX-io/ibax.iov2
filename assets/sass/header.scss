@@ -395,7 +395,7 @@ a.nav-active-link {
   }
   &-aside {
     width: 0;
-    height: 100vh;
+    height: calc(100vh - 75px);
     position: absolute;
     background-color: $primary-color;
     right: 0;
@@ -501,6 +501,7 @@ a.nav-active-link {
     height: 100%;
     font: 16px/2 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
     overflow-x: auto;
+    position: relative;
     .el-collapse-item {
       border-bottom: 2px solid rgba(252, 252, 252, 0.1);
     }
@@ -521,6 +522,42 @@ a.nav-active-link {
     }
     .el-collapse-item__content {
       color: #fcfcfc;
+    }
+  }
+  &-login {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 75px;
+    border-top: 2px solid #c4c4c4;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .nav-link {
+      margin-left: 25px;
+      border: 2px solid #c4c4c4;
+      padding: 10px 30px;
+      border-radius: 8px;
+      &-head {
+        margin-left: 25px;
+        img {
+          width: 48px;
+          border-radius: 50%;
+        }
+        &-out {
+          display: flex;
+          margin-right: 25px;
+          align-items: center;
+          border: 2px solid #c4c4c4;
+          padding: 10px 30px;
+          border-radius: 8px;
+          img {
+            width: 20px;
+            margin-right: 5px;
+          }
+        }
+      }
     }
   }
 }

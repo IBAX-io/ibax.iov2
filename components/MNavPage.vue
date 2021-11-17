@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 11:00:37
  * @LastEditors: abc
- * @LastEditTime: 2021-11-09 10:52:21
+ * @LastEditTime: 2021-11-17 11:17:20
  * @Description: mobile nav
 -->
 <template>
@@ -122,6 +122,35 @@
           >{{ $t(item.title) }}</nuxt-link
         >
       </el-collapse>
+      <div
+        v-if="userInfo && userInfo.name"
+        class="m-nav-login"
+        :style="{ color: colorText, background: headerColor }"
+      >
+        <nuxt-link
+          :to="{ name: 'personal' }"
+          class="nav-link-head"
+          :style="{ color: colorText }"
+        >
+          <img :src="userInfo.image_url" alt="head" />
+        </nuxt-link>
+        <div class="nav-link-head-out" @click="handleSignOut('out')">
+          <img src="../assets/images/login/out.png" alt="out" />
+          <span>{{ $t('nav.out') }}</span>
+        </div>
+      </div>
+      <div
+        v-else
+        class="m-nav-login"
+        :style="{ color: colorText, background: headerColor }"
+      >
+        <nuxt-link
+          :to="{ name: 'login' }"
+          class="nav-link nav-link-middle"
+          :style="{ color: colorText }"
+          >{{ $t('nav.log') }}</nuxt-link
+        >
+      </div>
     </aside>
   </div>
 </template>

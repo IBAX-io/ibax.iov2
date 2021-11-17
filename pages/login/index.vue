@@ -2,21 +2,20 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-15 17:39:15
+ * @LastEditTime: 2021-11-17 14:31:38
  * @Description: 
 -->
 <template>
   <div class="login">
-    <h6 class="title-h6">IBAX testnet is online</h6>
-    <h6 class="title-h6">receive the airdrop via Twitter</h6>
+    <h6 class="title-h6">{{ $t('login.test') }}</h6>
     <p class="login-text">
-      Participate in the IBAX Twitter event to earn airdrop points!
+      {{ $t('login.event') }}
     </p>
     <button class="login-btn" @click="handleLogin">
       <i class="iconfont el-twitter"></i>
-      <span>Login with Twitter</span>
+      <span>{{ $t('login.with') }}</span>
     </button>
-    <p class="login-rules" @click="handleRules">Points rules</p>
+    <p class="login-rules" @click="handleRules">{{ $t('personal.rules') }}</p>
   </div>
 </template>
 <script>
@@ -33,7 +32,6 @@ export default {
       else next();
     }
   }, */
-  layout: 'newsLayouts',
   props: {},
   data() {
     return {};

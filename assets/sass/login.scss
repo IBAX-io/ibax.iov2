@@ -30,10 +30,14 @@
     text-decoration: underline;
     cursor: pointer;
   }
+  .title-h6 {
+    white-space: pre;
+  }
 }
 .personal {
   color: #37383c;
   padding-bottom: 50px;
+  background-color: #f6f6f6;
   &-score {
     .title-h6 {
       margin-bottom: 0;
@@ -60,32 +64,36 @@
   }
   .el-tabs__active-bar {
     background-color: #264234;
-    height: 3px;
+    height: 2px;
   }
   .el-tabs__item {
     font-size: 16px;
   }
   .el-tabs__item.is-active {
     color: #37383c;
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 18px;
   }
   .el-tabs__item:hover {
     color: #37383c;
   }
   &-tabs {
     &-task {
-      margin-top: 20px;
-      padding: 10px 10px 10px 50px;
-      border: 1px solid #999;
+      margin-top: 50px;
+      padding: 15px 15px 15px 40px;
+      background-color: #fff;
       box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
       margin-bottom: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-weight: bolder;
       cursor: pointer;
       position: relative;
+      border-radius: 18px;
+      transition: box-shadow 0.1s ease-out, box-shadow 0.1s ease-out;
+      &:hover {
+        box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%);
+      }
       &-show {
         position: absolute;
         background: #f3ac30;
@@ -98,6 +106,9 @@
       }
       &-btn {
         text-align: center;
+      }
+      &-finish {
+        width: 30px;
       }
       .el-icon-arrow-right {
         font-weight: bold;
@@ -122,16 +133,17 @@
         width: 20%;
         img {
           vertical-align: bottom;
+          border-radius: 18px;
         }
       }
     }
     &-points {
-      margin-top: 20px;
+      margin-top: 50px;
       padding: 30px 50px;
       &-img {
         text-align: center;
         img {
-          width: 300px;
+          width: 200px;
         }
       }
       .title-h6 {
@@ -141,17 +153,23 @@
       }
     }
     &-record {
-      margin-top: 20px;
-      background-color: #364f43;
-      color: #ead2b8;
-      padding: 50px 0;
+      margin-top: 50px;
       font-size: 18px;
-      font-weight: bolder;
+      font-weight: 500;
+      &-box {
+        /*  background-color: #fff;
+        padding: 30px;
+        border-radius: 18px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%); */
+      }
       &-head {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
         font-weight: normal;
+        border-bottom: 1px solid #ddd;
+        align-items: center;
         & > * {
           flex: 1;
           &:first-child {
@@ -168,6 +186,56 @@
           font-size: 16px;
         }
       }
+    }
+  }
+  &-rules {
+    margin-top: 50px;
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%);
+    &-box {
+      display: flex;
+      margin-top: 30px;
+    }
+    .title-h7 {
+      font-size: 20px;
+      line-height: 1.3333em;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+    p {
+      color: #707070;
+      font-size: 18px;
+      margin-bottom: 10px;
+      line-height: 1.3333em;
+      letter-spacing: 1px;
+    }
+    &-left {
+      width: 20%;
+      margin-left: 5%;
+    }
+    &-right {
+      width: 60%;
+      margin-left: 10%;
+      &-item {
+        display: flex;
+        justify-content: space-between;
+      }
+      &-link {
+        color: #4c96e3;
+        a {
+          margin-right: 5px;
+          &:not(:first-child) {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    a {
+      color: #4c96e3;
     }
   }
 }

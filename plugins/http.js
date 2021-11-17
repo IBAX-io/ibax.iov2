@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-15 19:15:34
+ * @LastEditTime: 2021-11-17 15:28:56
  * @Description:axios
  */
 import { Message } from 'element-ui';
@@ -29,7 +29,18 @@ export default function ({ $axios, redirect, store }) {
   );
   $axios.onResponse((response) => {
     console.log(response);
-    return response;
+    const { code } = response.data;
+    console.log(code);
+    if (code === 401 || code === -402) {
+      Message.error({
+        message: `Login expired, please login again`,
+        onClose: () => {
+          redirect('/login');
+        }
+      });
+    } else {
+      return response;
+    }
   });
   $axios.onError((error) => {
     console.log(error.response);

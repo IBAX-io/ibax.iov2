@@ -104,6 +104,7 @@ Vue.mixin({
   },
   methods: {
     handleReduce(arr, key = 'id') {
+      console.log(arr);
       const obj = {};
       const arrResult = arr.reduce((cur, next) => {
         // eslint-disable-next-line no-unused-expressions
@@ -111,6 +112,17 @@ Vue.mixin({
         return cur;
       }, []);
       return arrResult;
+    },
+    money_format(money) {
+      if (money !== undefined) {
+        const arr = money.toString().split('.');
+        return (
+          (arr[0] || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') +
+          (arr[1] ? '.' + arr[1] : '')
+        );
+      } else {
+        return money;
+      }
     },
     handleGetLanguage(lang) {
       // const lang = handleGetLang();

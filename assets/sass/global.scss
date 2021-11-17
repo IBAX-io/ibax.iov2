@@ -268,6 +268,9 @@ p {
     margin-bottom: 14px;
     color: #fff;
   }
+  .el-tabs__item:focus.is-active.is-focus:not(:active) {
+    box-shadow: none;
+  }
 }
 .btn {
   cursor: pointer;
