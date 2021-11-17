@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 19:37:24
+ * @LastEditTime: 2021-11-17 19:47:16
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -55,7 +55,7 @@ export default {
       {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
-        content: 'IBAX NetWork'
+        content: 'IBAX Network'
       },
       {
         hid: 'og:url',
@@ -110,7 +110,7 @@ export default {
       {
         hid: 'og:site_name',
         property: 'og:site_name',
-        content: 'IBAX NetWork'
+        content: 'IBAX Network'
       },
       {
         hid: 'keywords',
