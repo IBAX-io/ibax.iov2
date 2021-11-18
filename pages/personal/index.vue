@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 12:14:31
+ * @LastEditTime: 2021-11-18 18:34:25
  * @Description: 
 -->
 <template>
@@ -407,6 +407,7 @@ export default {
     },
     handleClick(tab, event) {
       if (tab.name === 'first') {
+        this.objForward.page = 1;
         this.handleGetForward(this.objForward);
       } else if (tab.name === 'fourth') {
         this.handlePointRecord();

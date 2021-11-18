@@ -605,6 +605,9 @@ a.nav-active-link {
 .nav-join {
   display: flex;
   align-items: center;
+  .btn-primary {
+    color: #fff !important;
+  }
 }
 .cookie {
   position: fixed;
