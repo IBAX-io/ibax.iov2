@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 19:09:12
+ * @LastEditTime: 2021-11-18 12:14:31
  * @Description: 
 -->
 <template>
@@ -14,14 +14,21 @@
       <el-row type="flex" justify="center">
         <el-col :sm="22" :lg="18" :md="20">
           <h6 class="title-h6">
-            {{ $t('personal.own') }} {{ money_format(statistics) }}
+            <span style="margin-right: 10px">{{ $t('personal.own') }}</span
+            >{{ money_format(statistics) }}
           </h6>
           <div class="personal-score-text">
-            <span v-if="showFollow.status"
-              >{{ $t('personal.followed') }}:{{
-                showFollow.followsUserName
-              }}</span
+            <a
+              v-if="showFollow.status"
+              href="https://twitter.com/IbaxNetwork"
+              target="_blank"
+              class="personal-score-text-link"
             >
+              <span class="personal-score-text-link-text"
+                >{{ $t('personal.fol') }}:</span
+              >
+              @{{ showFollow.followsUserName }}
+            </a>
             <span v-else> {{ $t('personal.get') }} </span>
             <a
               v-if="!showFollow.status"

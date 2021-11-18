@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { handleSaveCookie, handleTokenCookie } from '../assets/js/public.js';
+import { handleSaveCookie } from '../assets/js/public.js';
 console.log(process.env.NODE_ENV);
 Vue.mixin({
   data() {
@@ -177,9 +177,11 @@ Vue.mixin({
       if (val === 'out') {
         const res = await this.$axios.$post('/tw/loginout');
         console.log(res);
-        this.$store.commit('handleChangeToken', '');
-        handleTokenCookie('token', '', -1);
-        window.location.reload();
+        if (res.code === 0) {
+          this.$store.commit('handleChangeToken', '');
+          localStorage.removeItem('token');
+          window.location.reload();
+        }
       }
     },
     handleType(val) {

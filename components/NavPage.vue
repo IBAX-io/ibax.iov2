@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-16 14:14:59
+ * @LastEditTime: 2021-11-18 17:11:16
  * @Description: nav
 -->
 <template>
@@ -124,23 +124,34 @@
         class="nav-link"
       >
         <el-dropdown v-if="userInfo" @command="handleSignOut">
-          <span class="el-dropdown-span" :style="{ color: colorText }">
-            {{ userInfo.name }}
-          </span>
+          <div
+            class="el-dropdown-span nav-link-head-box"
+            :style="{ color: colorText }"
+          >
+            <img :src="userInfo.image_url" alt="head" />
+            <span>{{ userInfo.name }}</span>
+          </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="out">
-              {{ $t('nav.out') }}
+              <div class="nav-link-head-box">
+                <i class="iconfont el-out"></i>
+                {{ $t('nav.out') }}
+              </div>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </nuxt-link>
-      <nuxt-link
-        v-else
-        :to="{ name: 'login' }"
-        class="nav-link nav-link-middle"
-        :style="{ color: colorText }"
-        >{{ $t('nav.log') }}</nuxt-link
-      >
+      <div v-else class="nav-join">
+        <nuxt-link
+          :to="{ name: 'login' }"
+          class="nav-link nav-link-middle"
+          :style="{ color: colorText }"
+          >{{ $t('nav.log') }}</nuxt-link
+        >
+        <nuxt-link :to="{ name: 'login' }" class="btn btn-primary"
+          >Join Airdrop</nuxt-link
+        >
+      </div>
     </div>
   </div>
 </template>

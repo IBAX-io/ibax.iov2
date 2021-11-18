@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 15:01:26
  * @LastEditors: abc
- * @LastEditTime: 2021-10-28 11:50:37
+ * @LastEditTime: 2021-11-18 16:48:51
  * @Description:
 -->
 <template>
@@ -93,7 +93,6 @@ export default {
       return this.$store.getters.handleIsFixed;
     }
   },
-  watch: {},
   created() {
     const obj = { headerColor: '#274235', color: '#fff' };
     this.$store.commit('handleChangeColor', obj);

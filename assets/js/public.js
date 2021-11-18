@@ -3,7 +3,7 @@
  * @LastEditors: abc
  * @Description:
  * @Date: 2019-04-10 14:49:19
- * @LastEditTime: 2021-11-11 16:49:08
+ * @LastEditTime: 2021-11-18 14:09:27
  */
 import Cookie from 'js-cookie';
 // translate router.meta.title, be used in breadcrumb sidebar tagsview
@@ -103,7 +103,7 @@ export function handleGetToken() {
   }
 }
 /**
- * @name: handleSaveCookies
+ * @name: handleSaveStorage
  * @description cooki
  * @param {str} :{ string }
  * @param {objdata} :{ object or array }
@@ -114,6 +114,20 @@ export function handleSaveStorage(str, token) {
   // const strData = encodeURIComponent(JSON.stringify(objdata));
   if (process.client) {
     localStorage.setItem(str, token);
+  }
+}
+// get token
+export function handleGetStorage() {
+  if (process.client) {
+    const token = localStorage.getItem('token');
+    let str = '';
+    if (token) {
+      // str = JSON.parse(decodeURIComponent(objLang)).lang;
+      str = token;
+      return str;
+    } else {
+      return '';
+    }
   }
 }
 /**

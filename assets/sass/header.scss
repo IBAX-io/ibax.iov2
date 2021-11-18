@@ -528,19 +528,23 @@ a.nav-active-link {
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: 75px;
+    bottom: 0;
     border-top: 2px solid #c4c4c4;
-    height: 100px;
+    height: 150px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     .nav-link {
       margin-left: 25px;
       border: 2px solid #c4c4c4;
-      padding: 10px 30px;
+      padding: 4px 0;
+      min-width: 120px;
+      text-align: center;
       border-radius: 8px;
+      height: 44px;
+      margin-top: 20px;
       &-head {
         margin-left: 25px;
+        margin-top: 20px;
         img {
           width: 48px;
           border-radius: 50%;
@@ -550,16 +554,57 @@ a.nav-active-link {
           margin-right: 25px;
           align-items: center;
           border: 2px solid #c4c4c4;
-          padding: 10px 30px;
+          height: 44px;
+          min-width: 120px;
           border-radius: 8px;
-          img {
-            width: 20px;
+          font-weight: normal;
+          justify-content: center;
+          margin-top: 20px;
+          .el-out {
+            font-size: 20px;
             margin-right: 5px;
           }
         }
       }
     }
+    &-item {
+      justify-content: flex-start;
+      & > * {
+        height: 48px;
+        margin-top: 20px;
+        margin-left: 25px;
+        line-height: 48px;
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
   }
+}
+.global .global-fixed .m-nav-login-item a.nav-login-primary {
+  width: 120px;
+  text-align: center;
+  margin-left: 40px;
+  border-radius: 8px;
+  color: #fff !important;
+}
+.nav-link-head-box {
+  display: flex;
+  align-items: center;
+  img {
+    width: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  span {
+    font-size: 18px;
+  }
+  .el-out {
+    font-size: 18px;
+  }
+}
+.nav-join {
+  display: flex;
+  align-items: center;
 }
 .cookie {
   position: fixed;

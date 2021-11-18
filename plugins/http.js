@@ -2,11 +2,10 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 15:28:56
+ * @LastEditTime: 2021-11-18 18:15:38
  * @Description:axios
  */
 import { Message } from 'element-ui';
-import { handleTokenCookie } from '../assets/js/public';
 // import qs from "qs";
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
@@ -32,20 +31,24 @@ export default function ({ $axios, redirect, store }) {
     const { code } = response.data;
     console.log(code);
     if (code === 401 || code === -402) {
-      Message.error({
-        message: `Login expired, please login again`,
+      /*  Message.error({
+        message: `Login expired ${code}`,
         onClose: () => {
           redirect('/login');
+          localStorage.removeItem('token');
         }
-      });
+      }); */
+      redirect('/login');
+      localStorage.removeItem('token');
     } else {
       return response;
     }
   });
   $axios.onError((error) => {
     console.log(error.response);
+    /* 
     store.commit('handleChangeToken', '');
-    handleTokenCookie('token', '', -1);
+    localStorage.removeItem('token'); */
     /* const code = parseInt(error.response && error.response.status);
     Message.error({
       message: `Data call error, status code：${code}`,

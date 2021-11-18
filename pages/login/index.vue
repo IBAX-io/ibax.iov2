@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 14:31:38
+ * @LastEditTime: 2021-11-18 16:53:56
  * @Description: 
 -->
 <template>
@@ -21,17 +21,6 @@
 <script>
 // import { handleGetToken } from '../../assets/js/public';
 export default {
-  /*  beforeRouteEnter(to, from, next) {
-    if (process.client) {
-      const obj = handleGetToken();
-      console.log(obj);
-      if (to.name === 'login' && obj.token)
-        next({
-          path: '/login/personal'
-        });
-      else next();
-    }
-  }, */
   props: {},
   data() {
     return {};
@@ -44,7 +33,12 @@ export default {
     this.$store.commit('handleChangeClass', 'news--horizontal');
     this.$store.commit('handleIsTop', false);
   },
-  mounted() {},
+  mounted() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.$router.push('/');
+    }
+  },
   methods: {
     handleRules() {
       this.$router.push({ name: 'login-rules' });

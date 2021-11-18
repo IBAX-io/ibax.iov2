@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 11:36:58
+ * @LastEditTime: 2021-11-18 16:43:50
  * @Description: home
 -->
 <template>
@@ -1051,7 +1051,7 @@ export default {
       // position the element
       icon.position(this.helf - 35, high);
       icon.addClass('iconfont el-circle');
-      console.log(icon);
+      //  console.log(icon);
     },
     draw(sk) {
       sk.background('#274235');

@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 15:42:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-16 15:20:49
+ * @LastEditTime: 2021-11-18 16:36:11
  * @Description:
  */
 export default function ({
@@ -14,19 +14,23 @@ export default function ({
   error,
   redirect
 }) {
-  const arrIntercept = ['login', 'personal'];
-  //  current leave route
-  const fromRouter = app.router.currentRoute;
-  console.log(fromRouter.name);
-  const strToName = route.name;
-  const token = store.state.token;
-  console.log(token);
-  if (arrIntercept.includes(strToName)) {
-    if (token && fromRouter.name === 'login') {
-      redirect('/personal');
+  if (process.client) {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    const arrIntercept = ['login', 'personal'];
+    //  current leave route
+    const fromRouter = app.router.currentRoute;
+    console.log(fromRouter.name);
+    const strToName = route.name;
+    if (arrIntercept.includes(strToName)) {
+      if (token && fromRouter.name === 'login') {
+        redirect('/personal');
+      }
+      if (!token && fromRouter.name === 'personal') {
+        redirect('/login');
+      }
     }
-    if (!token && fromRouter.name === 'personal') {
-      redirect('/login');
-    }
+  } else {
+    console.log('we are running on the server');
   }
 }

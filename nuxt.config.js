@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 19:47:16
+ * @LastEditTime: 2021-11-18 18:17:35
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -192,7 +192,7 @@ export default {
     '@nuxtjs/stylelint-module'
   ],
   router: {
-    middleware: ['i18n', 'router', 'auth'],
+    middleware: ['i18n', 'router'],
     linkActiveClass: 'nav-active-link'
     /* scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 };
@@ -213,7 +213,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    'nuxt-client-init-module'
   ],
   sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

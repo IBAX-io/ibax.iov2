@@ -45,6 +45,15 @@
     &-text {
       color: #37383c;
       margin-bottom: 30px;
+      &-link {
+        color: #f3ac30;
+        &-text {
+          color: #37383c;
+          margin-right: 5px;
+          font-weight: bolder;
+          display: inline-block;
+        }
+      }
       .el-icon-arrow-right {
         font-weight: bold;
       }
@@ -53,6 +62,9 @@
       color: #f3ac30;
       font-weight: bolder;
       margin-left: 20px;
+    }
+    .el-icon-arrow-right {
+      font-size: 18px;
     }
   }
   .el-tabs__nav-scroll {
@@ -203,8 +215,7 @@
     .title-h7 {
       font-size: 20px;
       line-height: 1.3333em;
-      font-weight: 500;
-      letter-spacing: 1px;
+      font-weight: 450;
     }
     p {
       color: #707070;

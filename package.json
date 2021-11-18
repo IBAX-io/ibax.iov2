@@ -34,6 +34,7 @@
     "fs": "^0.0.1-security",
     "js-cookie": "^3.0.0",
     "nuxt": "^2.15.7",
+    "nuxt-client-init-module": "^0.3.0",
     "path": "^0.12.7",
     "shareon": "^1.6.2",
     "vue-i18n": "^8.25.0",

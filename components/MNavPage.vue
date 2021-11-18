@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 11:00:37
  * @LastEditors: abc
- * @LastEditTime: 2021-11-17 11:17:20
+ * @LastEditTime: 2021-11-18 17:34:14
  * @Description: mobile nav
 -->
 <template>
@@ -135,20 +135,25 @@
           <img :src="userInfo.image_url" alt="head" />
         </nuxt-link>
         <div class="nav-link-head-out" @click="handleSignOut('out')">
-          <img src="../assets/images/login/out.png" alt="out" />
+          <i class="iconfont el-out"></i>
           <span>{{ $t('nav.out') }}</span>
         </div>
       </div>
       <div
         v-else
-        class="m-nav-login"
+        class="m-nav-login m-nav-login-item"
         :style="{ color: colorText, background: headerColor }"
       >
         <nuxt-link
           :to="{ name: 'login' }"
-          class="nav-link nav-link-middle"
-          :style="{ color: colorText }"
-          >{{ $t('nav.log') }}</nuxt-link
+          :style="{
+            color: colorText
+          }"
+        >
+          {{ $t('nav.log') }}
+        </nuxt-link>
+        <nuxt-link :to="{ name: 'login' }" class="nav-login-primary btn-primary"
+          >Join Airdrop</nuxt-link
         >
       </div>
     </aside>
