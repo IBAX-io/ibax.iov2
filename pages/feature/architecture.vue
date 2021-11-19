@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:05:19
+ * @LastEditTime: 2021-11-19 19:50:06
  * @Description: architecture
 -->
 <template>
@@ -512,15 +512,6 @@ export default {
       });
       wow.init();
     });
-    /*    const wow = new WOW({
-      boxClass: 'wow',
-      animateClass: 'animated',
-      scrollContainer: '.el-scrollbar__wrap',
-      offset: 0,
-      mobile: true,
-      live: false
-    });
-    wow.init(); */
     this.domGlobal.addEventListener('scroll', this.handleArchiteScroll, true);
   },
   destroyed() {

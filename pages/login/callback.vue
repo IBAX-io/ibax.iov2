@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 09:54:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 17:51:54
+ * @LastEditTime: 2021-11-19 20:48:27
  * @Description: 
 -->
 <template>
@@ -39,9 +39,8 @@ export default {
           this.$store
             .dispatch('handleActionsToken', res.data.token)
             .then((res) => {
-              this.$router.push({ name: 'personal' });
+              this.$router.push({ name: 'user' });
             });
-
           /*  this.$message({
             type: 'success',
             message: `token:${res.data.token}`,

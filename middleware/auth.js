@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 15:42:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 11:42:10
+ * @LastEditTime: 2021-11-19 20:49:04
  * @Description:
  */
 export default function ({
@@ -15,16 +15,16 @@ export default function ({
   redirect
 }) {
   const token = store.state.token;
-  const arrIntercept = ['login', 'personal'];
+  const arrIntercept = ['login', 'user'];
   //  current leave route
   const fromRouter = app.router.currentRoute;
   console.log(fromRouter.name);
   const strToName = route.name;
   if (arrIntercept.includes(strToName)) {
     if (token && fromRouter.name === 'login') {
-      redirect('/personal');
+      redirect('/user');
     }
-    if (!token && fromRouter.name === 'personal') {
+    if (!token && fromRouter.name === 'user') {
       redirect('/login');
     }
   }

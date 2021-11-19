@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 10:59:52
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 18:09:21
+ * @LastEditTime: 2021-11-19 20:47:08
  * @Description: nav
 -->
 <template>
@@ -120,7 +120,7 @@
       </div>
       <nuxt-link
         v-if="userInfo && userInfo.name"
-        :to="{ name: 'personal' }"
+        :to="{ name: 'user' }"
         class="nav-link"
       >
         <el-dropdown v-if="userInfo" @command="handleSignOut">
@@ -409,12 +409,13 @@ export default {
     $route: {
       handler() {
         const { name } = this.$route;
+        console.log(name);
         if (name === 'resource-news-id') {
           this.activeIndex = '/resource/news';
         } else if (name === 'resource-events-id') {
           this.activeIndex = '/resource/events';
-        } else if (name === 'bass-markeplace-ecolibs') {
-          this.activeIndex = '/bass-markeplace';
+        } else if (name === 'baas-marketplace-ecolibs') {
+          this.activeIndex = '/baas-marketplace';
         } else {
           this.activeIndex = this.$route.path;
         }

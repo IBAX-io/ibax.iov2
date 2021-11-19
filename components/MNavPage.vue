@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 11:00:37
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 17:34:14
+ * @LastEditTime: 2021-11-19 20:46:53
  * @Description: mobile nav
 -->
 <template>
@@ -128,7 +128,7 @@
         :style="{ color: colorText, background: headerColor }"
       >
         <nuxt-link
-          :to="{ name: 'personal' }"
+          :to="{ name: 'user' }"
           class="nav-link-head"
           :style="{ color: colorText }"
         >

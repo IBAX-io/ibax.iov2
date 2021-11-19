@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:58:09
+ * @LastEditTime: 2021-11-19 20:19:25
  * @Description: architecture
 -->
 <template>
@@ -286,14 +286,31 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
     this.$nextTick(() => {
-      this.domGlobal.addEventListener('scroll', () => {
-        this.handleThrottle(this.handleAlwaysScroll, 100);
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
       });
+      wow.init();
     });
+    this.domGlobal.addEventListener('scroll', this.handleFullyScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleFullyScroll, true);
   },
   methods: {
-    handleAlwaysScroll() {
+    handleFullyScroll() {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = document.getElementById('headerTop').offsetTop;
       const isFixed = scrollTop > topHeight;

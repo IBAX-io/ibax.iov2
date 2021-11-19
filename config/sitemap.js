@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-12 12:17:07
  * @LastEditors: abc
- * @LastEditTime: 2021-11-13 16:46:56
+ * @LastEditTime: 2021-11-19 20:47:26
  * @Description:sitemap
  */
 import dayjs from 'dayjs';
@@ -16,13 +16,7 @@ export default [
     cacheTime: 1000 * 60 * 60 * 24,
     gzip: true,
     generate: false,
-    exclude: [
-      '/404',
-      '/login',
-      '/login/personal',
-      '/login/callback',
-      '/login/rules'
-    ],
+    exclude: ['/404', '/login', '/user', '/login/callback', '/login/rules'],
     defaults: {
       changefreq: 'always',
       lastmod: dayjs.utc().format('YYYY-MM-DDTHH:mm:ssZ'),

@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:32:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:54:01
+ * @LastEditTime: 2021-11-19 20:17:35
  * @Description:
 -->
 <template>
@@ -539,13 +539,34 @@ export default {
     this.handleLoopTime();
   },
   mounted() {
-    this.domGlobal.addEventListener('scroll', () => {
-      this.handleThrottle(this.handleArchiteScroll, 100);
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
+    this.$nextTick(() => {
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
+      });
+      wow.init();
     });
+    this.domGlobal.addEventListener('scroll', this.handleArchiteScroll, true);
   },
-  beforeDestroy() {
+  destroyed() {
     clearTimeout(this.timer);
     this.timer = null;
+    this.domGlobal.removeEventListener(
+      'scroll',
+      this.handleArchiteScroll,
+      true
+    );
   },
   methods: {
     handleArchiteScroll() {

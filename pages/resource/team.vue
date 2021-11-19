@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-24 16:15:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:44:09
+ * @LastEditTime: 2021-11-19 20:41:31
  * @Description: team
 -->
 <template>
@@ -484,6 +484,11 @@ export default {
       this.settings.slidesToShow = 3;
     }
     this.$nextTick(() => {
+      const obj = { headerColor: '#274235', color: '#fff' };
+      this.$store.commit('handleChangeColor', obj);
+      this.$store.commit('handleIsTop', true);
+      this.$store.commit('handleIsFixed', false);
+      this.$store.commit('handleChangeClass', 'subMenu--horizontal');
       this.fixed = this.$refs.fixed;
       console.log(this.fixed);
       this.parallax = this.$refs.parallax;
@@ -495,12 +500,11 @@ export default {
       this.numIntroduce =
         document.getElementById('introduce').getBoundingClientRect().bottom -
         140;
-      if (this.container) {
-        this.domGlobal.addEventListener('scroll', () => {
-          this.handleThrottle(this.handleTeamScroll, 100);
-        });
-      }
     });
+    this.domGlobal.addEventListener('scroll', this.handleTeamScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleTeamScroll, true);
   },
   methods: {
     handleTeamScroll() {
