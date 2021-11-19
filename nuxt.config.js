@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 18:17:35
+ * @LastEditTime: 2021-11-19 19:36:22
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -170,7 +170,7 @@ export default {
     '@/plugins/http.js',
     '@/plugins/day.js',
     { src: '@/plugins/analytics.js', ssr: false },
-    { src: '@/plugins/poly', ssr: true },
+    { src: '@/plugins/wow.js', ssr: false },
     { src: '@/plugins/vueSroll.js', ssr: false },
     { src: '@/plugins/vueP5.js', ssr: false },
     { src: '@/plugins/shareon.js', ssr: false },
@@ -192,7 +192,7 @@ export default {
     '@nuxtjs/stylelint-module'
   ],
   router: {
-    middleware: ['i18n', 'router'],
+    middleware: ['auth', 'i18n', 'router'],
     linkActiveClass: 'nav-active-link'
     /* scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 };
@@ -227,9 +227,9 @@ export default {
   },
   proxy: {
     '/api': {
-      // target: 'https://ibax.io:9095/',
+      target: 'https://ibax.io:9095/',
       // target: 'http://192.168.1.191:8888/',
-      target: 'https://testnet-us-34-86-177-19.ibax.io:9095/',
+      // target: 'https://testnet-us-34-86-177-19.ibax.io:9095/',
       changeOrigin: true,
       pathRewrite: {
         '^/api/*': ''

@@ -2,10 +2,11 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 18:15:38
+ * @LastEditTime: 2021-11-19 11:51:59
  * @Description:axios
  */
 import { Message } from 'element-ui';
+import { handleSaveCookie } from '../assets/js/public';
 // import qs from "qs";
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
@@ -31,15 +32,13 @@ export default function ({ $axios, redirect, store }) {
     const { code } = response.data;
     console.log(code);
     if (code === 401 || code === -402) {
-      /*  Message.error({
-        message: `Login expired ${code}`,
+      Message.error({
+        message: `Login failed, please log in again(${code})`,
         onClose: () => {
           redirect('/login');
-          localStorage.removeItem('token');
+          handleSaveCookie('token', '', -1);
         }
-      }); */
-      redirect('/login');
-      localStorage.removeItem('token');
+      });
     } else {
       return response;
     }

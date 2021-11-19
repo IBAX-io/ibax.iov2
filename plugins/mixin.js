@@ -89,7 +89,8 @@ Vue.mixin({
     if (process.env.NODE_ENV === 'development') {
       this.linkBase = 'http://192.168.1.191:8888';
     } else {
-      this.linkBase = 'https://testnet-us-34-86-177-19.ibax.io:9095';
+      // this.linkBase = 'https://testnet-us-34-86-177-19.ibax.io:9095';
+      this.linkBase = 'https://ibax.io:9095';
     }
   },
   mounted() {
@@ -179,7 +180,8 @@ Vue.mixin({
         console.log(res);
         if (res.code === 0) {
           this.$store.commit('handleChangeToken', '');
-          localStorage.removeItem('token');
+          // localStorage.removeItem('token');
+          handleSaveCookie('token', '', -1);
           window.location.reload();
         }
       }

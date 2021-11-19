@@ -2,11 +2,11 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 16:53:56
+ * @LastEditTime: 2021-11-19 14:33:17
  * @Description: 
 -->
 <template>
-  <div class="login">
+  <div id="login" class="login">
     <h6 class="title-h6">{{ $t('login.test') }}</h6>
     <p class="login-text">
       {{ $t('login.event') }}
@@ -34,10 +34,10 @@ export default {
     this.$store.commit('handleIsTop', false);
   },
   mounted() {
-    const token = localStorage.getItem('token');
-    if (token) {
-      this.$router.push('/');
-    }
+    this.domGlobal.addEventListener('scroll', this.handleLoginScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleLoginScroll, true);
   },
   methods: {
     handleRules() {
@@ -53,6 +53,26 @@ export default {
           type: 'warning',
           message: 'The request failed. Please handle it later'
         });
+      }
+    },
+    handleLoginScroll() {
+      const scrollTop = this.domGlobal.scrollTop;
+      const topHeight = document.getElementById('headerTop').offsetTop;
+      const isFixed = scrollTop > topHeight;
+      this.$store.commit('handleIsFixed', isFixed);
+      this.numLogin = document
+        .getElementById('login')
+        .getBoundingClientRect().top;
+      if (this.numLogin <= 0) {
+        const obj = { headerColor: '#274235', color: '#fff' };
+        this.$store.commit('handleChangeColor', obj);
+        this.$store.commit('handleChangeClass', 'subMenu--horizontal');
+        this.$store.commit('handleIsTop', true);
+      } else {
+        const obj = { headerColor: '#fff', color: '#37383c' };
+        this.$store.commit('handleChangeColor', obj);
+        this.$store.commit('handleChangeClass', 'news--horizontal');
+        this.$store.commit('handleIsTop', false);
       }
     }
   }

@@ -2,8 +2,8 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 18:34:25
- * @Description: 
+ * @LastEditTime: 2021-11-19 18:03:18
+ * @Description: personal
 -->
 <template>
   <div class="personal">
@@ -84,9 +84,23 @@
                   </div>
                 </div>
                 <div class="personal-tabs-task-btn">
-                  <button class="btn btn-primary" @click="handleForwardNext">
+                  <button
+                    v-if="isMobile"
+                    class="btn btn-primary"
+                    @click="handleForwardNext('task')"
+                  >
                     {{ $t('footer.more') }}
                   </button>
+                  <el-pagination
+                    v-else
+                    hide-on-single-page
+                    background
+                    :page-size="objForward.limit"
+                    layout="prev, pager, next"
+                    :total="taskTotal"
+                    @current-change="handleCurrentChange($event, 'task')"
+                  >
+                  </el-pagination>
                 </div>
               </el-col>
             </el-row>
@@ -110,163 +124,7 @@
           <el-tab-pane :label="$t('personal.rules')" name="third">
             <el-row type="flex" justify="center">
               <el-col :sm="22" :lg="18" :md="20">
-                <div class="personal-rules">
-                  <!-- box-1 -->
-                  <div class="personal-rules-box">
-                    <div class="personal-rules-left">
-                      <h6 class="title-h7">1,000,000 IBXC Airdrop</h6>
-                      <p>（Ongoing）</p>
-                    </div>
-                    <div class="personal-rules-right">
-                      <h6 class="title-h7">
-                        Dec. 1st, 2021 – Feb. 1st, 2022, Ends in 60 days
-                      </h6>
-                      <p>
-                        1,000,000 IBXC Number of Winners 2000 + Participants
-                        41,680
-                      </p>
-                      <p>
-                        1,000,000 IBXC Number of Winners 2000 + Participants
-                        41,680
-                      </p>
-                      <p>
-                        IBAX is a blockchain-as-a-service infrastructure NETWORK
-                        with a unique Metaverse NFT mining system that will be
-                        the core foundation of the future Metaverse.
-                      </p>
-                      <h6 class="title-h7">
-                        We are proud to announce the airdrop of our Testnet
-                        between Dec 1st, 2021 and Feb. 1st, 2022.
-                      </h6>
-                      <p>
-                        A total of 1,000,000 $IBXC will be airdropped to
-                        participants!
-                      </p>
-                      <h6 class="personal-rules-right-item title-h7">
-                        <span>
-                          Jackpot A <br />
-                          800,000 IBXC <br />
-                          IBAX: Testnet Token <br />
-                          IBXC: Main network Token
-                        </span>
-                        <span>
-                          Jackpot B<br />
-                          200,000 IBXC
-                        </span>
-                      </h6>
-                      <p>
-                        Participants can use IBAC to redeem IBXC after the
-                        official launch of the main network.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- box-2 -->
-                  <div class="personal-rules-box">
-                    <div class="personal-rules-left">
-                      <h6 class="title-h7">How to Participate Jackpot A ？</h6>
-                    </div>
-                    <div class="personal-rules-right">
-                      <p>
-                        Starting on Dec . 1st 2021 at 15:00 GMT +8 , go to
-                        Airdrop Page to join our airdrop campaign . You will be
-                        able to earn IBXC by completing the different tasks
-                        listed below.
-                      </p>
-                      <h6 class="title-h7">Jackpot B Coming next week.</h6>
-                      <h6 class="personal-rules-right-item title-h7">
-                        <span>
-                          1 - Follow IBAX on Twitter +1000IBAX.<br />
-                          2 - Join the IBAX Telegram group +1000IBA <br />
-                          3 - Join the IBAX Discord channel +1000IB <br />
-                        </span>
-                        <span>
-                          （on going）<br />
-                          （on going）
-                        </span>
-                      </h6>
-                      <p>
-                        4 - Subscribe IBAX on YouTube channel +1000IBAX ( coming
-                        soon)
-                      </p>
-                      <p>- Retweet the airdrop tweet on our Twitter</p>
-                      <div>
-                        (<a
-                          href="https://twitter.com/IBAXNETWORK"
-                          target="_blank"
-                        >
-                          https://twitter.com/IBAXNETWORK </a
-                        >)
-                      </div>
-                      <p>
-                        - Like & tag at least 3 of your friends. +200 each time.
-                      </p>
-                    </div>
-                  </div>
-                  <!-- box-3 -->
-                  <div class="personal-rules-box">
-                    <div class="personal-rules-left">
-                      <h6 class="title-h7">Mainnet online rules</h6>
-                    </div>
-                    <div class="personal-rules-right">
-                      <p>
-                        Winners will receive 10% of the successfully redeemed
-                        IBXC after the mainnet goes live , and the rest will be
-                        automatically unlocked within 6 months after the mainnet
-                        goes live or can be accelerated by staking mining.
-                      </p>
-                      <h6 class="title-h7">
-                        Every 100 participants who collect more than 45,000
-                        IBACs will generate a spot and a 50x special bonus will
-                        be drawn from all users with more than 45,000 IBACs at
-                        the end of the airdrop.
-                      </h6>
-                      <p>
-                        (It’s ok if you cannot collect over 45,000IBAXs, all
-                        participants have a right to share 1,000,000 IBXC tokens
-                        together.)
-                      </p>
-                      <p>
-                        Note: All bot and duplicate entries will be
-                        automatically disqualified . This Event is for Real
-                        Users
-                      </p>
-                      <h6 class="title-h7">Social Media Links:</h6>
-                      <div class="personal-rules-right-link">
-                        <a
-                          href="https://twitter.com/IbaxNetwork"
-                          target="_blank"
-                        >
-                          Twitter </a
-                        >|
-                        <a href="https://t.me/IBAXNetwork" target="_blank">
-                          Telegram </a
-                        >|
-                        <a href="https://discord.gg/zRX6Mwafya" target="_blank">
-                          Discord </a
-                        >|
-                        <a
-                          href="https://www.youtube.com/channel/UC-oneUwzz01xaCkFTTyR0QQ/featured"
-                          target="_blank"
-                        >
-                          YouTube Channel </a
-                        >|
-                        <a
-                          href="https://www.linkedin.com/company/ibaxio/"
-                          target="_blank"
-                        >
-                          LinkedIn </a
-                        >|
-                        <a href="https://t.me/IBAXNetwork" target="_blank">
-                          Medium </a
-                        >|
-                        <a href="https://github.com/IBAX-io" target="_blank">
-                          GitHub </a
-                        >|
-                        <a href="https://ibax.io" target="_blank"> Website </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <points-rules></points-rules>
               </el-col>
             </el-row>
           </el-tab-pane>
@@ -274,7 +132,16 @@
             <div class="personal-tabs-record">
               <el-row type="flex" justify="center">
                 <el-col :sm="22" :lg="18" :md="20">
-                  <div class="personal-tabs-record-box">
+                  <div
+                    v-if="pointRecord.length === 0"
+                    class="personal-tabs-record-img"
+                  >
+                    <img
+                      src="../../assets/images/login/no-data.png"
+                      alt="no-data"
+                    />
+                  </div>
+                  <div v-else class="personal-tabs-record-box">
                     <div class="personal-tabs-record-head">
                       <div>Date (UTC)</div>
                       <div>Participate</div>
@@ -304,6 +171,25 @@
                       </div>
                     </div>
                   </div>
+                  <div class="personal-tabs-task-btn">
+                    <button
+                      v-if="isMobile"
+                      class="btn btn-primary"
+                      @click="handleForwardNext('record')"
+                    >
+                      {{ $t('footer.more') }}
+                    </button>
+                    <el-pagination
+                      v-else
+                      background
+                      hide-on-single-page
+                      :page-size="objRocrad.limit"
+                      layout="prev, pager, next"
+                      :total="recordTotal"
+                      @current-change="handleCurrentChange($event, 'record')"
+                    >
+                    </el-pagination>
+                  </div>
                 </el-col>
               </el-row>
             </div>
@@ -314,7 +200,9 @@
   </div>
 </template>
 <script>
+import PointsRules from '~/components/PointsRules.vue';
 export default {
+  components: { PointsRules },
   layout: 'newsLayouts',
   props: {},
   data() {
@@ -335,9 +223,17 @@ export default {
         limit: 5,
         type: 2
       },
+      objRocrad: {
+        where: '',
+        order: 'id desc',
+        page: 1,
+        limit: 10
+      },
       arrTask: [],
       showFollow: {},
-      pointRecord: []
+      pointRecord: [],
+      taskTotal: 1,
+      recordTotal: 1
     };
   },
   computed: {
@@ -350,9 +246,11 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    this.handlePointsAlready();
-    this.handleGetFollow(this.objFollow);
-    this.handleGetForward(this.objForward);
+    setTimeout(() => {
+      this.handlePointsAlready();
+      this.handleGetFollow(this.objFollow);
+      this.handleGetForward(this.objForward);
+    }, 5000);
   },
   methods: {
     async handlePointsAlready() {
@@ -366,9 +264,9 @@ export default {
     },
     async handleGetFollow(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
-      console.log(res);
-      if (res.code === 0 && res.data) {
-        this.showFollow = res.data[0];
+      //  console.log(res);
+      if (res.code === 0 && res.data.rets) {
+        this.showFollow = res.data.rets[0];
       } else {
         this.showFollow = {};
       }
@@ -377,14 +275,21 @@ export default {
       const res = await this.$axios.$post('/tw/get_activity', params);
       console.log(res);
       if (res.code === 0) {
-        if (res.data.length) {
-          if (params.page === 1) {
-            this.arrTask = res.data;
+        if (res.data.rets.length) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.arrTask = res.data.rets;
+            } else {
+              const arrTask = this.handleReduce([
+                ...this.arrTask,
+                ...res.data.rets
+              ]);
+              this.arrTask = [...arrTask];
+            }
           } else {
-            const arrTask = this.handleReduce([...this.arrTask, ...res.data]);
-            this.arrTask = [...arrTask];
+            this.arrTask = res.data.rets;
+            this.taskTotal = res.data.total;
           }
-          console.log(this.arrTask);
         } else {
           this.$message({
             type: 'warning',
@@ -395,9 +300,23 @@ export default {
         this.arrTask = [];
       }
     },
-    handleForwardNext() {
-      this.objForward.page = ++this.objForward.page;
-      this.handleGetForward(this.objForward);
+    handleForwardNext(str) {
+      if (str === 'task') {
+        this.objForward.page = ++this.objForward.page;
+        this.handleGetForward(this.objForward);
+      } else if (str === 'record') {
+        this.objRocrad.page = ++this.objRocrad.page;
+        this.handlePointRecord(this.objRocrad);
+      }
+    },
+    handleCurrentChange($event, str) {
+      if (str === 'task') {
+        this.objForward.page = $event;
+        this.handleGetForward(this.objForward);
+      } else if (str === 'record') {
+        this.objRocrad.page = $event;
+        this.handlePointRecord(this.objRocrad);
+      }
     },
     async handleGetUser() {
       const res = await this.$axios.$post('/tw/getuser');
@@ -410,7 +329,8 @@ export default {
         this.objForward.page = 1;
         this.handleGetForward(this.objForward);
       } else if (tab.name === 'fourth') {
-        this.handlePointRecord();
+        this.objRocrad.page = 1;
+        this.handlePointRecord(this.objRocrad);
       }
       console.log(tab, event);
     },
@@ -537,13 +457,33 @@ export default {
           .catch((action) => {});
       }
     },
-    async handlePointRecord() {
-      const res = await this.$axios.$post('/tw/get_points_record');
-      console.log(res);
-      if (res.code === 0 && res.data) {
-        this.pointRecord = res.data;
+    async handlePointRecord(params) {
+      const res = await this.$axios.$post('/tw/get_points_record', params);
+      // console.log(res);
+      if (res.code === 0) {
+        if (res.data.rets.length) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.pointRecord = res.data.rets;
+            } else {
+              const pointRecord = this.handleReduce([
+                ...this.pointRecord,
+                ...res.data.rets
+              ]);
+              this.pointRecord = [...pointRecord];
+            }
+          } else {
+            this.pointRecord = res.data.rets;
+            this.recordTotal = res.data.total;
+          }
+        } else {
+          this.$message({
+            type: 'warning',
+            message: 'No more'
+          });
+        }
       } else {
-        this.pointRecord = 0;
+        this.pointRecord = [];
       }
     },
     handleTimeShow(millisecond) {

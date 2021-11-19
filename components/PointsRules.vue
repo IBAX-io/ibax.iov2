@@ -1,0 +1,147 @@
+<!--
+ * @Author: abc
+ * @Date: 2021-11-18 18:59:09
+ * @LastEditors: abc
+ * @LastEditTime: 2021-11-18 19:40:30
+ * @Description: 
+-->
+<template>
+  <div class="personal-rules">
+    <!-- box-1 -->
+    <div class="personal-rules-box">
+      <div class="personal-rules-left">
+        <h6 class="title-h7">5,000,000 IBXC Airdrop</h6>
+        <p>（Ongoing）</p>
+      </div>
+      <div class="personal-rules-right">
+        <h6 class="title-h7">Now 2021 – Feb. 1st, 2022, Ends in 60 days</h6>
+        <p>
+          Total Prize: <strong>5,000,000</strong> IBXC
+          <span style="margin-left: 50px">Number of Winners: 1000 +</span>
+        </p>
+        <p>
+          IBAX is a blockchain - as - a - service infrastructure NETWORK with a
+          unique Metaverse NFT mining system that will be the core foundation of
+          the future Metaverse.
+        </p>
+        <p>
+          We are proud to announce the airdrop of our Testnet between Now 2021
+          and Feb. 1st, 2022.
+        </p>
+        </p>
+        <h6 class="title-h7">
+          A total of <strong>5,000,000</strong> in IBXC will be airdropped to
+          participants!
+        </h6>
+        <h6 class="personal-rules-right-item title-h7">
+          <span>
+            IBAC: Testnet point <br />
+            IBXC: Main network <br />
+          </span>
+        </h6>
+        <h6 class="personal-rules-right-item title-h7">
+          <span>
+            Jackpot A <br />
+            <strong>1,500,000</strong> IBXC<br />
+          </span>
+          <span style="margin-left:10%">
+            Jackpot B<br />
+            <strong>3,500,000</strong> IBXC
+          </span>
+        </h6>
+      </div>
+    </div>
+    <!-- box-2 -->
+    <div class="personal-rules-box">
+      <div class="personal-rules-left">
+        <h6 class="title-h7">How to Participate Jackpot A ？</h6>
+      </div>
+      <div class="personal-rules-right">
+        <h6 class="title-h7">
+          - The first 1000 people with the highest scores will receive 500 IBXC
+        </h6>
+        <h6 class="title-h7">
+          - Those after 1000 will split the 300,000 IBXC equally.
+        </h6>
+        <h6 class="title-h7">
+          - 7 lucky participants who exceed 45,000 IBAC will receive
+          <strong>100,000</strong>
+          IBXC
+        </h6>
+        <h6 class="personal-rules-right-item title-h7">
+          <span>
+            1 - Follow IBAX on Twitter +1,000 IBAX. <br />
+            2 - Join the IBAX Telegram group +1,000 IBAX<br />
+            3 - Join the IBAX Discord channel +1000 IBAX<br />
+          </span>
+          <span>
+            （on going）<br />
+            （on going）<br />
+            （on going）
+          </span>
+        </h6>
+        <p>4 - Subscribe IBAX on YouTube channel +1,000 IBAX</p>
+        <p>( coming soon)</p>
+        <h6 class="title-h7">- Retweet the airdrop tweet on our Twitter</h6>
+        <div>
+          (<a href="https://twitter.com/IBAXNETWORK" target="_blank">
+            https://twitter.com/IBAXNETWORK </a
+          >)
+        </div>
+        <h6 class="title-h7">
+          - Like & tag at least 3 of your friends. +200 each time.
+        </h6>
+      </div>
+    </div>
+    <!-- box-3 -->
+    <div class="personal-rules-box">
+      <div class="personal-rules-left">
+        <h6 class="title-h7">Mainnet online rules</h6>
+      </div>
+      <div class="personal-rules-right">
+        <p>
+          Winners will receive 10% of the successfully redeemed IBXC after the
+          mainnet goes live , and the rest will be automatically unlocked within
+          6 months after the mainnet goes live or can be accelerated by staking
+          mining.
+        </p>
+
+        <p>
+          Note: All bot and duplicate entries will be automatically disqualified
+          . This Event is for Real Users
+        </p>
+        <h6 class="title-h7">Social Media Links:</h6>
+        <div class="personal-rules-right-link">
+          <a href="https://twitter.com/IbaxNetwork" target="_blank"> Twitter </a
+          >| <a href="https://t.me/IBAXNetwork" target="_blank"> Telegram </a>|
+          <a href="https://discord.gg/zRX6Mwafya" target="_blank"> Discord </a>|
+          <a
+            href="https://www.youtube.com/channel/UC-oneUwzz01xaCkFTTyR0QQ/featured"
+            target="_blank"
+          >
+            YouTube </a
+          >|
+          <a href="https://www.linkedin.com/company/ibaxio/" target="_blank">
+            LinkedIn </a
+          >|
+          <a href="https://ibaxnetwork.medium.com/" target="_blank"> Medium </a
+          >| <a href="https://github.com/IBAX-io" target="_blank"> GitHub </a>|
+          <a href="https://ibax.io" target="_blank"> Website </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  props: {},
+  data() {
+    return {};
+  },
+  computed: {},
+  watch: {},
+  created() {},
+  mounted() {},
+  methods: {}
+};
+</script>

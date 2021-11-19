@@ -2,13 +2,14 @@
  * @Author: abc
  * @Date: 2021-11-11 09:54:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 18:16:45
+ * @LastEditTime: 2021-11-19 17:51:54
  * @Description: 
 -->
 <template>
   <div style="color: #37383c"></div>
 </template>
 <script>
+import { handleTokenCookie } from '../../assets/js/public';
 export default {
   layout: 'callback',
   props: {},
@@ -33,9 +34,14 @@ export default {
         const res = await this.$axios.$post('/twitter/auth', obj);
         console.log(res);
         if (res.code === 0) {
-          localStorage.setItem('token', res.data.token);
-          this.$store.commit('handleChangeToken', res.data.token);
-          this.$router.push({ name: 'personal' });
+          // localStorage.setItem('token', res.data.token);
+          handleTokenCookie('token', res.data.token, 1);
+          this.$store
+            .dispatch('handleActionsToken', res.data.token)
+            .then((res) => {
+              this.$router.push({ name: 'personal' });
+            });
+
           /*  this.$message({
             type: 'success',
             message: `token:${res.data.token}`,

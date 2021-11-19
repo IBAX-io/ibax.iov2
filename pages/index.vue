@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 16:43:50
+ * @LastEditTime: 2021-11-19 19:03:35
  * @Description: home
 -->
 <template>
@@ -894,17 +894,18 @@ export default {
   },
   created() {},
   mounted() {
-    console.log(`mobile:${this.isMobile}`);
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
+    // console.log(`mobile:${this.isMobile}`);
     this.domEmpty = this.$refs.empty;
     this.domStory = this.$refs.story;
     if (!this.isMobile) {
       this.domEmpty.style.visibility = 'visible';
       this.domStory.style.position = 'fixed';
     }
-    const obj = { headerColor: '#274235', color: '#fff' };
-    this.$store.commit('handleChangeColor', obj);
-    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
-    this.$store.commit('handleIsTop', true);
     if (!this.isMobile) {
       this.middleBox =
         document.getElementById('bifurcation').offsetTop +
@@ -912,7 +913,17 @@ export default {
     }
     this.$nextTick(() => {
       this.mobileTop = document.getElementById('story').offsetTop;
-      console.log(this.mobileTop);
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
+      });
+      wow.init();
     });
     this.domGlobal.addEventListener('scroll', this.handleScroll, true);
   },

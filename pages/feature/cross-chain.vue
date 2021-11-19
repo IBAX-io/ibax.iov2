@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 11:32:01
+ * @LastEditTime: 2021-11-19 19:19:03
  * @Description: 
 -->
 <template>
@@ -370,18 +370,28 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
     this.$nextTick(() => {
-      this.numArchite =
-        document.getElementById('always').getBoundingClientRect().bottom - 105;
-      console.log(this.numArchite);
-      this.numArchiteBottom =
-        document.getElementById('learn').getBoundingClientRect().bottom - 105;
-      if (this.numArchite) {
-        this.domGlobal.addEventListener('scroll', () => {
-          this.handleThrottle(this.handleAlwaysScroll, 250);
-        });
-      }
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
+      });
+      wow.init();
     });
+    this.domGlobal.addEventListener('scroll', this.handleAlwaysScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleAlwaysScroll, true);
   },
   methods: {
     handleAlwaysScroll() {
@@ -389,12 +399,18 @@ export default {
       const topHeight = document.getElementById('headerTop').offsetTop;
       const isFixed = scrollTop > topHeight;
       this.$store.commit('handleIsFixed', isFixed);
-      if (scrollTop >= this.numArchite && scrollTop < this.numArchiteBottom) {
+      this.numAlways = document
+        .getElementById('always')
+        .getBoundingClientRect().bottom;
+      this.numLearn = document
+        .getElementById('learn')
+        .getBoundingClientRect().bottom;
+      if (this.numAlways <= 0 && this.numLearn > 0) {
         const obj = { headerColor: '#fff', color: '#37383c' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'news--horizontal');
         this.$store.commit('handleIsTop', false);
-      } else if (scrollTop >= this.numArchiteBottom) {
+      } else if (this.numLearn <= 0) {
         const obj = { headerColor: '#274235', color: '#fff' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'subMenu--horizontal');

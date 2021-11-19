@@ -2,9 +2,10 @@
  * @Author: abc
  * @Date: 2021-09-07 14:08:14
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 18:07:29
+ * @LastEditTime: 2021-11-19 17:50:45
  * @Description:
  */
+import { handleTokenCookie } from '../assets/js/public';
 export const state = () => ({
   headerColor: '#274235',
   color: '#fff',
@@ -56,12 +57,10 @@ export const actions = {
   // nuxtClientInit
   nuxtClientInit({ dispatch, commit }, context) {
     // code
-    const token = localStorage.getItem('token');
-    commit('handleChangeToken', token);
   },
   // nuxtServerIni Nuxt.js
   nuxtServerInit({ dispatch, commit }, { req }) {
-    /* if (req.headers.cookie && req.headers) {
+    if (req.headers.cookie && req.headers) {
       const strCookie = req.headers.cookie;
       const serviceCookie = {};
       strCookie.split(';').forEach(function (val) {
@@ -77,7 +76,7 @@ export const actions = {
       } else {
         commit('handleChangeToken', '');
       }
-    } */
+    }
   },
   async handleGetUser({ commit }) {
     const res = await this.$axios.$post('/tw/getuser');
@@ -86,8 +85,11 @@ export const actions = {
       commit('handleUserInfo', res.data);
     } else {
       commit('handleChangeToken', '');
-      localStorage.removeItem('token');
+      handleTokenCookie('token', '', -1);
     }
+  },
+  handleActionsToken({ commit }, token) {
+    commit('handleChangeToken', token);
   }
 };
 export const getters = {

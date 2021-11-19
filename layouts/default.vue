@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 15:01:26
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 16:48:51
+ * @LastEditTime: 2021-11-19 18:54:30
  * @Description:
 -->
 <template>
@@ -75,10 +75,6 @@
   </div>
 </template>
 <script>
-if (process.client) {
-  // eslint-disable-next-line no-var
-  var { WOW } = require('wowjs');
-}
 export default {
   props: {},
   data() {
@@ -87,32 +83,41 @@ export default {
       throttleTimer: false
     };
   },
+
   computed: {
     isFixed() {
-      console.log(this.$store.getters.handleIsFixed);
       return this.$store.getters.handleIsFixed;
     }
+  },
+  watch: {
+    /*  $route: {
+      handler(val, oldval) {
+        if (process.client) {
+          console.log('++++++++=');
+          this.$nextTick(() => {
+            this.domGlobal = document.getElementById('global').firstChild;
+            this.domHeaderTop = document.getElementById('headerTop');
+            const wow = new WOW({
+              boxClass: 'wow',
+              animateClass: 'animated',
+              scrollContainer: '.el-scrollbar__wrap',
+              offset: -20,
+              mobile: true,
+              live: false
+            });
+            wow.init();
+          });
+        }
+      },
+      immediate: true
+    } */
   },
   created() {
     const obj = { headerColor: '#274235', color: '#fff' };
     this.$store.commit('handleChangeColor', obj);
     this.$store.commit('handleChangeClass', 'subMenu--horizontal');
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.domGlobal = document.getElementById('global').firstChild;
-      this.domHeaderTop = document.getElementById('headerTop');
-      const wow = new WOW({
-        boxClass: 'wow',
-        animateClass: 'animated',
-        scrollContainer: '.el-scrollbar__wrap',
-        offset: 0,
-        mobile: true,
-        live: false
-      });
-      wow.init();
-    });
-  },
+  mounted() {},
   methods: {
     handleBackTop() {
       return this.domGlobal;

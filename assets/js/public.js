@@ -3,7 +3,7 @@
  * @LastEditors: abc
  * @Description:
  * @Date: 2019-04-10 14:49:19
- * @LastEditTime: 2021-11-18 14:09:27
+ * @LastEditTime: 2021-11-19 11:32:19
  */
 import Cookie from 'js-cookie';
 // translate router.meta.title, be used in breadcrumb sidebar tagsview
@@ -88,15 +88,15 @@ export function handleSaveCookie(str, objdata, time) {
  * @return:
  */
 export function handleTokenCookie(str, token, time) {
-  Cookie.set(str, token, { expires: time });
+  const encode = encodeURIComponent(token);
+  Cookie.set(str, encode, { expires: time });
 }
 // get token
-export function handleGetToken() {
+export function handleGetTokenCookie() {
   const token = Cookie.get('token');
   let str = '';
   if (token) {
-    // str = JSON.parse(decodeURIComponent(objLang)).lang;
-    str = token;
+    str = decodeURIComponent(token);
     return str;
   } else {
     return '';

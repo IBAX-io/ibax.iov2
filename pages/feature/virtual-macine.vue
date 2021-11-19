@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 14:17:44
+ * @LastEditTime: 2021-11-19 19:12:45
  * @Description: virtual macine
 -->
 <template>
@@ -368,11 +368,28 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
     this.$nextTick(() => {
-      this.domGlobal.addEventListener('scroll', () => {
-        this.handleThrottle(this.handleMostScroll, 250);
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
       });
+      wow.init();
     });
+    this.domGlobal.addEventListener('scroll', this.handleMostScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleMostScroll, true);
   },
   methods: {
     handleMostScroll() {

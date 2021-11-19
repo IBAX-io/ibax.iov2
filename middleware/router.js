@@ -2,13 +2,13 @@
  * @Author: abc
  * @Date: 2020-10-16 16:45:00
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 16:45:55
+ * @LastEditTime: 2021-11-19 18:53:57
  * @Description:
  */
 export default ({ app, store }) => {
   app.router.afterEach((to, from, next) => {
     if (process.client) {
-      window.location.reload();
+      //  window.location.reload();
       const global = document.getElementById('global');
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
