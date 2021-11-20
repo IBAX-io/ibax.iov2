@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 18:43:10
+ * @LastEditTime: 2021-11-20 19:30:32
  * @Description: personal
 -->
 <template>
@@ -49,58 +49,69 @@
             <el-row type="flex" justify="center">
               <el-col :sm="22" :lg="18" :md="20">
                 <div
-                  v-for="item in arrTask"
-                  :key="item.id"
-                  class="personal-tabs-task"
+                  v-if="arrTask.length === 0"
+                  class="personal-tabs-record-img"
                 >
-                  <div v-if="item.status" class="personal-tabs-task-finish">
-                    <img
-                      src="../../assets/images/login/finished.png"
-                      alt="finished"
-                    />
-                  </div>
-                  <a
-                    v-else
-                    class="personal-tabs-task-left"
-                    :href="item.status ? 'javascript:void(0);' : item.link"
-                    :target="item.status ? '' : '_blank'"
-                    @click="handleForwardTask(item)"
+                  <img
+                    src="../../assets/images/login/no-data.png"
+                    alt="no-data"
+                  />
+                </div>
+                <template v-else>
+                  <div
+                    v-for="item in arrTask"
+                    :key="item.id"
+                    class="personal-tabs-task"
                   >
-                    <div>{{ $t('personal.retweet') }}</div>
-                    <div class="personal-tabs-task-left-bottom">
-                      +{{ item.points }} <i class="el-icon-arrow-right"></i>
+                    <div v-if="item.status" class="personal-tabs-task-finish">
+                      <img
+                        src="../../assets/images/login/finished.png"
+                        alt="finished"
+                      />
                     </div>
-                  </a>
-
-                  <div class="personal-tabs-task-middle">
-                    <div v-html="item.content"></div>
-                  </div>
-                  <div class="personal-tabs-task-right">
-                    <img
-                      :src="`${baseUrl}${item.image}`"
-                      alt="task"
-                      :onerror="defaultImg"
-                    />
-                  </div>
-                  <div class="personal-tabs-task-btn">
-                    <button
-                      v-if="isMobile"
-                      class="btn btn-primary"
-                      @click="handleForwardNext('task')"
-                    >
-                      {{ $t('footer.more') }}
-                    </button>
-                    <el-pagination
+                    <a
                       v-else
-                      hide-on-single-page
-                      background
-                      :page-size="objForward.limit"
-                      layout="prev, pager, next"
-                      :total="taskTotal"
-                      @current-change="handleCurrentChange($event, 'task')"
+                      class="personal-tabs-task-left"
+                      :href="item.status ? 'javascript:void(0);' : item.link"
+                      :target="item.status ? '' : '_blank'"
+                      @click="handleForwardTask(item)"
                     >
-                    </el-pagination>
+                      <div>{{ $t('personal.retweet') }}</div>
+                      <div class="personal-tabs-task-left-bottom">
+                        +{{ item.points }} <i class="el-icon-arrow-right"></i>
+                      </div>
+                    </a>
+
+                    <div class="personal-tabs-task-middle">
+                      <div v-html="item.content"></div>
+                    </div>
+                    <div class="personal-tabs-task-right">
+                      <img
+                        :src="`${baseUrl}${item.image}`"
+                        alt="task"
+                        :onerror="defaultImg"
+                      />
+                    </div>
                   </div>
+                </template>
+                <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
+                  <button
+                    v-if="isMobile"
+                    class="btn btn-primary"
+                    @click="handleForwardNext('task')"
+                  >
+                    {{ $t('footer.more') }}
+                  </button>
+                  <el-pagination
+                    v-else
+                    hide-on-single-page
+                    background
+                    :page-size="objForward.limit"
+                    layout="prev, pager, next"
+                    :total="taskTotal"
+                    @current-change="handleCurrentChange($event, 'task')"
+                  >
+                  </el-pagination>
                 </div>
               </el-col>
             </el-row>
@@ -170,25 +181,28 @@
                         {{ item.points }}
                       </div>
                     </div>
-                    <div class="personal-tabs-task-btn">
-                      <button
-                        v-if="isMobile"
-                        class="btn btn-primary"
-                        @click="handleForwardNext('record')"
-                      >
-                        {{ $t('footer.more') }}
-                      </button>
-                      <el-pagination
-                        v-else
-                        background
-                        hide-on-single-page
-                        :page-size="objRocrad.limit"
-                        layout="prev, pager, next"
-                        :total="recordTotal"
-                        @current-change="handleCurrentChange($event, 'record')"
-                      >
-                      </el-pagination>
-                    </div>
+                  </div>
+                  <div
+                    v-if="pointRecord.length !== 0"
+                    class="personal-tabs-task-btn"
+                  >
+                    <button
+                      v-if="isMobile"
+                      class="btn btn-primary"
+                      @click="handleForwardNext('record')"
+                    >
+                      {{ $t('footer.more') }}
+                    </button>
+                    <el-pagination
+                      v-else
+                      background
+                      hide-on-single-page
+                      :page-size="objRocrad.limit"
+                      layout="prev, pager, next"
+                      :total="recordTotal"
+                      @current-change="handleCurrentChange($event, 'record')"
+                    >
+                    </el-pagination>
                   </div>
                 </el-col>
               </el-row>
@@ -246,11 +260,9 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    setTimeout(() => {
-      this.handlePointsAlready();
-      this.handleGetFollow(this.objFollow);
-      this.handleGetForward(this.objForward);
-    }, 5000);
+    this.handlePointsAlready();
+    this.handleGetFollow(this.objFollow);
+    this.handleGetForward(this.objForward);
   },
   methods: {
     async handlePointsAlready() {
