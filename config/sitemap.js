@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-12 12:17:07
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 17:49:45
+ * @LastEditTime: 2021-11-20 20:27:30
  * @Description:sitemap
  */
 import dayjs from 'dayjs';
@@ -24,7 +24,7 @@ export default [
     },
     routes: (callback) => {
       //  const getUrl = 'http://192.168.1.191:8888/newsEventsLink';
-      const targetUrl = 'https://ibax.io:9095/newsEventsLink';
+      const targetUrl = 'https://ibax.io/api/newsEventsLink';
       axios.get(targetUrl).then((res) => {
         const routes = [
           {

@@ -89,9 +89,9 @@ Vue.mixin({
   created() {
     if (process.env.NODE_ENV === 'development') {
       // this.baseUrl = 'http://192.168.1.191:8888';
-      this.baseUrl = baseURL;
+      this.baseUrl = 'http://192.168.1.191:8888';
     } else {
-      this.baseUrl = baseURL;
+      this.baseUrl = 'https://ibax.io';
     }
   },
   mounted() {
