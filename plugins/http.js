@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 18:55:19
+ * @LastEditTime: 2021-11-20 19:55:19
  * @Description:axios
  */
 import { Message } from 'element-ui';
@@ -12,11 +12,12 @@ import baseURL from '../config/api';
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {
-      // console.log(baseURL);
-      if (process.env.NUXT_ENV === 'production') {
+      //  console.log(baseURL, '1');
+      // console.log(config.baseURL, '2');
+      /// console.log(process.env.NUXT_ENV, '3');
+      if (process.env.NODE_ENV === 'production') {
         config.baseURL = baseURL;
       }
-      console.log(process.env.NUXT_ENV.MODE);
       //  console.log(store.state.token);
       if (store.state.token) {
         // console.log(store.state.token);
