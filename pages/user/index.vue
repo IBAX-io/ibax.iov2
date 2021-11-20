@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 19:30:32
+ * @LastEditTime: 2021-11-20 20:48:46
  * @Description: personal
 -->
 <template>
@@ -302,7 +302,7 @@ export default {
             this.arrTask = res.data.rets;
             this.taskTotal = res.data.total;
           }
-        } else {
+        } else if (params.page !== 1) {
           this.$message({
             type: 'warning',
             message: 'No more'
@@ -488,7 +488,7 @@ export default {
             this.pointRecord = res.data.rets;
             this.recordTotal = res.data.total;
           }
-        } else {
+        } else if (params.page !== 1) {
           this.$message({
             type: 'warning',
             message: 'No more'
