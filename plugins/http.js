@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 19:55:19
+ * @LastEditTime: 2021-11-20 20:32:22
  * @Description:axios
  */
 import { Message } from 'element-ui';
@@ -39,13 +39,15 @@ export default function ({ $axios, redirect, store }) {
     const { code } = response.data;
     //  console.log(code);
     if (code === 401 || code === -402) {
-      Message.error({
+      /* Message.error({
         message: `Login failed, please log in again(${code})`,
         onClose: () => {
           redirect('/login');
           handleSaveCookie('token', '', -1);
         }
-      });
+      }); */
+      redirect('/login');
+      handleSaveCookie('token', '', -1);
     } else {
       return response;
     }
