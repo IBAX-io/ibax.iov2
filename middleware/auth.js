@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 15:42:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:49:04
+ * @LastEditTime: 2021-11-20 20:44:35
  * @Description:
  */
 export default function ({
@@ -15,7 +15,7 @@ export default function ({
   redirect
 }) {
   const token = store.state.token;
-  const arrIntercept = ['login', 'user'];
+  const arrIntercept = ['login', 'user', 'login-callback'];
   //  current leave route
   const fromRouter = app.router.currentRoute;
   console.log(fromRouter.name);
@@ -23,6 +23,9 @@ export default function ({
   if (arrIntercept.includes(strToName)) {
     if (token && fromRouter.name === 'login') {
       redirect('/user');
+    }
+    if (token && fromRouter.name === 'login-callback') {
+      redirect('/');
     }
     if (!token && fromRouter.name === 'user') {
       redirect('/login');
