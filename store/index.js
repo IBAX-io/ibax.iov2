@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-09-07 14:08:14
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 17:50:45
+ * @LastEditTime: 2021-11-20 18:09:18
  * @Description:
  */
 import { handleTokenCookie } from '../assets/js/public';
@@ -25,7 +25,7 @@ export const mutations = {
     }
   },
   handleChangeToken(state, token) {
-    console.log(token);
+    //  console.log(token);
     state.token = token;
   },
   handleUserInfo(state, obj) {

@@ -2,12 +2,13 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:36:22
+ * @LastEditTime: 2021-11-20 18:41:24
  * @Description:nuxt setting
  */
 // const path = require('path')
 // import path from 'path';
 // import fs from 'fs';
+import env from './config/env';
 import sitemap from './config/sitemap';
 let pattern = false;
 const plugins = [
@@ -25,10 +26,14 @@ if (process.env.NODE_ENV !== 'production') {
   plugins.push('transform-remove-console');
   pattern = false;
 }
+console.log(process.env.NODE_ENV);
 console.log(pattern);
 const Timestamp = new Date().getTime();
 export default {
   mode: 'universal',
+  env: {
+    NUXT_ENV: env[process.env.MODE]
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Welcome to IBAX Network | IBAX',
@@ -219,15 +224,15 @@ export default {
   sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseUrl: 'https://node23.ibax.io:9095/',
-    proxy: true,
+    // baseUrl: 'https://ibax.io:9095/api',
+    proxy: pattern,
     prefix: '/api',
     retry: { retries: 3 },
     credentials: true
   },
   proxy: {
     '/api': {
-      target: 'https://ibax.io:9095/',
+      target: 'https://ibax.io:9095',
       // target: 'http://192.168.1.191:8888/',
       // target: 'https://testnet-us-34-86-177-19.ibax.io:9095/',
       changeOrigin: true,

@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import { handleSaveCookie } from '../assets/js/public.js';
+import baseURL from '../config/api';
+console.log(baseURL);
 console.log(process.env.NODE_ENV);
 Vue.mixin({
   data() {
@@ -7,7 +9,6 @@ Vue.mixin({
       domGlobal: '',
       domHeaderTop: '',
       baseUrl: 'https://ibax.io',
-      linkBase: 'https://ibax.io',
       arrLang: [
         {
           label: 'English',
@@ -87,10 +88,10 @@ Vue.mixin({
   },
   created() {
     if (process.env.NODE_ENV === 'development') {
-      this.linkBase = 'http://192.168.1.191:8888';
+      // this.baseUrl = 'http://192.168.1.191:8888';
+      this.baseUrl = baseURL;
     } else {
-      // this.linkBase = 'https://testnet-us-34-86-177-19.ibax.io:9095';
-      this.linkBase = 'https://ibax.io:9095';
+      this.baseUrl = baseURL;
     }
   },
   mounted() {

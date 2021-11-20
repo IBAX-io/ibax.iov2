@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-12 12:17:07
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:47:26
+ * @LastEditTime: 2021-11-20 17:49:45
  * @Description:sitemap
  */
 import dayjs from 'dayjs';
@@ -58,7 +58,7 @@ export default [
             obj.priority = 0.8;
             news.push(obj);
           });
-          console.log(routes.concat(news, events));
+          //  console.log(routes.concat(news, events));
           callback(null, routes.concat(news, events));
         }
       });

@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:57:30
+ * @LastEditTime: 2021-11-20 18:43:10
  * @Description: personal
 -->
 <template>
@@ -77,7 +77,7 @@
                   </div>
                   <div class="personal-tabs-task-right">
                     <img
-                      :src="`${linkBase}${item.image}`"
+                      :src="`${baseUrl}${item.image}`"
                       alt="task"
                       :onerror="defaultImg"
                     />

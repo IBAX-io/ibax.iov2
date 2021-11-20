@@ -2,15 +2,21 @@
  * @Author: abc
  * @Date: 2021-01-08 14:39:29
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 11:51:59
+ * @LastEditTime: 2021-11-20 18:55:19
  * @Description:axios
  */
 import { Message } from 'element-ui';
 import { handleSaveCookie } from '../assets/js/public';
+import baseURL from '../config/api';
 // import qs from "qs";
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {
+      // console.log(baseURL);
+      if (process.env.NUXT_ENV === 'production') {
+        config.baseURL = baseURL;
+      }
+      console.log(process.env.NUXT_ENV.MODE);
       //  console.log(store.state.token);
       if (store.state.token) {
         // console.log(store.state.token);
@@ -28,9 +34,9 @@ export default function ({ $axios, redirect, store }) {
     }
   );
   $axios.onResponse((response) => {
-    console.log(response);
+    // console.log(response);
     const { code } = response.data;
-    console.log(code);
+    //  console.log(code);
     if (code === 401 || code === -402) {
       Message.error({
         message: `Login failed, please log in again(${code})`,
