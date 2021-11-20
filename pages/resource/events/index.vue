@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:08:39
+ * @LastEditTime: 2021-11-20 15:53:54
  * @Description: ecolibs
 -->
 <template>
@@ -408,24 +408,39 @@ export default {
     this.handleEventsfind(thirdParam);
   },
   mounted() {
+    const obj = { headerColor: '#274235', color: '#fff' };
+    this.$store.commit('handleChangeColor', obj);
+    this.$store.commit('handleIsTop', true);
+    this.$store.commit('handleIsFixed', false);
+    this.$store.commit('handleChangeClass', 'subMenu--horizontal');
     this.$nextTick(() => {
-      this.numArchite =
-        document.getElementById('img').getBoundingClientRect().bottom - 105;
-      console.log(this.numArchite);
-      if (this.numArchite) {
-        this.domGlobal.addEventListener('scroll', () => {
-          this.handleThrottle(this.handleAlwaysScroll, 100);
-        });
-      }
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
+      });
+      wow.init();
     });
+    this.domGlobal.addEventListener('scroll', this.handleImgScroll, true);
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleImgScroll, true);
   },
   methods: {
-    handleAlwaysScroll() {
+    handleImgScroll() {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = document.getElementById('headerTop').offsetTop;
       const isFixed = scrollTop > topHeight;
       this.$store.commit('handleIsFixed', isFixed);
-      if (scrollTop >= this.numArchite) {
+      this.numImg = document
+        .getElementById('img')
+        .getBoundingClientRect().bottom;
+      if (this.numImg <= 0) {
         const obj = { headerColor: '#fff', color: '#37383c' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'news--horizontal');

@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 14:33:17
+ * @LastEditTime: 2021-11-20 15:45:56
  * @Description: 
 -->
 <template>
@@ -32,6 +32,7 @@ export default {
     this.$store.commit('handleChangeColor', obj);
     this.$store.commit('handleChangeClass', 'news--horizontal');
     this.$store.commit('handleIsTop', false);
+    this.$store.commit('handleIsFixed', false);
   },
   mounted() {
     this.domGlobal.addEventListener('scroll', this.handleLoginScroll, true);

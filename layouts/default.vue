@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 15:01:26
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 18:54:30
+ * @LastEditTime: 2021-11-20 15:09:25
  * @Description:
 -->
 <template>
@@ -89,29 +89,7 @@ export default {
       return this.$store.getters.handleIsFixed;
     }
   },
-  watch: {
-    /*  $route: {
-      handler(val, oldval) {
-        if (process.client) {
-          console.log('++++++++=');
-          this.$nextTick(() => {
-            this.domGlobal = document.getElementById('global').firstChild;
-            this.domHeaderTop = document.getElementById('headerTop');
-            const wow = new WOW({
-              boxClass: 'wow',
-              animateClass: 'animated',
-              scrollContainer: '.el-scrollbar__wrap',
-              offset: -20,
-              mobile: true,
-              live: false
-            });
-            wow.init();
-          });
-        }
-      },
-      immediate: true
-    } */
-  },
+  watch: {},
   created() {
     const obj = { headerColor: '#274235', color: '#fff' };
     this.$store.commit('handleChangeColor', obj);

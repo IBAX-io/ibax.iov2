@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 17:50:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:46:13
+ * @LastEditTime: 2021-11-20 16:52:16
  * @Description: conact us
 -->
 <template>
@@ -11,7 +11,7 @@
       <div class="about-left-box">
         <div class="about-left-box-icon">
           <nuxt-link to="/">
-            <i class="iconfont el-logo1"></i>
+            <i class="iconfont el-logo1" style="color: #274235"></i>
           </nuxt-link>
           <div
             class="nav-right-dropdown about-left-box-icon-right"

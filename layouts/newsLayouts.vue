@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 15:01:26
  * @LastEditors: abc
- * @LastEditTime: 2021-11-11 16:52:00
+ * @LastEditTime: 2021-11-20 16:16:04
  * @Description:
 -->
 <template>
@@ -111,6 +111,7 @@ export default {
     this.$store.commit('handleChangeColor', obj);
     this.$store.commit('handleChangeClass', 'news--horizontal');
     this.$store.commit('handleIsTop', false);
+    this.$store.commit('handleIsFixed', false);
   },
   mounted() {
     const val = handleGetLang();
@@ -124,7 +125,6 @@ export default {
       this.domGlobal = document.getElementById('global').firstChild;
       this.domHeaderTop = this.$refs.headerTop.$el;
       console.log(this.domGlobal);
-      this.domGlobal.addEventListener('scroll', this.handleScroll);
       const wow = new WOW({
         boxClass: 'wow',
         animateClass: 'animated',
@@ -133,15 +133,20 @@ export default {
         mobile: true,
         live: false
       });
-      // console.log(wow);
       wow.init();
     });
+    this.domGlobal.addEventListener('scroll', () => {
+      this.handleThrottle(this.handleNewsScroll, 100);
+    });
+  },
+  destroyed() {
+    this.domGlobal.removeEventListener('scroll', this.handleNewsScroll, true);
   },
   methods: {
     handleBackTop() {
       return this.domGlobal;
     },
-    handleScroll() {
+    handleNewsScroll() {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = this.domHeaderTop.offsetTop;
       const isFixed = scrollTop > topHeight;

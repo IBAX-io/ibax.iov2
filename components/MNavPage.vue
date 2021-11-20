@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-17 11:00:37
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:46:53
+ * @LastEditTime: 2021-11-20 16:54:06
  * @Description: mobile nav
 -->
 <template>
@@ -69,6 +69,7 @@
                 :key="content.key"
                 :to="content.path"
                 class="m-nav-aside-box-content"
+                @click.native="handleOpenNav"
               >
                 <i :class="content.icon"></i>
                 <div class="m-nav-aside-box-other">
@@ -93,6 +94,7 @@
                 :href="content.link"
                 target="_blank"
                 class="m-nav-aside-box-content"
+                @click="handleOpenNav"
               >
                 <i :class="content.icon"></i>
                 <div class="m-nav-aside-box-other">
@@ -119,6 +121,7 @@
           :to="item.path"
           :style="{ color: colorText }"
           class="m-nav-aside-title-single"
+          @click.native="handleOpenNav"
           >{{ $t(item.title) }}</nuxt-link
         >
       </el-collapse>
@@ -126,6 +129,7 @@
         v-if="userInfo && userInfo.name"
         class="m-nav-login"
         :style="{ color: colorText, background: headerColor }"
+        @click="handleOpenNav"
       >
         <nuxt-link
           :to="{ name: 'user' }"
@@ -143,6 +147,7 @@
         v-else
         class="m-nav-login m-nav-login-item"
         :style="{ color: colorText, background: headerColor }"
+        @click="handleOpenNav"
       >
         <nuxt-link
           :to="{ name: 'login' }"

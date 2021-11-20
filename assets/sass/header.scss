@@ -359,7 +359,7 @@ a.nav-active-link {
   color: #f3ac34 !important;
   opacity: 1;
   border-radius: 10px;
-  i {
+  i.iconfont {
     color: #fff;
   }
   .el-dropdown-span {
@@ -570,17 +570,17 @@ a.nav-active-link {
     &-item {
       justify-content: flex-start;
       & > * {
-        height: 48px;
+        height: 40px;
         margin-top: 20px;
         margin-left: 25px;
-        line-height: 48px;
+        line-height: 40px;
         font-size: 18px;
         font-weight: 500;
       }
     }
   }
 }
-.global .global-fixed .m-nav-login-item a.nav-login-primary {
+.global .m-nav-aside .m-nav-login-item a.nav-login-primary {
   width: 120px;
   text-align: center;
   margin-left: 40px;

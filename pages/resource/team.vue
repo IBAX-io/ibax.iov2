@@ -2,12 +2,12 @@
  * @Author: abc
  * @Date: 2021-08-24 16:15:10
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:41:31
+ * @LastEditTime: 2021-11-20 16:27:11
  * @Description: team
 -->
 <template>
   <div class="team">
-    <div ref="container" class="parallax-container--over">
+    <div id="technical" class="parallax-container--over">
       <section
         id="parallax-container--top"
         class="about-us-hero"
@@ -39,7 +39,7 @@
     </div>
     <div v-show="!isMobile" ref="parallax" class="team-middle"></div>
     <div
-      ref="fixed"
+      ref="composed"
       class="team-fixed"
       :style="{ position: isMobile ? 'static' : 'fixed' }"
     >
@@ -190,7 +190,7 @@
         </el-row>
       </div>
     </div>
-    <div id="introduce" class="team-bod">
+    <div class="team-bod">
       <div class="container">
         <h3 class="wow fadeInUp">{{ $t('resourse.senior') }}</h3>
         <ul class="investors-bod-list">
@@ -206,7 +206,7 @@
         </ul>
       </div>
     </div>
-    <div class="team-serving">
+    <div id="introduce" class="team-serving">
       <el-row type="flex" justify="center">
         <el-col :xs="23" :sm="22" :md="20" :lg="18">
           <div class="team-serving-header wow fadeInUp">
@@ -484,23 +484,35 @@ export default {
       this.settings.slidesToShow = 3;
     }
     this.$nextTick(() => {
+      this.domGlobal = document.getElementById('global').firstChild;
+      this.domHeaderTop = document.getElementById('headerTop');
       const obj = { headerColor: '#274235', color: '#fff' };
       this.$store.commit('handleChangeColor', obj);
       this.$store.commit('handleIsTop', true);
       this.$store.commit('handleIsFixed', false);
       this.$store.commit('handleChangeClass', 'subMenu--horizontal');
-      this.fixed = this.$refs.fixed;
-      console.log(this.fixed);
+      const wow = new this.WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        scrollContainer: '.el-scrollbar__wrap',
+        offset: 0,
+        mobile: true,
+        live: false
+      });
+      wow.init();
+      this.composed = this.$refs.composed;
       this.parallax = this.$refs.parallax;
-      console.log(this.parallax);
-      this.container = this.$refs.container.scrollHeight + 140;
-      console.log(this.container);
-      this.wScroll = this.fixed.scrollHeight;
-      this.parallax.style.height = this.wScroll + 'px';
-      this.numIntroduce =
-        document.getElementById('introduce').getBoundingClientRect().bottom -
-        140;
+      this.container = this.$refs.container;
+      this.composedtHeight = this.composed.offsetHeight;
+      this.parallax.style.height = this.composedtHeight + 'px';
     });
+    /*  this.domGlobal.addEventListener(
+      'scroll',
+      () => {
+        this.handleThrottle(this.handleTeamScroll, 250);
+      },
+      true
+    ); */
     this.domGlobal.addEventListener('scroll', this.handleTeamScroll, true);
   },
   destroyed() {
@@ -509,26 +521,37 @@ export default {
   methods: {
     handleTeamScroll() {
       const scrollTop = this.domGlobal.scrollTop;
-      const topHeight = document.getElementById('headerTop').offsetTop;
-      const isFixed = scrollTop > topHeight;
-      this.$store.commit('handleIsFixed', isFixed);
+      if (document.getElementById('headerTop')) {
+        const topHeight = document.getElementById('headerTop').offsetTop;
+        const isFixed = scrollTop > topHeight;
+        this.$store.commit('handleIsFixed', isFixed);
+      }
+      this.numTechnical = document
+        .getElementById('technical')
+        .getBoundingClientRect().bottom;
       if (!this.isMobile) {
-        if (scrollTop >= this.container) {
-          this.parallax.style.position = 'fixed';
-          this.parallax.style.height = '0px';
-          this.fixed.style.position = 'static';
+        this.composedtHeight = this.composed.offsetHeight;
+        this.parallax.style.height = this.composedtHeight + 'px';
+
+        if (this.numTechnical <= 0) {
+          this.parallax.style.visibility = 'hidden';
+          this.parallax.style.height = '0';
+          this.composed.style.position = 'static';
         } else {
-          this.parallax.style.position = 'static';
-          this.parallax.style.height = this.wScroll + 'px';
-          this.fixed.style.position = 'fixed';
+          this.parallax.style.visibility = 'visible';
+          this.parallax.style.height = this.composedtHeight + 'px';
+          this.composed.style.position = 'fixed';
         }
       }
-      if (scrollTop >= this.container && scrollTop < this.numIntroduce) {
+      this.numIntroduce = document
+        .getElementById('introduce')
+        .getBoundingClientRect().top;
+      if (this.numTechnical <= 0 && this.numIntroduce > 0) {
         const obj = { headerColor: '#fff', color: '#37383c' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'news--horizontal');
         this.$store.commit('handleIsTop', false);
-      } else if (scrollTop >= this.numIntroduce) {
+      } else if (this.numIntroduce <= 0) {
         const obj = { headerColor: '#274235', color: '#fff' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'subMenu--horizontal');

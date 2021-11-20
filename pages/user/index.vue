@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 18:03:18
+ * @LastEditTime: 2021-11-20 16:57:30
  * @Description: personal
 -->
 <template>
@@ -82,25 +82,25 @@
                       :onerror="defaultImg"
                     />
                   </div>
-                </div>
-                <div class="personal-tabs-task-btn">
-                  <button
-                    v-if="isMobile"
-                    class="btn btn-primary"
-                    @click="handleForwardNext('task')"
-                  >
-                    {{ $t('footer.more') }}
-                  </button>
-                  <el-pagination
-                    v-else
-                    hide-on-single-page
-                    background
-                    :page-size="objForward.limit"
-                    layout="prev, pager, next"
-                    :total="taskTotal"
-                    @current-change="handleCurrentChange($event, 'task')"
-                  >
-                  </el-pagination>
+                  <div class="personal-tabs-task-btn">
+                    <button
+                      v-if="isMobile"
+                      class="btn btn-primary"
+                      @click="handleForwardNext('task')"
+                    >
+                      {{ $t('footer.more') }}
+                    </button>
+                    <el-pagination
+                      v-else
+                      hide-on-single-page
+                      background
+                      :page-size="objForward.limit"
+                      layout="prev, pager, next"
+                      :total="taskTotal"
+                      @current-change="handleCurrentChange($event, 'task')"
+                    >
+                    </el-pagination>
+                  </div>
                 </div>
               </el-col>
             </el-row>
@@ -170,25 +170,25 @@
                         {{ item.points }}
                       </div>
                     </div>
-                  </div>
-                  <div class="personal-tabs-task-btn">
-                    <button
-                      v-if="isMobile"
-                      class="btn btn-primary"
-                      @click="handleForwardNext('record')"
-                    >
-                      {{ $t('footer.more') }}
-                    </button>
-                    <el-pagination
-                      v-else
-                      background
-                      hide-on-single-page
-                      :page-size="objRocrad.limit"
-                      layout="prev, pager, next"
-                      :total="recordTotal"
-                      @current-change="handleCurrentChange($event, 'record')"
-                    >
-                    </el-pagination>
+                    <div class="personal-tabs-task-btn">
+                      <button
+                        v-if="isMobile"
+                        class="btn btn-primary"
+                        @click="handleForwardNext('record')"
+                      >
+                        {{ $t('footer.more') }}
+                      </button>
+                      <el-pagination
+                        v-else
+                        background
+                        hide-on-single-page
+                        :page-size="objRocrad.limit"
+                        layout="prev, pager, next"
+                        :total="recordTotal"
+                        @current-change="handleCurrentChange($event, 'record')"
+                      >
+                      </el-pagination>
+                    </div>
                   </div>
                 </el-col>
               </el-row>
