@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 15:42:02
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 20:44:35
+ * @LastEditTime: 2021-11-20 21:00:11
  * @Description:
  */
 export default function ({
@@ -24,9 +24,9 @@ export default function ({
     if (token && fromRouter.name === 'login') {
       redirect('/user');
     }
-    if (token && fromRouter.name === 'login-callback') {
+    /* if (token && fromRouter.name === 'login-callback') {
       redirect('/');
-    }
+    } */
     if (!token && fromRouter.name === 'user') {
       redirect('/login');
     }

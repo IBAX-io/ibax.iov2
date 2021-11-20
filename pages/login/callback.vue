@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 09:54:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:48:27
+ * @LastEditTime: 2021-11-20 21:00:47
  * @Description: 
 -->
 <template>
@@ -49,13 +49,14 @@ export default {
             }
           }); */
         } else {
-          this.$message({
+          this.$router.push({ name: 'login' });
+          /*  this.$message({
             type: 'error',
             message: `Login expired, please login again`,
             onClose: () => {
               this.$router.push({ name: 'login' });
             }
-          });
+          }); */
         }
       } else {
         this.$message({
