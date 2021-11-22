@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 16:26:23
+ * @LastEditTime: 2021-11-22 16:45:05
  * @Description:
 -->
 <template>
@@ -13,7 +13,7 @@
         <h6 class="title-h7">5,000,000 IBXC Airdrop</h6>
       </div>
       <div class="personal-rules-right">
-        <h6 class="title-h7">Now 2021 – Feb. 1st, 2022, Ends in 60 days</h6>
+        <h6 class="title-h7">Now – Feb. 1st, 2022, Ends in 60 days</h6>
         <p>
           Total Prize: <strong>5,000,000</strong> IBXC.
           <span>Number of Winners: 1,000 +</span>
@@ -51,7 +51,7 @@
       </div>
       <div class="personal-rules-right">
         <p>
-          - The first 1,000 people with the highest scores will receive 500 IBXC
+          - The first 1,000 people with the highest points will receive 500 IBXC
         </p>
         <p>- Those after 1,000 will split the 300,000 IBXC equally.</p>
         <p>
@@ -77,7 +77,7 @@
           <span>(coming soon)</span>
         </p>
         <h6 class="title-h7">
-          - Retweet the airdrop tweet on our
+          - Retweet the airdrop post on our
           <a href="https://twitter.com/IBAXNETWORK" target="_blank"> Twitter</a>
         </h6>
         <h6 class="title-h7">
@@ -98,8 +98,9 @@
           mining.
         </p>
         <p>
-          Note: All bot and duplicate entries will be automatically disqualified
-          . This Event is for Real Users
+          Note: All bots and duplicate operations will be automatically
+          disqualified. This airdrop is for real users, and the prizes will be
+          issued after the end of the event.
         </p>
         <h6 class="title-h7">Social Media Links:</h6>
         <div class="personal-rules-right-link">
