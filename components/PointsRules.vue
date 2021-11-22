@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 16:45:05
+ * @LastEditTime: 2021-11-22 16:52:45
  * @Description:
 -->
 <template>
@@ -37,7 +37,7 @@
             Jackpot A <br />
             <strong>1,500,000</strong> IBXC<br />
           </span>
-          <span style="margin-left: 10%">
+          <span>
             Jackpot B<br />
             <strong>3,500,000</strong> IBXC
           </span>
