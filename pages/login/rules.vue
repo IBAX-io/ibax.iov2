@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-10 15:38:57
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 11:56:45
+ * @LastEditTime: 2021-11-22 17:51:21
  * @Description: 
 -->
 <template>
@@ -31,7 +31,7 @@ export default {
         {
           hid: 'keywords',
           name: 'keywords',
-          content: 'BAX Network,rule,airdrop,activity'
+          content: 'IBAX Network,rule,airdrop,activity'
         },
         {
           hid: 'description',

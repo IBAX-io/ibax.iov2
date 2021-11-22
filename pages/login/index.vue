@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 15:45:56
+ * @LastEditTime: 2021-11-22 17:53:06
  * @Description: 
 -->
 <template>
@@ -24,6 +24,53 @@ export default {
   props: {},
   data() {
     return {};
+  },
+  head() {
+    return {
+      title: `Login | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'IBAX Network,login,airdrop,activity,blockchain'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `IBAX Network login page`
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `Login | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `IBAX Network login page`
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `Login | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: `IBAX Network login page`
+        }
+      ]
+    };
   },
   computed: {},
   watch: {},

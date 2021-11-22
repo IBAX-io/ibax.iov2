@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 12:26:12
+ * @LastEditTime: 2021-11-22 18:05:37
  * @Description:nuxt setting
  */
 // const path = require('path')
@@ -36,6 +36,9 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    htmlAttrs: {
+      prefix: 'og: http://ogp.me/ns#'
+    },
     title: 'Welcome to IBAX Network | IBAX',
     meta: [
       { charset: 'utf-8' },
