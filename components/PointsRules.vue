@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 17:06:40
+ * @LastEditTime: 2021-11-22 17:16:29
  * @Description:
 -->
 <template>
@@ -95,7 +95,7 @@
       <div class="personal-rules-right">
         <p>
           Winners will receive 10% of the successfully redeemed IBXC after the
-          mainnet goes live , and the rest will be automatically unlocked within
+          mainnet goes live, and the rest will be automatically unlocked within
           6 months after the mainnet goes live or can be accelerated by staking
           mining.
         </p>
