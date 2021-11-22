@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 10:36:25
+ * @LastEditTime: 2021-11-22 16:26:23
  * @Description:
 -->
 <template>
@@ -19,24 +19,19 @@
           <span>Number of Winners: 1,000 +</span>
         </p>
         <p>
-          IBAX is a blockchain - as - a - service infrastructure NETWORK with a
-          unique Metaverse NFT mining system that will be the core foundation of
-          the future Metaverse.
+          IBAX is a Blockchain-as-a-Service infrastructure NETWORK with a unique
+          Metaverse NFT mining system that will be the core foundation of the
+          future Metaverse.
         </p>
         <p>
-          We are proud to announce the airdrop of our Testnet between Now 2021
-          and Feb. 1st, 2022.
+          We are proud to announce the airdrop of our Testnet between Now and
+          Feb. 1st, 2022.
         </p>
         <p>
           A total of <strong>5,000,000</strong> in IBXC will be airdropped to
           participants!
         </p>
-        <h6 class="personal-rules-right-item title-h7">
-          <span>
-            IBAC: Testnet point <br />
-            IBXC: Main network <br />
-          </span>
-        </h6>
+        <p>IBXC:IBAX Main network Coin</p>
         <h6 class="personal-rules-right-item title-h7">
           <span>
             Jackpot A <br />
@@ -60,39 +55,40 @@
         </p>
         <p>- Those after 1,000 will split the 300,000 IBXC equally.</p>
         <p>
-          - 7 lucky participants who exceed 45,000 IBAC will receive
+          - Randomly pick 7 lucky participants who exceed 45,000 points will
+          receive
           <strong>100,000</strong>
           IBXC
         </p>
         <p class="personal-rules-right-item">
-          <span> 1 - Follow IBAX on Twitter +1,000 IBAX. </span>
-          <span> （on going） </span>
+          <span> 1.Follow IBAX on Twitter +1,000 points. </span>
+          <span> (on going) </span>
         </p>
         <p class="personal-rules-right-item">
-          <span> 2 - Join the IBAX Telegram group +1,000 IBAX</span>
-          <span> （on going） </span>
+          <span> 2.Join the IBAX Telegram group +1,000 points</span>
+          <span> (on going) </span>
         </p>
         <p class="personal-rules-right-item">
-          <span> 3 - Join the IBAX Discord channel +1,000 IBAX</span>
-          <span>（on going）</span>
+          <span> 3.Join the IBAX Discord channel +1,000 points</span>
+          <span>(on going)</span>
         </p>
-        <p>4 - Subscribe IBAX on YouTube channel +1,000 IBAX</p>
-        <p>( coming soon)</p>
-        <h6 class="title-h7">- Retweet the airdrop tweet on our Twitter</h6>
-        <div>
-          (<a href="https://twitter.com/IBAXNETWORK" target="_blank">
-            https://twitter.com/IBAXNETWORK </a
-          >)
-        </div>
+        <p class="personal-rules-right-item">
+          <span>4.Subscribe IBAX on YouTube channel +1,000 points</span>
+          <span>(coming soon)</span>
+        </p>
         <h6 class="title-h7">
-          - Like & tag at least 3 of your friends. +200 each time.
+          - Retweet the airdrop tweet on our
+          <a href="https://twitter.com/IBAXNETWORK" target="_blank"> Twitter</a>
+        </h6>
+        <h6 class="title-h7">
+          - Like & tag at least 3 of your friends. +200 points each time.
         </h6>
       </div>
     </div>
     <!-- box-3 -->
     <div class="personal-rules-box">
       <div class="personal-rules-left">
-        <h6 class="title-h7">Mainnet online rules</h6>
+        <h6 class="title-h7">Rules</h6>
       </div>
       <div class="personal-rules-right">
         <p>
@@ -101,7 +97,6 @@
           6 months after the mainnet goes live or can be accelerated by staking
           mining.
         </p>
-
         <p>
           Note: All bot and duplicate entries will be automatically disqualified
           . This Event is for Real Users

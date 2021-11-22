@@ -859,7 +859,18 @@
     margin-bottom: 50px;
   }
   .personal-score {
-    padding: 30px;
+    .personal-top {
+      padding: 0 30px;
+    }
+    .personal-score-text {
+      margin-bottom: 20px;
+    }
+    .el-tabs__header {
+      padding: 0 30px;
+    }
+    .el-tabs__content {
+      padding: 0 30px 30px 30px;
+    }
   }
   .personal {
     .el-tabs__nav-scroll {
@@ -930,6 +941,10 @@
   }
   .personal-rules {
     margin-top: 20px;
+  }
+  .personal-box-rules {
+    padding: 0 30px;
+    margin-top: 30px;
   }
   .personal {
     padding-bottom: 0;

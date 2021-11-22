@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-10 15:38:57
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 14:38:28
+ * @LastEditTime: 2021-11-22 11:56:45
  * @Description: 
 -->
 <template>
@@ -10,7 +10,9 @@
     <div class="personal-score">
       <el-row type="flex" justify="center">
         <el-col :sm="22" :lg="18" :md="20">
-          <points-rules></points-rules>
+          <div class="personal-box-rules">
+            <points-rules></points-rules>
+          </div>
         </el-col>
       </el-row>
     </div>
@@ -21,6 +23,53 @@ export default {
   props: {},
   data() {
     return {};
+  },
+  head() {
+    return {
+      title: `Rule | IBAX Network`,
+      meta: [
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'BAX Network,rule,airdrop,activity'
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `IBXC will be airdropped to participants`
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'twitter:url',
+          property: 'twitter:url',
+          content: `${this.baseUrl}${this.$route.path}`
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: `Rule | IBAX Network`
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: `IBXC will be airdropped to participants`
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `Rule | IBAX Network`
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: `IBXC will be airdropped to participants`
+        }
+      ]
+    };
   },
   computed: {},
   watch: {},

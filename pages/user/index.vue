@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 14:16:42
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 20:48:46
+ * @LastEditTime: 2021-11-22 11:22:15
  * @Description: personal
 -->
 <template>
@@ -13,33 +13,35 @@
     <div class="personal-score">
       <el-row type="flex" justify="center">
         <el-col :sm="22" :lg="18" :md="20">
-          <h6 class="title-h6">
-            <span style="margin-right: 10px">{{ $t('personal.own') }}</span
-            >{{ money_format(statistics) }}
-          </h6>
-          <div class="personal-score-text">
-            <a
-              v-if="showFollow.status"
-              href="https://twitter.com/IbaxNetwork"
-              target="_blank"
-              class="personal-score-text-link"
-            >
-              <span class="personal-score-text-link-text"
-                >{{ $t('personal.fol') }}:</span
+          <div class="personal-top">
+            <h6 class="title-h6">
+              <span style="margin-right: 10px">{{ $t('personal.own') }}</span
+              >{{ money_format(statistics) }}
+            </h6>
+            <div class="personal-score-text">
+              <a
+                v-if="showFollow.status"
+                href="https://twitter.com/IbaxNetwork"
+                target="_blank"
+                class="personal-score-text-link"
               >
-              @{{ showFollow.followsUserName }}
-            </a>
-            <span v-else> {{ $t('personal.get') }} </span>
-            <a
-              v-if="!showFollow.status"
-              :href="showFollow.link"
-              target=" _blank"
-              class="personal-score-link"
-              @click="handleIsFollow(showFollow)"
-            >
-              {{ $t('personal.go') }}
-              <i class="el-icon-arrow-right"></i>
-            </a>
+                <span class="personal-score-text-link-text"
+                  >{{ $t('personal.fol') }}:</span
+                >
+                @{{ showFollow.followsUserName }}
+              </a>
+              <span v-else> {{ $t('personal.get') }} </span>
+              <a
+                v-if="!showFollow.status"
+                :href="showFollow.link"
+                target=" _blank"
+                class="personal-score-link"
+                @click="handleIsFollow(showFollow)"
+              >
+                {{ $t('personal.go') }}
+                <i class="el-icon-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </el-col>
       </el-row>

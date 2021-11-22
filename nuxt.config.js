@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-16 11:14:27
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 19:55:33
+ * @LastEditTime: 2021-11-22 12:26:12
  * @Description:nuxt setting
  */
 // const path = require('path')
