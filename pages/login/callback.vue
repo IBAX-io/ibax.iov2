@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-11 09:54:01
  * @LastEditors: abc
- * @LastEditTime: 2021-11-20 21:00:47
+ * @LastEditTime: 2021-11-22 10:15:49
  * @Description: 
 -->
 <template>
@@ -41,15 +41,8 @@ export default {
             .then((res) => {
               this.$router.push({ name: 'user' });
             });
-          /*  this.$message({
-            type: 'success',
-            message: `token:${res.data.token}`,
-            onClose: () => {
-              this.$router.push({ name: 'personal' });
-            }
-          }); */
         } else {
-          this.$router.push({ name: 'login' });
+          this.$router.push({ name: 'index' });
           /*  this.$message({
             type: 'error',
             message: `Login expired, please login again`,

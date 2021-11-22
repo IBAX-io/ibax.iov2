@@ -247,6 +247,7 @@
       &-item {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
       }
       &-link {
         color: #4c96e3;

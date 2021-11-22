@@ -2,8 +2,8 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-18 19:40:30
- * @Description: 
+ * @LastEditTime: 2021-11-22 10:36:25
+ * @Description:
 -->
 <template>
   <div class="personal-rules">
@@ -11,13 +11,12 @@
     <div class="personal-rules-box">
       <div class="personal-rules-left">
         <h6 class="title-h7">5,000,000 IBXC Airdrop</h6>
-        <p>（Ongoing）</p>
       </div>
       <div class="personal-rules-right">
         <h6 class="title-h7">Now 2021 – Feb. 1st, 2022, Ends in 60 days</h6>
         <p>
-          Total Prize: <strong>5,000,000</strong> IBXC
-          <span style="margin-left: 50px">Number of Winners: 1000 +</span>
+          Total Prize: <strong>5,000,000</strong> IBXC.
+          <span>Number of Winners: 1,000 +</span>
         </p>
         <p>
           IBAX is a blockchain - as - a - service infrastructure NETWORK with a
@@ -28,11 +27,10 @@
           We are proud to announce the airdrop of our Testnet between Now 2021
           and Feb. 1st, 2022.
         </p>
-        </p>
-        <h6 class="title-h7">
+        <p>
           A total of <strong>5,000,000</strong> in IBXC will be airdropped to
           participants!
-        </h6>
+        </p>
         <h6 class="personal-rules-right-item title-h7">
           <span>
             IBAC: Testnet point <br />
@@ -44,7 +42,7 @@
             Jackpot A <br />
             <strong>1,500,000</strong> IBXC<br />
           </span>
-          <span style="margin-left:10%">
+          <span style="margin-left: 10%">
             Jackpot B<br />
             <strong>3,500,000</strong> IBXC
           </span>
@@ -57,29 +55,27 @@
         <h6 class="title-h7">How to Participate Jackpot A ？</h6>
       </div>
       <div class="personal-rules-right">
-        <h6 class="title-h7">
-          - The first 1000 people with the highest scores will receive 500 IBXC
-        </h6>
-        <h6 class="title-h7">
-          - Those after 1000 will split the 300,000 IBXC equally.
-        </h6>
-        <h6 class="title-h7">
+        <p>
+          - The first 1,000 people with the highest scores will receive 500 IBXC
+        </p>
+        <p>- Those after 1,000 will split the 300,000 IBXC equally.</p>
+        <p>
           - 7 lucky participants who exceed 45,000 IBAC will receive
           <strong>100,000</strong>
           IBXC
-        </h6>
-        <h6 class="personal-rules-right-item title-h7">
-          <span>
-            1 - Follow IBAX on Twitter +1,000 IBAX. <br />
-            2 - Join the IBAX Telegram group +1,000 IBAX<br />
-            3 - Join the IBAX Discord channel +1000 IBAX<br />
-          </span>
-          <span>
-            （on going）<br />
-            （on going）<br />
-            （on going）
-          </span>
-        </h6>
+        </p>
+        <p class="personal-rules-right-item">
+          <span> 1 - Follow IBAX on Twitter +1,000 IBAX. </span>
+          <span> （on going） </span>
+        </p>
+        <p class="personal-rules-right-item">
+          <span> 2 - Join the IBAX Telegram group +1,000 IBAX</span>
+          <span> （on going） </span>
+        </p>
+        <p class="personal-rules-right-item">
+          <span> 3 - Join the IBAX Discord channel +1,000 IBAX</span>
+          <span>（on going）</span>
+        </p>
         <p>4 - Subscribe IBAX on YouTube channel +1,000 IBAX</p>
         <p>( coming soon)</p>
         <h6 class="title-h7">- Retweet the airdrop tweet on our Twitter</h6>
@@ -135,6 +131,7 @@
 <script>
 export default {
   props: {},
+
   data() {
     return {};
   },
