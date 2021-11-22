@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-08-19 12:00:46
  * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:35:07
+ * @LastEditTime: 2021-11-22 17:36:55
  * @Description:
 -->
 <template>
@@ -385,9 +385,6 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  beforeDestroy() {
-    this.domGlobal.removeEventListener('scroll', this.handleScroll);
-  },
   mounted() {
     const obj = { headerColor: '#274235', color: '#fff' };
     this.$store.commit('handleChangeColor', obj);
@@ -407,12 +404,12 @@ export default {
       });
       wow.init();
     });
-    this.domGlobal.addEventListener('scroll', this.handleFrequencScroll, true);
+    this.domGlobal.addEventListener('scroll', this.handleImplementScroll, true);
   },
   destroyed() {
     this.domGlobal.removeEventListener(
       'scroll',
-      this.handleFrequencScroll,
+      this.handleImplementScroll,
       true
     );
   },
