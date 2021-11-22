@@ -2,7 +2,7 @@
  * @Author: abc
  * @Date: 2021-11-18 18:59:09
  * @LastEditors: abc
- * @LastEditTime: 2021-11-22 16:52:45
+ * @LastEditTime: 2021-11-22 17:06:40
  * @Description:
 -->
 <template>
@@ -51,34 +51,36 @@
       </div>
       <div class="personal-rules-right">
         <p>
-          - The first 1,000 people with the highest points will receive 500 IBXC
+          - The first 1,000 people with the highest points will receive 500
+          IBXC.
         </p>
         <p>- Those after 1,000 will split the 300,000 IBXC equally.</p>
         <p>
           - Randomly pick 7 lucky participants who exceed 45,000 points will
           receive
           <strong>100,000</strong>
-          IBXC
+          IBXC.
         </p>
         <p class="personal-rules-right-item">
           <span> 1.Follow IBAX on Twitter +1,000 points. </span>
           <span> (on going) </span>
         </p>
         <p class="personal-rules-right-item">
-          <span> 2.Join the IBAX Telegram group +1,000 points</span>
+          <span> 2.Join the IBAX Telegram group +1,000 points.</span>
           <span> (on going) </span>
         </p>
         <p class="personal-rules-right-item">
-          <span> 3.Join the IBAX Discord channel +1,000 points</span>
+          <span> 3.Join the IBAX Discord channel +1,000 points.</span>
           <span>(on going)</span>
         </p>
         <p class="personal-rules-right-item">
-          <span>4.Subscribe IBAX on YouTube channel +1,000 points</span>
+          <span>4.Subscribe IBAX on YouTube channel +1,000 points.</span>
           <span>(coming soon)</span>
         </p>
         <h6 class="title-h7">
           - Retweet the airdrop post on our
-          <a href="https://twitter.com/IBAXNETWORK" target="_blank"> Twitter</a>
+          <a href="https://twitter.com/IBAXNETWORK" target="_blank"> Twitter</a
+          >.
         </h6>
         <h6 class="title-h7">
           - Like & tag at least 3 of your friends. +200 points each time.
