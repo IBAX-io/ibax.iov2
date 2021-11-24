@@ -215,8 +215,8 @@ export default {
   },
   proxy: {
     '/api': {
-      // target: 'https://ibax.io:9095',
-      target: 'http://192.168.1.191:8888/',
+      target: 'https://ibax.io:9095',
+      // target: 'http://192.168.1.191:8888/',
       changeOrigin: true,
       pathRewrite: {
         '^/api/*': ''
