@@ -1,10 +1,3 @@
-/*
- * @Author: abc
- * @Date: 2020-10-16 16:45:00
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 18:53:57
- * @Description:
- */
 export default ({ app, store }) => {
   app.router.afterEach((to, from, next) => {
     if (process.client) {
@@ -16,20 +9,5 @@ export default ({ app, store }) => {
         global.firstChild.scrollTop = 0;
       }
     }
-    // scrollTop = 0
   });
-  /* ---------------------------  ----------------------------------------- */
-  /* app.router.beforeEach((to, from, next) => {
-    next();
-    if (process.client) {
-      const _hmt = _hmt || [];
-      // 
-      (function () {
-        const hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?0cb92588b9c690b3c48173df77fa700d";
-        const s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    }
-  }); */
 };

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-17 10:59:52
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:47:08
- * @Description: nav
--->
 <template>
   <div :class="{ nav: isTop, 'nav-white': !isTop }">
     <div class="nav-index">
@@ -301,7 +294,6 @@ export default {
               ]
             },
             {
-              // title: 'resource.external',
               key: '3-2',
               content: [
                 {
@@ -310,12 +302,7 @@ export default {
                   path: '/resource/news',
                   key: '3-2-1'
                 },
-                /* {
-                  title: 'resource.economic',
-                  icon: 'iconfont el-algorithm',
-                  path: '/resource/economic-model',
-                  alt: 'resource.economic'
-                }, */
+
                 {
                   title: 'resource.community',
                   icon: 'iconfont el-communities',
@@ -331,7 +318,6 @@ export default {
               ]
             },
             {
-              //  title: 'resource.more',
               key: '3-3',
               content: [
                 {
@@ -340,13 +326,6 @@ export default {
                   path: '/resource/events',
                   key: '3-3-1'
                 }
-                /*  {
-                  title: 'resource.partner',
-                  icon: 'iconfont el-partner',
-                  path: '/resource/partners',
-                  alt: 'resource.partner',
-                  key: '3-3-2'
-                } */
               ]
             }
           ]

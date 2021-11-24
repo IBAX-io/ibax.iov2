@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-28 11:50:08
- * @LastEditors: abc
- * @LastEditTime: 2021-10-28 12:24:25
- * @Description: 
--->
 <template>
   <div v-show="dialogVisible" class="cookie">
     <el-row type="flex" justify="center">

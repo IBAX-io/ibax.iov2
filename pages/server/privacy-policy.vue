@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-15 11:46:31
- * @LastEditors: abc
- * @LastEditTime: 2021-11-10 11:00:34
- * @Description: Privacy policy
--->
 <template>
   <article class="article">
     <h2 class="title-h4">PRIVACY NOTICE</h2>

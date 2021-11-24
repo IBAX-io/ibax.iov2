@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-26 15:28:58
- * @LastEditors: abc
- * @LastEditTime: 2021-09-14 17:14:13
- * @Description: 
--->
 <template>
   <div class="nav-news">
     <div class="nav-news-index">

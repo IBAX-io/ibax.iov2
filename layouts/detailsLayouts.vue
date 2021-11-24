@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-16 15:01:26
- * @LastEditors: abc
- * @LastEditTime: 2021-09-24 17:40:22
- * @Description:
--->
 <template>
   <div class="global details">
     <el-scrollbar id="global" ref="scroll" style="height: 100%">
@@ -51,10 +44,6 @@
 </template>
 <script>
 import { handleGetLang } from '../assets/js/public.js';
-if (process.client) {
-  // eslint-disable-next-line no-var
-  var { WOW } = require('wowjs');
-}
 export default {
   props: {},
   data() {
@@ -82,7 +71,7 @@ export default {
       this.domHeaderTop = this.$refs.headerTop.$el;
       console.log(this.domGlobal);
       this.domGlobal.addEventListener('scroll', this.handleScroll);
-      const wow = new WOW({
+      const wow = new this.WOW({
         boxClass: 'wow',
         animateClass: 'animated',
         scrollContainer: '.__panel',

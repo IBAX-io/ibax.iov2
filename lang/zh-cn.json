@@ -711,5 +711,11 @@
   "personal.date": "日期",
   "personal.earn": "获得积分",
   "personal.participate": "参与活动",
-  "personal.still": "活动还在进行中，请在活动结束后再兑换！"
+  "personal.still": "活动还在进行中，请在活动结束后再兑换！",
+  "personal.ranking": "排行榜",
+  "personal.history": "分享列表",
+  "personal.rule": "规则",
+  "personal.redeems": "领取IBAX",
+  "personal.retweets": "转推",
+  "personal.share": "分享"
 }

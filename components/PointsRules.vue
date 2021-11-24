@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-11-18 18:59:09
- * @LastEditors: abc
- * @LastEditTime: 2021-11-22 17:16:29
- * @Description:
--->
 <template>
   <div class="personal-rules">
     <!-- box-1 -->
@@ -47,7 +40,7 @@
     <!-- box-2 -->
     <div class="personal-rules-box">
       <div class="personal-rules-left">
-        <h6 class="title-h7">How to Participate Jackpot A ？</h6>
+        <h6 class="title-h7">How to Participate Jackpot A ?</h6>
       </div>
       <div class="personal-rules-right">
         <p>

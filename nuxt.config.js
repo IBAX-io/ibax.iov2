@@ -1,13 +1,3 @@
-/*
- * @Author: abc
- * @Date: 2021-08-16 11:14:27
- * @LastEditors: abc
- * @LastEditTime: 2021-11-22 18:14:49
- * @Description:nuxt setting
- */
-// const path = require('path')
-// import path from 'path';
-// import fs from 'fs';
 import env from './config/env';
 import sitemap from './config/sitemap';
 let pattern = false;
@@ -34,10 +24,9 @@ export default {
   env: {
     NUXT_ENV: env[process.env.MODE]
   },
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     htmlAttrs: {
-      prefix: 'og:https://ibax.io/ns#'
+      prefix: 'og:http://ogp.me/ns#'
     },
     title: 'Welcome to IBAX Network | IBAX',
     meta: [
@@ -54,7 +43,6 @@ export default {
       {
         hid: 'Cache-Control',
         'http-equiv': 'Cache-Control',
-        // content: "no-cache, no-store, must-revalidate"
         content: 'no-cache'
       },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -202,17 +190,7 @@ export default {
   router: {
     middleware: ['auth', 'i18n', 'router'],
     linkActiveClass: 'nav-active-link'
-    /* scrollBehavior(to, from, savedPosition) {
-      return { x: 0, y: 0 };
-    } */
   },
-  /*  transition: {
-    name: 'page',
-    mode: 'out-in',
-    beforeEnter(el) {
-      // console.log("Before enter...");
-    }
-  }, */
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -235,9 +213,8 @@ export default {
   },
   proxy: {
     '/api': {
-      target: 'https://ibax.io:9095',
-      // target: 'http://192.168.1.191:8888/',
-      // target: 'https://testnet-us-34-86-177-19.ibax.io:9095/',
+      // target: 'https://ibax.io:9095',
+      target: 'http://192.168.1.191:8888/',
       changeOrigin: true,
       pathRewrite: {
         '^/api/*': ''

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-11-10 15:38:57
- * @LastEditors: abc
- * @LastEditTime: 2021-11-22 17:51:21
- * @Description: 
--->
 <template>
   <div id="rules" class="personal">
     <div class="personal-score">

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-19 17:37:58
- * @LastEditors: abc
- * @LastEditTime: 2021-10-22 17:15:04
- * @Description: 
--->
 <template>
   <el-dialog
     :visible.sync="dialogVisible"

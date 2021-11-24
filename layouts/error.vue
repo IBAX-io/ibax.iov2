@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:09:41
- * @LastEditors: abc
- * @LastEditTime: 2021-11-10 20:48:27
- * @Description: 404
--->
 <template>
   <el-row type="flex" justify="center">
     <!-- PC nav -->

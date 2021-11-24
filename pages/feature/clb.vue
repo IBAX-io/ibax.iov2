@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:00:46
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:24:46
- * @Description: 
--->
 <template>
   <div class="other">
     <el-row type="flex" justify="center">
@@ -33,11 +26,6 @@
                 >
               </p>
             </el-col>
-            <!--  <el-col :xs="23" :lg="6">
-              <div class="home-new-img animated fadeInUp">
-                <img src="../../assets/image/diamond.svg" mode="powerful" />
-              </div>
-            </el-col> -->
           </el-row>
         </div>
         <div class="other other-middle">

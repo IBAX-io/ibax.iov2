@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 14:16:01
- * @LastEditors: abc
- * @LastEditTime: 2021-11-22 17:53:06
- * @Description: 
--->
 <template>
   <div id="login" class="login">
     <h6 class="title-h6">{{ $t('login.test') }}</h6>
@@ -19,7 +12,6 @@
   </div>
 </template>
 <script>
-// import { handleGetToken } from '../../assets/js/public';
 export default {
   props: {},
   data() {

@@ -1,10 +1,3 @@
-/*
- * @Author: abc
- * @Date: 2021-08-16 11:14:27
- * @LastEditors: abc
- * @LastEditTime: 2021-10-21 16:21:01
- * @Description:
- */
 import Vue from 'vue';
 import {
   PageHeader,

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2762091 */
-  src: url('iconfont.woff2?t=1637207103287') format('woff2'),
-       url('iconfont.woff?t=1637207103287') format('woff'),
-       url('iconfont.ttf?t=1637207103287') format('truetype');
+  src: url('iconfont.woff2?t=1637721945524') format('woff2'),
+       url('iconfont.woff?t=1637721945524') format('woff'),
+       url('iconfont.ttf?t=1637721945524') format('truetype');
 }
 
 .iconfont {
@@ -13,32 +13,44 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.el-a-FunctionBox:before {
+  content: "\e68e";
+}
+
+.el-Address:before {
+  content: "\e689";
+}
+
+.el-Clock:before {
+  content: "\e687";
+}
+
+.el-Calendar:before {
+  content: "\e686";
+}
+
 .el-out:before {
+  content: "\e68d";
+}
+
+.el-a-Two-dimensionalcode:before {
+  content: "\e68c";
+}
+
+.el-Link:before {
   content: "\e68b";
+}
+
+.el-pictures:before {
+  content: "\e690";
 }
 
 .el-red_hat:before {
   content: "\e68a";
 }
 
-.el-rili:before {
-  content: "\e689";
-}
-
 .el-xingzhuang:before {
   content: "\e688";
-}
-
-.el-shizhongclock77:before {
-  content: "\e973";
-}
-
-.el-dizhi:before {
-  content: "\e687";
-}
-
-.el-gongnenghe:before {
-  content: "\e686";
 }
 
 .el-typescript_logo:before {

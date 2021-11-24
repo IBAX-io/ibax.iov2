@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-15 11:47:26
- * @LastEditors: abc
- * @LastEditTime: 2021-11-10 11:01:15
- * @Description: Terms of service
--->
 <template>
   <article class="article">
     <h2 class="title-h4">TERMS AND CONDITIONS</h2>

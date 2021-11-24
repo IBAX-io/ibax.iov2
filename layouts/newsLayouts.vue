@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-16 15:01:26
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:16:04
- * @Description:
--->
 <template>
   <div class="global news">
     <el-scrollbar id="global" ref="scroll" style="height: 100%">
@@ -71,10 +64,6 @@
 </template>
 <script>
 import { handleGetLang } from '../assets/js/public.js';
-if (process.client) {
-  // eslint-disable-next-line no-var
-  var { WOW } = require('wowjs');
-}
 export default {
   props: {},
   data() {
@@ -90,22 +79,7 @@ export default {
       return this.$store.getters.handleIsFixed;
     }
   },
-  watch: {
-    /*  $route(newVal, oldVal) {
-      const { scroll } = newVal.query;
-      console.log(scroll);
-      if (scroll) {
-        console.log(newVal);
-        this.$refs.scroll.scrollTo(
-          {
-            y: scroll
-          },
-          500,
-          'easeInQuad'
-        );
-      }
-    } */
-  },
+  watch: {},
   created() {
     const obj = { headerColor: '#fff', color: '#37383c' };
     this.$store.commit('handleChangeColor', obj);
@@ -125,7 +99,7 @@ export default {
       this.domGlobal = document.getElementById('global').firstChild;
       this.domHeaderTop = this.$refs.headerTop.$el;
       console.log(this.domGlobal);
-      const wow = new WOW({
+      const wow = new this.WOW({
         boxClass: 'wow',
         animateClass: 'animated',
         scrollContainer: '.__panel',

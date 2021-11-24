@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:00:46
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:27:30
- * @Description: 
--->
 <template>
   <div class="other">
     <el-row type="flex" justify="center">

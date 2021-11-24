@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-17 17:50:10
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:52:16
- * @Description: conact us
--->
 <template>
   <div class="about">
     <div class="about-left">

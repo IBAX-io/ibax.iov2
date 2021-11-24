@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:00:46
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:23:37
- * @Description: architecture
--->
 <template>
   <div class="other">
     <el-row type="flex" justify="center">
@@ -40,14 +33,6 @@
                 >
               </p>
             </el-col>
-            <!--  <el-col :xs="23" :lg="12">
-              <div class="home-new-img wow fadeInUp">
-                <img
-                  src="../../assets/images/copyright-1.png"
-                  alt="copyright-1"
-                />
-              </div>
-            </el-col> -->
           </el-row>
         </div>
         <div class="other other-middle">

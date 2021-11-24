@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-09-14 15:28:49
- * @LastEditors: abc
- * @LastEditTime: 2021-09-22 12:26:02
- * @Description: 
--->
 <template>
   <nuxt />
 </template>

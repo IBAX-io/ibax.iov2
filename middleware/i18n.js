@@ -1,10 +1,3 @@
-/*
- * @Author: abc
- * @LastEditors: abc
- * @Description
- * @Date: 2019-04-11 09:27:56
- * @LastEditTime: 2021-11-01 09:36:24
- */
 import { handleGetLang } from '../assets/js/public.js';
 export default function ({
   isHMR,

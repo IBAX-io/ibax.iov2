@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-23 14:22:23
- * @LastEditors: abc
- * @LastEditTime: 2021-09-20 15:32:52
- * @Description: 
--->
 <template>
   <!-- bottom -->
   <div class="cta">

@@ -1,10 +1,3 @@
-/*
- * @Author: abc
- * @Date: 2021-09-07 14:08:14
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 18:09:18
- * @Description:
- */
 import { handleTokenCookie } from '../assets/js/public';
 export const state = () => ({
   headerColor: '#274235',
@@ -25,7 +18,6 @@ export const mutations = {
     }
   },
   handleChangeToken(state, token) {
-    //  console.log(token);
     state.token = token;
   },
   handleUserInfo(state, obj) {
@@ -54,7 +46,6 @@ export const mutations = {
 };
 
 export const actions = {
-  // nuxtClientInit
   nuxtClientInit({ dispatch, commit }, context) {
     // code
   },
@@ -71,7 +62,6 @@ export const actions = {
       const { token } = serviceCookie;
 
       if (token) {
-        // console.log(token);
         commit('handleChangeToken', token);
       } else {
         commit('handleChangeToken', '');
@@ -95,7 +85,6 @@ export const actions = {
 export const getters = {
   handdleLang(state) {
     const { lang } = state;
-    // console.log(authUser);
     return lang;
   },
   handleToken(state) {
@@ -108,22 +97,21 @@ export const getters = {
   },
   handleHeaderColor(state) {
     const { headerColor } = state;
-    // console.log(authUser);
     return headerColor;
   },
   handleColor(state) {
     const { color } = state;
-    // console.log(authUser);
+
     return color;
   },
   handlePopperClass(state) {
     const { domClass } = state;
-    // console.log(authUser);
+
     return domClass;
   },
   handleBoxShadow(state) {
     const { boxShadow } = state;
-    // console.log(authUser);
+
     return boxShadow;
   },
   handleIsTop(state) {

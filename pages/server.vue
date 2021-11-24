@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-15 12:27:07
- * @LastEditors: abc
- * @LastEditTime: 2021-10-19 17:29:01
- * @Description: 
--->
 <template>
   <div class="server">
     <div id="serverTop" class="server-top">

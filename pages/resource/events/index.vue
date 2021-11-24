@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:00:46
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 15:53:54
- * @Description: ecolibs
--->
 <template>
   <div class="events">
     <el-row type="flex" justify="center">
@@ -84,7 +77,7 @@
                     <ul class="events-list">
                       <li class="wow fadeInUp">
                         <div class="events-list-address">
-                          <i class="iconfont el-dizhi"></i>
+                          <i class="iconfont el-Address"></i>
                           <strong>{{ $t('events.discord') }}</strong>
                         </div>
                         <a
@@ -98,7 +91,7 @@
                       </li>
                       <li class="wow fadeInUp">
                         <div class="events-list-address">
-                          <i class="iconfont el-dizhi"></i>
+                          <i class="iconfont el-Address"></i>
                           <strong>{{ $t('events.telegram') }}</strong>
                         </div>
                         <a
@@ -112,7 +105,7 @@
                       </li>
                       <li class="wow fadeInUp">
                         <div class="events-list-address">
-                          <i class="iconfont el-dizhi"></i>
+                          <i class="iconfont el-Address"></i>
                           <strong>{{ $t('events.subscribe') }}</strong>
                         </div>
                         <a
@@ -172,13 +165,13 @@
                         data-time-convert="2021-09-28T13:00:00"
                       >
                         <span class="date"
-                          ><i class="iconfont el-rili"></i>
+                          ><i class="iconfont el-Calendar"></i>
                           {{ dayjs(item.start_time).format('LLL') }}
                         </span>
                         <span class="time">CST</span>
                       </div>
                       <div class="duration">
-                        <i class="iconfont el-shizhongclock77"></i>
+                        <i class="iconfont el-Clock"></i>
                         {{ dayjs(item.stop_time).diff(new Date(), 'hour') }}
                         Hour
                       </div>

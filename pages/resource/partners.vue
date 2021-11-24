@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-24 16:43:39
- * @LastEditors: abc
- * @LastEditTime: 2021-10-21 17:57:22
- * @Description: video resources
--->
 <template>
   <div class="resource">
     <el-row type="flex" justify="center">
@@ -387,7 +380,6 @@ export default {
       this.numExcellent =
         document.getElementById('excellent').getBoundingClientRect().bottom -
         140;
-      // console.log(this.numArchite);
       this.numAccoladesBottom =
         document.getElementById('accolades').getBoundingClientRect().bottom -
         140;

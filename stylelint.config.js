@@ -1,14 +1,5 @@
-/*
- * @Author: abc
- * @Date: 2021-08-18 09:41:43
- * @LastEditors: abc
- * @LastEditTime: 2021-08-30 14:54:47
- * @Description:
- */
 module.exports = {
   extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
-  // add your custom config here
-  // https://stylelint.io/user-guide/configuration
   rules: {
     'declaration-block-trailing-semicolon': null,
     'no-descending-specificity': null,

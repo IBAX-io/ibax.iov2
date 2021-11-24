@@ -38,6 +38,29 @@
   color: #37383c;
   padding-bottom: 50px;
   background-color: #f6f6f6;
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-right {
+    display: flex;
+    align-items: center;
+    &-btn {
+      background: transparent;
+      cursor: pointer;
+      font-size: 20px;
+      color: #f3ac30;
+    }
+    &-middle {
+      margin: 0 20px;
+      font-size: 20px;
+    }
+    &-active {
+      color: #37383c;
+      cursor: not-allowed;
+    }
+  }
   &-score {
     .title-h6 {
       margin-bottom: 0;
@@ -266,6 +289,94 @@
       color: #f3ac30;
       font-size: 20px;
       font-weight: bolder;
+    }
+  }
+  &-share {
+    padding: 50px 0;
+    background: url("../images/login/background.png") no-repeat center;
+    background-size: cover;
+    &-ranking {
+      padding: 30px 0;
+      .title-h6 {
+        font-size: 20px;
+        margin-bottom: 30px;
+      }
+      &-white {
+        background-color: #fff;
+        height: 80px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+        font-size: 20px;
+        margin-bottom: 20px;
+        &-color {
+          color: #f3ac30;
+        }
+      }
+      &-gray {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    &-history {
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.03);
+      border-radius: 12px;
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+    }
+    .personal-rules {
+      margin-top: 0;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .personal-rules-box {
+      margin-bottom: 30px;
+      margin-top: 0;
+    }
+    &-table-rule {
+      color: #707070;
+      font-size: 18px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      border-collapse: separate;
+      border-left: 1px solid #b4b4b4;
+      border-top: 1px solid #b4b4b4;
+      width: 50%;
+      border-radius: 8px;
+      tr {
+        td {
+          border-bottom: 1px solid #b4b4b4;
+          border-right: 1px solid #b4b4b4;
+          text-align: center;
+          vertical-align: middle;
+        }
+        &:first-child {
+          td:last-child {
+            border-top-right-radius: 8px;
+          }
+        }
+        &:last-child {
+          td:first-child {
+            border-bottom-left-radius: 8px;
+          }
+          td:last-child {
+            border-bottom-right-radius: 8px;
+          }
+        }
+      }
     }
   }
 }

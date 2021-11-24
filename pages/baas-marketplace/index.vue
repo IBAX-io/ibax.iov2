@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 12:24:26
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 19:50:31
- * @Description: 
--->
 <template>
   <div class="bass">
     <div id="anyone" style="background: #274235">

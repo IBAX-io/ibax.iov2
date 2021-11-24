@@ -1,26 +1,13 @@
-/*
- * @Author: abc
- * @Date: 2021-01-08 14:39:29
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 20:32:22
- * @Description:axios
- */
 import { Message } from 'element-ui';
 import { handleSaveCookie } from '../assets/js/public';
 import baseURL from '../config/api';
-// import qs from "qs";
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {
-      //  console.log(baseURL, '1');
-      // console.log(config.baseURL, '2');
-      /// console.log(process.env.NUXT_ENV, '3');
       if (process.env.NODE_ENV === 'production') {
         config.baseURL = baseURL;
       }
-      //  console.log(store.state.token);
       if (store.state.token) {
-        // console.log(store.state.token);
         config.headers.Authorization = store.state.token;
       }
       config.headers['Content-Type'] = 'application/json';
@@ -35,17 +22,8 @@ export default function ({ $axios, redirect, store }) {
     }
   );
   $axios.onResponse((response) => {
-    // console.log(response);
     const { code } = response.data;
-    //  console.log(code);
     if (code === 401 || code === -402) {
-      /* Message.error({
-        message: `Login failed, please log in again(${code})`,
-        onClose: () => {
-          redirect('/login');
-          handleSaveCookie('token', '', -1);
-        }
-      }); */
       redirect('/login');
       handleSaveCookie('token', '', -1);
     } else {
@@ -54,13 +32,5 @@ export default function ({ $axios, redirect, store }) {
   });
   $axios.onError((error) => {
     console.log(error.response);
-    /* 
-    store.commit('handleChangeToken', '');
-    localStorage.removeItem('token'); */
-    /* const code = parseInt(error.response && error.response.status);
-    Message.error({
-      message: `Data call error, status code：${code}`,
-      showClose: true
-    }); */
   });
 }

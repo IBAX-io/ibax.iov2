@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-10-15 11:47:53
- * @LastEditors: abc
- * @LastEditTime: 2021-11-10 10:59:47
- * @Description: cookie
--->
 <template>
   <article class="article">
     <h2 class="title-h4">COOKIE POLICY</h2>

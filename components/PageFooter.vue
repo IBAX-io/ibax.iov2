@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-19 14:44:39
- * @LastEditors: abc
- * @LastEditTime: 2021-11-09 10:52:33
- * @Description: footer
--->
 <template>
   <div>
     <el-row type="flex" justify="space-between" class="el-row-wrap">
@@ -66,7 +59,6 @@
           </nuxt-link>
         </div>
       </el-col>
-      <!-- <el-col :xs="12" :lg="4"> </el-col> -->
     </el-row>
     <div class="footer-icon">
       <div class="footer-icon-content">

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-09-28 16:09:11
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:00:38
- * @Description: 
--->
 <template>
   <div class="events">
     <el-row type="flex" justify="center">
@@ -34,7 +27,7 @@
                 <span>{{ dayjs(objEvents.start_time).format('LLL') }}</span>
               </p>
               <p class="events-text animated fadeInUp">
-                <i class="iconfont el-shizhongclock77"></i>
+                <i class="iconfont el-Clock"></i>
                 <span>{{
                   dayjs(objEvents.stop_time).diff(new Date(), 'hour')
                 }}</span>

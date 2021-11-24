@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-24 16:43:39
- * @LastEditors: abc
- * @LastEditTime: 2021-11-19 20:44:09
- * @Description: video resources
--->
 <template>
   <div class="resource">
     <el-row type="flex" justify="center">
@@ -167,9 +160,6 @@
   </div>
 </template>
 <script>
-/* const img1 = require('../../assets/images/video-stuart.jpg');
-const img2 = require('../../assets/images/video-gianluca.jpg');
-const img3 = require('../../assets/images/video-an.png'); */
 export default {
   props: {},
   data() {

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-17 11:00:37
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:54:06
- * @Description: mobile nav
--->
 <template>
   <div class="m-nav">
     <nuxt-link :to="{ name: 'index' }" class="m-nav-index">
@@ -30,7 +23,7 @@
       <i
         class="iconfont"
         :class="{
-          'el-gongnenghe': !isAside,
+          'el-a-FunctionBox': !isAside,
           'el-icon-close': isAside
         }"
         :style="{ color: colorText }"

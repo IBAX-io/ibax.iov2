@@ -1,10 +1,3 @@
-/*
- * @Author: abc
- * @Date: 2021-11-12 12:17:07
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 20:27:30
- * @Description:sitemap
- */
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 const axios = require('axios');
@@ -23,12 +16,11 @@ export default [
       priority: 0.8
     },
     routes: (callback) => {
-      //  const getUrl = 'http://192.168.1.191:8888/newsEventsLink';
       const targetUrl = 'https://ibax.io/api/newsEventsLink';
       axios.get(targetUrl).then((res) => {
         const routes = [
           {
-            url: '/', //  这里的路径相对 hostname
+            url: '/',
             changefreq: 'always',
             lastmod: dayjs.utc().format('YYYY-MM-DDTHH:mm:ssZ'),
             priority: 1

@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-24 16:15:10
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 16:27:11
- * @Description: team
--->
 <template>
   <div class="team">
     <div id="technical" class="parallax-container--over">
@@ -506,13 +499,6 @@ export default {
       this.composedtHeight = this.composed.offsetHeight;
       this.parallax.style.height = this.composedtHeight + 'px';
     });
-    /*  this.domGlobal.addEventListener(
-      'scroll',
-      () => {
-        this.handleThrottle(this.handleTeamScroll, 250);
-      },
-      true
-    ); */
     this.domGlobal.addEventListener('scroll', this.handleTeamScroll, true);
   },
   destroyed() {

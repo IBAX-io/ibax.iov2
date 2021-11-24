@@ -689,8 +689,8 @@
   "road.upgrade": "Upgrade the P2P distributed network service under IBAX Network",
   "road.no": "No Data",
   "login.test": "IBAX test online \n Claim airdrop with twitter login",
-  "login.with": "Login with Twitter",
-  "login.event": "Participate in the IBAX Twitter event to earn airdrop points!",
+  "login.with": "Join Airdrop Now",
+  "login.event": "Participate in the IBAX Twitter event to earn airdrop IBXC!",
   "login.activities": "Participate in IBAX Twitter activities and receive airdrop points",
   "personal.on": "Follow IBAX",
   "personal.please": "Please Follow IBAX on Twitter, and click “Followed” after you do that.",
@@ -712,5 +712,11 @@
   "personal.date": "Date",
   "personal.earn": "Earn points",
   "personal.participate": "Participate",
-  "personal.still": "The event is still in progress, please redeem after the event ends!"
+  "personal.still": "The event is still in progress, please redeem after the event ends!",
+  "personal.ranking": "Ranking",
+  "personal.history": "History",
+  "personal.rule": "Rules",
+  "personal.redeems": "Redeem",
+  "personal.retweets": "Retweet",
+  "personal.share": "Share"
 }

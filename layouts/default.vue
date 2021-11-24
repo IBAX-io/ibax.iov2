@@ -1,10 +1,3 @@
-<!--
- * @Author: abc
- * @Date: 2021-08-16 15:01:26
- * @LastEditors: abc
- * @LastEditTime: 2021-11-20 15:09:25
- * @Description:
--->
 <template>
   <div class="global">
     <el-scrollbar id="global" ref="scroll" style="height: 100%">
