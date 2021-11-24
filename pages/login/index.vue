@@ -74,6 +74,11 @@ export default {
     this.$store.commit('handleIsFixed', false);
   },
   mounted() {
+    const query = this.$route.query;
+    const code = query.code || '';
+    const utmSource = query.utm_source || '';
+    localStorage.setItem('code', code);
+    localStorage.setItem('utmSource', utmSource);
     this.domGlobal.addEventListener('scroll', this.handleLoginScroll, true);
   },
   destroyed() {

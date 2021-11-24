@@ -13,21 +13,25 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    console.log(this.$route.query);
+    //  console.log(this.$route.query);
     const query = this.$route.query;
     this.handleInit(query);
   },
   methods: {
     async handleInit(query) {
+      const code = localStorage.getItem('code');
+      const utmSource = localStorage.getItem('utmSource');
       if (query.oauth_verifier && query.oauth_token) {
         const obj = {
           oauth_verifier: query.oauth_verifier,
-          oauth_token: query.oauth_token
+          oauth_token: query.oauth_token,
+          invitecode: code || '',
+          utm_source: utmSource || ''
         };
         const res = await this.$axios.$post('/twitter/auth', obj);
-        console.log(res);
+        // console.log(res);
         if (res.code === 0) {
-          // localStorage.setItem('token', res.data.token);
+          localStorage.setItem('invitecode', res.data.invitecode);
           handleTokenCookie('token', res.data.token, 1);
           this.$store
             .dispatch('handleActionsToken', res.data.token)
@@ -36,13 +40,6 @@ export default {
             });
         } else {
           this.$router.push({ name: 'index' });
-          /*  this.$message({
-            type: 'error',
-            message: `Login expired, please login again`,
-            onClose: () => {
-              this.$router.push({ name: 'login' });
-            }
-          }); */
         }
       } else {
         this.$message({

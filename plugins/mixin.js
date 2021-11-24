@@ -84,11 +84,15 @@ Vue.mixin({
     },
     userInfo() {
       return this.$store.getters.handleUserInfo;
+    },
+    invitecode() {
+      return this.$store.getters.handleInvitecode;
     }
   },
   created() {
     if (process.env.NODE_ENV === 'development') {
-      this.baseUrl = 'http://192.168.1.191:8888';
+      // this.baseUrl = 'http://192.168.1.191:8888';
+      this.baseUrl = 'http://192.168.1.85:8084';
     } else {
       this.baseUrl = 'https://ibax.io';
     }
@@ -185,6 +189,7 @@ Vue.mixin({
           this.$store.commit('handleChangeToken', '');
           // localStorage.removeItem('token');
           handleSaveCookie('token', '', -1);
+          localStorage.removeItem('invitecode');
           window.location.reload();
         }
       }

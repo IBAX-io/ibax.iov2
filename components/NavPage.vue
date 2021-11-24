@@ -136,7 +136,9 @@
       </nuxt-link>
       <div v-else class="nav-join">
         <nuxt-link
-          :to="{ name: 'login' }"
+          :to="{
+            name: 'login'
+          }"
           class="nav-link nav-link-middle"
           :style="{ color: colorText }"
           >{{ $t('nav.log') }}</nuxt-link

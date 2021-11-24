@@ -295,6 +295,7 @@
     padding: 50px 0;
     background: url("../images/login/background.png") no-repeat center;
     background-size: cover;
+    min-height: 600px;
     &-ranking {
       padding: 30px 0;
       .title-h6 {
@@ -375,6 +376,71 @@
           td:last-child {
             border-bottom-right-radius: 8px;
           }
+        }
+      }
+    }
+  }
+  &-code {
+    position: relative;
+    &-left {
+      width: 50px;
+      background-color: #f3ac30;
+      position: absolute;
+      padding: 30px 0;
+      top: 30%;
+      left: 0;
+      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      transform: translateX(50%);
+      word-break: break-all;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: normal;
+      z-index: 900;
+      & > * {
+        cursor: pointer;
+        i {
+          cursor: pointer;
+          font-size: 20px;
+        }
+      }
+      &-text {
+        writing-mode: vertical-rl;
+        letter-spacing: 3px;
+        margin: auto;
+      }
+      &-qr {
+        width: 300px;
+        height: 350px;
+        padding: 30px;
+        background: linear-gradient(269deg, rgba(243, 172, 8, 0.5) 0%, #f3ac30 100%);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 12px;
+        position: absolute;
+        color: #fff;
+        left: 60px;
+        bottom: 0;
+        z-index: 300;
+        &-text {
+          text-align: left;
+          word-break: normal;
+          line-height: 1.5em;
+          margin-bottom: 20px;
+        }
+      }
+      &-img {
+        position: absolute;
+        width: 350px;
+        top: -20%;
+        left: 60px;
+        z-index: 300;
+        &-small {
+          position: absolute;
+          width: 80px;
+          bottom: 20px;
+          left: 15px;
+          border-radius: 12px;
         }
       }
     }

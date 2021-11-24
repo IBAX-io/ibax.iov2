@@ -9,13 +9,17 @@ export const state = () => ({
   isFixed: false,
   isWhite: true,
   token: '',
-  userInfo: ''
+  userInfo: '',
+  invitecode: ''
 });
 export const mutations = {
   handleChangeLang(state, lang) {
     if (state.locales.includes(lang)) {
       state.lang = lang;
     }
+  },
+  handleChangeInvitecode(state, code) {
+    state.invitecode = code;
   },
   handleChangeToken(state, token) {
     state.token = token;
@@ -44,10 +48,11 @@ export const mutations = {
     state.isWhite = boo;
   }
 };
-
 export const actions = {
   nuxtClientInit({ dispatch, commit }, context) {
     // code
+    const invitecode = localStorage.getItem('invitecode');
+    commit('handleChangeInvitecode', invitecode);
   },
   // nuxtServerIni Nuxt.js
   nuxtServerInit({ dispatch, commit }, { req }) {
@@ -70,7 +75,7 @@ export const actions = {
   },
   async handleGetUser({ commit }) {
     const res = await this.$axios.$post('/tw/getuser');
-    console.log(res);
+    // console.log(res);
     if (res.code === 0) {
       commit('handleUserInfo', res.data);
     } else {
@@ -90,6 +95,10 @@ export const getters = {
   handleToken(state) {
     const { token } = state;
     return token;
+  },
+  handleInvitecode(state) {
+    const { invitecode } = state;
+    return invitecode;
   },
   handleUserInfo(state) {
     const { userInfo } = state;

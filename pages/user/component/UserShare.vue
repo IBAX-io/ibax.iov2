@@ -1,11 +1,12 @@
 <template>
   <div class="personal-tabs personal-share">
     <el-row type="flex" justify="center">
-      <el-col :sm="22" :lg="22" :md="20">
+      <el-col :sm="22" :lg="18" :md="20" class="personal-code">
+        <share-left></share-left>
         <el-tabs v-model="shareName" @tab-click="handleShare">
           <el-tab-pane :label="$t('personal.ranking')" name="one">
             <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="16" :md="20">
+              <el-col :sm="22" :lg="18" :md="20">
                 <div
                   v-if="arrRanking.length === 0"
                   class="personal-tabs-record-img"
@@ -47,7 +48,7 @@
           </el-tab-pane>
           <el-tab-pane :label="$t('personal.history')" name="two">
             <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="16" :md="20">
+              <el-col :sm="22" :lg="18" :md="20">
                 <div
                   v-if="arrHistory.length === 0"
                   class="personal-tabs-record-img"
@@ -103,14 +104,14 @@
           </el-tab-pane>
           <el-tab-pane :label="$t('personal.rule')" name="three">
             <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="16" :md="20">
+              <el-col :sm="22" :lg="18" :md="20">
                 <share-rules></share-rules>
               </el-col>
             </el-row>
           </el-tab-pane>
           <el-tab-pane :label="$t('personal.redeems')" name="four">
             <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="16" :md="20">
+              <el-col :sm="22" :lg="18" :md="20">
                 <div class="personal-tabs-points-img">
                   <img src="@/assets/images/login/points.png" alt="points" />
                 </div>
@@ -123,9 +124,10 @@
   </div>
 </template>
 <script>
+import ShareLeft from './ShareLeft.vue';
 import ShareRules from './ShareRules.vue';
 export default {
-  components: { ShareRules },
+  components: { ShareRules, ShareLeft },
   props: {},
   data() {
     return {

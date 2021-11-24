@@ -91,6 +91,7 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    this.handlePointsAlready();
     this.handleGetFollow(this.objFollow);
   },
   methods: {
@@ -117,6 +118,68 @@ export default {
         this.showFollow = res.data.rets[0];
       } else {
         this.showFollow = {};
+      }
+    },
+    // twitter Follow
+    handleIsFollow(obj) {
+      if (obj.status) {
+        this.$message({
+          type: 'success',
+          message: this.$t('personal.followed')
+        });
+      } else {
+        const h = this.$createElement;
+        this.$msgbox({
+          title: this.$t('personal.on'),
+          customClass: 'personal-custom',
+          message: h('p', null, [h('span', null, this.$t('personal.please'))]),
+          showCancelButton: true,
+          distinguishCancelAndClose: true,
+          closeOnClickModal: false,
+          closeOnPressEscape: false,
+          center: true,
+          confirmButtonClass: 'link-btn',
+          confirmButtonText: this.$t('personal.followed'),
+          cancelButtonText: this.$t('personal.not'),
+          beforeClose: (action, instance, done) => {
+            if (action === 'confirm') {
+              instance.confirmButtonLoading = true;
+              instance.confirmButtonText = 'Loading...';
+              console.log(this.userInfo);
+              const params = {
+                userName: this.userInfo.username,
+                followUserName: obj.followsUserName
+              };
+              setTimeout(() => {
+                this.$axios.$post('/tw/getFollowing', params).then((res) => {
+                  console.log(res);
+                  if (res.code === 0 && res.data.status) {
+                    done();
+                    instance.confirmButtonLoading = false;
+                    this.handleGetFollow(this.objFollow);
+                    this.handlePointsAlready();
+                    this.$message({
+                      type: 'success',
+                      message: this.$t('personal.followed')
+                    });
+                  } else {
+                    done();
+                    instance.confirmButtonLoading = false;
+                    this.$message({
+                      type: 'warning',
+                      message: this.$t('personal.not')
+                    });
+                  }
+                });
+              }, 5000);
+              // console.log(params);
+            } else {
+              done();
+            }
+          }
+        })
+          .then((action) => {})
+          .catch((action) => {});
       }
     }
   }

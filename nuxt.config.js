@@ -170,6 +170,8 @@ export default {
     { src: '@/plugins/vueSroll.js', ssr: false },
     { src: '@/plugins/vueP5.js', ssr: false },
     { src: '@/plugins/shareon.js', ssr: false },
+    { src: '@/plugins/vueQr.js', ssr: false },
+    { src: '@/plugins/copy.js', ssr: false },
     '@/plugins/vueSlickCarousel.js'
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
