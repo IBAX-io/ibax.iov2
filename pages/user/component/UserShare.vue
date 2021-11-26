@@ -2,7 +2,7 @@
   <div class="personal-tabs personal-share">
     <el-row type="flex" justify="center">
       <el-col :sm="22" :lg="18" :md="20" class="personal-code">
-        <share-left></share-left>
+        <share-left v-if="!isMobile"></share-left>
         <el-tabs v-model="shareName" @tab-click="handleShare">
           <el-tab-pane :label="$t('personal.ranking')" name="one">
             <el-row type="flex" justify="center">
@@ -55,15 +55,15 @@
                 >
                   <img src="@/assets/images/login/no-data.png" alt="no-data" />
                 </div>
-                <div class="personal-share-ranking">
-                  <div class="personal-share-ranking-white">
+                <div v-else class="personal-share-ranking">
+                  <div v-if="!isMobile" class="personal-share-ranking-white">
                     <span class="personal-share-ranking-white-color"
                       >Twitter name</span
                     >
                     <span>Join Date(UTC)</span>
                     <span>Get IBXC</span>
                   </div>
-                  <div class="personal-share-history">
+                  <div v-if="!isMobile" class="personal-share-history">
                     <div
                       v-for="(item, index) in arrHistory"
                       :key="index"
@@ -74,6 +74,32 @@
                       >
                       <span>{{ handleTimeShow(item.time) }}&nbsp;&nbsp;</span>
                       <span>{{ item.ibxc }}&nbsp;&nbsp;IBXC</span>
+                    </div>
+                  </div>
+                  <div v-if="isMobile" class="personal-share-history">
+                    <div
+                      v-for="(item, index) in arrHistory"
+                      :key="index"
+                      class="personal-share-history-item"
+                    >
+                      <div class="personal-share-history-item-single">
+                        <span class="personal-share-ranking-white-color"
+                          >Twitter name:
+                        </span>
+                        <span>{{ item.username }}</span>
+                      </div>
+                      <div class="personal-share-history-item-single">
+                        <span class="personal-share-ranking-white-color"
+                          >Join Date(UTC):
+                        </span>
+                        <span>{{ handleTimeShow(item.time) }}&nbsp;&nbsp;</span>
+                      </div>
+                      <div class="personal-share-history-item-single">
+                        <span class="personal-share-ranking-white-color"
+                          >Get:
+                        </span>
+                        <span>{{ item.ibxc }}&nbsp;&nbsp;IBXC</span>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -119,6 +145,7 @@
             </el-row>
           </el-tab-pane>
         </el-tabs>
+        <share-left v-if="isMobile"></share-left>
       </el-col>
     </el-row>
   </div>

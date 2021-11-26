@@ -5,15 +5,14 @@
       <i class="iconfont el-Link" @click="handleCopy"></i>
     </div>
     <div class="personal-code-left-icon">
-      <i class="iconfont el-a-Two-dimensionalcode" @mouseenter="handleCode"></i>
+      <i class="iconfont el-a-Two-dimensionalcode" @click="handleCode"></i>
     </div>
     <div class="personal-code-left-icon">
-      <i class="iconfont el-pictures" @mouseenter="handleShare"></i>
+      <i class="iconfont el-pictures" @click="handleShare"></i>
     </div>
     <div
       v-show="isCode"
       class="personal-code-left-qr"
-      @mouseleave="handleLeaveCode"
       @click="handleCodeConfirm"
     >
       <div class="personal-code-left-qr-text">
@@ -36,7 +35,6 @@
       ref="shareBox"
       class="personal-code-left-img"
       @click="handleHtml2canvas"
-      @mouseleave="handleLeaveShare"
     >
       <img src="../../../assets/images/login/back.png" alt="back" />
       <img :src="strImgUrl" alt="code" class="personal-code-left-img-small" />
@@ -91,7 +89,7 @@ export default {
       this.isCode = false;
     },
     handleCode() {
-      this.isCode = true;
+      this.isCode = !this.isCode;
     },
     handleLeaveCode() {
       this.isCode = false;
@@ -102,7 +100,7 @@ export default {
       this.strImgUrl = url;
     },
     handleShare() {
-      this.isShore = true;
+      this.isShore = !this.isShore;
     },
     handleLeaveShare() {
       this.isShore = false;

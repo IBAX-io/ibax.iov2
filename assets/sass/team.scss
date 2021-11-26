@@ -16,7 +16,7 @@
     margin: 120px auto 0;
     width: 100%;
     max-width: 1034px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -40,6 +40,7 @@
   }
   .link {
     justify-content: center;
+    margin-top: 200px;
   }
   .parallax-container--spacer {
     width: 100%;

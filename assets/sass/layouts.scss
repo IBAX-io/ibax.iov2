@@ -953,4 +953,66 @@
   .personal-tabs-record {
     margin-top: 20px;
   }
+  .personal-share {
+    padding: 30px 0;
+  }
+  .personal-share-ranking-white {
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 10px 30px;
+    height: 100px;
+    & > span:last-child {
+      width: 100%;
+    }
+  }
+  .personal-share-history {
+    margin-bottom: 30px;
+    padding: 30px 10px;
+  }
+  .personal-share-history-item {
+    flex-wrap: wrap;
+  }
+  .personal-share-history-item-single {
+    width: 100%;
+  }
+  .personal-code {
+    padding-bottom: 100px;
+  }
+  .personal-code-left {
+    display: flex;
+    align-items: center;
+    left: 30px;
+    bottom: 30px;
+    width: calc(100% - 60px);
+    height: 50px;
+    transform: none;
+    padding: 0 20px;
+    justify-content: space-between;
+    top: auto;
+    .personal-code-left-text {
+      writing-mode: horizontal-tb;
+      margin: 0;
+    }
+  }
+  .personal-code-left-qr {
+    bottom: 65px;
+    left: calc((100% - 300px) / 2);
+  }
+  .personal-code-left-img {
+    top: auto;
+    bottom: 65px;
+    left: 0;
+    width: 100%;
+  }
+  .personal-code-left-img-small {
+    width: 21%;
+    bottom: 5%;
+    left: 5%;
+  }
+  .personal-share-table-rule {
+    width: 100%;
+  }
+  .personal-tabs {
+    min-height: auto;
+  }
 }

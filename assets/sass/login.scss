@@ -42,10 +42,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
   &-right {
     display: flex;
     align-items: center;
+    padding-left: 30px;
+    margin-bottom: 20px;
     &-btn {
       background: transparent;
       cursor: pointer;
@@ -113,6 +116,7 @@
     color: #37383c;
   }
   &-tabs {
+    min-height: 600px;
     &-task {
       margin-top: 50px;
       padding: 15px 15px 15px 40px;
@@ -293,9 +297,9 @@
   }
   &-share {
     padding: 50px 0;
-    background: url("../images/login/background.png") no-repeat center;
+    // background: url("../images/login/background.png") no-repeat center;
     background-size: cover;
-    min-height: 600px;
+    background-color: #e6e6e6;
     &-ranking {
       padding: 30px 0;
       .title-h6 {
