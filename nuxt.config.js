@@ -147,7 +147,6 @@ export default {
       }
     ],
     script: [
-      { src: 'https://cdn.polyfill.io/v2/polyfill.min.js' },
       {
         async: 'async',
         src: 'https://www.googletagmanager.com/gtag/js?id=G-3P74G75LD1'

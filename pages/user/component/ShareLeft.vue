@@ -4,11 +4,11 @@
     <div class="personal-code-left-icon">
       <i class="iconfont el-Link" @click="handleCopy"></i>
     </div>
-    <div class="personal-code-left-icon">
-      <i class="iconfont el-a-Two-dimensionalcode" @click="handleCode"></i>
+    <div class="personal-code-left-icon" @click="handleCode">
+      <i class="iconfont el-a-Two-dimensionalcode"></i>
     </div>
-    <div class="personal-code-left-icon">
-      <i class="iconfont el-pictures" @click="handleShare"></i>
+    <div class="personal-code-left-icon" @click="handleShare">
+      <i class="iconfont el-pictures"></i>
     </div>
     <div
       v-show="isCode"
@@ -16,7 +16,7 @@
       @click="handleCodeConfirm"
     >
       <div class="personal-code-left-qr-text">
-        Identify the QR code to enter the mobile version of the event page
+        {{ $t('personal.code') }}
       </div>
       <client-only>
         <vue-qr
@@ -55,11 +55,16 @@ export default {
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    imgUrl(val, oldval) {
+      this.$refs.shareBox.style.display = 'none';
+    }
+  },
   created() {},
   mounted() {
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
+    //  this.handleHtml2canvas();
     // http://192.168.1.85:8084/login?invitecode=sdasdas&utm_source=utm_source
   },
   methods: {
@@ -90,6 +95,7 @@ export default {
     },
     handleCode() {
       this.isCode = !this.isCode;
+      this.isShore = false;
     },
     handleLeaveCode() {
       this.isCode = false;
@@ -98,21 +104,49 @@ export default {
       console.log(url);
       console.log(qid);
       this.strImgUrl = url;
+      /* if (this.strImgUrl) {
+        this.$nextTick(() => {
+          html2canvas(this.$refs.shareBox).then((canvas) => {
+            this.imgUrl = canvas.toDataURL();
+            console.log(this.imgUrl);
+          });
+        });
+      } */
     },
     handleShare() {
       this.isShore = !this.isShore;
+      this.isCode = false;
     },
     handleLeaveShare() {
       this.isShore = false;
     },
-    handleHtml2canvas() {
-      html2canvas(this.$refs.shareBox).then((canvas) => {
-        this.imgUrl = canvas.toDataURL();
+    async handleHtml2canvas() {
+      /*   html2canvas(this.$refs.shareBox).then((canvas) => {
+        this.imgUrl = canvas.toDataURL('image/png');
+        console.log(this.imgUrl);
         const a = document.createElement('a');
         a.download = 'code-share';
         a.href = this.imgUrl;
         a.dispatchEvent(new MouseEvent('click'));
-        this.isShore = false;
+        this.isShore = false; 
+      }); */
+      this.$message({
+        type: 'success',
+        message: 'Downloading'
+      });
+      const res = await html2canvas(this.$refs.shareBox);
+      console.log(res);
+      console.log(res.toDataURL('image/png'));
+      this.imgUrl = res.toDataURL('image/png');
+      console.log(this.imgUrl);
+      const a = document.createElement('a');
+      a.download = 'code-share';
+      a.href = this.imgUrl;
+      a.dispatchEvent(new MouseEvent('click'));
+      this.isShore = false;
+      this.$message({
+        type: 'success',
+        message: 'Download complete'
       });
     }
   }

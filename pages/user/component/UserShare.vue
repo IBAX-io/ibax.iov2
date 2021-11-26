@@ -40,8 +40,7 @@
                   </div>
                 </div>
                 <div>
-                  Refer a friend to get IBXC rewards, the top ten can get
-                  additional referral rewards
+                  {{ $t('personal.friends') }}
                 </div>
               </el-col>
             </el-row>
@@ -178,7 +177,6 @@ export default {
   },
   methods: {
     handleShare(tabs) {
-      // console.log(tabs.name);
       const { name } = tabs;
       if (name === 'one') {
         this.handleLeaderBoard();

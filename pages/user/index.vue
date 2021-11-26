@@ -9,10 +9,16 @@
           <div class="personal-box">
             <div class="personal-top">
               <h6 class="title-h6">
-                <span style="margin-right: 10px">{{ $t('personal.own') }}</span
-                >{{ money_format(statistics) }}
+                <span v-if="isTabs" style="margin-right: 10px">{{
+                  $t('personal.own')
+                }}</span>
+                <span v-else style="margin-right: 10px">{{
+                  $t('personal.coins')
+                }}</span>
+                <span>{{ money_format(statistics) }}</span>
+                <span v-if="!isTabs">IBXC</span>
               </h6>
-              <div class="personal-score-text">
+              <div v-if="isTabs" class="personal-score-text">
                 <a
                   v-if="showFollow.status"
                   href="https://twitter.com/IbaxNetwork"
@@ -36,7 +42,13 @@
                   <i class="el-icon-arrow-right"></i>
                 </a>
               </div>
+              <div v-else class="personal-score-text">
+                <span>
+                  {{ $t('personal.invite') }}
+                </span>
+              </div>
             </div>
+
             <div class="personal-right">
               <button
                 class="personal-right-btn"
@@ -76,6 +88,7 @@ export default {
   data() {
     return {
       isTabs: true,
+      strTabs: 'retweet',
       objFollow: {
         where: '',
         order: 'id desc',
@@ -98,13 +111,26 @@ export default {
     handleChangetabs(str) {
       if (str === 'retweet') {
         this.isTabs = true;
+        this.strTabs = 'retweet';
+        this.handlePointsAlready();
       } else {
         this.isTabs = false;
+        this.strTabs = 'share';
+        this.handleInviteStatistics();
       }
     },
     async handlePointsAlready() {
       const res = await this.$axios.$post('/tw/get_points_statistics');
       console.log(res);
+      if (res.code === 0) {
+        this.statistics = res.data.statistics;
+      } else {
+        this.statistics = 0;
+      }
+    },
+    async handleInviteStatistics() {
+      const res = await this.$axios.$post('/tw/get_invite_statistics');
+      // console.log(res);
       if (res.code === 0) {
         this.statistics = res.data.statistics;
       } else {

@@ -954,7 +954,7 @@
     margin-top: 20px;
   }
   .personal-share {
-    padding: 30px 0;
+    padding-bottom: 30px;
   }
   .personal-share-ranking-white {
     width: 100%;
@@ -1014,5 +1014,11 @@
   }
   .personal-tabs {
     min-height: auto;
+  }
+  .personal-tabs-record-img img {
+    width: 200px;
+  }
+  .personal-rules-right-item {
+    display: block;
   }
 }

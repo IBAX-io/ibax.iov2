@@ -701,7 +701,9 @@
   "personal.follow": "Please retweet the post then get your IBAX points",
   "personal.forwarded": "Finished",
   "personal.notf": "Unfinished",
-  "personal.own": "Earned:",
+  "personal.own": "Points already:",
+  "personal.coins": "Invite a friend to earn IBXC:",
+  "personal.invite": "Invite friends to earn more IBXC",
   "personal.get": "Follow IBXA to get 2,000 points",
   "personal.go": "Go to follow",
   "personal.task": "Task",
@@ -718,5 +720,7 @@
   "personal.rule": "Rules",
   "personal.redeems": "Redeem",
   "personal.retweets": "Retweet",
-  "personal.share": "Share"
+  "personal.share": "Share",
+  "personal.code": "Identify the QR code to enter the mobile version of the event page",
+  "personal.friends": "Invite your friends to get IBXC and the top 10 referrers will get an additional referral reward."
 }
