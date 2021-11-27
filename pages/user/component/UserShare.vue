@@ -60,7 +60,7 @@
                       >Twitter name</span
                     >
                     <span>Join Date(UTC)</span>
-                    <span>Get IBXC</span>
+                    <span>Earned IBXC</span>
                   </div>
                   <div v-if="!isMobile" class="personal-share-history">
                     <div
@@ -95,7 +95,7 @@
                       </div>
                       <div class="personal-share-history-item-single">
                         <span class="personal-share-ranking-white-color"
-                          >Get:
+                          >Earned:
                         </span>
                         <span>{{ item.ibxc }}&nbsp;&nbsp;IBXC</span>
                       </div>
