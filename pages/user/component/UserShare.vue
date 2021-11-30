@@ -14,7 +14,7 @@
                   <img src="@/assets/images/login/no-data.png" alt="no-data" />
                 </div>
                 <div v-else class="personal-share-ranking">
-                  <h6 class="title-h6">As of 2022-02-01 8:00 EST</h6>
+                  <h6 class="title-h6">End Time: Feb 1st, 2022 EST</h6>
                   <div
                     v-for="(item, index) in arrRanking"
                     :key="index"
