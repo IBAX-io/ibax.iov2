@@ -1,44 +1,68 @@
 <template>
   <div class="personal-code-left">
-    <div class="personal-code-left-text">Share Friends:</div>
-    <div class="personal-code-left-icon">
-      <i class="iconfont el-Link" @click="handleCopy"></i>
-    </div>
-    <div class="personal-code-left-icon" @click="handleCode">
-      <i class="iconfont el-a-Two-dimensionalcode"></i>
-    </div>
-    <div class="personal-code-left-icon" @click="handleShare">
-      <i class="iconfont el-pictures"></i>
-    </div>
-    <div
-      v-show="isCode"
-      class="personal-code-left-qr"
-      @click="handleCodeConfirm"
-    >
-      <div class="personal-code-left-qr-text">
-        {{ $t('personal.code') }}
+    <div class="personal-code-left-box">
+      <div class="personal-code-left-text">
+        <span>(Get more IBXC)</span>
+        <span>Share Friends:</span>
       </div>
-      <client-only>
-        <vue-qr
-          ref="qrCodeUrl"
-          :size="150"
-          :auto-color="true"
-          :dot-scale="1"
-          :text="strURL"
-          style="height: 200px; width: 200px; border-radius: 12px"
-          :callback="handleCodeqr"
-        />
-      </client-only>
+      <div class="personal-code-left-icon">
+        <i class="iconfont el-Link" @click="handleCopy"></i>
+      </div>
+      <div class="personal-code-left-icon" @click="handleCode">
+        <i class="iconfont el-a-Share2"></i>
+      </div>
+      <div class="personal-code-left-icon" @click="handleShare">
+        <i class="iconfont el-pictures"></i>
+      </div>
+      <div
+        v-show="isCode"
+        class="personal-code-left-qr"
+        @click="handleCodeConfirm"
+      >
+        <div class="shareon" :data-url="strURL">
+          <a class="twitter" :data-url="strURL"></a>
+          <a class="telegram" :data-url="strURL"></a>
+          <a class="facebook" :data-url="strURL"></a>
+          <a class="linkedin" :data-url="strURL"></a>
+          <a class="reddit" :data-url="strURL"></a>
+        </div>
+        <div style="display: none">
+          <client-only>
+            <vue-qr
+              ref="qrCodeUrl"
+              :logo-src="logoSrc"
+              :size="150"
+              :logo-scale="logoScale"
+              :auto-color="true"
+              :dot-scale="1"
+              :text="strURL"
+              style="height: 200px; width: 200px; border-radius: 12px"
+              background-color="#274235"
+              background-dimming="#274235"
+              color-dark="#274235"
+              :margin="margin"
+              :callback="handleCodeqr"
+            />
+          </client-only>
+        </div>
+      </div>
+      <div
+        v-show="isShore"
+        ref="shareBox"
+        class="personal-code-left-img"
+        @click="handleHtml2canvas"
+      >
+        <img src="../../../assets/images/login/back.png" alt="back" />
+        <img :src="strImgUrl" alt="code" class="personal-code-left-img-small" />
+      </div>
     </div>
-    <div
-      v-show="isShore"
-      ref="shareBox"
-      class="personal-code-left-img"
-      @click="handleHtml2canvas"
+    <a
+      class="personal-code-left-image"
+      href="https://t.me/IBAXNetwork"
+      target="_blank"
     >
-      <img src="../../../assets/images/login/back.png" alt="back" />
-      <img :src="strImgUrl" alt="code" class="personal-code-left-img-small" />
-    </div>
+      <img src="@/assets/images/login/tg.png" alt="tg" />
+    </a>
   </div>
 </template>
 <script>
@@ -47,11 +71,14 @@ export default {
   props: {},
   data() {
     return {
+      margin: 15,
+      logoScale: 0.2,
       strURL: '',
       isCode: false,
       isShore: false,
       strImgUrl: '',
-      imgUrl: ''
+      imgUrl: '',
+      logoSrc: require('../../../assets/images/login/logo.png')
     };
   },
   computed: {},
@@ -62,6 +89,7 @@ export default {
   },
   created() {},
   mounted() {
+    this.shareon();
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
     //  this.handleHtml2canvas();
@@ -76,6 +104,8 @@ export default {
             type: 'success',
             message: `Copy succeeded`
           });
+          this.isShore = false;
+          this.isCode = false;
         },
         (e) => {
           console.log(e);
@@ -87,10 +117,10 @@ export default {
       );
     },
     handleCodeConfirm() {
-      const a = document.createElement('a');
+      /*   const a = document.createElement('a');
       a.download = 'code';
       a.href = this.$refs.qrCodeUrl.$el.src;
-      a.dispatchEvent(new MouseEvent('click'));
+      a.dispatchEvent(new MouseEvent('click')); */
       this.isCode = false;
     },
     handleCode() {

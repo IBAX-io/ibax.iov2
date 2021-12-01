@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" justify="space-between" class="el-row-wrap">
       <el-col :xs="24" :lg="3">
-        <div class="nav-index">
+        <div class="nav-index nav-logo">
           <nuxt-link :to="{ name: 'index' }">
             <i class="iconfont el-logo1"></i>
           </nuxt-link>
@@ -68,7 +68,7 @@
         <a href="https://github.com/IBAX-io" target="_blank">
           <i class="iconfont el-github"></i>
         </a>
-        <a href="https://t.me/IBAXNetwork" target="_blank">
+        <a href="https://medium.com/@ibaxnetwork" target="_blank">
           <i class="iconfont el-medium"></i>
         </a>
         <a href="https://twitter.com/IbaxNetwork" target="_blank">
@@ -82,9 +82,6 @@
         </a>
         <a href="https://t.me/IBAXNetwork" target="_blank">
           <i class="iconfont el-telegram"></i>
-        </a>
-        <a href="https://t.me/IBAXNetwork" target="_blank">
-          <i class="iconfont el-reddit"></i>
         </a>
         <a href="https://www.linkedin.com/company/ibaxio/" target="_blank">
           <i class="iconfont el-linkedin"></i>

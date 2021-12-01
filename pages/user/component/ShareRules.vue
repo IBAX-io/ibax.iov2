@@ -174,10 +174,6 @@
             <td>500</td>
           </tr>
           <tr>
-            <td>11</td>
-            <td>1</td>
-          </tr>
-          <tr>
             <td>Total</td>
             <td>350,000</td>
           </tr>

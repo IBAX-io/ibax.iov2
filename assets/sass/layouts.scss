@@ -852,11 +852,16 @@
   }
   .login {
     padding-top: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
+    &-last {
+      margin-bottom: 30px;
+    }
+  }
+  .login-box {
+    width: 100%;
+    margin: 20px auto;
   }
   .login-btn {
-    margin-bottom: 50px;
+    margin: 30px auto;
   }
   .personal-score {
     .personal-top {
@@ -956,7 +961,8 @@
   .personal-share {
     padding-bottom: 30px;
   }
-  .personal-share-ranking-white {
+  .personal-share-ranking-white,
+  .personal-share-ranking-gray {
     width: 100%;
     flex-wrap: wrap;
     padding: 10px 30px;
@@ -987,11 +993,38 @@
     width: calc(100% - 60px);
     height: 50px;
     transform: none;
-    padding: 0 20px;
     justify-content: space-between;
     top: auto;
+    & > * {
+      cursor: pointer;
+      i {
+        margin-left: 15px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+    }
+    .personal-code-left-box {
+      display: flex;
+      padding: 5px 10px;
+      align-items: center;
+    }
     .personal-code-left-text {
       writing-mode: horizontal-tb;
+      margin: 0;
+      display: block;
+      & > * {
+        display: block;
+        width: auto;
+        writing-mode: horizontal-tb;
+        font-size: 16px;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+    .personal-code-left-image {
+      width: 50px;
+      height: 50px;
+      padding: 0;
       margin: 0;
     }
   }

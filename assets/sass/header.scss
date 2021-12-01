@@ -355,6 +355,11 @@
     }
   }
 }
+.nav-logo {
+  a.nav-active-link i.iconfont {
+    color: #274235;
+  }
+}
 a.nav-active-link {
   color: #f3ac34 !important;
   opacity: 1;

@@ -1,37 +1,47 @@
 .login {
   background: url("../images/login/login.png") center no-repeat;
   background-size: cover;
-  text-align: center;
   color: #fff;
-  padding-top: 200px;
+  padding-top: 50px;
   padding-bottom: 50px;
   h6 {
     margin-bottom: 0;
   }
   &-text {
     letter-spacing: 2px;
-    padding: 30px 0;
+    font-weight: bolder;
   }
   &-btn {
     color: #fff;
     background: #4c96e3;
     padding: 12px 40px;
     border-radius: 5px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     cursor: pointer;
-    margin-bottom: 150px;
+    margin: 50px auto;
     .iconfont {
       font-size: 20px;
       margin-right: 10px;
     }
   }
   &-rules {
+    text-align: center;
     text-decoration: underline;
     cursor: pointer;
   }
   .title-h6 {
-    white-space: pre;
+    white-space: normal;
+  }
+  &-box {
+    background: #fff;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.53);
+    opacity: 1;
+    border-radius: 20px;
+    color: #4c96e3;
+    width: 80%;
+    margin: 30px auto;
+    padding: 30px;
   }
 }
 .personal {
@@ -388,20 +398,27 @@
     position: relative;
     &-left {
       width: 50px;
-      background-color: #f3ac30;
       position: absolute;
-      padding: 30px 0;
       top: 30%;
       left: 0;
-      box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
       transform: translateX(50%);
       word-break: break-all;
       color: #fff;
-      border-radius: 10px;
       font-size: 18px;
       text-align: center;
       font-weight: normal;
       z-index: 900;
+      &-box {
+        padding: 30px 0;
+        background-color: #f3ac30;
+        border-radius: 10px;
+        box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+      }
+      &-image {
+        display: block;
+        padding: 20px 0;
+        width: 100%;
+      }
       & > * {
         cursor: pointer;
         i {
@@ -410,21 +427,30 @@
         }
       }
       &-text {
-        writing-mode: vertical-rl;
-        letter-spacing: 3px;
-        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        letter-spacing: 1px;
+        & > * {
+          width: 25px;
+          writing-mode: vertical-rl;
+        }
+        & > span:first-child {
+          font-size: 14px;
+        }
       }
       &-qr {
-        width: 300px;
-        height: 350px;
-        padding: 30px;
-        background: linear-gradient(269deg, rgba(243, 172, 8, 0.5) 0%, #f3ac30 100%);
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        // width: 300px;
+        // height: 350px;
+        padding: 10px;
+        // background: linear-gradient(269deg, rgba(243, 172, 8, 0.5) 0%, #f3ac30 100%);
+        // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         border-radius: 12px;
         position: absolute;
         color: #fff;
         left: 60px;
-        bottom: 0;
+        bottom: 80px;
         z-index: 300;
         &-text {
           text-align: left;

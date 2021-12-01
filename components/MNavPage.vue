@@ -1,7 +1,11 @@
 <template>
   <div class="m-nav">
     <nuxt-link :to="{ name: 'index' }" class="m-nav-index">
-      <i class="iconfont el-logo1" :style="{ color: colorText }"></i>
+      <i
+        class="iconfont el-logo1"
+        :style="{ color: colorText }"
+        @click="handleCloseNav"
+      ></i>
     </nuxt-link>
     <div class="m-nav-icon">
       <div class="nav-right-dropdown" style="display: none">
@@ -411,6 +415,10 @@ export default {
       if (this.isAside) {
         this.$store.commit('handleIsFixed', true);
       }
+    },
+    handleCloseNav() {
+      this.isAside = false;
+      this.activeName = '';
     }
   }
 };

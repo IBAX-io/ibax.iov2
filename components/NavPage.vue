@@ -390,13 +390,19 @@ export default {
     $route: {
       handler() {
         const { name } = this.$route;
-        console.log(name);
+        //  console.log(name);
         if (name === 'resource-news-id') {
           this.activeIndex = '/resource/news';
         } else if (name === 'resource-events-id') {
           this.activeIndex = '/resource/events';
         } else if (name === 'baas-marketplace-ecolibs') {
           this.activeIndex = '/baas-marketplace';
+        } else if (
+          name === 'login' ||
+          name === 'login-rules' ||
+          name === 'user'
+        ) {
+          this.activeIndex = '/';
         } else {
           this.activeIndex = this.$route.path;
         }
