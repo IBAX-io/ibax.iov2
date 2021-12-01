@@ -75,11 +75,21 @@
       <div class="personal-tabs" :class="{ 'personal-share': !isTabs }">
         <el-row type="flex" justify="center">
           <el-col :sm="22" :lg="18" :md="20" class="personal-code">
-            <share-left v-if="!isMobile" :data-url="strURL"></share-left>
+            <client-only>
+              <share-left
+                v-show="!isMobile && strURL"
+                :data-url="strURL"
+              ></share-left>
+            </client-only>
             <user-retweet v-if="isTabs"></user-retweet>
             <!-- share -->
             <user-share v-if="!isTabs"></user-share>
-            <share-left v-if="isMobile" :data-url="strURL"></share-left>
+            <client-only>
+              <share-left
+                v-show="isMobile && strURL"
+                :data-url="strURL"
+              ></share-left>
+            </client-only>
           </el-col>
         </el-row>
       </div>

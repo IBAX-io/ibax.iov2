@@ -94,6 +94,7 @@ export default {
   created() {},
   mounted() {
     if (this.dataUrl) {
+      console.log('++++');
       this.shareon();
     }
     //  this.handleHtml2canvas();

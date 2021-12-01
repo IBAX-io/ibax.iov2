@@ -55,7 +55,7 @@
           IBXC.
         </p>
         <p class="personal-rules-right-item">
-          <span> 1.Follow IBAX on Twitter +1,000 points. </span>
+          <span> 1.Follow IBAX on Twitter +2,000 points. </span>
           <span> (on going) </span>
         </p>
         <p class="personal-rules-right-item">
