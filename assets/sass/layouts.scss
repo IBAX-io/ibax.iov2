@@ -998,7 +998,6 @@
     & > * {
       cursor: pointer;
       i {
-        margin-left: 15px;
         cursor: pointer;
         font-size: 20px;
       }
@@ -1007,18 +1006,24 @@
       display: flex;
       padding: 5px 10px;
       align-items: center;
+      justify-content: space-between;
+      width: calc(100% - 70px);
     }
     .personal-code-left-text {
       writing-mode: horizontal-tb;
       margin: 0;
       display: block;
+      width: auto;
       & > * {
         display: block;
         width: auto;
         writing-mode: horizontal-tb;
-        font-size: 16px;
+        font-size: 14px;
         height: 20px;
         line-height: 20px;
+      }
+      span:first-child {
+        font-size: 12px;
       }
     }
     .personal-code-left-image {

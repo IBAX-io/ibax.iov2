@@ -107,8 +107,9 @@
             </div>
           </template>
         </div>
-        <div class="news-page" style="display: none">
+        <div class="news-page">
           <el-pagination
+            hide-on-single-page
             :page-size="pageParams.limit"
             layout="prev, pager, next"
             :total="pageParams.total"
@@ -281,9 +282,11 @@ export default {
       }
     },
     handleCurrentChange(page) {
-      console.log(page);
+      this.params.page = page;
+      this.handleNewsList(this.params);
     },
     handleChange($event, str) {
+      this.params.page = 1;
       console.log($event, str);
       if (str === 'topics') {
         this.params.where.source = $event;
@@ -294,6 +297,7 @@ export default {
     },
     handleKeywords() {
       console.log(this.keywords);
+      this.params.page = 1;
       this.params.where.keywords = this.keywords;
       this.handleNewsList(this.params);
     }

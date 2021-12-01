@@ -372,7 +372,7 @@ export default {
   computed: {},
   watch: {
     lang() {
-      console.log(this.lang);
+      // console.log(this.lang);
       const langType = this.handleGetLanguage(this.lang);
       this.langType = langType;
       this.firstParam.language = langType;
