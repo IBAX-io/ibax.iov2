@@ -94,8 +94,8 @@ Vue.mixin({
       // this.baseUrl = 'http://192.168.1.191:8888';
       this.baseUrl = 'http://192.168.1.85:8084';
     } else {
-      this.baseUrl = 'https://ibax.io';
-      // this.baseUrl = 'https://testnet-us-34-86-177-19.ibax.io';
+      // this.baseUrl = 'https://ibax.io';
+      this.baseUrl = 'https://testnet-us-34-86-177-19.ibax.io';
     }
   },
   mounted() {
