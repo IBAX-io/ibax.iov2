@@ -1,175 +1,153 @@
 <template>
-  <div class="personal-tabs">
-    <el-row type="flex" justify="center">
-      <el-col :sm="22" :lg="18" :md="20" class="personal-code">
-        <share-left></share-left>
-        <el-tabs v-model="activeName" @tab-click="handleRetweet">
-          <el-tab-pane :label="$t('personal.task')" name="first">
-            <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="18" :md="20">
-                <div
-                  v-if="arrTask.length === 0"
-                  class="personal-tabs-record-img"
-                >
-                  <img src="@/assets/images/login/no-data.png" alt="no-data" />
+  <el-tabs v-model="activeName" @tab-click="handleRetweet">
+    <el-tab-pane :label="$t('personal.task')" name="first">
+      <el-row type="flex" justify="center">
+        <el-col :sm="22" :lg="18" :md="20">
+          <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
+            <img src="@/assets/images/login/no-data.png" alt="no-data" />
+          </div>
+          <template v-else>
+            <div
+              v-for="item in arrTask"
+              :key="item.id"
+              class="personal-tabs-task"
+            >
+              <div v-if="item.status" class="personal-tabs-task-finish">
+                <img src="@/assets/images/login/finished.png" alt="finished" />
+              </div>
+              <a
+                v-else
+                class="personal-tabs-task-left"
+                :href="item.status ? 'javascript:void(0);' : item.link"
+                :target="item.status ? '' : '_blank'"
+                @click="handleForwardTask(item)"
+              >
+                <div>{{ $t('personal.retweet') }}</div>
+                <div class="personal-tabs-task-left-bottom">
+                  +{{ item.points }} <i class="el-icon-arrow-right"></i>
                 </div>
-                <template v-else>
-                  <div
-                    v-for="item in arrTask"
-                    :key="item.id"
-                    class="personal-tabs-task"
-                  >
-                    <div v-if="item.status" class="personal-tabs-task-finish">
-                      <img
-                        src="@/assets/images/login/finished.png"
-                        alt="finished"
-                      />
-                    </div>
-                    <a
-                      v-else
-                      class="personal-tabs-task-left"
-                      :href="item.status ? 'javascript:void(0);' : item.link"
-                      :target="item.status ? '' : '_blank'"
-                      @click="handleForwardTask(item)"
-                    >
-                      <div>{{ $t('personal.retweet') }}</div>
-                      <div class="personal-tabs-task-left-bottom">
-                        +{{ item.points }} <i class="el-icon-arrow-right"></i>
-                      </div>
-                    </a>
+              </a>
 
-                    <div class="personal-tabs-task-middle">
-                      <div v-html="item.content"></div>
-                    </div>
-                    <div class="personal-tabs-task-right">
-                      <img
-                        :src="`${baseUrl}${item.image}`"
-                        alt="task"
-                        :onerror="defaultImg"
-                      />
-                    </div>
-                  </div>
-                </template>
-                <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
-                  <button
-                    v-if="isMobile"
-                    class="btn btn-primary"
-                    @click="handleForwardNext('task')"
-                  >
-                    {{ $t('footer.more') }}
-                  </button>
-                  <el-pagination
-                    v-else
-                    hide-on-single-page
-                    background
-                    :page-size="objForward.limit"
-                    layout="prev, pager, next"
-                    :total="taskTotal"
-                    @current-change="handleCurrentChange($event, 'task')"
-                  >
-                  </el-pagination>
+              <div class="personal-tabs-task-middle">
+                <div v-html="item.content"></div>
+              </div>
+              <div class="personal-tabs-task-right">
+                <img
+                  :src="`${baseUrl}${item.image}`"
+                  alt="task"
+                  :onerror="defaultImg"
+                />
+              </div>
+            </div>
+          </template>
+          <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
+            <button
+              v-if="isMobile"
+              class="btn btn-primary"
+              @click="handleForwardNext('task')"
+            >
+              {{ $t('footer.more') }}
+            </button>
+            <el-pagination
+              v-else
+              hide-on-single-page
+              background
+              :page-size="objForward.limit"
+              layout="prev, pager, next"
+              :total="taskTotal"
+              @current-change="handleCurrentChange($event, 'task')"
+            >
+            </el-pagination>
+          </div>
+        </el-col>
+      </el-row>
+    </el-tab-pane>
+    <el-tab-pane :label="$t('personal.redeem')" name="second">
+      <div class="personal-tabs-points">
+        <el-row type="flex" justify="center">
+          <el-col :sm="22" :lg="18" :md="20">
+            <div class="personal-tabs-points-img">
+              <img src="@/assets/images/login/points.png" alt="points" />
+            </div>
+            <p class="title-h6">{{ $t('login.activities') }}</p>
+            <p class="title-h6">{{ $t('personal.still') }}</p>
+          </el-col>
+        </el-row>
+      </div>
+    </el-tab-pane>
+    <el-tab-pane :label="$t('personal.rules')" name="third">
+      <el-row type="flex" justify="center">
+        <el-col :sm="22" :lg="18" :md="20">
+          <points-rules></points-rules>
+        </el-col>
+      </el-row>
+    </el-tab-pane>
+    <el-tab-pane :label="$t('personal.record')" name="fourth">
+      <div class="personal-tabs-record">
+        <el-row type="flex" justify="center">
+          <el-col :sm="22" :lg="18" :md="20">
+            <div
+              v-if="pointRecord.length === 0"
+              class="personal-tabs-record-img"
+            >
+              <img src="@/assets/images/login/no-data.png" alt="no-data" />
+            </div>
+            <div v-else class="personal-tabs-record-box">
+              <div class="personal-tabs-record-head">
+                <div>Date (UTC)</div>
+                <div>Participate</div>
+                <div>Earn points</div>
+              </div>
+              <div
+                v-for="item in pointRecord"
+                :key="item.id"
+                class="personal-tabs-record-head"
+              >
+                <div class="personal-tabs-record-head-text">
+                  {{ handleTimeShow(item.time) }}
                 </div>
-              </el-col>
-            </el-row>
-          </el-tab-pane>
-          <el-tab-pane :label="$t('personal.redeem')" name="second">
-            <div class="personal-tabs-points">
-              <el-row type="flex" justify="center">
-                <el-col :sm="22" :lg="18" :md="20">
-                  <div class="personal-tabs-points-img">
-                    <img src="@/assets/images/login/points.png" alt="points" />
-                  </div>
-                  <p class="title-h6">{{ $t('login.activities') }}</p>
-                  <p class="title-h6">{{ $t('personal.still') }}</p>
-                </el-col>
-              </el-row>
+                <div class="personal-tabs-record-head-text">
+                  <span v-if="item.type === 1">{{
+                    $t('personal.followed')
+                  }}</span>
+                  <span v-if="item.type === 2">{{
+                    $t('personal.forwarded')
+                  }}</span>
+                  <span v-if="item.type === 3">{{ $t('personal.not') }}</span>
+                </div>
+                <div class="personal-tabs-record-head-text">
+                  {{ item.points }}
+                </div>
+              </div>
             </div>
-          </el-tab-pane>
-          <el-tab-pane :label="$t('personal.rules')" name="third">
-            <el-row type="flex" justify="center">
-              <el-col :sm="22" :lg="18" :md="20">
-                <points-rules></points-rules>
-              </el-col>
-            </el-row>
-          </el-tab-pane>
-          <el-tab-pane :label="$t('personal.record')" name="fourth">
-            <div class="personal-tabs-record">
-              <el-row type="flex" justify="center">
-                <el-col :sm="22" :lg="18" :md="20">
-                  <div
-                    v-if="pointRecord.length === 0"
-                    class="personal-tabs-record-img"
-                  >
-                    <img
-                      src="@/assets/images/login/no-data.png"
-                      alt="no-data"
-                    />
-                  </div>
-                  <div v-else class="personal-tabs-record-box">
-                    <div class="personal-tabs-record-head">
-                      <div>Date (UTC)</div>
-                      <div>Participate</div>
-                      <div>Earn points</div>
-                    </div>
-                    <div
-                      v-for="item in pointRecord"
-                      :key="item.id"
-                      class="personal-tabs-record-head"
-                    >
-                      <div class="personal-tabs-record-head-text">
-                        {{ handleTimeShow(item.time) }}
-                      </div>
-                      <div class="personal-tabs-record-head-text">
-                        <span v-if="item.type === 1">{{
-                          $t('personal.followed')
-                        }}</span>
-                        <span v-if="item.type === 2">{{
-                          $t('personal.forwarded')
-                        }}</span>
-                        <span v-if="item.type === 3">{{
-                          $t('personal.not')
-                        }}</span>
-                      </div>
-                      <div class="personal-tabs-record-head-text">
-                        {{ item.points }}
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    v-if="pointRecord.length !== 0"
-                    class="personal-tabs-task-btn"
-                  >
-                    <button
-                      v-if="isMobile"
-                      class="btn btn-primary"
-                      @click="handleForwardNext('record')"
-                    >
-                      {{ $t('footer.more') }}
-                    </button>
-                    <el-pagination
-                      v-else
-                      background
-                      hide-on-single-page
-                      :page-size="objRocrad.limit"
-                      layout="prev, pager, next"
-                      :total="recordTotal"
-                      @current-change="handleCurrentChange($event, 'record')"
-                    >
-                    </el-pagination>
-                  </div>
-                </el-col>
-              </el-row>
+            <div v-if="pointRecord.length !== 0" class="personal-tabs-task-btn">
+              <button
+                v-if="isMobile"
+                class="btn btn-primary"
+                @click="handleForwardNext('record')"
+              >
+                {{ $t('footer.more') }}
+              </button>
+              <el-pagination
+                v-else
+                background
+                hide-on-single-page
+                :page-size="objRocrad.limit"
+                layout="prev, pager, next"
+                :total="recordTotal"
+                @current-change="handleCurrentChange($event, 'record')"
+              >
+              </el-pagination>
             </div>
-          </el-tab-pane>
-        </el-tabs>
-      </el-col>
-    </el-row>
-  </div>
+          </el-col>
+        </el-row>
+      </div>
+    </el-tab-pane>
+  </el-tabs>
 </template>
 <script>
-import ShareLeft from './ShareLeft.vue';
 export default {
-  components: { ShareLeft },
+  components: {},
   layout: 'newsLayouts',
   props: {},
   data() {

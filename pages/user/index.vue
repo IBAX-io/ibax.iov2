@@ -72,17 +72,26 @@
         </el-col>
       </el-row>
       <!-- retweet -->
-      <user-retweet v-if="isTabs"></user-retweet>
-      <!-- share -->
-      <user-share v-if="!isTabs"></user-share>
+      <div class="personal-tabs" :class="{ 'personal-share': !isTabs }">
+        <el-row type="flex" justify="center">
+          <el-col :sm="22" :lg="18" :md="20" class="personal-code">
+            <share-left v-if="!isMobile" :data-url="strURL"></share-left>
+            <user-retweet v-if="isTabs"></user-retweet>
+            <!-- share -->
+            <user-share v-if="!isTabs"></user-share>
+            <share-left v-if="isMobile" :data-url="strURL"></share-left>
+          </el-col>
+        </el-row>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import UserRetweet from './component/UserRetweet.vue';
 import UserShare from './component/UserShare.vue';
+import ShareLeft from './component/ShareLeft.vue';
 export default {
-  components: { UserRetweet, UserShare },
+  components: { UserRetweet, UserShare, ShareLeft },
   layout: 'newsLayouts',
   props: {},
   data() {
@@ -96,6 +105,7 @@ export default {
         limit: 5,
         type: 1
       },
+      strURL: '',
       statistics: 0,
       showFollow: {}
     };
@@ -106,6 +116,8 @@ export default {
   mounted() {
     this.handlePointsAlready();
     this.handleGetFollow(this.objFollow);
+    const invitecode = localStorage.getItem('invitecode');
+    this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
   },
   methods: {
     handleChangetabs(str) {

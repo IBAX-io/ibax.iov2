@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev:test": "cross-env MODE=test nuxt --open",
-    "dev": "cross-env MODE=prod nuxt --open",
+    "dev": "cross-env MODE=dev nuxt --open",
     "dev:prod": "cross-env MODE=prod nuxt --open",
     "build:test": "cross-env MODE=test nuxt build",
     "build": "cross-env MODE=prod nuxt build",

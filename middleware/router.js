@@ -1,4 +1,4 @@
-export default ({ app, store }) => {
+export default ({ app, store, route }) => {
   app.router.afterEach((to, from, next) => {
     if (process.client) {
       //  window.location.reload();
@@ -8,6 +8,11 @@ export default ({ app, store }) => {
       if (global) {
         global.firstChild.scrollTop = 0;
       }
+      console.log(route.currentRoute);
+      console.log(route.name);
+      /*  if (route.name === 'user') {
+        window.location.reload();
+      } */
     }
   });
 };

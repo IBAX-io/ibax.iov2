@@ -90,12 +90,12 @@ Vue.mixin({
     }
   },
   created() {
-    if (process.env.NODE_ENV === 'development') {
-      // this.baseUrl = 'http://192.168.1.191:8888';
+    if (process.env.NUXT_ENV.MODE === 'dev') {
       this.baseUrl = 'http://192.168.1.85:8084';
-    } else {
-      // this.baseUrl = 'https://ibax.io';
+    } else if (process.env.NUXT_ENV.MODE === 'test') {
       this.baseUrl = 'https://testnet-us-34-86-177-19.ibax.io';
+    } else {
+      this.baseUrl = 'https://ibax.io';
     }
   },
   mounted() {

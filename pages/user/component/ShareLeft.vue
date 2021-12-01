@@ -19,12 +19,12 @@
         class="personal-code-left-qr"
         @click="handleCodeConfirm"
       >
-        <div class="shareon" :data-url="strURL">
-          <a class="twitter" :data-url="strURL"></a>
-          <a class="telegram" :data-url="strURL"></a>
-          <a class="facebook" :data-url="strURL"></a>
-          <a class="linkedin" :data-url="strURL"></a>
-          <a class="reddit" :data-url="strURL"></a>
+        <div class="shareon" :data-url="dataUrl">
+          <a class="twitter"></a>
+          <a class="telegram"></a>
+          <a class="facebook"></a>
+          <a class="linkedin"></a>
+          <a class="reddit"></a>
         </div>
         <div style="display: none">
           <client-only>
@@ -35,7 +35,7 @@
               :logo-scale="logoScale"
               :auto-color="true"
               :dot-scale="1"
-              :text="strURL"
+              :text="dataUrl"
               style="height: 200px; width: 200px; border-radius: 12px"
               background-color="#274235"
               background-dimming="#274235"
@@ -68,12 +68,16 @@
 <script>
 import html2canvas from 'html2canvas';
 export default {
-  props: {},
+  props: {
+    dataUrl: {
+      type: String,
+      default: () => ''
+    }
+  },
   data() {
     return {
       margin: 15,
       logoScale: 0.2,
-      strURL: '',
       isCode: false,
       isShore: false,
       strImgUrl: '',
@@ -89,9 +93,9 @@ export default {
   },
   created() {},
   mounted() {
-    this.shareon();
-    const invitecode = localStorage.getItem('invitecode');
-    this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
+    if (this.dataUrl) {
+      this.shareon();
+    }
     //  this.handleHtml2canvas();
     // http://192.168.1.85:8084/login?invitecode=sdasdas&utm_source=utm_source
   },
