@@ -192,13 +192,12 @@ export default {
           title: 'resource.activity',
           path: '/resource/events',
           key: '8'
-        }
-        /* {
-          title: 'resource.partner',
-          path: '/resource/partners',
-          alt: 'resource.partner',
+        },
+        {
+          title: 'resource.economic',
+          link: 'https://bit.ly/3Ek5vBM',
           key: '9'
-        } */
+        }
       ],
       arrSolution: [
         {

@@ -248,7 +248,7 @@
                     {{ $t('home.matter') }}
                   </p>
                   <a
-                    href="https://bit.ly/3pZHrj4"
+                    href="https://bit.ly/3Ek5vBM"
                     target="_blank"
                     class="home-new-bottom link"
                   >

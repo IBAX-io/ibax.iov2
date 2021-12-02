@@ -316,6 +316,12 @@ export default {
                   icon: 'iconfont el-Download',
                   link: 'https://github.com/orgs/IBAX-io/repositories',
                   key: '3-2-3'
+                },
+                {
+                  title: 'resource.economic',
+                  icon: 'iconfont el-performance',
+                  link: 'https://bit.ly/3Ek5vBM',
+                  key: '3-2-4'
                 }
               ]
             },
