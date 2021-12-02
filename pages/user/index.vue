@@ -81,7 +81,7 @@
                 :data-url="strURL"
               ></share-left>
             </client-only>
-            <user-retweet v-if="isTabs"></user-retweet>
+            <user-retweet v-if="isTabs" @points="handlePoints"></user-retweet>
             <!-- share -->
             <user-share v-if="!isTabs"></user-share>
             <client-only>
@@ -135,6 +135,7 @@ export default {
         this.isTabs = true;
         this.strTabs = 'retweet';
         this.handlePointsAlready();
+        this.handleGetFollow(this.objFollow);
       } else {
         this.isTabs = false;
         this.strTabs = 'share';
@@ -167,6 +168,9 @@ export default {
       } else {
         this.showFollow = {};
       }
+    },
+    handlePoints() {
+      this.handlePointsAlready();
     },
     // twitter Follow
     handleIsFollow(obj) {
@@ -202,24 +206,30 @@ export default {
                 this.$axios.$post('/tw/getFollowing', params).then((res) => {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
-                    done();
+                    // done();
                     instance.confirmButtonLoading = false;
                     this.handleGetFollow(this.objFollow);
                     this.handlePointsAlready();
                     this.$message({
+                      showClose: true,
                       type: 'success',
-                      message: this.$t('personal.followed')
+                      message: this.$t('personal.followed'),
+                      onClose: () => {
+                        done();
+                      }
                     });
                   } else {
-                    done();
+                    // done();
                     instance.confirmButtonLoading = false;
+                    instance.confirmButtonText = this.$t('personal.followed');
                     this.$message({
+                      showClose: true,
                       type: 'warning',
-                      message: this.$t('personal.not')
+                      message: 'Please try again later'
                     });
                   }
                 });
-              }, 5000);
+              }, 10000);
               // console.log(params);
             } else {
               done();

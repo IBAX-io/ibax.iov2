@@ -284,25 +284,30 @@ export default {
                 this.$axios.$post('/tw/getRetweets', params).then((res) => {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
-                    done();
                     instance.confirmButtonLoading = false;
                     this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
-                    this.$parent.handlePointsAlready();
+                    this.$emit('points');
                     this.$message({
+                      showClose: true,
                       type: 'success',
-                      message: this.$t('personal.forwarded')
+                      message: this.$t('personal.forwarded'),
+                      onClose: () => {
+                        done();
+                      }
                     });
                   } else {
-                    done();
+                    //  done();
                     instance.confirmButtonLoading = false;
+                    instance.confirmButtonText = this.$t('personal.forwarded');
                     this.$message({
+                      showClose: true,
                       type: 'warning',
-                      message: this.$t('personal.notf')
+                      message: 'Please try again later'
                     });
                   }
                 });
-              }, 5000);
+              }, 10000);
             } else {
               done();
             }
