@@ -69,7 +69,7 @@
             align="middle"
             class="el-row-wrap"
           >
-            <el-col :xs="24" :lg="8">
+            <el-col :xs="24" :lg="11">
               <p class="home-new-title wow fadeInUp">
                 <i class="el-iconfont iconfont el-a-049"></i>
                 <span class="home-new-title-text"> {{ $t('bass.work') }} </span>
@@ -79,7 +79,7 @@
                 {{ $t('bass.global') }}
               </p>
             </el-col>
-            <el-col :xs="24" :lg="14">
+            <el-col :xs="24" :lg="11">
               <div class="home-new-img wow fadeInUp">
                 <img
                   src="@/assets/images/fragmentation.png"
@@ -120,7 +120,7 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
                   <img
                     src="@/assets/images/transaction.png"
@@ -128,7 +128,7 @@
                   />
                 </div>
               </el-col>
-              <el-col :xs="24" :lg="8">
+              <el-col :xs="24" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-007"></i>
                   <span class="home-new-text">
@@ -140,7 +140,7 @@
                   {{ $t('bass.whether') }}
                 </p>
               </el-col>
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
                   <img
                     src="@/assets/images/transaction.png"
@@ -163,7 +163,7 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="24" :lg="8">
+              <el-col :xs="24" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-031"></i>
                   <span class="home-new-text">
@@ -175,7 +175,7 @@
                   {{ $t('bass.principle') }}
                 </p>
               </el-col>
-              <el-col :xs="24" :lg="14">
+              <el-col :xs="24" :lg="11">
                 <div class="home-tag wow fadeInUp">
                   <el-tabs v-model="activeName" :tab-position="tabPosition">
                     <el-tab-pane

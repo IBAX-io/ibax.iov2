@@ -475,6 +475,56 @@
       }
     }
   }
+  &-redeem {
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    &-box {
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      &-text {
+        font-weight: bolder;
+      }
+    }
+    &-content {
+      width: 50%;
+      margin: 30px auto;
+      .btn-primary {
+        padding: 10px;
+        min-width: 120px;
+        margin: 30px;
+      }
+      .home-new-bottom {
+        display: inline-flex;
+      }
+    }
+    &-vidoe {
+      margin: 30px 0;
+      iframe {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+      }
+      .title-h6 {
+        margin-bottom: 30px;
+      }
+    }
+    &-share {
+      padding: 15px 0;
+      &-lime {
+        color: #264234;
+      }
+      &-box {
+        padding: 30px 0;
+        font-size: 20px;
+        .btn-primary {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
 }
 .link-btn {
   background-color: #f3ac30 !important;

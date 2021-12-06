@@ -181,7 +181,7 @@ export default {
         },
         {
           title: 'nav.about',
-          path: '/about',
+          path: '/contact',
           key: 'm-6'
         }
       ],

@@ -19,7 +19,9 @@
             </div>
           </el-col>
           <el-col :xs="24" :lg="12">
-            <h3 class="title-h3 wow fadeInUp">{{ $t('login.why') }}</h3>
+            <h3 class="title-h3 wow fadeInUp" style="text-transform: none">
+              {{ $t('login.why') }}
+            </h3>
             <p class="wow fadeInUp">{{ $t('login.build') }}</p>
             <p class="wow fadeInUp">{{ $t('login.has') }}</p>
             <p class="wow fadeInUp">{{ $t('login.welcomes') }}</p>

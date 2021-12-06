@@ -226,7 +226,7 @@ export default {
       arrAbout: [
         {
           title: 'nav.about',
-          path: '/about',
+          path: '/contact',
           key: '1'
         },
         {

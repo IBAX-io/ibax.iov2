@@ -729,5 +729,20 @@
   "personal.retweets": "Retweet",
   "personal.share": "Share",
   "personal.code": "Identify the QR code to enter the mobile version of the event page",
-  "personal.friends": "Invite your friends to get IBXC and the top 10 referrers will get an additional referral reward."
+  "personal.friends": "Invite your friends to get IBXC and the top 10 referrers will get an additional referral reward.",
+  "personal.will": "IBXC will be available for redemption on February 1, 2022 8:00 EST, bind your wallet address now",
+  "personal.points": "Points:",
+  "personal.once": "Once submitted, the address will not be able to be changed.Confirm your wallet address",
+  "personal.your": "Your wallet address",
+  "personal.submit": "Submit",
+  "personal.werver": "Go to Werver and create a wallet address",
+  "personal.how": "How to use Weaver",
+  "personal.address": "Wallet Address:",
+  "personal.available": "Redemption of IBXC Coins will be available on February 1, 2022 8:00EST",
+  "personal.storage": "Storage Block:",
+  "personal.view": "View Blocks Information",
+  "personal.redemption": "IBXC will be available for redemption on February 1, 2022 8:00 EST",
+  "personal.redeemable": "Redeemable Coins:",
+  "personal.submitted": "Your wallet address: 0000-0000-0000-0000,  Once submitted, the address will not be able to be changed. Please confirm your wallet address.",
+  "personal.cancel": "Cancel"
 }

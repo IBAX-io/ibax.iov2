@@ -201,7 +201,7 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="24" :lg="8">
+              <el-col :xs="24" :lg="11">
                 <div class="develop-title wow fadeInUp">
                   <i class="iconfont el-code develop-title-icon"></i>
                   <h4 class="title-h4 wow fadeInUp">
@@ -212,10 +212,10 @@
                   {{ $t('develope.review') }}
                 </p>
               </el-col>
-              <el-col :xs="24" :lg="14">
+              <el-col :xs="24" :lg="11">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/develop-code.jpg"
+                    src="@/assets/images/develop-code.png"
                     alt="develop-code"
                   />
                 </div>

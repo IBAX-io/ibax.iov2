@@ -133,7 +133,7 @@
               <el-col :xs="24" :lg="10" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="../../assets/images/architecture-2.jpg"
+                    src="../../assets/images/architecture-2.png"
                     alt="architecture-2"
                   />
                 </div>
@@ -156,7 +156,7 @@
               <el-col :xs="24" :lg="10" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="../../assets/images/architecture-2.jpg"
+                    src="../../assets/images/architecture-2.png"
                     alt="architecture-2"
                   />
                 </div>

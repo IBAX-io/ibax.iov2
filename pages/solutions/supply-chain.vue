@@ -142,7 +142,7 @@
             >
               <el-col :xs="24" :lg="12" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="../../assets/images/supply-3.jpg" alt="supply-3" />
+                  <img src="../../assets/images/supply-3.png" alt="supply-3" />
                 </div>
               </el-col>
               <el-col :xs="24" :lg="8">
@@ -161,7 +161,7 @@
               </el-col>
               <el-col :xs="24" :lg="12" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="../../assets/images/supply-3.jpg" alt="supply-3" />
+                  <img src="../../assets/images/supply-3.png" alt="supply-3" />
                 </div>
               </el-col>
             </el-row>

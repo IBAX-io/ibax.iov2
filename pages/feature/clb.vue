@@ -77,7 +77,7 @@
             align="middle"
             class="el-row-wrap"
           >
-            <el-col :xs="24" :lg="8">
+            <el-col :xs="24" :lg="11">
               <p class="home-new-title wow fadeInUp">
                 <i class="el-iconfont iconfont el-a-054"></i>
                 <span class="home-new-text">
@@ -89,7 +89,7 @@
                 {{ $t('bass.weather') }}
               </p>
             </el-col>
-            <el-col :xs="24" :lg="14">
+            <el-col :xs="24" :lg="11">
               <div class="home-new-img wow fadeInUp">
                 <img src="@/assets/images/data.jpg" alt="data" />
               </div>
@@ -129,12 +129,12 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="@/assets/images/light.jpg" alt="light" />
+                  <img src="@/assets/images/light.png" alt="light" />
                 </div>
               </el-col>
-              <el-col :xs="24" :lg="8">
+              <el-col :xs="24" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-024"></i>
                   <span class="home-new-title-text">
@@ -146,9 +146,9 @@
                   {{ $t('bass.there') }}
                 </p>
               </el-col>
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="@/assets/images/light.jpg" alt="light" />
+                  <img src="@/assets/images/light.png" alt="light" />
                 </div>
               </el-col>
             </el-row>
@@ -166,7 +166,7 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="23" :lg="8">
+              <el-col :xs="23" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-010"></i>
                   <span class="home-new-text">
@@ -178,7 +178,7 @@
                   {{ $t('bass.when') }}
                 </p>
               </el-col>
-              <el-col :xs="23" :lg="14">
+              <el-col :xs="23" :lg="11">
                 <div class="home-tag wow fadeInUp">
                   <el-tabs v-model="activeName" :tab-position="tabPosition">
                     <el-tab-pane
@@ -265,8 +265,8 @@
   </div>
 </template>
 <script>
-const img1 = require('../../assets/images/clb-1.jpg');
-const img2 = require('../../assets/images/clb-2.jpg');
+const img1 = require('../../assets/images/clb-1.png');
+const img2 = require('../../assets/images/clb-2.png');
 export default {
   props: {},
   data() {

@@ -103,7 +103,7 @@
       </div>
       <div class="about-right-btn-text">
         <a
-          href="https://github.com/orgs/IBAX-io/people"
+          href="https://github.com/IBAX-io/go-ibax/issues"
           target="_blank"
           class="link"
           >{{ $t('about.want') }} -></a
@@ -121,7 +121,8 @@ export default {
       params: {
         message: ''
       },
-      disabled: false
+      disabled: false,
+      prompt: null
     };
   },
   head() {

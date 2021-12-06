@@ -74,7 +74,7 @@
             align="middle"
             class="el-row-wrap"
           >
-            <el-col :xs="24" :lg="8">
+            <el-col :xs="24" :lg="11">
               <p class="home-new-title wow fadeInUp">
                 <i class="el-iconfont iconfont el-a-051"></i>
                 <span class="home-new-text">
@@ -86,7 +86,7 @@
                 {{ $t('bass.homomorphic') }}
               </p>
             </el-col>
-            <el-col :xs="24" :lg="14">
+            <el-col :xs="24" :lg="11">
               <div class="home-new-img wow fadeInUp">
                 <img src="@/assets/images/privite-1.png" alt="privite-1" />
               </div>
@@ -124,12 +124,12 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
                   <img src="@/assets/images/privite-2.png" alt="privite-2" />
                 </div>
               </el-col>
-              <el-col :xs="24" :lg="8">
+              <el-col :xs="24" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-003"></i>
                   <span class="home-new-text">
@@ -141,7 +141,7 @@
                   {{ $t('bass.financial') }}
                 </p>
               </el-col>
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
+              <el-col :xs="24" :lg="11" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
                   <img src="@/assets/images/privite-2.png" alt="privite-2" />
                 </div>
@@ -161,7 +161,7 @@
               align="middle"
               class="el-row-wrap"
             >
-              <el-col :xs="23" :lg="8">
+              <el-col :xs="23" :lg="11">
                 <p class="home-new-title wow fadeInUp">
                   <i class="el-iconfont iconfont el-a-003"></i>
                   <span class="home-new-text">
@@ -174,7 +174,7 @@
                 </p>
                 <p>{{ $t('bass.safe') }}</p>
               </el-col>
-              <el-col :xs="23" :lg="14">
+              <el-col :xs="23" :lg="11">
                 <div class="home-tag wow fadeInUp">
                   <el-tabs v-model="activeName" :tab-position="tabPosition">
                     <el-tab-pane

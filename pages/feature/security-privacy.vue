@@ -127,7 +127,7 @@
             >
               <el-col :xs="24" :lg="10" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="@/assets/images/safe.jpg" alt="safe" />
+                  <img src="@/assets/images/safe.png" alt="safe" />
                 </div>
               </el-col>
               <el-col :xs="24" :lg="12">
@@ -144,7 +144,7 @@
               </el-col>
               <el-col :xs="24" :lg="10" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="@/assets/images/safe.jpg" alt="safe" />
+                  <img src="@/assets/images/safe.png" alt="safe" />
                 </div>
               </el-col>
             </el-row>
@@ -261,8 +261,8 @@
   </div>
 </template>
 <script>
-const img1 = require('../../assets/images/guarantee-1.jpg');
-const img2 = require('../../assets/images/guarantee-2.jpg');
+const img1 = require('../../assets/images/guarantee-1.png');
+const img2 = require('../../assets/images/guarantee-2.png');
 export default {
   props: {},
   data() {

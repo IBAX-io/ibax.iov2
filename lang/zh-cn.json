@@ -724,5 +724,20 @@
   "personal.rule": "规则",
   "personal.redeems": "领取IBAX",
   "personal.retweets": "转推",
-  "personal.share": "分享"
+  "personal.share": "分享",
+  "personal.will": "积分兑换将于2022年2月1日8:00EST 统一发放，请先绑定钱包地址",
+  "personal.points": "已有积分：",
+  "personal.once": "提交即上链，请确认地址无误",
+  "personal.your": "绑定积分兑换的钱包地址",
+  "personal.submit": "提交",
+  "personal.werver": "Or 去Werver生成钱包地址",
+  "personal.how": "如何使用Weaver",
+  "personal.address": "钱包地址：",
+  "personal.available": "积分兑换将于2022年2月1日8:00EST 统一发放",
+  "personal.storage": "存储区块：",
+  "personal.view": "查看区块信息",
+  "personal.redemption": "IBXC将于2022年2月1日8:00EST 统一发放",
+  "personal.redeemable": "可领取：",
+  "personal.submitted": "你的钱包地址：0000-0000-0000-0000，提交后上链存储，禁止修改，请确认。",
+  "personal.cancel": "取消"
 }

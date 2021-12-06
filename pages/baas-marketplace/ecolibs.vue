@@ -105,7 +105,7 @@
               <el-col :xs="24" :lg="10">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-application.jpg"
+                    src="@/assets/images/ecolibs-application.png"
                     mode="ecolibs-application"
                   />
                 </div>
@@ -128,7 +128,7 @@
               <el-col :xs="24" :lg="12" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-furtrue.jpg"
+                    src="@/assets/images/ecolibs-furtrue.png"
                     alt="ecolibs-furtrue"
                   />
                 </div>
@@ -144,7 +144,7 @@
               <el-col :xs="24" :lg="12" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-furtrue.jpg"
+                    src="@/assets/images/ecolibs-furtrue.png"
                     alt="ecolibs-furtrue"
                   />
                 </div>
@@ -211,7 +211,7 @@
               <el-col :xs="24" :lg="10">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-corn.jpg"
+                    src="@/assets/images/ecolibs-corn.png"
                     alt="ecolibs-corn"
                   />
                 </div>
@@ -234,7 +234,7 @@
               <el-col :xs="24" :lg="12" class="hidden-sm-and-down">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-tearm.jpg"
+                    src="@/assets/images/ecolibs-tearm.png"
                     alt="ecolibs-tearm"
                   />
                 </div>
@@ -248,7 +248,7 @@
               <el-col :xs="24" :lg="12" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="@/assets/images/ecolibs-tearm.jpg"
+                    src="@/assets/images/ecolibs-tearm.png"
                     alt="ecolibs-tearm"
                   />
                 </div>
@@ -271,7 +271,7 @@
             {{ $t('market.exploring') }}
           </p>
           <div class="media-a-img wow fadeInUp">
-            <img src="@/assets/images/ecolibs-nice.jpg" alt="ecolibs-nice" />
+            <img src="@/assets/images/ecolibs-nice.png" alt="ecolibs-nice" />
           </div>
         </el-col>
       </el-row>

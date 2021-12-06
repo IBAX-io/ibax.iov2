@@ -194,7 +194,7 @@
               <el-col :xs="23" :lg="12">
                 <div class="home-new-img wow fadeInUp">
                   <img
-                    src="../../assets/images/copyright-4.jpg"
+                    src="../../assets/images/copyright-4.png"
                     alt="copyright-4"
                   />
                 </div>

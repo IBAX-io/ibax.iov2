@@ -63,14 +63,66 @@
       </el-row>
     </el-tab-pane>
     <el-tab-pane :label="$t('personal.redeem')" name="second">
-      <div class="personal-tabs-points">
+      <div class="personal-tabs-record">
         <el-row type="flex" justify="center">
           <el-col :sm="22" :lg="18" :md="20">
-            <div class="personal-tabs-points-img">
-              <img src="@/assets/images/login/points.png" alt="points" />
+            <div class="personal-redeem">
+              <div class="personal-tabs-points-img">
+                <img src="@/assets/images/login/points.png" alt="points" />
+              </div>
+              <p class="title-h6">{{ $t('login.activities') }}</p>
+              <p class="title-h6">{{ $t('personal.still') }}</p>
             </div>
-            <p class="title-h6">{{ $t('login.activities') }}</p>
-            <p class="title-h6">{{ $t('personal.still') }}</p>
+            <div class="personal-redeem" style="display: none">
+              <p>
+                {{ $t('personal.will') }}
+              </p>
+              <p>{{ $t('personal.points') }}2000</p>
+              <div class="personal-redeem-box">
+                <p class="personal-redeem-box-text">
+                  {{ $t('personal.once') }}
+                </p>
+                <div class="personal-redeem-content">
+                  <el-input
+                    v-model="address"
+                    :placeholder="$t('personal.your')"
+                  ></el-input>
+                  <div>
+                    <button class="btn btn-primary">
+                      {{ $t('personal.submit') }}
+                    </button>
+                  </div>
+                  <a
+                    class="home-new-bottom link"
+                    href="https://weaver.ibax.io/"
+                    target="_blank"
+                  >
+                    <span>{{ $t('personal.werver') }}</span>
+                    <i class="el-icon-right"></i>
+                  </a>
+                </div>
+              </div>
+              <div
+                id="widthVideo"
+                ref="widthVideo"
+                class="personal-redeem-vidoe"
+              >
+                <h6 class="title-h6">
+                  {{ $t('personal.how') }}
+                </h6>
+                <client-only>
+                  <youtube
+                    ref="introduce"
+                    :resize="isResize"
+                    :fit-parent="isResize"
+                    :player-vars="playerVars"
+                    video-id="v6djILrPGbw"
+                    @ended="videoEndedIntroduce"
+                    @error="videoErrorIntroduce"
+                  ></youtube>
+                </client-only>
+              </div>
+            </div>
           </el-col>
         </el-row>
       </div>
@@ -131,6 +183,7 @@
               <el-pagination
                 v-else
                 background
+                width="400"
                 hide-on-single-page
                 :page-size="objRocrad.limit"
                 layout="prev, pager, next"
@@ -147,11 +200,16 @@
 </template>
 <script>
 export default {
-  components: {},
   layout: 'newsLayouts',
   props: {},
   data() {
     return {
+      isOpen: false,
+      isResize: true,
+      isIntroduce: false,
+      isSourceview: false,
+      address: '',
+      playerVars: {},
       activeName: 'first',
       objForward: {
         where: '',
@@ -180,6 +238,9 @@ export default {
         require('../../../assets/images/login/task-error.png') +
         '"'
       );
+    },
+    playerIntroduce() {
+      return this.$refs.introduce.player;
     }
   },
   watch: {},
@@ -188,6 +249,12 @@ export default {
     this.handleGetForward(this.objForward);
   },
   methods: {
+    videoEndedIntroduce() {
+      this.playerIntroduce.playVideo();
+    },
+    videoErrorIntroduce() {
+      this.isIntroduce = false;
+    },
     async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
       console.log(res);
@@ -218,6 +285,7 @@ export default {
       }
     },
     handleForwardNext(str) {
+      console.log(str);
       if (str === 'task') {
         this.objForward.page = ++this.objForward.page;
         this.handleGetForward(this.objForward);
@@ -248,6 +316,10 @@ export default {
       } else if (tab.name === 'fourth') {
         this.objRocrad.page = 1;
         this.handlePointRecord(this.objRocrad);
+      } else if (tab.name === 'second') {
+        this.address = '';
+        //  console.log(this.playerIntroduce);
+        // this.playerIntroduce.playVideo();
       }
       // console.log(tab, event);
     },
