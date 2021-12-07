@@ -743,6 +743,6 @@
   "personal.view": "View Blocks Information",
   "personal.redemption": "IBXC will be available for redemption on February 1, 2022 8:00 EST",
   "personal.redeemable": "Redeemable Coins:",
-  "personal.submitted": "Your wallet address: 0000-0000-0000-0000,  Once submitted, the address will not be able to be changed. Please confirm your wallet address.",
+  "personal.submitted": "Your wallet address:{address},  Once submitted, the address will not be able to be changed. Please confirm your wallet address.",
   "personal.cancel": "Cancel"
 }

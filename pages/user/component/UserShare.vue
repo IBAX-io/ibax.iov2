@@ -119,23 +119,23 @@
       <el-row type="flex" justify="center">
         <el-col :sm="22" :lg="18" :md="20">
           <div
+            v-if="binding.status"
             class="personal-redeem personal-redeem-share"
-            style="display: none"
           >
             <p class="personal-redeem-share-lime">
               {{ $t('personal.redemption') }}
             </p>
-            <p>{{ $t('personal.redeemable') }}2000</p>
+            <p>{{ $t('personal.redeemable') }} {{ statistics }} IBXC</p>
             <div class="personal-redeem-share-box">
               <p class="personal-redeem-box-text">
-                {{ $t('personal.address') }}3333-3333-3333-3333
+                {{ $t('personal.address') }} {{ binding.account }}
               </p>
               <p class="personal-redeem-box-text">
-                {{ $t('personal.storage') }}3291
+                {{ $t('personal.storage') }} {{ binding.blockId }}
               </p>
               <a
                 class="btn btn-primary"
-                :href="`https://scan.ibax.io/blockHeight/90`"
+                :href="`https://scan.ibax.io/blockHeight/${binding.blockId}`"
                 target="_blank"
               >
                 <span>{{ $t('personal.view') }}</span>
@@ -143,7 +143,7 @@
               </a>
             </div>
           </div>
-          <div class="personal-tabs-points-img">
+          <div v-else class="personal-tabs-points-img">
             <img src="@/assets/images/login/points.png" alt="points" />
           </div>
         </el-col>
@@ -155,7 +155,16 @@
 import ShareRules from './ShareRules.vue';
 export default {
   components: { ShareRules },
-  props: {},
+  props: {
+    statistics: {
+      type: Number,
+      default: () => 0
+    },
+    binding: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data() {
     return {
       shareName: 'one',
@@ -184,6 +193,8 @@ export default {
       } else if (name === 'two') {
         this.objInvite.page = 1;
         this.handleInvite(this.objInvite);
+      } else if (name === 'four') {
+        this.$emit('coins');
       }
     },
     async handleLeaderBoard() {

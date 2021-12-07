@@ -48,7 +48,6 @@
                 </span>
               </div>
             </div>
-
             <div class="personal-right">
               <button
                 class="personal-right-btn"
@@ -81,9 +80,20 @@
                 :data-url="strURL"
               ></share-left>
             </client-only>
-            <user-retweet v-if="isTabs" @points="handlePoints"></user-retweet>
+            <user-retweet
+              v-if="isTabs"
+              :binding="objBinding"
+              :statistics="statistics"
+              @points="handlePoints"
+              @coins="handleCoins"
+            ></user-retweet>
             <!-- share -->
-            <user-share v-if="!isTabs"></user-share>
+            <user-share
+              v-if="!isTabs"
+              :statistics="statistics"
+              :binding="objBinding"
+              @coins="handleCoins"
+            ></user-share>
             <client-only>
               <share-left
                 v-show="isMobile && strURL"
@@ -117,7 +127,8 @@ export default {
       },
       strURL: '',
       statistics: 0,
-      showFollow: {}
+      showFollow: {},
+      objBinding: {}
     };
   },
   computed: {},
@@ -128,8 +139,16 @@ export default {
     this.handleGetFollow(this.objFollow);
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
+    this.handleGetBlock();
   },
   methods: {
+    async handleGetBlock() {
+      const res = await this.$axios.$post('/tw/get_binding_status');
+      console.log(res);
+      if (res.code === 0) {
+        this.objBinding = res.data;
+      }
+    },
     handleChangetabs(str) {
       if (str === 'retweet') {
         this.isTabs = true;
@@ -171,6 +190,9 @@ export default {
     },
     handlePoints() {
       this.handlePointsAlready();
+    },
+    handleCoins() {
+      this.handleGetBlock();
     },
     // twitter Follow
     handleIsFollow(obj) {

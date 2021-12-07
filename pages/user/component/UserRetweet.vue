@@ -67,18 +67,27 @@
         <el-row type="flex" justify="center">
           <el-col :sm="22" :lg="18" :md="20">
             <div class="personal-redeem">
-              <div class="personal-tabs-points-img">
-                <img src="@/assets/images/login/points.png" alt="points" />
-              </div>
-              <p class="title-h6">{{ $t('login.activities') }}</p>
-              <p class="title-h6">{{ $t('personal.still') }}</p>
-            </div>
-            <div class="personal-redeem" style="display: none">
               <p>
                 {{ $t('personal.will') }}
               </p>
-              <p>{{ $t('personal.points') }}2000</p>
-              <div class="personal-redeem-box">
+              <p>{{ $t('personal.points') }} {{ statistics }}</p>
+              <div v-if="binding.status" class="personal-redeem-share-box">
+                <p class="personal-redeem-box-text">
+                  {{ $t('personal.address') }} {{ binding.account }}
+                </p>
+                <p class="personal-redeem-box-text">
+                  {{ $t('personal.storage') }} {{ binding.blockId }}
+                </p>
+                <a
+                  class="btn btn-primary"
+                  :href="`https://scan.ibax.io/blockHeight/${binding.blockId}`"
+                  target="_blank"
+                >
+                  <span>{{ $t('personal.view') }}</span>
+                  <i class="el-icon-right"></i>
+                </a>
+              </div>
+              <div v-else class="personal-redeem-box">
                 <p class="personal-redeem-box-text">
                   {{ $t('personal.once') }}
                 </p>
@@ -88,7 +97,7 @@
                     :placeholder="$t('personal.your')"
                   ></el-input>
                   <div>
-                    <button class="btn btn-primary">
+                    <button class="btn btn-primary" @click="handleAdress">
                       {{ $t('personal.submit') }}
                     </button>
                   </div>
@@ -201,7 +210,16 @@
 <script>
 export default {
   layout: 'newsLayouts',
-  props: {},
+  props: {
+    statistics: {
+      type: Number,
+      default: () => 0
+    },
+    binding: {
+      type: Object,
+      default: () => {}
+    }
+  },
   data() {
     return {
       isOpen: false,
@@ -249,6 +267,76 @@ export default {
     this.handleGetForward(this.objForward);
   },
   methods: {
+    handleAdress() {
+      const address = /^\d{4}-\d{4}-\d{4}-\d{4}-\d{4}$/;
+      // eslint-disable-next-line no-unused-vars
+      const str =
+        'fringe monster denial habit surge talent artist ready modify card board coconut point three burden';
+      if (address.test(this.address)) {
+        const h = this.$createElement;
+        this.$msgbox({
+          title: '',
+          message: h('p', null, [
+            h(
+              'span',
+              null,
+              this.$t('personal.submitted', { address: this.address })
+            )
+          ]),
+          showCancelButton: true,
+          distinguishCancelAndClose: true,
+          closeOnClickModal: false,
+          closeOnPressEscape: false,
+          center: true,
+          confirmButtonClass: 'link-btn',
+          confirmButtonText: this.$t('personal.submit'),
+          cancelButtonText: this.$t('personal.cancel'),
+          beforeClose: (action, instance, done) => {
+            if (action === 'confirm') {
+              instance.confirmButtonLoading = true;
+              instance.confirmButtonText = 'Loading...';
+              const params = {
+                keyId: this.address
+              };
+              // console.log(params);
+              this.$axios.$post('/tw/save_key', params).then((res) => {
+                // console.log(res);
+                if (res.code === 0) {
+                  this.$emit('coins');
+                  this.$message({
+                    showClose: true,
+                    type: 'success',
+                    message: res.message,
+                    onClose: () => {
+                      done();
+                    }
+                  });
+                } else {
+                  //  done();
+                  instance.confirmButtonLoading = false;
+                  instance.confirmButtonText = this.$t('personal.submit');
+                  this.$message({
+                    showClose: true,
+                    type: 'warning',
+                    message: res.message
+                  });
+                }
+              });
+            } else {
+              done();
+            }
+          }
+        })
+          .then((action) => {})
+          .catch((action) => {});
+      } else {
+        this.$message({
+          showClose: true,
+          type: 'warning',
+          message: 'Please enter the correct wallet address'
+        });
+      }
+    },
     videoEndedIntroduce() {
       this.playerIntroduce.playVideo();
     },
@@ -318,6 +406,7 @@ export default {
         this.handlePointRecord(this.objRocrad);
       } else if (tab.name === 'second') {
         this.address = '';
+        this.$emit('coins');
         //  console.log(this.playerIntroduce);
         // this.playerIntroduce.playVideo();
       }
