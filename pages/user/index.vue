@@ -128,7 +128,11 @@ export default {
       strURL: '',
       statistics: 0,
       showFollow: {},
-      objBinding: {}
+      objBinding: {
+        status: false,
+        account: '',
+        blockId: 0
+      }
     };
   },
   computed: {},
@@ -139,7 +143,7 @@ export default {
     this.handleGetFollow(this.objFollow);
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
-    this.handleGetBlock();
+    //  this.handleGetBlock();
   },
   methods: {
     async handleGetBlock() {
@@ -147,6 +151,13 @@ export default {
       console.log(res);
       if (res.code === 0) {
         this.objBinding = res.data;
+        if (res.data.status && res.data.blockId === 0) {
+          this.$message({
+            showClose: true,
+            type: 'success',
+            message: 'Pending'
+          });
+        }
       }
     },
     handleChangetabs(str) {

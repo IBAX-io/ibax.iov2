@@ -3,7 +3,7 @@
     <div class="personal-code-left-box">
       <div class="personal-code-left-text">
         <span>(Get more IBXC)</span>
-        <span>Share Friends:</span>
+        <span>Share with friends:</span>
       </div>
       <div class="personal-code-left-icon">
         <i class="iconfont el-Link" @click="handleCopy"></i>
@@ -101,9 +101,9 @@ export default {
   },
   methods: {
     handleCopy() {
-      this.$copyText(this.strURL).then(
+      this.$copyText(this.dataUrl).then(
         (e) => {
-          console.log(e);
+          // console.log(e);
           this.$message({
             type: 'success',
             message: `Copy succeeded`

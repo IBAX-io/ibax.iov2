@@ -71,7 +71,10 @@
                 {{ $t('personal.will') }}
               </p>
               <p>{{ $t('personal.points') }} {{ statistics }}</p>
-              <div v-if="binding.status" class="personal-redeem-share-box">
+              <div
+                v-if="binding.status && binding.blockId"
+                class="personal-redeem-share-box"
+              >
                 <p class="personal-redeem-box-text">
                   {{ $t('personal.address') }} {{ binding.account }}
                 </p>
@@ -94,10 +97,15 @@
                 <div class="personal-redeem-content">
                   <el-input
                     v-model="address"
+                    :disabled="binding.status"
                     :placeholder="$t('personal.your')"
                   ></el-input>
                   <div>
-                    <button class="btn btn-primary" @click="handleAdress">
+                    <button
+                      class="btn btn-primary"
+                      :disabled="binding.status"
+                      @click="handleAdress"
+                    >
                       {{ $t('personal.submit') }}
                     </button>
                   </div>
@@ -261,7 +269,16 @@ export default {
       return this.$refs.introduce.player;
     }
   },
-  watch: {},
+  watch: {
+    'binding.status': {
+      handler(newVal, oldVal) {
+        console.log(newVal, oldVal);
+        console.log(this.binding);
+        this.address = this.binding.account;
+      },
+      immediate: true
+    }
+  },
   created() {},
   mounted() {
     this.handleGetForward(this.objForward);
@@ -269,9 +286,6 @@ export default {
   methods: {
     handleAdress() {
       const address = /^\d{4}-\d{4}-\d{4}-\d{4}-\d{4}$/;
-      // eslint-disable-next-line no-unused-vars
-      const str =
-        'fringe monster denial habit surge talent artist ready modify card board coconut point three burden';
       if (address.test(this.address)) {
         const h = this.$createElement;
         this.$msgbox({
@@ -405,7 +419,7 @@ export default {
         this.objRocrad.page = 1;
         this.handlePointRecord(this.objRocrad);
       } else if (tab.name === 'second') {
-        this.address = '';
+        //   this.address = '';
         this.$emit('coins');
         //  console.log(this.playerIntroduce);
         // this.playerIntroduce.playVideo();
