@@ -312,7 +312,7 @@ export default {
                     }
                   });
                 } else {
-                  //  done();
+                  done();
                   instance.confirmButtonLoading = false;
                   instance.confirmButtonText = this.$t('personal.submit');
                   this.$message({
