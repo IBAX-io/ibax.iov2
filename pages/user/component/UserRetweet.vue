@@ -83,7 +83,7 @@
                 </p>
                 <a
                   class="btn btn-primary"
-                  :href="`https://scan.ibax.io/blockHeight/${binding.blockId}`"
+                  :href="`https://scan.ibax.io/transaction/${binding.hash}`"
                   target="_blank"
                 >
                   <span>{{ $t('personal.view') }}</span>
