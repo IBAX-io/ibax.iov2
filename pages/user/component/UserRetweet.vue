@@ -316,6 +316,8 @@ export default {
               this.$axios.$post('/tw/save_key', params).then((res) => {
                 // console.log(res);
                 if (res.code === 0) {
+                  instance.confirmButtonLoading = false;
+                  instance.confirmButtonText = this.$t('personal.submit');
                   this.$emit('coins');
                   this.$message({
                     showClose: true,

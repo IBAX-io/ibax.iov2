@@ -281,7 +281,7 @@
             >
               <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
                 <div class="home-new-img">
-                  <img src="../../assets/images/node-4.jpg" alt="node-1" />
+                  <img src="../../assets/images/node-4.png" alt="node4" />
                 </div>
               </el-col>
               <el-col :xs="24" :lg="8">
@@ -297,7 +297,7 @@
               </el-col>
               <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
                 <div class="home-new-img wow fadeInUp">
-                  <img src="../../assets/images/node-4.jpg" alt="node-1" />
+                  <img src="../../assets/images/node-4.png" alt="node-4" />
                 </div>
               </el-col>
             </el-row>
