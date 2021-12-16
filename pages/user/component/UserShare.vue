@@ -118,33 +118,51 @@
     <el-tab-pane :label="$t('personal.redeems')" name="four">
       <el-row type="flex" justify="center">
         <el-col :sm="22" :lg="18" :md="20">
-          <div
-            v-if="binding.status"
-            class="personal-redeem personal-redeem-share"
-          >
-            <p class="personal-redeem-share-lime">
-              {{ $t('personal.redemption') }}
-            </p>
-            <p>{{ $t('personal.redeemable') }} {{ statistics }} IBXC</p>
-            <div class="personal-redeem-share-box">
-              <p class="personal-redeem-box-text">
-                {{ $t('personal.address') }} {{ binding.account }}
+          <div class="personal-redeem">
+            <div
+              v-if="binding.status"
+              class="personal-redeem personal-redeem-share"
+            >
+              <p class="personal-redeem-share-lime">
+                {{ $t('personal.redemption') }}
               </p>
-              <p class="personal-redeem-box-text">
-                {{ $t('personal.storage') }} {{ binding.blockId }}
-              </p>
-              <a
-                class="btn btn-primary"
-                :href="`${browserUrl}/transaction/${binding.hash}`"
-                target="_blank"
-              >
-                <span>{{ $t('personal.view') }}</span>
-                <i class="el-icon-right"></i>
-              </a>
+              <p>{{ $t('personal.redeemable') }} {{ statistics }} IBXC</p>
+              <div class="personal-redeem-share-box">
+                <p class="personal-redeem-box-text">
+                  {{ $t('personal.address') }} {{ binding.account }}
+                </p>
+                <p class="personal-redeem-box-text">
+                  {{ $t('personal.storage') }} {{ binding.blockId }}
+                </p>
+                <a
+                  class="btn btn-primary"
+                  :href="`${browserUrl}/transaction/${binding.hash}`"
+                  target="_blank"
+                >
+                  <span>{{ $t('personal.view') }}</span>
+                  <i class="el-icon-right"></i>
+                </a>
+              </div>
             </div>
-          </div>
-          <div v-else class="personal-tabs-points-img">
-            <img src="@/assets/images/login/points.png" alt="points" />
+            <div v-else class="personal-tabs-points-img">
+              <img src="@/assets/images/login/points.png" alt="points" />
+            </div>
+            <div id="widthVideo" ref="widthVideo" class="personal-redeem-vidoe">
+              <h6 class="title-h6">
+                {{ $t('personal.how') }}
+              </h6>
+              <client-only>
+                <youtube
+                  ref="introduce"
+                  :resize="isResize"
+                  :fit-parent="isResize"
+                  :player-vars="playerVars"
+                  video-id="kOWd-uIGwa4"
+                  @ended="videoEndedIntroduce"
+                  @error="videoErrorIntroduce"
+                ></youtube>
+              </client-only>
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -170,6 +188,8 @@ export default {
       shareName: 'one',
       arrRanking: [],
       arrHistory: [],
+      isResize: true,
+      playerVars: {},
       objInvite: {
         where: '',
         order: 'id desc',
@@ -179,9 +199,15 @@ export default {
       historyTotal: 1
     };
   },
-  computed: {},
+  computed: {
+    playerIntroduce() {
+      return this.$refs.introduce.player;
+    }
+  },
   watch: {},
-  created() {},
+  created() {
+    console.log(this.binding);
+  },
   mounted() {
     this.handleLeaderBoard();
   },
@@ -246,6 +272,12 @@ export default {
         this.objInvite.page = ++this.objInvite.page;
         this.handleInvite(this.objInvite);
       }
+    },
+    videoEndedIntroduce() {
+      this.playerIntroduce.playVideo();
+    },
+    videoErrorIntroduce() {
+      this.isIntroduce = false;
     }
   }
 };
