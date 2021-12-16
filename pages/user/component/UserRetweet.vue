@@ -133,7 +133,7 @@
                     :resize="isResize"
                     :fit-parent="isResize"
                     :player-vars="playerVars"
-                    video-id="v6djILrPGbw"
+                    video-id="kOWd-uIGwa4"
                     @ended="videoEndedIntroduce"
                     @error="videoErrorIntroduce"
                   ></youtube>
