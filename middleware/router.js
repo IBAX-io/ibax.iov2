@@ -8,9 +8,9 @@ export default ({ app, store, route }) => {
       if (global) {
         global.firstChild.scrollTop = 0;
       }
-      console.log(route.currentRoute);
-      console.log(route.name);
-      /*  if (route.name === 'user') {
+      // console.log(route.currentRoute);
+      //  console.log(route.name);
+      /* if (route.name === 'user') {
         window.location.reload();
       } */
     }

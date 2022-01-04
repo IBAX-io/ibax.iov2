@@ -1,0 +1,291 @@
+.user {
+  width: 100%;
+  // padding-left: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba($color: #264234, $alpha: 0.2);
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+  }
+  &-left {
+    min-width: 150px;
+    margin-right: 7%;
+    &-head {
+      width: 100px;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 30px;
+    }
+    &-info {
+      margin-bottom: 5vh;
+      &-item {
+        color: #999;
+        margin-bottom: 5px;
+      }
+    }
+    &-link {
+      font-weight: 500;
+      color: #707070;
+      &-personal {
+        font-size: 25px;
+        font-weight: 510;
+      }
+      &-title {
+        font-size: 20px;
+        font-weight: 510;
+        margin-bottom: 10px;
+      }
+      a {
+        color: #707070;
+      }
+      &-small {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      &-box {
+        display: flex;
+        &-left {
+          width: 2px;
+          background-color: rgba(112, 112, 112, 0.2);
+          margin-right: 20px;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: var(--height);
+            transition: height 1s;
+            background-color: #f3ac34;
+          }
+          &::before {
+            content: "";
+            opacity: var(--isShow);
+            position: absolute;
+            display: block;
+            left: -4px;
+            width: 0px;
+            height: 0px;
+            top: var(--top);
+            transition: opacity 1s;
+            transition: top 1s;
+            border-right: 8px solid transparent;
+            border-top: 8px solid #f3ac34;
+            border-left: 8px solid #f3ac34;
+            border-bottom: 8px solid #f3ac34;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+        }
+      }
+    }
+  }
+  &-right {
+    flex: 1;
+  }
+  &-center {
+    width: 100%;
+    &-box {
+      position: relative;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+    }
+    &-share {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-img {
+        width: 30px;
+        margin-right: 10px;
+      }
+      &-text {
+        color: #37383c;
+        font-weight: bold;
+        display: inline-block;
+      }
+      &-box {
+        position: relative;
+        width: calc(100% - 80px);
+        border-right: 2px solid rgba(112, 112, 112, 0.2);
+      }
+      &-left {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        cursor: pointer;
+        &-img {
+          width: 50px;
+          margin-right: 10px;
+        }
+        &-text {
+          color: #999;
+        }
+      }
+      a {
+        color: #999;
+        &:hover {
+          color: #f3ac34;
+        }
+      }
+      &-telegram {
+        width: 60px;
+        height: 100%;
+        display: block;
+        color: #999;
+        &:hover {
+          color: #f3ac34;
+        }
+      }
+    }
+    &-retweet {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+  &-retweet {
+    width: 100%;
+    .el-tabs {
+      width: 100%;
+      overflow: hidden;
+    }
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    &-text {
+      color: #999;
+      padding-left: 10px;
+      position: relative;
+      height: 25px;
+      margin: 20px 0;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 3px;
+        left: 0;
+        width: 3px;
+        height: 20px;
+        background: #f3ac34;
+      }
+    }
+    .el-tabs__nav-wrap::after {
+      display: none;
+    }
+    .el-tabs__item {
+      font-size: 20px;
+      font-weight: 500;
+      &:hover {
+        color: #f3ac34;
+      }
+    }
+    .el-tabs__item.is-active {
+      color: #f3ac34;
+    }
+    .el-tabs__active-bar {
+      background-color: #f3ac34;
+    }
+  }
+  &-rules {
+    .title-h6 {
+      font-size: 20px;
+      font-weight: 500;
+    }
+    &-box {
+      margin-bottom: 30px;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    strong {
+      color: #f3ac34;
+    }
+    a {
+      color: #4c96e3;
+    }
+  }
+  &-table {
+    color: #707070;
+    font-size: 18px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    border-collapse: separate;
+    border-left: 1px solid #b4b4b4;
+    border-top: 1px solid #b4b4b4;
+    width: 50%;
+    border-radius: 8px;
+    tr {
+      td {
+        border-bottom: 1px solid #b4b4b4;
+        border-right: 1px solid #b4b4b4;
+        text-align: center;
+        vertical-align: middle;
+      }
+      &:first-child {
+        td:last-child {
+          border-top-right-radius: 8px;
+        }
+      }
+      &:last-child {
+        td:first-child {
+          border-bottom-left-radius: 8px;
+        }
+        td:last-child {
+          border-bottom-right-radius: 8px;
+        }
+      }
+    }
+  }
+  &-receive {
+    &-top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      img {
+        width: 30px;
+        margin-right: 10px;
+      }
+    }
+    &-text {
+      color: #707070;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    &-data {
+      color: #37383c;
+      font-weight: bold;
+      position: relative;
+      padding-left: 10px;
+      font-size: 16px;
+      height: 25px;
+      margin-bottom: 20px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f3ac34;
+        width: 3px;
+        height: 100%;
+      }
+    }
+    .personal-redeem {
+      margin-top: 30px;
+    }
+  }
+}

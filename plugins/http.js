@@ -1,6 +1,7 @@
 import { Message } from 'element-ui';
 import { handleSaveCookie } from '../assets/js/public';
 import baseURL from '../config/api';
+console.log(baseURL);
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {

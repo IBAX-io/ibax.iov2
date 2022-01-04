@@ -1,260 +1,329 @@
 <template>
-  <div class="personal">
-    <div class="personal-img">
-      <img src="../../assets/images/login/personal.png" alt="personal" />
-    </div>
-    <div class="personal-score">
-      <el-row type="flex" justify="center">
-        <el-col :sm="22" :lg="18" :md="20">
-          <div class="personal-box">
-            <div class="personal-top">
-              <h6 class="title-h6">
-                <span v-if="isTabs" style="margin-right: 10px">{{
-                  $t('personal.own')
-                }}</span>
-                <span v-else style="margin-right: 10px">{{
-                  $t('personal.coins')
-                }}</span>
-                <span>{{ money_format(statistics) }}</span>
-                <span v-if="!isTabs">IBXC</span>
-              </h6>
-              <div v-if="isTabs" class="personal-score-text">
-                <a
-                  v-if="showFollow.status"
-                  href="https://twitter.com/IbaxNetwork"
-                  target="_blank"
-                  class="personal-score-text-link"
-                >
-                  <span class="personal-score-text-link-text"
-                    >{{ $t('personal.fol') }}:</span
-                  >
-                  @{{ showFollow.followsUserName }}
-                </a>
-                <span v-else> {{ $t('personal.get') }} </span>
-                <a
-                  v-if="!showFollow.status"
-                  :href="showFollow.link"
-                  target=" _blank"
-                  class="personal-score-link"
-                  @click="handleIsFollow(showFollow)"
-                >
-                  {{ $t('personal.go') }}
-                  <i class="el-icon-arrow-right"></i>
-                </a>
-              </div>
-              <div v-else class="personal-score-text">
-                <span>
-                  {{ $t('personal.invite') }}
-                </span>
-              </div>
-            </div>
-            <div class="personal-right">
-              <button
-                class="personal-right-btn"
-                :class="{ 'personal-right-active': isTabs }"
-                :disabled="isTabs"
-                @click="handleChangetabs('retweet')"
-              >
-                {{ $t('personal.retweets') }}
-              </button>
-              <span class="personal-right-middle">/</span>
-              <button
-                class="personal-right-btn"
-                :class="{ 'personal-right-active': !isTabs }"
-                :disabled="!isTabs"
-                @click="handleChangetabs('share')"
-              >
-                {{ $t('personal.share') }}
-              </button>
+  <div class="user-center">
+    <div class="user-center-box">
+      <user-follow></user-follow>
+      <div class="user-center-share user-center-share-mobile">
+        <div class="user-center-share-left user-center-share-left-mobile">
+          <img
+            src="@/assets/images/login/share.png"
+            alt="share"
+            class="user-center-share-img"
+          />
+          <span class="user-center-share-text">{{
+            $t('personal.invites')
+          }}</span>
+        </div>
+        <nuxt-link :to="{ name: 'user-share' }">
+          <span>{{ $t('personal.week') }} +1</span>
+          <i class="el-icon-arrow-right"></i>
+        </nuxt-link>
+      </div>
+      <div class="user-center-share">
+        <div class="user-center-share-box">
+          <div class="user-center-share-left" @click="handleCopy">
+            <img
+              src="@/assets/images/login/share-1.png"
+              alt="share-1"
+              class="user-center-share-left-img"
+            />
+            <span class="user-center-share-left-text">{{
+              $t('personal.link')
+            }}</span>
+          </div>
+          <div class="user-center-share-left" @click="handleCode">
+            <img
+              src="@/assets/images/login/share-2.png"
+              alt="share-1"
+              class="user-center-share-left-img"
+            />
+            <span class="user-center-share-left-text">{{
+              $t('personal.shareOn')
+            }}</span>
+          </div>
+          <div class="user-center-share-left" @click="handleShare">
+            <img
+              src="@/assets/images/login/share-3.png"
+              alt="share-1"
+              class="user-center-share-left-img"
+            />
+            <span class="user-center-share-left-text">{{
+              $t('personal.qr')
+            }}</span>
+          </div>
+          <!-- share link -->
+          <div
+            v-show="isCode"
+            class="personal-code-left-qr"
+            @click="handleCodeConfirm"
+          >
+            <div class="shareon" :data-url="strURL">
+              <a class="twitter"></a>
+              <a class="telegram"></a>
+              <a class="facebook"></a>
+              <a class="linkedin"></a>
+              <a class="reddit"></a>
             </div>
           </div>
-        </el-col>
-      </el-row>
-      <!-- retweet -->
-      <div class="personal-tabs" :class="{ 'personal-share': !isTabs }">
-        <el-row type="flex" justify="center">
-          <el-col :sm="22" :lg="18" :md="20" class="personal-code">
+          <!-- share code -->
+          <div style="display: none">
             <client-only>
-              <share-left
-                v-show="!isMobile && strURL"
-                :data-url="strURL"
-              ></share-left>
+              <vue-qr
+                ref="qrCodeUrl"
+                :logo-src="logoSrc"
+                :size="150"
+                :logo-scale="logoScale"
+                :auto-color="true"
+                :dot-scale="1"
+                :text="strURL"
+                style="height: 200px; width: 200px; border-radius: 12px"
+                background-color="#274235"
+                background-dimming="#274235"
+                color-dark="#274235"
+                :margin="margin"
+                :callback="handleCodeqr"
+              />
             </client-only>
-            <user-retweet
-              v-if="isTabs"
-              :binding="objBinding"
-              :statistics="statistics"
-              @points="handlePoints"
-              @coins="handleCoins"
-            ></user-retweet>
-            <!-- share -->
-            <user-share
-              v-if="!isTabs"
-              :statistics="statistics"
-              :binding="objBinding"
-              @coins="handleCoins"
-            ></user-share>
-            <client-only>
-              <share-left
-                v-show="isMobile && strURL"
-                :data-url="strURL"
-              ></share-left>
-            </client-only>
-          </el-col>
-        </el-row>
+          </div>
+        </div>
+        <a
+          class="user-center-share-telegram"
+          href="https://t.me/IBAXNetwork"
+          target="_blank"
+        >
+          <img src="@/assets/images/login/tg.png" alt="telegram" />
+        </a>
       </div>
+      <!-- share image -->
+      <div
+        v-show="isShore"
+        ref="shareBox"
+        class="personal-code-left-img"
+        @click="handleHtml2canvas"
+      >
+        <img src="@/assets/images/login/back.png" alt="back" />
+        <img :src="strImgUrl" alt="code" class="personal-code-left-img-small" />
+      </div>
+    </div>
+    <div class="user-center-share">
+      <div class="user-center-share-left" style="margin-bottom: 0">
+        <img
+          src="@/assets/images/login/all.png"
+          alt="share"
+          class="user-center-share-img"
+        />
+        <span class="user-center-share-text">{{ $t('personal.our') }}</span>
+      </div>
+      <nuxt-link :to="{ name: 'user-points' }">
+        <span>{{ $t('personal.point') }}</span>
+        <i class="el-icon-arrow-right"></i>
+      </nuxt-link>
+    </div>
+    <div class="user-center-retweet">
+      <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
+        <img src="@/assets/images/login/no-data.png" alt="no-data" />
+      </div>
+      <template v-else>
+        <div v-for="item in arrTask" :key="item.id" class="personal-tabs-task">
+          <div v-if="item.status" class="personal-tabs-task-finish">
+            <img src="@/assets/images/login/finished.png" alt="finished" />
+          </div>
+          <a
+            v-else
+            class="personal-tabs-task-left"
+            :href="item.status ? 'javascript:void(0);' : item.link"
+            :target="item.status ? '' : '_blank'"
+            @click="handleForwardTask(item)"
+          >
+            <div>{{ $t('personal.retweet') }}</div>
+            <div class="personal-tabs-task-left-bottom">
+              +{{ item.points }} <i class="el-icon-arrow-right"></i>
+            </div>
+          </a>
+
+          <div class="personal-tabs-task-middle">
+            <div v-html="item.content"></div>
+          </div>
+          <div class="personal-tabs-task-right">
+            <img
+              :src="`${baseUrl}${item.image}`"
+              alt="task"
+              :onerror="defaultImg"
+            />
+          </div>
+        </div>
+      </template>
+    </div>
+    <div class="user-center-share-left">
+      <img
+        src="@/assets/images/login/github.png"
+        alt="share"
+        class="user-center-share-img"
+      />
+      <span class="user-center-share-text">{{ $t('personal.git') }}</span>
     </div>
   </div>
 </template>
 <script>
-import UserRetweet from './component/UserRetweet.vue';
-import UserShare from './component/UserShare.vue';
-import ShareLeft from './component/ShareLeft.vue';
+import html2canvas from 'html2canvas';
 export default {
-  components: { UserRetweet, UserShare, ShareLeft },
-  layout: 'newsLayouts',
   props: {},
   data() {
     return {
-      isTabs: true,
-      strTabs: 'retweet',
-      objFollow: {
+      objForward: {
         where: '',
         order: 'id desc',
         page: 1,
         limit: 5,
-        type: 1
+        type: 2
       },
+      arrTask: [],
+      taskTotal: 1,
       strURL: '',
-      statistics: 0,
-      showFollow: {},
-      objBinding: {
-        status: false,
-        account: '',
-        blockId: 0
-      }
+      isCode: false,
+      isShore: false,
+      margin: 15,
+      logoScale: 0.2,
+      strImgUrl: '',
+      logoSrc: require('../../assets/images/login/logo.png')
     };
   },
-  computed: {},
+  computed: {
+    defaultImg() {
+      return (
+        'this.src="' + require('../../assets/images/login/task-error.png') + '"'
+      );
+    }
+  },
   watch: {},
   created() {},
   mounted() {
-    this.handlePointsAlready();
-    this.handleGetFollow(this.objFollow);
+    this.handleGetForward(this.objForward);
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
-    //  this.handleGetBlock();
+    if (this.strURL) {
+      this.shareon();
+    }
   },
   methods: {
-    async handleGetBlock() {
-      const res = await this.$axios.$post('/tw/get_binding_status');
-      console.log(res);
-      if (res.code === 0) {
-        this.objBinding = res.data;
-        if (res.data.status && res.data.blockId === 0) {
+    handleCode() {
+      this.isCode = !this.isCode;
+      this.isShore = false;
+    },
+    handleCodeConfirm() {
+      this.isCode = false;
+    },
+    handleShare() {
+      this.isShore = !this.isShore;
+      this.isCode = false;
+    },
+    handleCopy() {
+      this.$copyText(this.strURL).then(
+        (e) => {
+          // console.log(e);
           this.$message({
-            showClose: true,
             type: 'success',
-            message: 'Pending'
+            message: `Copy succeeded`
+          });
+          this.isShore = false;
+          this.isCode = false;
+        },
+        (e) => {
+          console.log(e);
+          this.$message({
+            type: 'error',
+            message: `Copy failed`
           });
         }
-      }
+      );
     },
-    handleChangetabs(str) {
-      if (str === 'retweet') {
-        this.isTabs = true;
-        this.strTabs = 'retweet';
-        this.handlePointsAlready();
-        this.handleGetFollow(this.objFollow);
-      } else {
-        this.isTabs = false;
-        this.strTabs = 'share';
-        this.handleInviteStatistics();
-      }
+    handleCodeqr(url, qid) {
+      console.log(url);
+      console.log(qid);
+      this.strImgUrl = url;
     },
-    async handlePointsAlready() {
-      const res = await this.$axios.$post('/tw/get_points_statistics');
+    async handleHtml2canvas() {
+      this.$message({
+        type: 'success',
+        message: 'Downloading'
+      });
+      const res = await html2canvas(this.$refs.shareBox);
       console.log(res);
-      if (res.code === 0) {
-        this.statistics = res.data.statistics;
-      } else {
-        this.statistics = 0;
-      }
+      console.log(res.toDataURL('image/png'));
+      this.imgUrl = res.toDataURL('image/png');
+      console.log(this.imgUrl);
+      const a = document.createElement('a');
+      a.download = 'code-share';
+      a.href = this.imgUrl;
+      a.dispatchEvent(new MouseEvent('click'));
+      this.isShore = false;
+      this.$message({
+        type: 'success',
+        message: 'Download complete'
+      });
     },
-    async handleInviteStatistics() {
-      const res = await this.$axios.$post('/tw/get_invite_statistics');
-      // console.log(res);
-      if (res.code === 0) {
-        this.statistics = res.data.statistics;
-      } else {
-        this.statistics = 0;
-      }
-    },
-    async handleGetFollow(params) {
+    async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
-      //  console.log(res);
-      if (res.code === 0 && res.data.rets) {
-        this.showFollow = res.data.rets[0];
+      console.log(res);
+      this.arrTask = [];
+      if (res.code === 0) {
+        if (res.data.rets.length) {
+          this.arrTask.push(res.data.rets[0]);
+        } else {
+          this.arrTask = [];
+        }
       } else {
-        this.showFollow = {};
+        this.arrTask = [];
       }
     },
-    handlePoints() {
-      this.handlePointsAlready();
-    },
-    handleCoins() {
-      this.handleGetBlock();
-    },
-    // twitter Follow
-    handleIsFollow(obj) {
+    // twitter forward
+    handleForwardTask(obj) {
       if (obj.status) {
         this.$message({
           type: 'success',
-          message: this.$t('personal.followed')
+          message: this.$t('personal.forwarded')
         });
       } else {
         const h = this.$createElement;
         this.$msgbox({
-          title: this.$t('personal.on'),
-          customClass: 'personal-custom',
-          message: h('p', null, [h('span', null, this.$t('personal.please'))]),
+          title: this.$t('personal.repost'),
+          message: h('p', null, [h('span', null, this.$t('personal.follow'))]),
           showCancelButton: true,
           distinguishCancelAndClose: true,
           closeOnClickModal: false,
           closeOnPressEscape: false,
           center: true,
           confirmButtonClass: 'link-btn',
-          confirmButtonText: this.$t('personal.followed'),
-          cancelButtonText: this.$t('personal.not'),
+          confirmButtonText: this.$t('personal.forwarded'),
+          cancelButtonText: this.$t('personal.notf'),
           beforeClose: (action, instance, done) => {
             if (action === 'confirm') {
               instance.confirmButtonLoading = true;
               instance.confirmButtonText = 'Loading...';
-              console.log(this.userInfo);
               const params = {
                 userName: this.userInfo.username,
-                followUserName: obj.followsUserName
+                tweetsId: obj.tweetsId
               };
               setTimeout(() => {
-                this.$axios.$post('/tw/getFollowing', params).then((res) => {
+                // console.log(params);
+                this.$axios.$post('/tw/getRetweets', params).then((res) => {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
-                    // done();
                     instance.confirmButtonLoading = false;
-                    this.handleGetFollow(this.objFollow);
-                    this.handlePointsAlready();
+                    this.objForward.page = 1;
+                    this.handleGetForward(this.objForward);
+                    this.$store.dispatch('handleGetStatistics');
                     this.$message({
                       showClose: true,
                       type: 'success',
-                      message: this.$t('personal.followed'),
+                      message: this.$t('personal.forwarded'),
                       onClose: () => {
                         done();
                       }
                     });
                   } else {
-                    // done();
+                    //  done();
                     instance.confirmButtonLoading = false;
-                    instance.confirmButtonText = this.$t('personal.followed');
+                    instance.confirmButtonText = this.$t('personal.forwarded');
                     this.$message({
                       showClose: true,
                       type: 'warning',
@@ -263,7 +332,6 @@ export default {
                   }
                 });
               }, 10000);
-              // console.log(params);
             } else {
               done();
             }

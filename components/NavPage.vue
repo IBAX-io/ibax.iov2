@@ -95,7 +95,8 @@
       </template>
     </el-menu>
     <div class="nav-right">
-      <div class="nav-right-dropdown" style="display: none">
+      <!--  <div class="nav-right-dropdown" style="display: none"> -->
+      <div class="nav-right-dropdown">
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             <i class="iconfont el-translate" :style="{ color: colorText }"></i>
@@ -381,7 +382,48 @@ export default {
         {
           title: 'nav.development',
           path: '/developer',
-          key: '5'
+          key: '5',
+          children: [
+            {
+              key: '5-1',
+              content: [
+                {
+                  title: '开发资源',
+                  icon: 'iconfont el-supply-chain',
+                  path: '/developer/rescource',
+                  key: '5-1-1'
+                },
+                {
+                  title: '生态应用中心',
+                  icon: 'iconfont el-asset-management',
+                  path: '/developer/application',
+                  key: '5-1-2'
+                }
+              ]
+            },
+            {
+              key: '5-2',
+              content: [
+                {
+                  title: '开发/悬赏',
+                  icon: 'iconfont el-copyright',
+                  path: '/developer/reward',
+                  key: '5-2-1'
+                }
+              ]
+            },
+            {
+              key: '5-3',
+              content: [
+                {
+                  title: '荣誉开发者',
+                  icon: 'iconfont el-copyright',
+                  path: '/developer/honor',
+                  key: '5-3-1'
+                }
+              ]
+            }
+          ]
         },
         {
           title: 'nav.about',
@@ -396,6 +438,18 @@ export default {
     $route: {
       handler() {
         const { name } = this.$route;
+        const arrIntercept = [
+          'user',
+          'user-github-rules',
+          'user-points',
+          'user-receive',
+          'user-retweet',
+          'user-rules',
+          'user-share',
+          'user-account',
+          'user-record'
+        ];
+        const boo = arrIntercept.includes(name);
         //  console.log(name);
         if (name === 'resource-news-id') {
           this.activeIndex = '/resource/news';
@@ -403,11 +457,7 @@ export default {
           this.activeIndex = '/resource/events';
         } else if (name === 'baas-marketplace-ecolibs') {
           this.activeIndex = '/baas-marketplace';
-        } else if (
-          name === 'login' ||
-          name === 'login-rules' ||
-          name === 'user'
-        ) {
+        } else if (boo) {
           this.activeIndex = '/';
         } else {
           this.activeIndex = this.$route.path;
@@ -427,7 +477,12 @@ export default {
   },
   mounted() {
     if (this.token) {
-      this.$store.dispatch('handleGetUser');
+      const str = localStorage.getItem('user');
+      if (str === 'twitter') {
+        this.$store.dispatch('handleGetTwitterUser');
+      } else {
+        this.$store.dispatch('handleGetGithubUser');
+      }
     }
   },
   methods: {

@@ -15,32 +15,25 @@ export default {
   mounted() {
     //  console.log(this.$route.query);
     const query = this.$route.query;
-    this.handleInit(query);
+    console.log(query);
+    if (Object.prototype.hasOwnProperty.call(query, 'code')) {
+      this.handleGithub(query);
+    } else {
+      this.handleInitTwitter(query);
+    }
+    // this.handleInit(query);
   },
   methods: {
-    async handleInit(query) {
+    handleGithub(query) {
       const code = localStorage.getItem('code');
       const utmSource = localStorage.getItem('utmSource');
-      if (query.oauth_verifier && query.oauth_token) {
+      if (query.code) {
         const obj = {
-          oauth_verifier: query.oauth_verifier,
-          oauth_token: query.oauth_token,
+          oauthcode: query.code,
           invitecode: code || '',
           utm_source: utmSource || ''
         };
-        const res = await this.$axios.$post('/twitter/auth', obj);
-        // console.log(res);
-        if (res.code === 0) {
-          localStorage.setItem('invitecode', res.data.invitecode);
-          handleTokenCookie('token', res.data.token, 1);
-          this.$store
-            .dispatch('handleActionsToken', res.data.token)
-            .then((res) => {
-              this.$router.push({ name: 'user' });
-            });
-        } else {
-          this.$router.push({ name: 'index' });
-        }
+        this.handleLogin('/github_auth', obj, 'github');
       } else {
         this.$message({
           showClose: true,
@@ -50,6 +43,45 @@ export default {
             this.$router.push({ name: 'login' });
           }
         });
+      }
+    },
+    handleInitTwitter(query) {
+      const code = localStorage.getItem('code');
+      const utmSource = localStorage.getItem('utmSource');
+      if (query.oauth_verifier && query.oauth_token) {
+        const obj = {
+          oauth_verifier: query.oauth_verifier,
+          oauth_token: query.oauth_token,
+          invitecode: code || '',
+          utm_source: utmSource || ''
+        };
+        this.handleLogin('/twitter/auth', obj, 'twitter');
+      } else {
+        this.$message({
+          showClose: true,
+          message: 'Sorry, your confirm failed.',
+          type: 'warning',
+          onClose: () => {
+            this.$router.push({ name: 'login' });
+          }
+        });
+      }
+    },
+    async handleLogin(url, obj, str = 'twitter') {
+      const res = await this.$axios.$post(url, obj);
+      console.log(res);
+      console.log(res.data.token);
+      if (res.code === 0) {
+        localStorage.setItem('invitecode', res.data.invitecode);
+        localStorage.setItem('user', str);
+        handleTokenCookie('token', res.data.token, 365);
+        this.$store
+          .dispatch('handleActionsToken', res.data.token)
+          .then((res) => {
+            this.$router.push({ name: 'user' });
+          });
+      } else {
+        this.$router.push({ name: 'index' });
       }
     }
   }

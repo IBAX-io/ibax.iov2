@@ -37,6 +37,10 @@
                 <i class="iconfont el-twitter"></i>
                 <span>{{ $t('login.with') }}</span>
               </button>
+              <!--  <button class="login-btn wow fadeInUp" @click="handleGithub">
+                <i class="iconfont el-github"></i>
+                <span>Github</span>
+              </button> -->
               <p class="login-rules wow fadeInUp" @click="handleRules">
                 {{ $t('personal.rules') }}
               </p>
@@ -139,6 +143,19 @@ export default {
       const res = await this.$axios.$get('/twitter/redirect');
       console.log(res);
       if (res.code === 0) {
+        window.location.href = res.data.url;
+      } else {
+        this.$message({
+          type: 'warning',
+          message: 'The request failed. Please handle it later'
+        });
+      }
+    },
+    async handleGithub() {
+      const res = await this.$axios.$get('/github_redirect');
+      console.log(res);
+      if (res.code === 0) {
+        console.log(res);
         window.location.href = res.data.url;
       } else {
         this.$message({

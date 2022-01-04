@@ -910,6 +910,8 @@
     flex-wrap: wrap;
     padding: 15px;
     margin-top: 20px;
+    margin-left: 0;
+    margin-right: 0;
   }
   .personal-tabs-task-left,
   .personal-tabs-task-middle,
@@ -971,6 +973,13 @@
   }
   .personal-redeem-share-box {
     padding: 0;
+    font-size: 14px;
+  }
+  .user-receive-data {
+    font-size: 14px;
+  }
+  .user-receive-text {
+    font-size: 12px;
   }
   .personal-share {
     padding-bottom: 30px;
@@ -1049,11 +1058,11 @@
   }
   .personal-code-left-qr {
     bottom: 65px;
-    left: calc((100% - 300px) / 2);
+    top: auto;
   }
   .personal-code-left-img {
     top: auto;
-    bottom: 65px;
+    bottom: 100px;
     left: 0;
     width: 100%;
   }
@@ -1076,5 +1085,80 @@
   }
   .el-backtop {
     z-index: 950px;
+  }
+  .user-mobile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+    font-size: 14px;
+    .user-left-info-item {
+      span {
+        display: block;
+      }
+    }
+  }
+  .user-center-share-mobile {
+    margin-bottom: 20px;
+  }
+  .user-center-share-left {
+    margin-bottom: 25px;
+  }
+  .user-center-share-left-mobile {
+    margin-bottom: 0;
+  }
+  .user-center-share-left-img {
+    width: 40px;
+  }
+  .user-center-share-img {
+    width: 25px;
+    margin-right: 5px;
+  }
+  .user-center-share-text {
+    font-size: 12px;
+  }
+  .user-retweet .el-tabs__item {
+    font-size: 16px;
+  }
+  .user-retweet-text {
+    height: auto;
+    font-size: 12px;
+  }
+  .user-retweet-text::after {
+    height: 100%;
+    top: 0;
+  }
+  .personal-tabs-record-head,
+  .personal-tabs-record-even,
+  .personal-tabs-record-odd,
+  .personal-tabs-record-head-text,
+  .personal-tabs-record-even-text,
+  .personal-tabs-record-odd-text {
+    font-size: 14px;
+  }
+  .user-center-share a {
+    font-size: 12px;
+  }
+  .user-retweet-top .user-center-share-text {
+    font-size: 16px;
+  }
+  .personal-score-text {
+    padding-bottom: 10px;
+  }
+  .personal-tabs-record-head > *:first-child,
+  .personal-tabs-record-even > *:first-child,
+  .personal-tabs-record-odd > *:first-child {
+    padding-left: 2%;
+  }
+  .personal-tabs-record-head > *:last-child,
+  .personal-tabs-record-even > *:last-child,
+  .personal-tabs-record-odd > *:last-child {
+    padding-left: 2%;
+  }
+  .user-table {
+    width: 100%;
+  }
+  .m-nav-aside-box .el-a-xingzhuang1 {
+    font-size: 2px !important;
   }
 }

@@ -379,6 +379,7 @@ a.nav-active-link {
   justify-content: space-between;
   align-items: center;
   height: 75px;
+  position: relative;
   &-icon {
     height: 75px;
     line-height: 75px;
@@ -409,6 +410,7 @@ a.nav-active-link {
     transition: width 1s;
     display: flex;
     font: 700 13px/1 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    padding-bottom: 150px;
     &-content {
       width: 50%;
       background-color: $primary-color;
@@ -452,8 +454,8 @@ a.nav-active-link {
         display: block;
         font-size: 18px;
         font-weight: 700;
-        height: 60px;
-        line-height: 60px;
+        height: 50px;
+        line-height: 50px;
       }
     }
     &-box {
@@ -461,6 +463,8 @@ a.nav-active-link {
       .iconfont {
         font-size: 20px;
         color: #f3ac34;
+        width: 20px;
+        display: block;
       }
       &-label {
         color: #9e9e9e;
@@ -474,7 +478,7 @@ a.nav-active-link {
         display: flex;
         white-space: normal;
         align-items: center;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         &-title {
           letter-spacing: -0.03em;
           color: #fcfcfc;
@@ -500,7 +504,7 @@ a.nav-active-link {
   }
   .el-collapse {
     width: 100%;
-    padding: 18px 25px;
+    padding: 0 25px;
     border-top: none;
     border-bottom: none;
     height: 100%;
@@ -513,8 +517,8 @@ a.nav-active-link {
     .el-collapse-item__header {
       background-color: transparent;
       color: #fcfcfc;
-      height: 60px;
-      line-height: 60px;
+      height: 50px;
+      line-height: 50px;
       border-bottom: none;
       .el-collapse-item__arrow {
         font-size: 20px;

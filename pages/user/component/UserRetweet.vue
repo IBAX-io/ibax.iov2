@@ -1,219 +1,227 @@
 <template>
-  <el-tabs v-model="activeName" @tab-click="handleRetweet">
-    <el-tab-pane :label="$t('personal.task')" name="first">
-      <el-row type="flex" justify="center">
-        <el-col :sm="22" :lg="18" :md="20">
-          <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
-            <img src="@/assets/images/login/no-data.png" alt="no-data" />
-          </div>
-          <template v-else>
-            <div
-              v-for="item in arrTask"
-              :key="item.id"
-              class="personal-tabs-task"
-            >
-              <div v-if="item.status" class="personal-tabs-task-finish">
-                <img src="@/assets/images/login/finished.png" alt="finished" />
-              </div>
-              <a
-                v-else
-                class="personal-tabs-task-left"
-                :href="item.status ? 'javascript:void(0);' : item.link"
-                :target="item.status ? '' : '_blank'"
-                @click="handleForwardTask(item)"
-              >
-                <div>{{ $t('personal.retweet') }}</div>
-                <div class="personal-tabs-task-left-bottom">
-                  +{{ item.points }} <i class="el-icon-arrow-right"></i>
-                </div>
-              </a>
-
-              <div class="personal-tabs-task-middle">
-                <div v-html="item.content"></div>
-              </div>
-              <div class="personal-tabs-task-right">
-                <img
-                  :src="`${baseUrl}${item.image}`"
-                  alt="task"
-                  :onerror="defaultImg"
-                />
-              </div>
-            </div>
-          </template>
-          <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
-            <button
-              v-if="isMobile"
-              class="btn btn-primary"
-              @click="handleForwardNext('task')"
-            >
-              {{ $t('footer.more') }}
-            </button>
-            <el-pagination
-              v-else
-              hide-on-single-page
-              background
-              :page-size="objForward.limit"
-              layout="prev, pager, next"
-              :total="taskTotal"
-              @current-change="handleCurrentChange($event, 'task')"
-            >
-            </el-pagination>
-          </div>
-        </el-col>
-      </el-row>
-    </el-tab-pane>
-    <el-tab-pane :label="$t('personal.redeem')" name="second">
-      <div class="personal-tabs-record">
+  <div class="user-retweet">
+    <el-tabs v-model="activeName" @tab-click="handleRetweet">
+      <el-tab-pane :label="$t('personal.task')" name="first">
         <el-row type="flex" justify="center">
           <el-col :sm="22" :lg="18" :md="20">
-            <div class="personal-redeem">
-              <p>
-                {{ $t('personal.will') }}
-              </p>
-              <p>{{ $t('personal.points') }} {{ statistics }}</p>
-              <div
-                v-if="binding.status && binding.blockId"
-                class="personal-redeem-share-box"
-              >
-                <p class="personal-redeem-box-text">
-                  {{ $t('personal.address') }} {{ binding.account }}
-                </p>
-                <p class="personal-redeem-box-text">
-                  {{ $t('personal.storage') }} {{ binding.blockId }}
-                </p>
-                <a
-                  class="btn btn-primary"
-                  :href="`${browserUrl}/transaction/${binding.hash}`"
-                  target="_blank"
-                >
-                  <span>{{ $t('personal.view') }}</span>
-                  <i class="el-icon-right"></i>
-                </a>
-              </div>
-              <div v-else class="personal-redeem-box">
-                <p class="personal-redeem-box-text">
-                  {{ $t('personal.once') }}
-                </p>
-                <div class="personal-redeem-content">
-                  <el-input
-                    v-model="address"
-                    :disabled="binding.status"
-                    :placeholder="$t('personal.your')"
-                  ></el-input>
-                  <div>
-                    <button
-                      class="btn btn-primary"
-                      :disabled="binding.status"
-                      @click="handleAdress"
-                    >
-                      {{ $t('personal.submit') }}
-                    </button>
-                  </div>
-                  <a
-                    class="home-new-bottom link"
-                    href="https://weaver.ibax.io/"
-                    target="_blank"
-                  >
-                    <span>{{ $t('personal.werver') }}</span>
-                    <i class="el-icon-right"></i>
-                  </a>
-                </div>
-              </div>
-              <div
-                id="widthVideo"
-                ref="widthVideo"
-                class="personal-redeem-vidoe"
-              >
-                <h6 class="title-h6">
-                  {{ $t('personal.how') }}
-                </h6>
-                <client-only>
-                  <youtube
-                    ref="introduce"
-                    :resize="isResize"
-                    :fit-parent="isResize"
-                    :player-vars="playerVars"
-                    video-id="kOWd-uIGwa4"
-                    @ended="videoEndedIntroduce"
-                    @error="videoErrorIntroduce"
-                  ></youtube>
-                </client-only>
-              </div>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </el-tab-pane>
-    <el-tab-pane :label="$t('personal.rules')" name="third">
-      <el-row type="flex" justify="center">
-        <el-col :sm="22" :lg="18" :md="20">
-          <points-rules></points-rules>
-        </el-col>
-      </el-row>
-    </el-tab-pane>
-    <el-tab-pane :label="$t('personal.record')" name="fourth">
-      <div class="personal-tabs-record">
-        <el-row type="flex" justify="center">
-          <el-col :sm="22" :lg="18" :md="20">
-            <div
-              v-if="pointRecord.length === 0"
-              class="personal-tabs-record-img"
-            >
+            <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
               <img src="@/assets/images/login/no-data.png" alt="no-data" />
             </div>
-            <div v-else class="personal-tabs-record-box">
-              <div class="personal-tabs-record-head">
-                <div>Date (UTC)</div>
-                <div>Participate</div>
-                <div>Earn points</div>
-              </div>
+            <template v-else>
               <div
-                v-for="item in pointRecord"
+                v-for="item in arrTask"
                 :key="item.id"
-                class="personal-tabs-record-head"
+                class="personal-tabs-task"
               >
-                <div class="personal-tabs-record-head-text">
-                  {{ handleTimeShow(item.time) }}
+                <div v-if="item.status" class="personal-tabs-task-finish">
+                  <img
+                    src="@/assets/images/login/finished.png"
+                    alt="finished"
+                  />
                 </div>
-                <div class="personal-tabs-record-head-text">
-                  <span v-if="item.type === 1">{{
-                    $t('personal.followed')
-                  }}</span>
-                  <span v-if="item.type === 2">{{
-                    $t('personal.forwarded')
-                  }}</span>
-                  <span v-if="item.type === 3">{{ $t('personal.not') }}</span>
+                <a
+                  v-else
+                  class="personal-tabs-task-left"
+                  :href="item.status ? 'javascript:void(0);' : item.link"
+                  :target="item.status ? '' : '_blank'"
+                  @click="handleForwardTask(item)"
+                >
+                  <div>{{ $t('personal.retweet') }}</div>
+                  <div class="personal-tabs-task-left-bottom">
+                    +{{ item.points }} <i class="el-icon-arrow-right"></i>
+                  </div>
+                </a>
+
+                <div class="personal-tabs-task-middle">
+                  <div v-html="item.content"></div>
                 </div>
-                <div class="personal-tabs-record-head-text">
-                  {{ item.points }}
+                <div class="personal-tabs-task-right">
+                  <img
+                    :src="`${baseUrl}${item.image}`"
+                    alt="task"
+                    :onerror="defaultImg"
+                  />
                 </div>
               </div>
-            </div>
-            <div v-if="pointRecord.length !== 0" class="personal-tabs-task-btn">
+            </template>
+            <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
               <button
                 v-if="isMobile"
                 class="btn btn-primary"
-                @click="handleForwardNext('record')"
+                @click="handleForwardNext('task')"
               >
                 {{ $t('footer.more') }}
               </button>
               <el-pagination
                 v-else
-                background
-                width="400"
                 hide-on-single-page
-                :page-size="objRocrad.limit"
+                background
+                :page-size="objForward.limit"
                 layout="prev, pager, next"
-                :total="recordTotal"
-                @current-change="handleCurrentChange($event, 'record')"
+                :total="taskTotal"
+                @current-change="handleCurrentChange($event, 'task')"
               >
               </el-pagination>
             </div>
           </el-col>
         </el-row>
-      </div>
-    </el-tab-pane>
-  </el-tabs>
+      </el-tab-pane>
+      <el-tab-pane :label="$t('personal.redeem')" name="second">
+        <div class="personal-tabs-record">
+          <el-row type="flex" justify="center">
+            <el-col :sm="22" :lg="18" :md="20">
+              <div class="personal-redeem">
+                <p>
+                  {{ $t('personal.will') }}
+                </p>
+                <p>{{ $t('personal.points') }} {{ statistics }}</p>
+                <div
+                  v-if="binding.status && binding.blockId"
+                  class="personal-redeem-share-box"
+                >
+                  <p class="personal-redeem-box-text">
+                    {{ $t('personal.address') }} {{ binding.account }}
+                  </p>
+                  <p class="personal-redeem-box-text">
+                    {{ $t('personal.storage') }} {{ binding.blockId }}
+                  </p>
+                  <a
+                    class="btn btn-primary"
+                    :href="`${browserUrl}/transaction/${binding.hash}`"
+                    target="_blank"
+                  >
+                    <span>{{ $t('personal.view') }}</span>
+                    <i class="el-icon-right"></i>
+                  </a>
+                </div>
+                <div v-else class="personal-redeem-box">
+                  <p class="personal-redeem-box-text">
+                    {{ $t('personal.once') }}
+                  </p>
+                  <div class="personal-redeem-content">
+                    <el-input
+                      v-model="address"
+                      :disabled="binding.status"
+                      :placeholder="$t('personal.your')"
+                    ></el-input>
+                    <div>
+                      <button
+                        class="btn btn-primary"
+                        :disabled="binding.status"
+                        @click="handleAdress"
+                      >
+                        {{ $t('personal.submit') }}
+                      </button>
+                    </div>
+                    <a
+                      class="home-new-bottom link"
+                      href="https://weaver.ibax.io/"
+                      target="_blank"
+                    >
+                      <span>{{ $t('personal.werver') }}</span>
+                      <i class="el-icon-right"></i>
+                    </a>
+                  </div>
+                </div>
+                <div
+                  id="widthVideo"
+                  ref="widthVideo"
+                  class="personal-redeem-vidoe"
+                >
+                  <h6 class="title-h6">
+                    {{ $t('personal.how') }}
+                  </h6>
+                  <client-only>
+                    <youtube
+                      ref="introduce"
+                      :resize="isResize"
+                      :fit-parent="isResize"
+                      :player-vars="playerVars"
+                      video-id="kOWd-uIGwa4"
+                      @ended="videoEndedIntroduce"
+                      @error="videoErrorIntroduce"
+                    ></youtube>
+                  </client-only>
+                </div>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </el-tab-pane>
+      <el-tab-pane :label="$t('personal.rules')" name="third">
+        <el-row type="flex" justify="center">
+          <el-col :sm="22" :lg="18" :md="20">
+            <points-rules></points-rules>
+          </el-col>
+        </el-row>
+      </el-tab-pane>
+      <el-tab-pane :label="$t('personal.record')" name="fourth">
+        <div class="personal-tabs-record">
+          <el-row type="flex" justify="center">
+            <el-col :sm="22" :lg="18" :md="20">
+              <div
+                v-if="pointRecord.length === 0"
+                class="personal-tabs-record-img"
+              >
+                <img src="@/assets/images/login/no-data.png" alt="no-data" />
+              </div>
+              <div v-else class="personal-tabs-record-box">
+                <div class="personal-tabs-record-head">
+                  <div>Date (UTC)</div>
+                  <div>Participate</div>
+                  <div>Earn points</div>
+                </div>
+                <div
+                  v-for="item in pointRecord"
+                  :key="item.id"
+                  class="personal-tabs-record-head"
+                >
+                  <div class="personal-tabs-record-head-text">
+                    {{ handleTimeShow(item.time) }}
+                  </div>
+                  <div class="personal-tabs-record-head-text">
+                    <span v-if="item.type === 1">{{
+                      $t('personal.followed')
+                    }}</span>
+                    <span v-if="item.type === 2">{{
+                      $t('personal.forwarded')
+                    }}</span>
+                    <span v-if="item.type === 3">{{ $t('personal.not') }}</span>
+                  </div>
+                  <div class="personal-tabs-record-head-text">
+                    {{ item.points }}
+                  </div>
+                </div>
+              </div>
+              <div
+                v-if="pointRecord.length !== 0"
+                class="personal-tabs-task-btn"
+              >
+                <button
+                  v-if="isMobile"
+                  class="btn btn-primary"
+                  @click="handleForwardNext('record')"
+                >
+                  {{ $t('footer.more') }}
+                </button>
+                <el-pagination
+                  v-else
+                  background
+                  width="400"
+                  hide-on-single-page
+                  :page-size="objRocrad.limit"
+                  layout="prev, pager, next"
+                  :total="recordTotal"
+                  @current-change="handleCurrentChange($event, 'record')"
+                >
+                </el-pagination>
+              </div>
+            </el-col>
+          </el-row>
+        </div>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
 </template>
 <script>
 export default {
@@ -407,12 +415,12 @@ export default {
         this.handlePointRecord(this.objRocrad);
       }
     },
-    async handleGetUser() {
+    /* async handleGetUser() {
       const res = await this.$axios.$post('/tw/getuser');
       if (res.code === 0) {
         this.$store.commit('handleUserInfo', res.data);
       }
-    },
+    }, */
     handleRetweet(tab, event) {
       if (tab.name === 'first') {
         this.objForward.page = 1;

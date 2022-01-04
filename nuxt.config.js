@@ -45,7 +45,11 @@ export default {
         'http-equiv': 'Cache-Control',
         content: 'no-cache'
       },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1,maximum-scale=1.0, user-scalable=0'
+      },
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'mobile-web-app-capable', content: 'no' },
       {
@@ -153,7 +157,6 @@ export default {
       }
     ]
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['element-ui/lib/theme-chalk/display.css', '@/assets/sass/index.scss'],
 
@@ -215,7 +218,7 @@ export default {
   proxy: {
     '/api': {
       // target: 'https://ibax.io:9095',
-      target: 'http://192.168.1.191:8888/',
+      target: 'http://192.168.1.192:8888',
       changeOrigin: true,
       pathRewrite: {
         '^/api/*': ''

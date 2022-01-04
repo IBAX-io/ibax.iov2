@@ -113,7 +113,7 @@ Vue.mixin({
   },
   methods: {
     handleTimeShow(millisecond) {
-      return this.dayjs.utc(parseInt(millisecond)).format('LLL');
+      return this.dayjs.utc(parseInt(millisecond)).format('ll');
     },
     handleReduce(arr, key = 'id') {
       console.log(arr);
@@ -183,11 +183,12 @@ Vue.mixin({
       });
       this.$store.commit('handleChangeLang', val);
       this.$i18n.locale = val;
-      handleSaveCookie('lang', { lang: val }, 7);
+      handleSaveCookie('lang', { lang: val }, 365);
     },
     async handleSignOut(val) {
       if (val === 'out') {
-        const res = await this.$axios.$post('/tw/loginout');
+        //  const res = await this.$axios.$post('/tw/loginout');
+        const res = await this.$axios.$post('/logout');
         console.log(res);
         if (res.code === 0) {
           this.$store.commit('handleChangeToken', '');

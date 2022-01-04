@@ -42,85 +42,87 @@
       }"
     >
       <el-collapse v-model="activeName" accordion>
-        <el-collapse-item
-          v-for="item in arrNav"
-          :key="item.key"
-          :name="item.key"
-        >
-          <template slot="title">
-            <div class="m-nav-aside-title" :style="{ color: colorText }">
-              {{ $t(item.title) }}
-            </div>
-          </template>
-          <div
-            v-for="child in item.children"
-            :key="child.key"
-            class="m-nav-aside-box"
+        <template v-for="item in arrNavAll">
+          <el-collapse-item
+            v-if="item.children"
+            :key="item.key"
+            :name="item.key"
           >
-            <div v-if="child.title" class="m-nav-aside-box-label">
-              {{ $t(child.title) }}
-            </div>
-            <template v-for="content in child.content">
-              <nuxt-link
-                v-if="content.path"
-                :key="content.key"
-                :to="content.path"
-                class="m-nav-aside-box-content"
-                @click.native="handleOpenNav"
-              >
-                <i :class="content.icon"></i>
-                <div class="m-nav-aside-box-other">
-                  <div
-                    class="m-nav-aside-box-content-title"
-                    :style="{ color: colorText }"
-                  >
-                    {{ $t(content.title) }}
-                  </div>
-                  <div
-                    v-if="content.describe"
-                    class="m-nav-aside-box-content-text"
-                    :style="{ color: colorText }"
-                  >
-                    {{ $t(content.describe) }}
-                  </div>
-                </div>
-              </nuxt-link>
-              <a
-                v-if="content.link"
-                :key="content.key"
-                :href="content.link"
-                target="_blank"
-                class="m-nav-aside-box-content"
-                @click="handleOpenNav"
-              >
-                <i :class="content.icon"></i>
-                <div class="m-nav-aside-box-other">
-                  <div
-                    class="m-nav-aside-box-content-title"
-                    :style="{ color: colorText }"
-                  >
-                    {{ $t(content.title) }}
-                  </div>
-                  <div
-                    v-if="content.describe"
-                    class="m-nav-aside-box-content-text"
-                  >
-                    {{ $t(content.describe) }}
-                  </div>
-                </div>
-              </a>
+            <template slot="title">
+              <div class="m-nav-aside-title" :style="{ color: colorText }">
+                {{ $t(item.title) }}
+              </div>
             </template>
-          </div>
-        </el-collapse-item>
-        <nuxt-link
-          v-for="item in arrSingle"
-          :key="item.key"
-          :to="item.path"
-          :style="{ color: colorText }"
-          class="m-nav-aside-title-single"
-          @click.native="handleOpenNav"
-          >{{ $t(item.title) }}</nuxt-link
-        >
+            <div
+              v-for="child in item.children"
+              :key="child.key"
+              class="m-nav-aside-box"
+            >
+              <div v-if="child.title" class="m-nav-aside-box-label">
+                {{ $t(child.title) }}
+              </div>
+              <template v-for="content in child.content">
+                <nuxt-link
+                  v-if="content.path"
+                  :key="content.key"
+                  :to="content.path"
+                  class="m-nav-aside-box-content"
+                  @click.native="handleOpenNav"
+                >
+                  <i :class="content.icon"></i>
+                  <div class="m-nav-aside-box-other">
+                    <div
+                      class="m-nav-aside-box-content-title"
+                      :style="{ color: colorText }"
+                    >
+                      {{ $t(content.title) }}
+                    </div>
+                    <div
+                      v-if="content.describe"
+                      class="m-nav-aside-box-content-text"
+                      :style="{ color: colorText }"
+                    >
+                      {{ $t(content.describe) }}
+                    </div>
+                  </div>
+                </nuxt-link>
+                <a
+                  v-if="content.link"
+                  :key="content.key"
+                  :href="content.link"
+                  target="_blank"
+                  class="m-nav-aside-box-content"
+                  @click="handleOpenNav"
+                >
+                  <i :class="content.icon"></i>
+                  <div class="m-nav-aside-box-other">
+                    <div
+                      class="m-nav-aside-box-content-title"
+                      :style="{ color: colorText }"
+                    >
+                      {{ $t(content.title) }}
+                    </div>
+                    <div
+                      v-if="content.describe"
+                      class="m-nav-aside-box-content-text"
+                    >
+                      {{ $t(content.describe) }}
+                    </div>
+                  </div>
+                </a>
+              </template>
+            </div>
+          </el-collapse-item>
+          <nuxt-link
+            v-else
+            :key="item.key"
+            :to="item.path"
+            :style="{ color: colorText }"
+            class="m-nav-aside-title-single"
+            @click.native="handleOpenNav"
+            >{{ $t(item.title) }}</nuxt-link
+          >
+        </template>
       </el-collapse>
       <div
         v-if="userInfo && userInfo.name"
@@ -168,17 +170,18 @@ export default {
     return {
       isAside: false,
       activeName: '',
+      arrNavAll: [],
       arrSingle: [
         {
           title: 'nav.bass',
           path: '/baas-marketplace',
           key: 'm-2'
         },
-        {
+        /*  {
           title: 'nav.development',
           path: '/developer',
           key: 'm-5'
-        },
+        }, */
         {
           title: 'nav.about',
           path: '/contact',
@@ -370,16 +373,16 @@ export default {
         {
           title: 'nav.solution',
           path: '/solutions',
-          key: '4',
+          key: 'm-4',
           children: [
             {
-              key: '4-1',
+              key: 'm-4-1',
               content: [
                 {
                   title: 'nav.supply',
                   icon: 'iconfont el-supply-chain',
                   path: '/solutions/supply-chain',
-                  key: '4-1-1'
+                  key: 'm-4-1-1'
                 }
               ]
             },
@@ -390,18 +393,157 @@ export default {
                   title: 'nav.copyright',
                   icon: 'iconfont el-copyright',
                   path: '/solutions/copyright',
-                  key: '4-2-1'
+                  key: 'm-4-2-1'
                 }
               ]
             },
             {
-              key: '4-3',
+              key: 'm-4-3',
               content: [
                 {
                   title: 'nav.assets',
                   icon: 'iconfont el-asset-management',
                   path: '/solutions/assets',
-                  key: '4-3-1'
+                  key: 'm-4-3-1'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: 'nav.development',
+          path: '/solutions',
+          key: 'm-5',
+          children: [
+            {
+              key: 'm-5-1',
+              content: [
+                {
+                  title: '开发资源',
+                  icon: 'iconfont el-supply-chain',
+                  path: '/developer/rescource',
+                  key: 'm-5-1-1'
+                }
+              ]
+            },
+            {
+              key: 'm-5-2',
+              content: [
+                {
+                  title: '生态应用中心',
+                  icon: 'iconfont el-asset-management',
+                  path: '/developer/application',
+                  key: 'm-5-2-1'
+                }
+              ]
+            },
+            {
+              key: 'm-5-3',
+              content: [
+                {
+                  title: '开发/悬赏',
+                  icon: 'iconfont el-copyright',
+                  path: '/developer/reward',
+                  key: 'm-5-3-1'
+                }
+              ]
+            },
+            {
+              key: 'm-5-4',
+              content: [
+                {
+                  title: '荣誉开发者',
+                  icon: 'iconfont el-copyright',
+                  path: '/developer/honor',
+                  key: 'm-5-4-1'
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: 'nav.bass',
+          path: '/baas-marketplace',
+          key: 'm-2'
+        },
+        {
+          title: 'nav.about',
+          path: '/contact',
+          key: 'm-6'
+        }
+      ],
+      arrUserNav: [
+        {
+          title: 'personal.center',
+          key: 'm-7',
+          children: [
+            {
+              key: 'm-7-1',
+              content: [
+                {
+                  title: '个人主页',
+                  icon: 'iconfont el-gerenzhuye',
+                  path: '/user',
+                  key: 'm-7-1-1'
+                }
+              ]
+            },
+            {
+              title: 'personal.airdrop',
+              key: 'm-7-2',
+              content: [
+                {
+                  title: 'personal.ret',
+                  icon: 'iconfont el-xuanzhuan',
+                  path: '/user/retweet',
+                  key: 'm-7-2-1'
+                },
+                {
+                  title: 'personal.referrals',
+                  icon: 'iconfont el-a-xingzhuang1',
+                  path: '/user/share',
+                  key: 'm-7-2-2'
+                },
+                {
+                  title: 'personal.ruless',
+                  icon: 'iconfont el-guize1',
+                  path: '/user/rules',
+                  key: 'm-7-2-3'
+                }
+              ]
+            },
+            {
+              title: 'personal.git',
+              key: 'm-7-3',
+              content: [
+                {
+                  title: '关联GitHub账号',
+                  icon: 'iconfont el-supply-chain',
+                  path: '/user/account',
+                  key: 'm-7-3-1'
+                },
+                {
+                  title: '我的提交记录',
+                  icon: 'iconfont el-supply-chain',
+                  path: '/user/record',
+                  key: 'm-7-3-2'
+                },
+                {
+                  title: 'GitHub活动规则',
+                  icon: 'iconfont el-supply-chain',
+                  path: '/user/github-rules',
+                  key: 'm-7-3-3'
+                }
+              ]
+            },
+            {
+              key: 'm-7-4',
+              content: [
+                {
+                  title: 'personal.geti',
+                  icon: 'iconfont el-a-xingzhuang1',
+                  key: 'm-7-4-1',
+                  path: '/user/receive'
                 }
               ]
             }
@@ -413,7 +555,14 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.token);
+    if (this.token) {
+      this.arrNavAll = this.arrNav.concat(this.arrUserNav);
+    } else {
+      this.arrNavAll = this.arrNav;
+    }
+  },
   methods: {
     handleOpenNav() {
       this.isAside = !this.isAside;

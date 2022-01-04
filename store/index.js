@@ -10,7 +10,12 @@ export const state = () => ({
   isWhite: true,
   token: '',
   userInfo: '',
-  invitecode: ''
+  invitecode: '',
+  statistics: {
+    points: 0,
+    amount: 0,
+    gitAmount: 0
+  }
 });
 export const mutations = {
   handleChangeLang(state, lang) {
@@ -27,6 +32,13 @@ export const mutations = {
   handleUserInfo(state, obj) {
     console.log(obj);
     state.userInfo = obj;
+  },
+  handleStatistics(state, obj) {
+    state.statistics.points = obj.points;
+    state.statistics.amount = obj.amount;
+  },
+  handleInviteAmount(state, obj) {
+    state.amount = obj.statistics;
   },
   handleChangeColor(state, { headerColor, color }) {
     state.headerColor = headerColor;
@@ -73,8 +85,33 @@ export const actions = {
       }
     }
   },
-  async handleGetUser({ commit }) {
+  async handleGetTwitterUser({ commit }) {
     const res = await this.$axios.$post('/tw/getuser');
+    // console.log(res);
+    if (res.code === 0) {
+      commit('handleUserInfo', res.data);
+    } else {
+      commit('handleChangeToken', '');
+      handleTokenCookie('token', '', -1);
+    }
+  },
+  async handleGetStatistics({ commit }) {
+    const pointsData = await this.$axios.$post('/tw/get_points_statistics');
+    const amountData = await this.$axios.$post('/tw/get_invite_statistics');
+    // console.log(res);
+    if (pointsData.code === 0 && amountData.code === 0) {
+      const obj = {
+        points: pointsData.data.statistics,
+        amount: amountData.data.statistics
+      };
+      commit('handleStatistics', obj);
+    } else {
+      commit('handleChangeToken', '');
+      handleTokenCookie('token', '', -1);
+    }
+  },
+  async handleGetGithubUser({ commit }) {
+    const res = await this.$axios.$post('/github/getuser');
     // console.log(res);
     if (res.code === 0) {
       commit('handleUserInfo', res.data);
@@ -134,5 +171,9 @@ export const getters = {
   handleIsWhite(state) {
     const { isWhite } = state;
     return isWhite;
+  },
+  handleStatistics(state) {
+    const { statistics } = state;
+    return statistics;
   }
 };

@@ -67,6 +67,7 @@
 </template>
 <script>
 import html2canvas from 'html2canvas';
+const logoSrc = require('../../../assets/images/login/logo.png');
 export default {
   props: {
     dataUrl: {
@@ -82,7 +83,7 @@ export default {
       isShore: false,
       strImgUrl: '',
       imgUrl: '',
-      logoSrc: require('../../../assets/images/login/logo.png')
+      logoSrc
     };
   },
   computed: {},
