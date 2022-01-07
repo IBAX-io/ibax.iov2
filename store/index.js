@@ -14,7 +14,10 @@ export const state = () => ({
   statistics: {
     points: 0,
     amount: 0,
-    gitAmount: 0
+    gitAmount: 0,
+    weekAmount: 0,
+    level: '',
+    time: ''
   }
 });
 export const mutations = {
@@ -36,6 +39,10 @@ export const mutations = {
   handleStatistics(state, obj) {
     state.statistics.points = obj.points;
     state.statistics.amount = obj.amount;
+    state.statistics.gitAmount = obj.gitAmount;
+    state.statistics.weekAmount = obj.weekAmount;
+    state.statistics.level = obj.level;
+    state.statistics.time = obj.time;
   },
   handleInviteAmount(state, obj) {
     state.amount = obj.statistics;
@@ -96,13 +103,16 @@ export const actions = {
     }
   },
   async handleGetStatistics({ commit }) {
-    const pointsData = await this.$axios.$post('/tw/get_points_statistics');
-    const amountData = await this.$axios.$post('/tw/get_invite_statistics');
+    const data = await this.$axios.$post('/tw/get_statistics');
     // console.log(res);
-    if (pointsData.code === 0 && amountData.code === 0) {
+    if (data.code === 0) {
       const obj = {
-        points: pointsData.data.statistics,
-        amount: amountData.data.statistics
+        points: data.data.points_statistics,
+        amount: data.data.invite_statistics,
+        gitAmount: data.data.github_statistics,
+        weekAmount: data.data.this_week_statistics,
+        time: data.data.next_check_in_time,
+        level: data.data.level_icon
       };
       commit('handleStatistics', obj);
     } else {

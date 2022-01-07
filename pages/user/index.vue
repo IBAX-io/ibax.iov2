@@ -14,7 +14,10 @@
           }}</span>
         </div>
         <nuxt-link :to="{ name: 'user-share' }">
-          <span>{{ $t('personal.week') }} +1</span>
+          <span
+            >{{ $t('personal.week') }} +
+            {{ money_format(statistics.weekAmount) }}</span
+          >
           <i class="el-icon-arrow-right"></i>
         </nuxt-link>
       </div>
@@ -192,11 +195,15 @@ export default {
       return (
         'this.src="' + require('../../assets/images/login/task-error.png') + '"'
       );
+    },
+    statistics() {
+      return this.$store.getters.handleStatistics;
     }
   },
   watch: {},
   created() {},
   mounted() {
+    this.$store.dispatch('handleGetStatistics');
     this.handleGetForward(this.objForward);
     const invitecode = localStorage.getItem('invitecode');
     this.strURL = `${this.baseUrl}/login?code=${invitecode}`;

@@ -419,9 +419,9 @@ export default {
               key: 'm-5-1',
               content: [
                 {
-                  title: '开发资源',
+                  title: 'personal.resources',
                   icon: 'iconfont el-supply-chain',
-                  path: '/developer/rescource',
+                  path: '/developer/resources',
                   key: 'm-5-1-1'
                 }
               ]
@@ -430,9 +430,9 @@ export default {
               key: 'm-5-2',
               content: [
                 {
-                  title: '生态应用中心',
+                  title: 'personal.ecosystem',
                   icon: 'iconfont el-asset-management',
-                  path: '/developer/application',
+                  path: '/developer/ecosystems',
                   key: 'm-5-2-1'
                 }
               ]
@@ -441,9 +441,9 @@ export default {
               key: 'm-5-3',
               content: [
                 {
-                  title: '开发/悬赏',
+                  title: 'personal.bounty',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/reward',
+                  path: '/developer/bonty',
                   key: 'm-5-3-1'
                 }
               ]
@@ -452,9 +452,9 @@ export default {
               key: 'm-5-4',
               content: [
                 {
-                  title: '荣誉开发者',
+                  title: 'personal.honor',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/honor',
+                  path: '/developer/honor-developers',
                   key: 'm-5-4-1'
                 }
               ]
@@ -481,7 +481,7 @@ export default {
               key: 'm-7-1',
               content: [
                 {
-                  title: '个人主页',
+                  title: 'personal.user',
                   icon: 'iconfont el-gerenzhuye',
                   path: '/user',
                   key: 'm-7-1-1'
@@ -507,7 +507,7 @@ export default {
                 {
                   title: 'personal.ruless',
                   icon: 'iconfont el-guize1',
-                  path: '/user/rules',
+                  path: '/user/airdrop-rules',
                   key: 'm-7-2-3'
                 }
               ]
@@ -517,19 +517,19 @@ export default {
               key: 'm-7-3',
               content: [
                 {
-                  title: '关联GitHub账号',
+                  title: 'personal.account',
                   icon: 'iconfont el-supply-chain',
-                  path: '/user/account',
+                  path: '/user/link-github',
                   key: 'm-7-3-1'
                 },
                 {
-                  title: '我的提交记录',
+                  title: 'personal.commits',
                   icon: 'iconfont el-supply-chain',
-                  path: '/user/record',
+                  path: '/user/commits',
                   key: 'm-7-3-2'
                 },
                 {
-                  title: 'GitHub活动规则',
+                  title: 'personal.gr',
                   icon: 'iconfont el-supply-chain',
                   path: '/user/github-rules',
                   key: 'm-7-3-3'
@@ -543,7 +543,7 @@ export default {
                   title: 'personal.geti',
                   icon: 'iconfont el-a-xingzhuang1',
                   key: 'm-7-4-1',
-                  path: '/user/receive'
+                  path: '/user/redeem'
                 }
               ]
             }

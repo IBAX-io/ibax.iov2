@@ -40,6 +40,105 @@
       margin-top: 10px;
     }
   }
+  &-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  &-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    &-item {
+      width: 25%;
+      &-icon {
+        text-align: center;
+        background: #335746;
+        border-radius: 20px 20px 0px 0px;
+        margin-bottom: 20px;
+      }
+      .iconfont {
+        font-size: 80px;
+        color: #f3ac34;
+      }
+      p {
+        text-align: left;
+      }
+    }
+  }
+  &-white-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 38px 37px;
+    color: #f3ac34;
+    display: block;
+  }
+  &-white-text {
+    margin-bottom: 30px;
+  }
+  &-discuss {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    img {
+      width: 100px;
+      margin-right: 10px;
+    }
+    &-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-text {
+        margin-right: 20px;
+      }
+      &-line {
+        flex: 1;
+        border-bottom: 2px dashed #dad6f5;
+      }
+    }
+  }
+  &-wonder {
+    width: 100%;
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.39);
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+      opacity: 1;
+      border-radius: 20px;
+      &-left {
+        width: 15%;
+        img {
+          width: 120px;
+          min-width: 120px;
+          border-radius: 50%;
+        }
+      }
+      &-middle {
+        width: 75%;
+      }
+      &-right {
+        width: 15%;
+      }
+    }
+    .title-h6 {
+      font-size: 24px;
+      line-height: 30px;
+      height: 30px;
+    }
+    .title-h7 {
+      font-size: 18px;
+      font-weight: bolder;
+      line-height: 30px;
+      height: 30px;
+    }
+  }
 }
 .dialog.el-dialog {
   background: transparent;

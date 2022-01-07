@@ -116,7 +116,7 @@ export default {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain BaaS,Mining'
+          'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain BaaS,Mining,web3.0,blockchain,metaverse'
       },
       {
         hid: 'description',
@@ -147,7 +147,8 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href: '/icon/iconfont.css'
+        // href: '/icon/iconfont.css'
+        href: '//at.alicdn.com/t/font_2762091_scl6qta0t3s.css'
       }
     ],
     script: [

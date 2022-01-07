@@ -388,15 +388,15 @@ export default {
               key: '5-1',
               content: [
                 {
-                  title: '开发资源',
+                  title: 'personal.resources',
                   icon: 'iconfont el-supply-chain',
-                  path: '/developer/rescource',
+                  path: '/developer/resources',
                   key: '5-1-1'
                 },
                 {
-                  title: '生态应用中心',
+                  title: 'personal.ecosystem',
                   icon: 'iconfont el-asset-management',
-                  path: '/developer/application',
+                  path: '/developer/ecosystems',
                   key: '5-1-2'
                 }
               ]
@@ -405,9 +405,9 @@ export default {
               key: '5-2',
               content: [
                 {
-                  title: '开发/悬赏',
+                  title: 'personal.bounty',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/reward',
+                  path: '/developer/bonty',
                   key: '5-2-1'
                 }
               ]
@@ -416,9 +416,9 @@ export default {
               key: '5-3',
               content: [
                 {
-                  title: '荣誉开发者',
+                  title: 'personal.honor',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/honor',
+                  path: '/developer/honor-developers',
                   key: '5-3-1'
                 }
               ]

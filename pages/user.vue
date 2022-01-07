@@ -121,7 +121,7 @@ export default {
             },
             {
               title: 'personal.ruless',
-              path: '/user/rules',
+              path: '/user/airdrop-rules',
               key: '1-3'
             }
           ]
@@ -133,17 +133,17 @@ export default {
           rules: ['/user/account', '/user/record', '/user/github-rules'],
           children: [
             {
-              title: '关联GitHub账号',
-              path: '/user/account',
+              title: 'personal.account',
+              path: '/user/link-github',
               key: '2-1'
             },
             {
-              title: '我的提交记录',
-              path: '/user/record',
+              title: 'personal.commits',
+              path: '/user/commits',
               key: '2-2'
             },
             {
-              title: 'GitHub活动规则',
+              title: 'personal.gr',
               path: '/user/github-rules',
               key: '2-3'
             }
@@ -152,7 +152,7 @@ export default {
         {
           title: 'personal.geti',
           key: '3',
-          path: '/user/receive',
+          path: '/user/redeem',
           rules: []
         }
       ]
@@ -222,17 +222,17 @@ export default {
           this.topVal = '90px';
           this.isShow = 1;
           break;
-        case '/user/rules':
+        case '/user/airdrop-rules':
           this.heightVar = `150px`;
           this.topVal = '120px';
           this.isShow = 1;
           break;
-        case '/user/account':
+        case '/user/link-github':
           this.heightVar = `240px`;
           this.topVal = '205px';
           this.isShow = 1;
           break;
-        case '/user/record':
+        case '/user/commits':
           this.heightVar = `270px`;
           this.topVal = '240px';
           this.isShow = 1;
@@ -242,7 +242,7 @@ export default {
           this.topVal = '275px';
           this.isShow = 1;
           break;
-        case '/user/receive':
+        case '/user/redeem':
           this.heightVar = `100%`;
           this.topVal = '315px';
           this.isShow = 1;

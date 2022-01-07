@@ -860,7 +860,7 @@ export default {
           hid: 'keywords',
           name: 'keywords',
           content:
-            'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain BaaS,Mining'
+            'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAX AMA, BlockChain BaaS, BaaS, Mining, Web3.0, W3,Blockchain, Metaverse'
         },
         {
           hid: 'description',
