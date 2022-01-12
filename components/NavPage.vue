@@ -95,8 +95,8 @@
       </template>
     </el-menu>
     <div class="nav-right">
-      <!--  <div class="nav-right-dropdown" style="display: none"> -->
-      <div class="nav-right-dropdown">
+      <div class="nav-right-dropdown" style="display: none">
+        <!--   <div class="nav-right-dropdown"> -->
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             <i class="iconfont el-translate" :style="{ color: colorText }"></i>

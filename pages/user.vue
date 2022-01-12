@@ -169,7 +169,7 @@ export default {
   watch: {
     $route: {
       handler(val, oldVal) {
-        console.log(val.name);
+        // console.log(val.name);
         const { path } = val;
         this.handleRoute(path);
       },
@@ -198,7 +198,7 @@ export default {
     },
     handleRoute(path) {
       const arr = this.arrUserNav.map((item) => {
-        console.log(item);
+        // console.log(item);
         if (item.rules.includes(path)) {
           item.isSelect = true;
         } else {

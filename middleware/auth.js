@@ -11,22 +11,25 @@ export default function ({
   const arrIntercept = [
     'login',
     'user',
-    'login-callback',
-    'user-github',
+    'user-airdrop-rules',
     'user-points',
-    'user-receive',
+    'user-link-github',
     'user-retweet',
     'user-rules',
-    'user-share'
+    'user-share',
+    'user-commits',
+    'user-github-rules'
   ];
   const arrFromName = [
     'user',
-    'user-github',
+    'user-airdrop-rules',
     'user-points',
-    'user-receive',
+    'user-link-github',
     'user-retweet',
     'user-rules',
-    'user-share'
+    'user-share',
+    'user-commits',
+    'user-github-rules'
   ];
   const arrLogin = ['login'];
   //  current leave route

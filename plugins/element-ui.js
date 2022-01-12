@@ -37,7 +37,9 @@ import {
   CarouselItem,
   Collapse,
   CollapseItem,
-  Card
+  Card,
+  Form,
+  FormItem
 } from 'element-ui';
 
 Vue.use(Scrollbar);
@@ -75,6 +77,8 @@ Vue.use(CollapseItem);
 Vue.use(Timeline);
 Vue.use(TimelineItem);
 Vue.use(Card);
+Vue.use(Form);
+Vue.use(FormItem);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;

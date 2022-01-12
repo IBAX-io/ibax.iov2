@@ -288,4 +288,158 @@
       margin-top: 30px;
     }
   }
+  &-github {
+    &-box {
+      background: url("../images/login/github-event.png") no-repeat center;
+      background-size: 100% 100%;
+      height: 50vh;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      &-content {
+        margin-left: 5%;
+      }
+      &-link {
+        width: 330px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.6);
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 20px;
+        &-btn {
+          color: #000;
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 10px;
+          cursor: pointer;
+          display: flex;
+          line-height: 1.3em;
+          align-items: center;
+          i {
+            font-size: 20px;
+          }
+          span {
+            margin: 0 10px;
+          }
+          &-box {
+            margin-top: 20px;
+          }
+        }
+        &-text {
+          color: #707070;
+          text-align: center;
+          white-space: pre-line;
+        }
+        &-git {
+          background-color: #fff;
+          color: #000;
+          font-size: 14px;
+          padding: 3px 5px;
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          i {
+            font-size: 16px;
+          }
+          span {
+            margin-left: 5px;
+            font-weight: 500;
+          }
+        }
+        &-fork {
+          margin-left: auto;
+        }
+      }
+      &-email {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+        border-radius: 50%;
+        color: #f3ac34;
+        font-weight: bolder;
+        text-align: center;
+        line-height: 50px;
+        font-size: 25px;
+        margin-top: 30px;
+        cursor: pointer;
+      }
+    }
+    &-discuss {
+      margin: 20px 0 30px 0;
+      font-size: 20px;
+      color: #707070;
+      font-weight: bolder;
+    }
+  }
+  &-commits {
+    .develop-bugs-left-box {
+      border-right: none;
+    }
+    .develop-bugs-item {
+      padding: 20px;
+    }
+  }
+  &-dialog {
+    color: #707070;
+    width: 100%;
+    .el-dialog__footer {
+      text-align: center;
+    }
+    .btn {
+      min-width: 150px;
+      padding: 10px;
+    }
+    .btn-primary {
+      background: #f3ac34;
+      color: #fff;
+      border: none;
+      &:hover {
+        color: #fff !important;
+        background: #f3ac34 !important;
+      }
+    }
+    .el-button.is-disabled,
+    .el-button.is-disabled:focus,
+    .el-button.is-disabled:hover {
+      color: #c0c4cc !important;
+      background-color: #f5ecdc !important;
+    }
+    &-content {
+      .el-input {
+        width: calc(100% - 160px);
+      }
+      .el-input__inner {
+        border: none;
+      }
+      .btn {
+        margin-left: auto;
+      }
+      .el-form-item {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+      }
+      .el-form-item__error {
+        top: 55px;
+      }
+    }
+    &-title {
+      color: #707070;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .iconfont {
+        color: #f3ac34;
+        font-size: 25px;
+        margin-right: 10px;
+      }
+    }
+    &-bind {
+      text-align: center;
+      &-email {
+        color: #f3ac34;
+        font-size: 18px;
+      }
+    }
+  }
 }

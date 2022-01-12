@@ -160,6 +160,7 @@
         </el-col>
       </el-row>
     </div>
+    <!-- discuss -->
     <div class="media-b">
       <el-row type="flex" justify="center">
         <el-col :xs="24" :lg="18">
@@ -167,229 +168,422 @@
             <div class="develop-discuss">
               <img src="../../assets/images/develop-2.png" alt="develop-2" />
               <div class="develop-discuss-content">
-                <span class="develop-discuss-content-text">精彩讨论区</span>
+                <span class="develop-discuss-content-text">{{
+                  $t('develope.forum')
+                }}</span>
                 <span class="develop-discuss-content-line"></span>
               </div>
             </div>
             <div class="develop-wonder">
-              <div class="develop-wonder-item">
+              <div
+                v-for="item in arrDiscussion"
+                :key="item.id"
+                class="develop-wonder-item"
+              >
                 <div class="develop-wonder-item-left">
-                  <h6 class="title-h6">区块链和KYC</h6>
+                  <h6 class="title-h6">{{ item.title }}</h6>
                   <img
-                    src="../../assets/images/avatars/adviser-1-1.png"
-                    alt="adviser-1-1"
+                    :src="item.author_icon"
+                    alt="author"
+                    :onerror="defaultImg"
                   />
                 </div>
                 <div class="develop-wonder-item-middle">
-                  <p class="title-h7">如何在区块链中结合去中心化和 KYC 认证</p>
+                  <div class="develop-wonder-item-middle-box">
+                    <p class="title-h7">
+                      {{ item.sub_title }}
+                    </p>
+                    <el-button v-if="item.type === 1">{{
+                      $t('develope.discuss')
+                    }}</el-button>
+                    <el-button v-if="item.type === 2">BUG</el-button>
+                  </div>
+                  <el-input
+                    v-model="item.content"
+                    class="develop-textarea"
+                    type="textarea"
+                    :placeholder="$t('develope.issue')"
+                    readonly
+                  >
+                  </el-input>
+                  <div class="develop-wonder-item-middle-bottom">
+                    <a
+                      :href="item.author_url"
+                      target="_blank"
+                      class="develop-wonder-item-middle-bottom-name"
+                      >{{ item.author }}
+                    </a>
+                    <span>{{ $t('develope.on') }} </span>
+                    <span class="develop-wonder-item-middle-bottom-time">{{
+                      handleTimeShow(item.author_created)
+                    }}</span>
+                    <span>{{ $t('develope.on') }} </span>
+                    <a
+                      :href="item.category_url"
+                      target="_blank"
+                      class="develop-wonder-item-middle-bottom-name"
+                    >
+                      # {{ item.category }}</a
+                    >
+                    <span>{{ $t('develope.mentioned') }}</span>
+                    <i class="iconfont el-Pionts"></i>
+                    <span class="develop-wonder-item-middle-bottom-number">{{
+                      money_format(item.points)
+                    }}</span>
+                    <i class="iconfont el-Block"></i>
+                    <a
+                      :href="`${browserUrl}/transaction/${item.hash}`"
+                      target="_blank"
+                      class="develop-wonder-item-middle-bottom-name"
+                      >{{ item.block_id }}</a
+                    >
+                    <span class="develop-wonder-item-middle-bottom-auto"
+                      ># {{ item.labels }}</span
+                    >
+                  </div>
                 </div>
                 <div class="develop-wonder-item-right">
-                  <p>如何在区块链中结合去中心化和 KYC 认证</p>
+                  <p class="develop-wonder-item-right-replies">
+                    {{ money_format(item.comments) }}
+                    {{ $t('develope.replies') }}
+                  </p>
+                  <a
+                    :href="item.link"
+                    target="_blank"
+                    class="develop-wonder-item-right-join"
+                  >
+                    {{ $t('develope.join') }}
+                    <i class="el-icon-caret-right"></i>
+                  </a>
                 </div>
               </div>
+            </div>
+            <!-- page -->
+            <div
+              v-if="arrDiscussion.length !== 0"
+              class="personal-tabs-task-btn"
+            >
+              <button
+                v-if="isMobile"
+                v-show="isMore"
+                class="btn btn-primary"
+                @click="handleForwardNext('record')"
+              >
+                {{ $t('footer.more') }}
+              </button>
+              <el-pagination
+                v-else
+                background
+                width="400"
+                hide-on-single-page
+                :page-size="objActivity.limit"
+                layout="prev, pager, next"
+                :total="activityTotal"
+                @current-change="handleCurrentChange($event, 1)"
+              >
+              </el-pagination>
+            </div>
+            <div class="home-top-btn wow fadeInUp">
+              <a
+                href="https://github.com/IBAX-io/go-ibax/discussions"
+                target="_blank"
+                class="btn btn-primary"
+              >
+                <span>{{ $t('develope.check') }}</span>
+                <i class="el-icon-right"></i>
+              </a>
             </div>
           </div>
         </el-col>
       </el-row>
     </div>
-    <div class="media-b">
-      <el-row type="flex" justify="center">
-        <el-col :xs="24" :lg="18">
-          <div class="home-new">
-            <el-row
-              type="flex"
-              justify="space-between"
-              align="middle"
-              class="el-row-wrap"
-            >
-              <el-col :xs="24" :lg="11">
-                <div class="develop-title wow fadeInUp">
-                  <i class="iconfont el-code develop-title-icon"></i>
-                  <h4 class="title-h4 wow fadeInUp">
-                    {{ $t('develope.audit') }}
-                  </h4>
-                </div>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.review') }}
-                </p>
-              </el-col>
-              <el-col :xs="24" :lg="11">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="@/assets/images/develop-code.png"
-                    alt="develop-code"
-                  />
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div
-      class="develop-center"
-      :style="{ 'padding-top': isMobile ? '50px' : '100px' }"
-    >
-      <h2 class="title-h2 wow fadeInUp">{{ $t('develope.lowCode') }}</h2>
-      <p class="wow fadeInUp">
-        {{ $t('develope.code') }}
-      </p>
-    </div>
+    <!-- bugs -->
     <div class="media-a">
       <el-row type="flex" justify="center">
         <el-col :xs="24" :lg="18">
           <div class="home-new">
-            <el-row
-              type="flex"
-              justify="space-between"
-              align="middle"
-              class="el-row-wrap"
-            >
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="@/assets/images/gif/develop-manage.gif"
-                    alt="develop-more"
-                  />
-                </div>
-              </el-col>
-              <el-col :xs="24" :lg="8">
-                <div class="develop-title wow fadeInUp">
-                  <i class="iconfont el-ecological develop-title-icon"></i>
-                  <h4 class="title-h4 wow fadeInUp">
-                    {{ $t('develope.ecological') }}
-                  </h4>
-                </div>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.quickly') }}
-                </p>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.also') }}
-                </p>
-              </el-col>
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="../../assets/images/gif/develop-manage.gif"
-                    alt="develop-manage"
-                  />
-                </div>
-              </el-col>
-            </el-row>
+            <div class="develop-discuss">
+              <img src="../../assets/images/develop-2.png" alt="develop-2" />
+              <div class="develop-discuss-content">
+                <span class="develop-discuss-content-text">{{
+                  $t('develope.bugs')
+                }}</span>
+                <span class="develop-discuss-content-line"></span>
+              </div>
+            </div>
           </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="media-b">
-      <el-row type="flex" justify="center">
-        <el-col :xs="24" :lg="18">
-          <div class="home-new">
-            <el-row
-              type="flex"
-              justify="space-between"
-              align="middle"
-              class="el-row-wrap"
-            >
-              <el-col :xs="24" :lg="8">
-                <div class="develop-title wow fadeInUp">
-                  <i class="iconfont el-contract develop-title-icon"></i>
-                  <h4 class="title-h4">
-                    {{ $t('develope.online') }}
-                  </h4>
+          <div class="develop-bugs">
+            <div class="develop-bugs-left">
+              <div ref="bugsleft" class="develop-bugs-left-box">
+                <div
+                  v-for="(item, index) in arrBugs"
+                  :key="item.id"
+                  class="develop-bugs-item"
+                >
+                  <div v-if="index % 2 === 0" class="develop-bugs-item-even">
+                    <h6 class="title-h6 develop-bugs-item-title">
+                      <span>{{ item.title }}</span>
+                      <a
+                        :href="item.category_url"
+                        target="_blank"
+                        class="develop-wonder-item-middle-bottom-name"
+                        ># {{ item.category }}</a
+                      >
+                    </h6>
+                    <div class="develop-bugs-item-content">
+                      <div class="develop-bugs-item-content-textarea">
+                        <el-input
+                          v-model="item.content"
+                          class="develop-textarea"
+                          type="textarea"
+                          :placeholder="$t('develope.issue')"
+                          readonly
+                        >
+                        </el-input>
+                        <div class="develop-bugs-item-content-textarea-bottom">
+                          <img
+                            class="develop-bugs-item-content-textarea-img"
+                            :src="`${baseUrl}${item.level_icon}`"
+                            alt="level_icon"
+                          />
+                          <span
+                            class="develop-bugs-item-content-textarea-level"
+                            >{{ item.level_name }}</span
+                          >
+                          <a
+                            :href="item.author_url"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                            >{{ item.author }}
+                          </a>
+                          <span>{{ $t('develope.on') }} </span>
+                          <span
+                            class="develop-wonder-item-middle-bottom-time"
+                            >{{ handleTimeShow(item.author_created) }}</span
+                          >
+                          <span>{{ $t('develope.on') }} </span>
+                          <a
+                            :href="item.category_url"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                          >
+                            # {{ item.category }}</a
+                          >
+                          <span>{{ $t('develope.mentioned') }}</span>
+                        </div>
+                      </div>
+                      <div class="develop-bugs-item-content-right">
+                        <div># {{ item.labels }}</div>
+                        <div>
+                          <i class="iconfont el-Pionts"></i>
+                          <span
+                            class="develop-wonder-item-middle-bottom-number"
+                            >{{ money_format(item.points) }}</span
+                          >
+                        </div>
+                        <div>
+                          <i class="iconfont el-Block"></i>
+                          <a
+                            :href="`${browserUrl}/transaction/${item.hash}`"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                            >{{ item.block_id }}</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div v-else class="develop-bugs-item-odd">
+                    <h6 class="title-h6 develop-bugs-item-title">
+                      <span>{{ item.title }}</span>
+                      <a
+                        :href="item.category_url"
+                        target="_blank"
+                        class="develop-wonder-item-middle-bottom-name"
+                        ># {{ item.category }}</a
+                      >
+                    </h6>
+
+                    <div class="develop-bugs-item-content">
+                      <div class="develop-bugs-item-content-right">
+                        <div># {{ item.labels }}</div>
+                        <div>
+                          <i class="iconfont el-Pionts"></i>
+                          <span
+                            class="develop-wonder-item-middle-bottom-number"
+                            >{{ money_format(item.points) }}</span
+                          >
+                        </div>
+                        <div>
+                          <i class="iconfont el-Block"></i>
+                          <a
+                            :href="`${browserUrl}/transaction/${item.hash}`"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                            >{{ item.block_id }}</a
+                          >
+                        </div>
+                      </div>
+                      <div class="develop-bugs-item-content-textarea">
+                        <el-input
+                          v-model="item.content"
+                          class="develop-textarea"
+                          type="textarea"
+                          :placeholder="$t('develope.issue')"
+                          readonly
+                        >
+                        </el-input>
+                        <div class="develop-bugs-item-content-textarea-bottom">
+                          <img
+                            class="develop-bugs-item-content-textarea-img"
+                            :src="`${baseUrl}${item.level_icon}`"
+                            alt="level_icon"
+                          />
+                          <span
+                            class="develop-bugs-item-content-textarea-level"
+                            >{{ item.level_name }}</span
+                          >
+                          <a
+                            :href="item.author_url"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                            >{{ item.author }}
+                          </a>
+                          <span>{{ $t('develope.on') }} </span>
+                          <span
+                            class="develop-wonder-item-middle-bottom-time"
+                            >{{ handleTimeShow(item.author_created) }}</span
+                          >
+                          <span>{{ $t('develope.on') }} </span>
+                          <a
+                            :href="item.category_url"
+                            target="_blank"
+                            class="develop-wonder-item-middle-bottom-name"
+                          >
+                            # {{ item.category }}</a
+                          >
+                          <span>{{ $t('develope.mentioned') }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.frameworks') }}
-                </p>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.means') }}
-                </p>
-                <p class="wow fadeInUp">{{ $t('develope.drag') }}</p>
-              </el-col>
-              <el-col :xs="24" :lg="14">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="../../assets/images/gif/develop-online.gif"
-                    alt="develop-online"
-                  />
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="media-a">
-      <el-row type="flex" justify="center">
-        <el-col :xs="24" :lg="18">
-          <div class="home-new">
-            <el-row
-              type="flex"
-              justify="space-between"
-              align="middle"
-              class="el-row-wrap"
-            >
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-down">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="@/assets/images/gif/develop-template.gif"
-                    alt="develop-template"
-                  />
-                </div>
-              </el-col>
-              <el-col :xs="24" :lg="8">
-                <div class="develop-title wow fadeInUp">
-                  <i class="iconfont el-templates develop-title-icon"></i>
-                  <h4 class="title-h4">
-                    {{ $t('develope.template') }}
-                  </h4>
-                </div>
-                <p class="wow fadeInUp">
-                  {{ $t('develope.number') }}
-                </p>
-              </el-col>
-              <el-col :xs="24" :lg="14" class="hidden-sm-and-up">
-                <div class="home-new-img wow fadeInUp">
-                  <img
-                    src="@/assets/images/gif/develop-template.gif"
-                    alt="develop-template"
-                  />
-                </div>
-              </el-col>
-            </el-row>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <!-- bottom -->
-    <!--  <page-bottom class="lime" :obj="obj"></page-bottom> -->
-    <!-- Story wall -->
-    <div id="empower" class="about-five">
-      <el-row type="flex" justify="center">
-        <el-col :md="16" :xs="24">
-          <h2 class="about-five-title">{{ $t('develope.roadmap') }}</h2>
-          <div class="about-five-box">
-            <el-timeline>
-              <el-timeline-item
-                v-for="(item, index) in arrMap"
-                :key="index"
-                :timestamp="item.time"
-                placement="top"
+              </div>
+              <!-- bugs page -->
+              <div v-if="arrBugs.length !== 0" class="personal-tabs-task-btn">
+                <button
+                  v-if="isMobile"
+                  v-show="isMore"
+                  class="btn btn-primary"
+                  @click="handleForwardNext('record')"
+                >
+                  {{ $t('footer.more') }}
+                </button>
+                <el-pagination
+                  v-else
+                  background
+                  width="400"
+                  hide-on-single-page
+                  :page-size="objBugs.limit"
+                  layout="prev, pager, next"
+                  :total="bugsTotal"
+                  @current-change="handleCurrentChange($event, 2)"
+                >
+                </el-pagination>
+              </div>
+              <div class="home-top-btn wow fadeInUp">
+                <nuxt-link
+                  :to="{ path: '/developer/honor-developers' }"
+                  class="btn btn-primary"
+                >
+                  <span>{{ $t('develope.see') }}</span>
+                  <i class="el-icon-right"></i>
+                </nuxt-link>
+              </div>
+            </div>
+            <div ref="bugsRight" class="develop-bugs-right">
+              <h6 class="title-h6 develop-bugs-item-title">
+                <i class="iconfont el-guize1"></i>
+                <span>{{ $t('develope.honor') }}</span>
+              </h6>
+              <p class="develop-bugs-right-text">{{ $t('develope.forget') }}</p>
+              <el-collapse
+                v-model="activeNames"
+                accordion
+                @change="handleCollapse"
               >
-                <el-card>
-                  <p class="about-five-content">{{ $t(item.content) }}</p>
-                </el-card>
-              </el-timeline-item>
-            </el-timeline>
+                <el-collapse-item
+                  v-for="item in arrHonor"
+                  :key="item.id"
+                  :name="item.id"
+                >
+                  <template slot="title">
+                    <div class="develop-bugs-right-header">
+                      <div class="develop-bugs-right-header-name">
+                        <span>{{ item.title }}</span>
+                        <span>({{ money_format(item.title_count) }})</span>
+                        <img
+                          :src="`${baseUrl}${item.title_icon}`"
+                          alt="title_icon"
+                        />
+                      </div>
+                      <div class="develop-bugs-right-header-content">
+                        {{ item.introduction }}
+                      </div>
+                    </div>
+                  </template>
+                  <div class="develop-bugs-box">
+                    <div
+                      v-for="ele in arrLeaderboard"
+                      :key="ele.id"
+                      class="develop-bugs-box-item"
+                    >
+                      <div class="develop-bugs-box-item-content">
+                        <div class="develop-honor-person-item-img">
+                          <img :src="ele.user_avatar" alt="user_avatar" />
+                        </div>
+                        <div class="develop-honor-person-item-text">
+                          <p>{{ ele.username }}</p>
+                          <p>
+                            <i class="iconfont el-Pionts"></i>
+                            <span>Points: {{ money_format(ele.points) }}</span>
+                          </p>
+                        </div>
+                      </div>
+                      <p>{{ ele.introduction }}</p>
+                    </div>
+                    <!-- bugs page -->
+                    <div
+                      v-if="arrLeaderboard.length !== 0"
+                      class="personal-tabs-task-btn"
+                    >
+                      <button
+                        v-if="isMobile"
+                        v-show="isLead"
+                        class="btn btn-primary"
+                        @click="handleForwardNext('record')"
+                      >
+                        {{ $t('footer.more') }}
+                      </button>
+                      <el-pagination
+                        v-else
+                        background
+                        hide-on-single-page
+                        :page-size="objLead.limit"
+                        layout="prev, pager, next"
+                        :total="leaderTotal"
+                        @current-change="handleCurrentChange($event, 3)"
+                      >
+                      </el-pagination>
+                    </div>
+                  </div>
+                </el-collapse-item>
+              </el-collapse>
+            </div>
           </div>
         </el-col>
       </el-row>
     </div>
-    <dialog-video
-      :dialog-boo="dialogVideo"
-      @videoclose="handleVideoClose"
-    ></dialog-video>
-    <!-- bottom -->
-    <page-bottom class="lime" :obj="obj"></page-bottom>
   </div>
 </template>
 <script>
@@ -402,12 +596,7 @@ export default {
   props: {},
   data() {
     return {
-      obj: {
-        path: '/about',
-        text: 'nav.about',
-        label: 'footer.compete',
-        title: 'footer.creative'
-      },
+      textarea: '',
       activeName: 'first',
       tabPosition: 'bottom',
       arrTags: [
@@ -437,46 +626,40 @@ export default {
           img: img5
         }
       ],
-      arrMap: [
-        {
-          time: '2019.Q2',
-          content: 'road.paper'
-        },
-        {
-          time: '2019.Q4',
-          content: 'road.website'
-        },
-        {
-          time: '2020.Q1',
-          content: 'road.built'
-        },
-        {
-          time: '2021.Q2',
-          content: 'road.whitePaper'
-        },
-        {
-          time: '2021.Q3',
-          content: 'road.online'
-        },
-        {
-          time: '2021.Q4',
-          content: 'road.construction'
-        },
-        {
-          time: '2022.Q2',
-          content: 'road.construct'
-        },
-        {
-          time: '2022.Q3-Q4',
-          content: 'road.improve'
-        },
-        {
-          time: '2023.Q1-Q3',
-          content: 'road.upgrade'
-        }
-      ],
       count: 0,
-      timer: null
+      timer: null,
+      activityTotal: 1,
+      bugsTotal: 1,
+      isMore: false,
+      objActivity: {
+        page: 1,
+        limit: 5,
+        order: 'id desc',
+        type: 1,
+        language_type: 1
+      },
+      objBugs: {
+        page: 1,
+        limit: 5,
+        order: 'id desc',
+        type: 2,
+        language_type: 1
+      },
+      arrDiscussion: [],
+      arrBugs: [],
+      activeNames: '',
+      arrHonor: [],
+      objLead: {
+        type: 1,
+        source: '',
+        limit: 5,
+        page: 1,
+        language_type: 1
+      },
+      arrLeaderboard: [],
+      leaderTotal: 1,
+      isLead: false,
+      objLeader: {}
     };
   },
   head() {
@@ -527,10 +710,29 @@ export default {
       ]
     };
   },
-  computed: {},
-  watch: {},
+  computed: {
+    defaultImg() {
+      return (
+        'this.src="' + require('../../assets/images/login/default.jpg') + '"'
+      );
+    }
+  },
+  watch: {
+    arrBugs: {
+      handler(val) {
+        this.$nextTick(() => {
+          const heightLeft = this.$refs.bugsleft.offsetHeight;
+          console.log(heightLeft);
+          this.$refs.bugsRight.style.height = heightLeft + 'px';
+        });
+      },
+      deep: true
+    }
+  },
   created() {
     this.handleLoopTime();
+    this.objActivity.page = 1;
+    this.handleGithubActivity(this.objActivity);
   },
   mounted() {
     const obj = { headerColor: '#274235', color: '#fff' };
@@ -539,8 +741,12 @@ export default {
     this.$store.commit('handleIsFixed', false);
     this.$store.commit('handleChangeClass', 'subMenu--horizontal');
     this.$nextTick(() => {
-      this.domGlobal = document.getElementById('global').firstChild;
-      this.domHeaderTop = document.getElementById('headerTop');
+      /* const heightLeft = this.$refs.bugsleft.offsetHeight;
+      this.$refs.bugsRight.style.height = heightLeft + 'px'; */
+
+      this.objBugs.page = 1;
+      this.handleGithubBugs(this.objBugs);
+      this.handleGithubTitleList();
       const wow = new this.WOW({
         boxClass: 'wow',
         animateClass: 'animated',
@@ -563,6 +769,101 @@ export default {
     );
   },
   methods: {
+    async handleGithubActivity(params) {
+      const res = await this.$axios.$post(
+        '/github_discussion_activity',
+        params
+      );
+      // console.log(JSON.stringify(res));
+      if (res.code === 0) {
+        if (res.data.rets.length) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.arrDiscussion = res.data.rets;
+            } else {
+              const arrDiscussion = this.handleReduce([
+                ...this.arrDiscussion,
+                ...res.data.rets
+              ]);
+              this.arrDiscussion = [...arrDiscussion];
+            }
+            this.isMore = res.data.total > res.data.rets.length;
+          } else {
+            this.arrDiscussion = res.data.rets;
+            this.activityTotal = res.data.total;
+          }
+        } else if (params.page !== 1) {
+          this.$message({
+            type: 'warning',
+            message: 'No more'
+          });
+        }
+      } else {
+        this.arrDiscussion = [];
+      }
+    },
+    async handleGithubBugs(params) {
+      const res = await this.$axios.$post(
+        '/github_discussion_activity',
+        params
+      );
+      // console.log(JSON.stringify(res));
+      if (res.code === 0) {
+        if (res.data.rets.length) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.arrBugs = res.data.rets;
+            } else {
+              const arrBugs = this.handleReduce([
+                ...this.arrBugs,
+                ...res.data.rets
+              ]);
+              this.arrBugs = [...arrBugs];
+            }
+            this.isMore = res.data.total > res.data.rets.length;
+          } else {
+            this.arrBugs = res.data.rets;
+            this.bugsTotal = res.data.total;
+          }
+        } else if (params.page !== 1) {
+          this.$message({
+            type: 'warning',
+            message: 'No more'
+          });
+        }
+      } else {
+        this.arrBugs = [];
+      }
+    },
+    /* page */
+    handleCurrentChange($event, type) {
+      if (type === 1) {
+        this.objActivity.page = $event;
+        this.handleGithubActivity(this.objActivity);
+      } else if (type === 2) {
+        this.objBugs.page = $event;
+        this.handleGithubBugs(this.objBugs);
+      } else {
+        this.handleGithubLeaderboard(this.objLeader.title, $event);
+      }
+    },
+    handleCollapse(name) {
+      console.log(name);
+      if (name) {
+        this.objLeader = this.arrHonor.find((item) => item.id === name);
+        console.log(this.objLeader);
+        this.handleGithubLeaderboard(this.objLeader.title);
+      }
+    },
+    async handleGithubTitleList() {
+      const res = await this.$axios.$get('/github_title_list/1');
+      console.log(JSON.stringify(res));
+      if (res.code === 0 && res.data) {
+        this.arrHonor = res.data;
+      } else {
+        this.arrHonor = [];
+      }
+    },
     handleArchiteScroll() {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = document.getElementById('headerTop').offsetTop;
@@ -571,24 +872,53 @@ export default {
       this.numArchite = document
         .getElementById('weaver')
         .getBoundingClientRect().bottom;
-      this.numArchiteBottom = document
-        .getElementById('empower')
-        .getBoundingClientRect().bottom;
-      if (this.numArchite <= 0 && this.numArchiteBottom > 0) {
+      if (this.numArchite <= 0) {
         const obj = { headerColor: '#fff', color: '#37383c' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'news--horizontal');
         this.$store.commit('handleIsTop', false);
-      } else if (this.numArchiteBottom <= 0) {
-        const obj = { headerColor: '#274235', color: '#fff' };
-        this.$store.commit('handleChangeColor', obj);
-        this.$store.commit('handleChangeClass', 'subMenu--horizontal');
-        this.$store.commit('handleIsTop', true);
       } else {
         const obj = { headerColor: '#274235', color: '#fff' };
         this.$store.commit('handleChangeColor', obj);
         this.$store.commit('handleChangeClass', 'subMenu--horizontal');
         this.$store.commit('handleIsTop', true);
+      }
+    },
+    async handleGithubLeaderboard(title, page = 1) {
+      console.log(title);
+      this.objLead.source = title;
+      this.objLead.page = page;
+      const params = this.objLead;
+      const res = await this.$axios.$post('/github_leaderboard', params);
+      console.log(JSON.stringify(res));
+      if (res.code === 0) {
+        if (res.data.rets) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.arrLeaderboard = res.data.rets;
+            } else {
+              const arrLeaderboard = this.handleReduce([
+                ...this.arrLeaderboard,
+                ...res.data.rets
+              ]);
+              this.arrLeaderboard = [...arrLeaderboard];
+            }
+            this.isLead = res.data.total > res.data.rets.length;
+          } else {
+            this.arrLeaderboard = res.data.rets;
+            this.leaderTotal = res.data.total;
+          }
+        } else if (params.page !== 1) {
+          this.$message({
+            type: 'warning',
+            message: 'No more'
+          });
+        } else {
+          this.arrLeaderboard = [];
+          this.leaderTotal = 1;
+        }
+      } else {
+        this.arrLeaderboard = [];
       }
     },
     handleTabClick(tab) {

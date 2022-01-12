@@ -148,7 +148,7 @@ export default {
         rel: 'stylesheet',
         type: 'text/css',
         // href: '/icon/iconfont.css'
-        href: '//at.alicdn.com/t/font_2762091_scl6qta0t3s.css'
+        href: '//at.alicdn.com/t/font_2762091_nbldrjg8zx.css'
       }
     ],
     script: [
@@ -175,6 +175,7 @@ export default {
     { src: '@/plugins/shareon.js', ssr: false },
     { src: '@/plugins/vueQr.js', ssr: false },
     { src: '@/plugins/copy.js', ssr: false },
+    { src: '@/plugins/swiper.js', ssr: false },
     '@/plugins/vueSlickCarousel.js'
   ],
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -218,7 +219,7 @@ export default {
   },
   proxy: {
     '/api': {
-      // target: 'https://ibax.io:9095',
+      // target: 'https://testnet-us-34-86-177-19.ibax.io:9095',
       target: 'http://192.168.1.192:8888',
       changeOrigin: true,
       pathRewrite: {

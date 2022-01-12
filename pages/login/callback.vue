@@ -72,14 +72,22 @@ export default {
       console.log(res);
       console.log(res.data.token);
       if (res.code === 0) {
-        localStorage.setItem('invitecode', res.data.invitecode);
-        localStorage.setItem('user', str);
+        if (str === 'twitter') {
+          localStorage.setItem('invitecode', res.data.invitecode);
+          localStorage.setItem('user', str);
+          this.$store
+            .dispatch('handleActionsToken', res.data.token)
+            .then((res) => {
+              this.$router.push({ name: 'user' });
+            });
+        } else {
+          this.$store
+            .dispatch('handleActionsToken', res.data.token)
+            .then((res) => {
+              this.$router.push({ name: 'user-link-github' });
+            });
+        }
         handleTokenCookie('token', res.data.token, 365);
-        this.$store
-          .dispatch('handleActionsToken', res.data.token)
-          .then((res) => {
-            this.$router.push({ name: 'user' });
-          });
       } else {
         this.$router.push({ name: 'index' });
       }

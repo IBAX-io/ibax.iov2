@@ -24,7 +24,7 @@
           <span v-if="item.type === 3">{{ $t('personal.cancalf') }}</span>
         </div>
         <div class="personal-tabs-record-head-text">
-          {{ item.points }}
+          {{ money_format(item.points) }}
         </div>
       </div>
     </div>

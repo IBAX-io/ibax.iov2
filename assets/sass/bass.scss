@@ -131,6 +131,9 @@
       line-height: 1.75;
       cursor: pointer;
       height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
       .el-icon-right {
         margin-left: 5px;
       }
@@ -143,6 +146,7 @@
       }
       &-content {
         padding: 50px 38px 72px;
+        width: 100%;
       }
     }
     &-icon {
