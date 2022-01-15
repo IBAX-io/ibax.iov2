@@ -86,6 +86,7 @@
   }
   &-right {
     flex: 1;
+    width: 0;
   }
   &-center {
     width: 100%;
@@ -579,6 +580,9 @@
   &-dialog {
     color: #707070;
     width: 100%;
+    .el-dialog {
+      border-radius: 20px;
+    }
     .el-dialog__footer {
       text-align: center;
     }

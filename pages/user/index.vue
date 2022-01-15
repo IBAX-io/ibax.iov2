@@ -180,7 +180,16 @@
       <span>{{ $t('personal.events') }}</span>
     </p>
     <div class="user-center-share-left-link">
-      <img src="../../assets/images/login/github-img.png" alt="github-img" />
+      <img src="@/assets/images/login/github-img.png" alt="github-img" />
+      <nuxt-link
+        v-if="!isMobile"
+        :to="{ name: 'user-github-rules' }"
+        class="btn btn-primary"
+        >{{ $t('personal.views') }}
+        <i class="el-icon-arrow-right"></i>
+      </nuxt-link>
+    </div>
+    <div v-if="isMobile" class="user-center-share-left-link-mobile">
       <nuxt-link :to="{ name: 'user-github-rules' }" class="btn btn-primary"
         >{{ $t('personal.views') }}
         <i class="el-icon-arrow-right"></i>

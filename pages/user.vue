@@ -107,7 +107,7 @@ export default {
           title: 'personal.airdrop',
           key: '1',
           isSelect: false,
-          rules: ['/user/retweet', '/user/share', '/user/rules'],
+          rules: ['/user/retweet', '/user/share', '/user/airdrop-rules'],
           children: [
             {
               title: 'personal.ret',
@@ -130,7 +130,7 @@ export default {
           title: 'personal.git',
           key: '2',
           isSelect: false,
-          rules: ['/user/account', '/user/record', '/user/github-rules'],
+          rules: ['/user/link-github', '/user/commits', '/user/github-rules'],
           children: [
             {
               title: 'personal.account',

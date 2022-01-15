@@ -67,45 +67,47 @@
       </div>
     </div>
     <h6 class="title-h6">IBAX Ranking System</h6>
-    <table class="user-rules-table">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th colspan="2">Exp</th>
-          <th colspan="2">Monthly Reward Pool</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in arrHonor" :key="item.id">
-          <td>
-            <img
-              class="user-rules-table-header"
-              :src="`${baseUrl}${item.title_icon}`"
-              :onerror="defaultImg"
-              alt="title_icon"
-            />
-            <span>{{ item.title }}</span>
-          </td>
-          <td>
-            <span>{{ money_format(item.points_start) }}</span>
-          </td>
-          <td>
-            <span>{{ money_format(item.points_end) }}</span>
-          </td>
-          <td>
-            <span>{{ money_format(item.monthly_reward_pool) }}</span>
-          </td>
-          <td>
-            <img
-              class="user-rules-table-reward"
-              :src="`${baseUrl}${item.reward_icon}`"
-              :onerror="defaultImg"
-              alt="reward_icon"
-            />
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="user-rules-table-box">
+      <table ref="tableRules" class="user-rules-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th colspan="2">Exp</th>
+            <th colspan="2">Monthly Reward Pool</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in arrHonor" :key="item.id">
+            <td>
+              <img
+                class="user-rules-table-header"
+                :src="`${baseUrl}${item.title_icon}`"
+                :onerror="defaultImg"
+                alt="title_icon"
+              />
+              <span>{{ item.title }}</span>
+            </td>
+            <td>
+              <span>{{ money_format(item.points_start) }}</span>
+            </td>
+            <td>
+              <span>{{ money_format(item.points_end) }}</span>
+            </td>
+            <td>
+              <span>{{ money_format(item.monthly_reward_pool) }}</span>
+            </td>
+            <td>
+              <img
+                class="user-rules-table-reward"
+                :src="`${baseUrl}${item.reward_icon}`"
+                :onerror="defaultImg"
+                alt="reward_icon"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 <script>
@@ -126,6 +128,11 @@ export default {
   watch: {},
   created() {},
   mounted() {
+    this.$nextTick(() => {
+      if (this.isMobile) {
+        //  this.$refs.tableRules.style.width = '1100px';
+      }
+    });
     this.handleGithubTitleList();
   },
   methods: {

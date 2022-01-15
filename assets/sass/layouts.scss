@@ -1159,7 +1159,10 @@
     width: 100%;
   }
   .m-nav-aside-box .el-a-xingzhuang1 {
-    font-size: 2px !important;
+    font-size: 13px !important;
+  }
+  .user-github-box-link {
+    width: 100%;
   }
   .develop-btn {
     padding-left: 30px;
@@ -1280,5 +1283,88 @@
   .develop-honor-person {
     padding-left: 30px;
     padding-right: 30px;
+  }
+  .user-github-box {
+    margin-bottom: 30px;
+  }
+  .user-github-box-content {
+    margin-left: 0;
+  }
+  .user-commits .develop-bugs-item {
+    padding: 0 0 20px 0;
+  }
+  .user-center-sign {
+    width: 100%;
+    flex-wrap: wrap;
+    & > * {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .user-center-sign-left {
+      flex-wrap: wrap;
+      justify-content: center;
+      span:last-child {
+        padding: 0 20px 20px 20px;
+        width: 100%;
+      }
+    }
+    .user-center-sign-right-time {
+      margin-bottom: 10px;
+    }
+  }
+  .user-center-share-left-link .btn {
+    display: none;
+  }
+  .user-center-share-left-system {
+    font-size: 18px;
+    line-height: 1em;
+  }
+  .user-center-share-left-link-mobile {
+    .btn {
+      padding: 10px;
+      margin: 20px 0;
+    }
+  }
+  .user-dialog-content .el-input {
+    width: 100%;
+  }
+  .user-dialog-content-item {
+    .el-form-item__content {
+      display: flex;
+    }
+  }
+  .user-rules-content {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .user-rules-content-item {
+    width: 40%;
+  }
+  .user-rules {
+    width: 100%;
+    overflow: hidden;
+  }
+  .user-right {
+    width: 0;
+  }
+  .user-rules-content-item-big {
+    font-size: 16px;
+  }
+  .user-rules-table-box {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .user-rules-table {
+    width: 1000px;
+  }
+  .user-rules-content-item p:first-child {
+    margin-top: 0;
+  }
+  .user-rules-content-item p:last-child {
+    margin-bottom: 10px;
+  }
+  .user-rules-content {
+    margin-bottom: 20px;
   }
 }

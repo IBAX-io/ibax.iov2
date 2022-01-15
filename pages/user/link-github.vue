@@ -1,7 +1,7 @@
 <template>
   <div class="user-github">
     <div ref="userGithub" class="user-github-box">
-      <div class="user-github-box-content">
+      <div v-if="!isMobile" class="user-github-box-content">
         <div v-if="isGithub" class="user-github-box-link">
           <div class="user-github-box-link-btn">
             <i class="iconfont el-github"></i>
@@ -44,6 +44,50 @@
         >
           E
         </div>
+      </div>
+    </div>
+    <div v-if="isMobile" class="user-github-box-content">
+      <div v-if="isGithub" class="user-github-box-link">
+        <div class="user-github-box-link-btn">
+          <i class="iconfont el-github"></i>
+          <span>{{ $t('personal.project') }}</span>
+        </div>
+        <div class="user-github-box-link-text">{{ $t('personal.keep') }}</div>
+        <div class="user-github-box-link-btn user-github-box-link-btn-box">
+          <a
+            class="user-github-box-link-git"
+            :href="objStar.link"
+            :target="objStar.target"
+            @click="handleStar"
+          >
+            <i class="iconfont el-github"></i>
+            <span>Star</span>
+          </a>
+          <a
+            class="user-github-box-link-git user-github-box-link-fork"
+            :href="objFork.link"
+            :target="objFork.target"
+            @click="handleFork"
+          >
+            <i class="iconfont el-github"></i>
+            <span>Fork</span>
+          </a>
+        </div>
+      </div>
+      <div v-else class="user-github-box-link">
+        <div class="user-github-box-link-btn" @click="handleGithubLink">
+          <i class="iconfont el-github"></i>
+          <span>{{ $t('personal.account') }}</span>
+          <i class="el-icon-arrow-right"></i>
+        </div>
+        <div class="user-github-box-link-text">{{ $t('personal.fork') }}</div>
+      </div>
+      <div
+        class="user-github-box-email"
+        :style="{ color: userInfo.email ? '#707070' : '#F3AC30' }"
+        @click="handleEmail"
+      >
+        E
       </div>
     </div>
     <div class="user-github-discuss">
@@ -218,7 +262,6 @@ export default {
     this.handleGithubInfo();
     this.objActivity.page = 1;
     this.handleGithubActivity(this.objActivity);
-    this.handleStatus();
     this.$store.dispatch('handleGetTwitterUser');
   },
   methods: {
@@ -414,6 +457,7 @@ export default {
       console.log(res);
       if (res.code === 0) {
         this.isGithub = true;
+        this.handleStatus();
       } else {
         this.isGithub = false;
       }

@@ -6,7 +6,7 @@
     element-loading-background="rgba(0, 0, 0, 0.8)"
     :title="$t('personal.email')"
     :visible.sync="isEmail"
-    width="40%"
+    :width="isMobile ? '90%' : '40%'"
     :before-close="handleClose"
     class="user-dialog"
     :close-on-click-modal="false"
@@ -18,6 +18,7 @@
       :rules="emailrules"
       class="user-dialog-content"
       label-width="120px"
+      :label-position="isMobile ? 'top' : 'left'"
     >
       <el-form-item :label="$t('personal.add')" prop="email">
         <el-input
@@ -27,7 +28,11 @@
           clearable
         ></el-input>
       </el-form-item>
-      <el-form-item :label="$t('personal.cod')" prop="code">
+      <el-form-item
+        :label="$t('personal.cod')"
+        prop="code"
+        class="user-dialog-content-item"
+      >
         <el-input
           v-model="bindEmail.code"
           type="text"
