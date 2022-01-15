@@ -147,8 +147,7 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        // href: '/icon/iconfont.css'
-        href: '//at.alicdn.com/t/font_2762091_nbldrjg8zx.css'
+        href: '/icon/iconfont.css'
       }
     ],
     script: [

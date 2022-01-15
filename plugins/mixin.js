@@ -112,6 +112,26 @@ Vue.mixin({
     });
   },
   methods: {
+    getServerTime() {
+      return new Promise((resolve) => {
+        const request = new XMLHttpRequest();
+        request.open('GET', '/', true);
+        request.send();
+        request.onreadystatechange = function () {
+          const serverTime = request.getResponseHeader('Date');
+          if (serverTime) {
+            //  console.log(serverTime);
+            // console.log(this.dayjs.utc(serverTime).second());
+            console.log(serverTime.valueOf());
+            /*  
+            console.log(new Date().valueOf()); */
+            resolve(serverTime);
+          } else {
+            resolve(new Date().valueOf());
+          }
+        };
+      });
+    },
     handleTimeShow(millisecond) {
       return this.dayjs.utc(parseInt(millisecond)).format('ll');
     },

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2762091 */
-  src: url('iconfont.woff2?t=1640948973327') format('woff2'),
-       url('iconfont.woff?t=1640948973327') format('woff'),
-       url('iconfont.ttf?t=1640948973327') format('truetype');
+  src: url('iconfont.woff2?t=1642149857002') format('woff2'),
+       url('iconfont.woff?t=1642149857002') format('woff'),
+       url('iconfont.ttf?t=1642149857002') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,58 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.el-a-HonorSystem:before {
+  content: "\e6a2";
+}
+
+.el-four:before {
+  content: "\e6a1";
+}
+
+.el-three:before {
+  content: "\e6a0";
+}
+
+.el-two:before {
+  content: "\e69f";
+}
+
+.el-one1:before {
+  content: "\e69e";
+}
+
+.el-Success:before {
+  content: "\e69d";
+}
+
+.el-Fork:before {
+  content: "\e69c";
+}
+
+.el-Submit:before {
+  content: "\e697";
+}
+
+.el-Ecology:before {
+  content: "\e696";
+}
+
+.el-Marshal:before {
+  content: "\e69b";
+}
+
+.el-Pionts:before {
+  content: "\e69a";
+}
+
+.el-Block:before {
+  content: "\e699";
+}
+
+.el-a-BigData:before {
+  content: "\e698";
 }
 
 .el-a-xingzhuang1:before {

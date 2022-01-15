@@ -20,7 +20,7 @@
         <div class="user-box">
           <div v-if="!isMobile" class="user-left">
             <img
-              :src="userInfo.image_url"
+              :src="`${baseUrl}${statistics.level_icon}`"
               alt="head"
               :onerror="defaultImg"
               class="user-left-head"

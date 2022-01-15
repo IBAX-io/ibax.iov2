@@ -27,23 +27,8 @@
               </p>
             </el-col>
             <el-col :xs="23" :lg="10">
-              <div class="home-tag animated fadeInUp">
-                <el-tabs
-                  v-model="activeName"
-                  :tab-position="tabPosition"
-                  @tab-click="handleTabClick"
-                >
-                  <el-tab-pane
-                    v-for="item in arrTags"
-                    :key="item.name"
-                    :label="$t(item.label)"
-                    :name="item.name"
-                  >
-                    <div class="home-tag-img">
-                      <img :src="item.img" :alt="item.label" />
-                    </div>
-                  </el-tab-pane>
-                </el-tabs>
+              <div class="home-tag-img animated fadeInUp">
+                <img src="../../assets/images/develop-1.png" alt="develop-1" />
               </div>
             </el-col>
           </el-row>
@@ -162,11 +147,11 @@
     </div>
     <!-- discuss -->
     <div class="media-b">
-      <el-row type="flex" justify="center">
+      <el-row type="flex" justify="center" class="el-row-wrap">
         <el-col :xs="24" :lg="18">
           <div class="home-new">
             <div class="develop-discuss">
-              <img src="../../assets/images/develop-2.png" alt="develop-2" />
+              <img src="@/assets/images/develop-2.png" alt="develop-2" />
               <div class="develop-discuss-content">
                 <span class="develop-discuss-content-text">{{
                   $t('develope.forum')
@@ -181,12 +166,14 @@
                 class="develop-wonder-item"
               >
                 <div class="develop-wonder-item-left">
-                  <h6 class="title-h6">{{ item.title }}</h6>
+                  <!--   <h6 class="title-h6">{{ item.title }}</h6> -->
+                  <h6 v-if="!isMobile" class="title-h6">sadasdasdas</h6>
                   <img
                     :src="item.author_icon"
                     alt="author"
                     :onerror="defaultImg"
                   />
+                  <h6 v-if="isMobile" class="title-h6">sadasdasdas</h6>
                 </div>
                 <div class="develop-wonder-item-middle">
                   <div class="develop-wonder-item-middle-box">
@@ -226,16 +213,19 @@
                       # {{ item.category }}</a
                     >
                     <span>{{ $t('develope.mentioned') }}</span>
-                    <i class="iconfont el-Pionts"></i>
-                    <span class="develop-wonder-item-middle-bottom-number">{{
-                      money_format(item.points)
-                    }}</span>
-                    <i class="iconfont el-Block"></i>
+                    <div class="develop-wonder-item-middle-bottom-item">
+                      <i class="iconfont el-Pionts"></i>
+                      <span class="develop-wonder-item-middle-bottom-number">{{
+                        money_format(item.points)
+                      }}</span>
+                    </div>
                     <a
                       :href="`${browserUrl}/transaction/${item.hash}`"
                       target="_blank"
-                      class="develop-wonder-item-middle-bottom-name"
-                      >{{ item.block_id }}</a
+                      class="develop-wonder-item-middle-bottom-name develop-wonder-item-middle-bottom-item"
+                    >
+                      <i class="iconfont el-Block"></i>
+                      {{ item.block_id }}</a
                     >
                     <span class="develop-wonder-item-middle-bottom-auto"
                       ># {{ item.labels }}</span
@@ -300,7 +290,7 @@
     <!-- bugs -->
     <div class="media-a">
       <el-row type="flex" justify="center">
-        <el-col :xs="24" :lg="18">
+        <el-col :xs="24" :lg="18" class="el-row-wrap">
           <div class="home-new">
             <div class="develop-discuss">
               <img src="../../assets/images/develop-2.png" alt="develop-2" />
@@ -403,7 +393,6 @@
                         ># {{ item.category }}</a
                       >
                     </h6>
-
                     <div class="develop-bugs-item-content">
                       <div class="develop-bugs-item-content-right">
                         <div># {{ item.labels }}</div>
@@ -501,7 +490,7 @@
                 </nuxt-link>
               </div>
             </div>
-            <div ref="bugsRight" class="develop-bugs-right">
+            <div :ref="isMobile ? '' : 'bugsRight'" class="develop-bugs-right">
               <h6 class="title-h6 develop-bugs-item-title">
                 <i class="iconfont el-guize1"></i>
                 <span>{{ $t('develope.honor') }}</span>
@@ -587,45 +576,12 @@
   </div>
 </template>
 <script>
-const img1 = require('@/assets/images/develop-1.png');
-const img2 = require('@/assets/images/develop-ecolib.jpg');
-const img3 = require('@/assets/images/develop-role.jpg');
-const img4 = require('@/assets/images/develop-contract.jpg');
-const img5 = require('@/assets/images/develop-voting.jpg');
 export default {
   props: {},
   data() {
     return {
       textarea: '',
-      activeName: 'first',
       tabPosition: 'bottom',
-      arrTags: [
-        {
-          label: 'Create',
-          name: 'first',
-          img: img1
-        },
-        {
-          label: 'EcoLib',
-          name: 'second',
-          img: img2
-        },
-        {
-          label: 'Role',
-          name: 'third',
-          img: img3
-        },
-        {
-          label: 'Contract',
-          name: 'fonth',
-          img: img4
-        },
-        {
-          label: 'Voting',
-          name: 'firth',
-          img: img5
-        }
-      ],
       count: 0,
       timer: null,
       activityTotal: 1,
@@ -721,16 +677,17 @@ export default {
     arrBugs: {
       handler(val) {
         this.$nextTick(() => {
-          const heightLeft = this.$refs.bugsleft.offsetHeight;
-          console.log(heightLeft);
-          this.$refs.bugsRight.style.height = heightLeft + 'px';
+          if (!this.isMobile) {
+            const heightLeft = this.$refs.bugsleft.offsetHeight;
+            console.log(heightLeft);
+            this.$refs.bugsRight.style.height = heightLeft + 'px';
+          }
         });
       },
       deep: true
     }
   },
   created() {
-    this.handleLoopTime();
     this.objActivity.page = 1;
     this.handleGithubActivity(this.objActivity);
   },
@@ -760,8 +717,6 @@ export default {
     this.domGlobal.addEventListener('scroll', this.handleArchiteScroll, true);
   },
   destroyed() {
-    clearTimeout(this.timer);
-    this.timer = null;
     this.domGlobal.removeEventListener(
       'scroll',
       this.handleArchiteScroll,
@@ -920,34 +875,6 @@ export default {
       } else {
         this.arrLeaderboard = [];
       }
-    },
-    handleTabClick(tab) {
-      // console.log(tab.name);
-      const index = this.arrTags.findIndex((item) => {
-        return item.name === tab.name;
-      });
-      this.count = index;
-      clearTimeout(this.timer);
-      this.timer = null;
-      setTimeout(() => {
-        this.handleLoopTime();
-      }, 3000);
-      // console.log(index);
-    },
-    handleLoopTime() {
-      if (this.count < 5) {
-        this.count++;
-      } else if (this.count >= 5) {
-        this.count = 0;
-      }
-      if (this.arrTags[this.count]) {
-        this.activeName = this.arrTags[this.count].name;
-      } else {
-        this.activeName = 'first';
-      }
-      this.timer = setTimeout(() => {
-        this.handleLoopTime();
-      }, 3000);
     }
   }
 };

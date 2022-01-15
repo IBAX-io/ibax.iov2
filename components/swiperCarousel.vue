@@ -1,6 +1,6 @@
 <template>
   <client-only>
-    <div v-if="isMobile" class="mobile">
+    <!--  <div v-if="isMobile" class="mobile">
       <swiper ref="mySwiper" :options="optionMobile">
         <swiper-slide
           v-for="(item, index) in source"
@@ -13,8 +13,8 @@
         <div slot="button-prev" class="swiper-button-prev"></div>
         <div slot="button-next" class="swiper-button-next"></div>
       </swiper>
-    </div>
-    <div v-else class="computer">
+    </div> -->
+    <div class="computer">
       <swiper ref="mySwiper" :options="option">
         <swiper-slide
           v-for="item in source"
@@ -93,6 +93,12 @@ export default {
           },
           click() {
             const realIndex = this.realIndex;
+            console.log(realIndex);
+            vm.$emit('chackindex', realIndex);
+          },
+          transitionEnd() {
+            const realIndex = this.realIndex;
+            console.log(realIndex);
             vm.$emit('chackindex', realIndex);
           }
         },
@@ -158,6 +164,10 @@ export default {
   mounted() {
     console.log(this.source.length);
   },
-  methods: {}
+  methods: {
+    handleClickSlide(index) {
+      console.log(index);
+    }
+  }
 };
 </script>

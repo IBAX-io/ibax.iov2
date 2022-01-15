@@ -41,7 +41,7 @@ export const mutations = {
     state.statistics.amount = obj.amount;
     state.statistics.gitAmount = obj.gitAmount;
     state.statistics.weekAmount = obj.weekAmount;
-    state.statistics.level = obj.level;
+    state.statistics.level_icon = obj.level_icon;
     state.statistics.time = obj.time;
   },
   handleInviteAmount(state, obj) {
@@ -112,7 +112,7 @@ export const actions = {
         gitAmount: data.data.github_statistics,
         weekAmount: data.data.this_week_statistics,
         time: data.data.next_check_in_time,
-        level: data.data.level_icon
+        level_icon: data.data.level_icon
       };
       commit('handleStatistics', obj);
     } else {

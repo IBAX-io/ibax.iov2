@@ -5,11 +5,18 @@ console.log(baseURL);
 export default function ({ $axios, redirect, store }) {
   $axios.onRequest(
     (config) => {
+      //  console.log(config);
       if (process.env.NODE_ENV === 'production') {
         config.baseURL = baseURL;
       }
       if (store.state.token) {
         config.headers.Authorization = store.state.token;
+      }
+      if (config.method === 'get') {
+        config.params = {
+          //  _t: Date.parse(new Date()) / 1000,
+          ...config.params
+        };
       }
       config.headers['Content-Type'] = 'application/json';
       config.headers.Accept = 'application/json';

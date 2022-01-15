@@ -1161,4 +1161,124 @@
   .m-nav-aside-box .el-a-xingzhuang1 {
     font-size: 2px !important;
   }
+  .develop-btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+    .home-new-bottom {
+      text-align: center;
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
+  .develop-box {
+    flex-wrap: wrap;
+    .develop-box-item {
+      width: 100%;
+    }
+  }
+  .develop-discuss img {
+    width: 30px;
+  }
+  .develop-wonder-item {
+    flex-wrap: wrap;
+  }
+  .develop-wonder-item-left,
+  .develop-wonder-item-middle,
+  .develop-wonder-item-right {
+    width: 100%;
+  }
+  .develop-wonder-item-left {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    img {
+      width: 50px;
+      margin-right: 10px;
+    }
+  }
+  .develop-wonder-item-middle-bottom {
+    flex-wrap: wrap;
+    .iconfont {
+      margin-left: 0;
+    }
+  }
+  .develop-wonder-item-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .develop-wonder-item-right-join {
+    margin-top: 0;
+  }
+  .develop-wonder-item-right-replies {
+    margin-bottom: 0;
+  }
+  .develop-bugs {
+    flex-wrap: wrap;
+  }
+  .develop-bugs-left,
+  .develop-bugs-right {
+    width: 100%;
+  }
+  .develop-bugs-left {
+    margin-right: 0;
+  }
+  .develop-bugs-left-box {
+    border-right: none;
+  }
+  .develop-bugs {
+    padding: 0;
+  }
+  .develop-bugs-item {
+    padding: 0 0 20px 0;
+    margin-bottom: 20px;
+  }
+  .develop-bugs-item-content {
+    flex-wrap: wrap;
+  }
+  .develop-bugs-item-content-textarea,
+  .develop-bugs-item-content-right {
+    width: 100%;
+  }
+  .develop-bugs-item-content-textarea-bottom {
+    flex-wrap: wrap;
+  }
+  .develop-bugs-item-content-textarea-bottom {
+    margin-bottom: 10px;
+  }
+  .develop-bugs-item-title {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    span:first-child {
+      margin-right: 0;
+    }
+    & > * {
+      width: 100%;
+    }
+  }
+
+  .develop-bugs-right {
+    height: auto !important;
+    margin-right: 0;
+    min-height: 500px;
+    overflow-y: visible;
+  }
+  .develop-honor .computer .swiper-slide {
+    width: 250px;
+  }
+  .develop-honor .swiper-slide {
+    height: 350px;
+  }
+  .develop-honor .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+  .computer {
+    margin-top: 30px;
+  }
+  .develop-honor-person {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }

@@ -1,5 +1,9 @@
 <template>
   <el-dialog
+    v-loading="emailLoading"
+    element-loading-text="loading……"
+    element-loading-spinner="el-icon-loading"
+    element-loading-background="rgba(0, 0, 0, 0.8)"
     :title="$t('personal.email')"
     :visible.sync="isEmail"
     width="40%"
@@ -41,11 +45,7 @@
       </el-form-item>
     </el-form>
     <span slot="footer" class="dialog-footer">
-      <button
-        :disabled="isDisabl"
-        class="btn btn-primary"
-        @click="handleEmailForm('emailForm')"
-      >
+      <button class="btn btn-primary" @click="handleEmailForm('emailForm')">
         {{ $t('personal.sure') }}
       </button>
     </span>
@@ -70,19 +70,20 @@ export default {
         callback();
       }
     };
-    const code = /^\d{4}$/;
+    // const code = /^[A-Za-z0-9]{4}$/;
     const validateCode = (rule, value, callback) => {
       if (value === '') {
         callback(new Error(this.$t('personal.must')));
-      } else if (!code.test(value)) {
+      } /* else if (!code.test(value)) {
         callback(new Error(this.$t('personal.digits')));
-      } else {
+      } */ else {
         callback();
       }
     };
     return {
       timer: null,
       isDisabl: false,
+      emailLoading: false,
       strCheckCode: this.$t('personal.send'),
       bindEmail: {
         email: '',
@@ -104,9 +105,29 @@ export default {
       this.$emit('close');
     },
     handleEmailForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
-          alert('submit!');
+          const { email, code } = this.bindEmail;
+          const param = {
+            email,
+            verify_code: code
+          };
+          const res = await this.$axios.$post('/tw/bind_email_verify', param);
+          console.log(res);
+          if (res.code === 0) {
+            this.$message({
+              type: 'success',
+              message: 'success'
+            });
+            this.$store.dispatch('handleGetTwitterUser');
+            this.$refs.emailForm.resetFields();
+            this.$emit('close');
+          } else {
+            this.$message({
+              type: 'warning',
+              message: 'Email binding failed'
+            });
+          }
         } else {
           console.log('error submit!!');
           return false;
@@ -114,21 +135,77 @@ export default {
       });
     },
     handleSendCode() {
-      const sendCode = this.$t('personal.send');
-      let timer = null;
-      let numTime = 60;
-      timer = setInterval(() => {
-        if (numTime > 0) {
-          //  console.log(numTime);
-          this.strCheckCode = numTime + 's';
-          this.isDisabl = true;
-          numTime--;
-        } else {
-          this.strCheckCode = sendCode;
-          this.isDisabl = false;
-          clearInterval(timer);
+      this.$refs.emailForm.validateField('email', async (emailError) => {
+        console.log(emailError);
+        if (!emailError) {
+          this.emailLoading = true;
+          const { email } = this.bindEmail;
+          const param = {
+            email
+          };
+          const res = await this.$axios.$post('/tw/bind_email_request', param);
+          console.log(res);
+          if (res.code === 0) {
+            this.emailLoading = false;
+            const sendCode = this.$t('personal.send');
+            this.$message({
+              showClose: true,
+              duration: 5000,
+              type: 'success',
+              message:
+                'The verification code has been sent to your email, please check it in time'
+            });
+            let timer = null;
+            let numTime = 60;
+            timer = setInterval(() => {
+              if (numTime > 0) {
+                //  console.log(numTime);
+                this.strCheckCode = numTime + 's';
+                this.isDisabl = true;
+                numTime--;
+              } else {
+                this.strCheckCode = sendCode;
+                this.isDisabl = false;
+                clearInterval(timer);
+              }
+            }, 1000);
+          } else {
+            this.$message({
+              type: 'warning',
+              message: res.message
+            });
+          }
         }
-      }, 1000);
+      });
+
+      // const { email } = this.bindEmail;
+      /*   const param = {
+        email
+      }; */
+      //   const res = await this.$axios.$post('/tw/bind_email_request', param);
+      // console.log(res);
+      /*   if (res.code === 0) {
+        const sendCode = this.$t('personal.send');
+        let timer = null;
+        let numTime = 60;
+        timer = setInterval(() => {
+          if (numTime > 0) {
+            //  console.log(numTime);
+            this.strCheckCode = numTime + 's';
+            this.isDisabl = true;
+            numTime--;
+          } else {
+            this.strCheckCode = sendCode;
+            this.isDisabl = false;
+            clearInterval(timer);
+          }
+        }, 1000);
+      } else {
+        this.$message({
+          type: 'warning',
+          message: 'This mailbox has been bound'
+        });
+      } */
     }
   }
 };

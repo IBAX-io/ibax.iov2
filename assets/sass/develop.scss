@@ -159,6 +159,10 @@
               color: #f3ac34;
             }
           }
+          &-item {
+            display: flex;
+            align-items: center;
+          }
           &-time {
             margin-right: 10px;
           }

@@ -188,7 +188,6 @@ export default {
         page: 1,
         limit: 5,
         order: 'id desc',
-        type: 2,
         language_type: 1
       },
       arrBugs: [],
@@ -206,7 +205,7 @@ export default {
   methods: {
     async handleGithubBugs(params) {
       const res = await this.$axios.$post(
-        '/github_discussion_activity',
+        '/github/my_discussion_record',
         params
       );
       console.log(JSON.stringify(res));

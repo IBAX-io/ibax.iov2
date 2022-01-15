@@ -19,9 +19,7 @@
           {{ handleTimeShow(item.time) }}
         </div>
         <div class="personal-tabs-record-head-text">
-          <span v-if="item.type === 1">{{ $t('personal.fol') }}</span>
-          <span v-if="item.type === 2">{{ $t('personal.forwarded') }}</span>
-          <span v-if="item.type === 3">{{ $t('personal.cancalf') }}</span>
+          <span>{{ objType[item.type] }}</span>
         </div>
         <div class="personal-tabs-record-head-text">
           {{ money_format(item.points) }}
@@ -63,6 +61,10 @@ export default {
         order: 'id desc',
         page: 1,
         limit: 10
+      },
+      objType: {},
+      objLang: {
+        languageType: 1
       }
     };
   },
@@ -93,6 +95,7 @@ export default {
           } else {
             this.pointRecord = res.data.rets;
             this.recordTotal = res.data.total;
+            this.handleGetPointsType(this.objLang);
           }
         } else if (params.page !== 1) {
           this.$message({
@@ -102,6 +105,15 @@ export default {
         }
       } else {
         this.pointRecord = [];
+      }
+    },
+    async handleGetPointsType(params) {
+      console.log(params);
+      const res = await this.$axios.$get(
+        `/get_points_type/${params.languageType}`
+      );
+      if (res.code === 0) {
+        this.objType = res.data;
       }
     },
     handleCurrentChange($event, str) {

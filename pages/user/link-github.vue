@@ -37,7 +37,13 @@
           </div>
           <div class="user-github-box-link-text">{{ $t('personal.fork') }}</div>
         </div>
-        <div class="user-github-box-email" @click="handleEmail">E</div>
+        <div
+          class="user-github-box-email"
+          :style="{ color: userInfo.email ? '#707070' : '#F3AC30' }"
+          @click="handleEmail"
+        >
+          E
+        </div>
       </div>
     </div>
     <div class="user-github-discuss">
@@ -196,6 +202,9 @@ export default {
       return (
         'this.src="' + require('../../assets/images/login/default.jpg') + '"'
       );
+    },
+    statistics() {
+      return this.$store.getters.handleStatistics;
     }
   },
   watch: {},
@@ -210,6 +219,7 @@ export default {
     this.objActivity.page = 1;
     this.handleGithubActivity(this.objActivity);
     this.handleStatus();
+    this.$store.dispatch('handleGetTwitterUser');
   },
   methods: {
     handleStar() {
@@ -289,7 +299,7 @@ export default {
       if (this.objStatus.fork) {
         this.objFork = {
           link: 'javascript:;',
-          target: '_blank'
+          target: '_self'
         };
         this.$message({
           type: 'success',
@@ -357,7 +367,14 @@ export default {
       }
     },
     handleEmail() {
-      this.isEmail = true;
+      console.log(this.userInfo.email);
+      if (this.userInfo.email) {
+        this.objBind.isBind = true;
+        this.objBind.email = this.userInfo.email;
+      } else {
+        this.isEmail = true;
+        console.log(this.userInfo.email);
+      }
       // this.objBind.isBind = true;
     },
     handleCloseEmail() {

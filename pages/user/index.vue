@@ -2,6 +2,19 @@
   <div class="user-center">
     <div class="user-center-box">
       <user-follow></user-follow>
+      <!-- sign in  -->
+      <div class="user-center-sign">
+        <div class="user-center-sign-left">
+          <span class="user-center-sign-left-box" @click="handleSign">{{
+            strSign
+          }}</span>
+          <span>{{ $t('personal.check') }}</span>
+        </div>
+        <div v-if="isSign" class="user-center-sign-right">
+          <div class="user-center-sign-right-time">{{ strTime }}</div>
+          <div>{{ $t('personal.time') }}</div>
+        </div>
+      </div>
       <div class="user-center-share user-center-share-mobile">
         <div class="user-center-share-left user-center-share-left-mobile">
           <img
@@ -142,7 +155,6 @@
               +{{ item.points }} <i class="el-icon-arrow-right"></i>
             </div>
           </a>
-
           <div class="personal-tabs-task-middle">
             <div v-html="item.content"></div>
           </div>
@@ -156,13 +168,50 @@
         </div>
       </template>
     </div>
-    <div class="user-center-share-left">
-      <img
-        src="@/assets/images/login/github.png"
-        alt="share"
-        class="user-center-share-img"
-      />
-      <span class="user-center-share-text">{{ $t('personal.git') }}</span>
+    <div class="user-center-share-left" style="margin-bottom: 0">
+      <i class="iconfont el-a-HonorSystem"></i>
+      <span class="user-center-share-text user-center-share-left-system">{{
+        $t('personal.system')
+      }}</span>
+    </div>
+    <p class="user-center-share-left-bottom">{{ $t('personal.give') }}</p>
+    <p class="user-center-share-left-color">
+      <i class="iconfont el-one1"></i>
+      <span>{{ $t('personal.events') }}</span>
+    </p>
+    <div class="user-center-share-left-link">
+      <img src="../../assets/images/login/github-img.png" alt="github-img" />
+      <nuxt-link :to="{ name: 'user-github-rules' }" class="btn btn-primary"
+        >{{ $t('personal.views') }}
+        <i class="el-icon-arrow-right"></i>
+      </nuxt-link>
+    </div>
+    <p class="user-center-share-left-color">
+      <i class="iconfont el-two"></i>
+      <span>{{ $t('personal.constructive') }}</span>
+    </p>
+    <p class="user-center-share-left-span">{{ $t('personal.approved') }}</p>
+    <p class="user-center-share-left-span">{{ $t('personal.there') }}</p>
+    <p class="user-center-share-left-color">
+      <i class="iconfont el-three"></i>
+      <span>{{ $t('personal.vulnerabilities') }}</span>
+    </p>
+    <p class="user-center-share-left-span">{{ $t('personal.blockchain') }}</p>
+    <p class="user-center-share-left-span">{{ $t('personal.solutions') }}</p>
+    <p class="user-center-share-left-span">{{ $t('personal.significant') }}</p>
+    <p class="user-center-share-left-color">
+      <i class="iconfont el-four"></i>
+      <span>{{ $t('personal.issues') }}</span>
+    </p>
+    <p class="user-center-share-left-span">{{ $t('personal.boun') }}</p>
+    <div class="user-center-share-left-btn">
+      <a
+        href="https://github.com/IBAX-io/go-ibax"
+        target="_blank"
+        class="btn btn-primary"
+        >{{ $t('personal.out') }}
+        <i class="el-icon-arrow-right"></i>
+      </a>
     </div>
   </div>
 </template>
@@ -176,7 +225,7 @@ export default {
         where: '',
         order: 'id desc',
         page: 1,
-        limit: 5,
+        limit: 1,
         type: 2
       },
       arrTask: [],
@@ -187,7 +236,13 @@ export default {
       margin: 15,
       logoScale: 0.2,
       strImgUrl: '',
-      logoSrc: require('../../assets/images/login/logo.png')
+      logoSrc: require('../../assets/images/login/logo.png'),
+      strTime: '',
+      strSign: this.$t('personal.daily'),
+      isSign: false,
+      nowTime: 0,
+      nextCheckIn: 0,
+      timerSign: null
     };
   },
   computed: {
@@ -202,6 +257,9 @@ export default {
   },
   watch: {},
   created() {},
+  beforeDestroy() {
+    clearTimeout(this.timerSign);
+  },
   mounted() {
     this.$store.dispatch('handleGetStatistics');
     this.handleGetForward(this.objForward);
@@ -210,8 +268,61 @@ export default {
     if (this.strURL) {
       this.shareon();
     }
+    this.handleSignStatus();
   },
   methods: {
+    async handleSign() {
+      if (this.isSign) {
+        this.$message({
+          type: 'warning',
+          message: this.$t('personal.today')
+        });
+      } else {
+        const res = await this.$axios.$post('/tw/check_in');
+        console.log(res);
+        if (res.code === 0) {
+          this.$message({
+            type: 'success',
+            message: this.$t('personal.po', { points: res.data.points })
+          });
+          this.$store.dispatch('handleGetStatistics');
+          this.handleSignStatus();
+        }
+      }
+    },
+    async handleSignStatus() {
+      const res = await this.$axios.$post('/tw/check_in_status');
+      console.log(res);
+      clearTimeout(this.timerSign);
+      if (res.code === 0) {
+        const { nowTime, nextCheckIn, status } = res.data;
+        this.isSign = status;
+        this.nowTime = nowTime;
+        this.nextCheckIn = nextCheckIn;
+        if (this.isSign) {
+          this.strSign = this.$t('personal.today');
+          this.numTime = nextCheckIn - nowTime;
+          this.handleCountTime();
+        } else {
+          this.strSign = this.$t('personal.daily');
+        }
+      }
+    },
+    handleCountTime() {
+      this.numTime--;
+      console.log(this.numTime);
+      let h, m, s;
+      if (this.numTime >= 0) {
+        h = Math.floor((this.numTime / 60 / 60) % 24);
+        m = Math.floor((this.numTime / 60) % 60);
+        s = Math.floor(this.numTime % 60);
+      }
+      h = h >= 10 ? h : `0${h}`;
+      m = m >= 10 ? m : `0${m}`;
+      s = s >= 10 ? s : `0${s}`;
+      this.strTime = `${h}:${m}:${s}`;
+      this.timerSign = setTimeout(this.handleCountTime, 1000);
+    },
     handleCode() {
       this.isCode = !this.isCode;
       this.isShore = false;
@@ -271,10 +382,9 @@ export default {
     async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
       console.log(res);
-      this.arrTask = [];
       if (res.code === 0) {
         if (res.data.rets.length) {
-          this.arrTask.push(res.data.rets[0]);
+          this.arrTask = res.data.rets;
         } else {
           this.arrTask = [];
         }
