@@ -355,7 +355,7 @@ export default {
     },
     handleCountTime() {
       this.numTime--;
-      console.log(this.numTime);
+      // console.log(this.numTime);
       let h, m, s;
       if (this.numTime >= 0) {
         h = Math.floor((this.numTime / 60 / 60) % 24);

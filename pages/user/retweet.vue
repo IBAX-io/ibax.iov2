@@ -8,7 +8,13 @@
       />
       <span class="user-center-share-text">{{ $t('personal.for') }}</span>
     </div>
-    <div class="">{{ strTime }}</div>
+    <client-only>
+      <flip-countdown
+        v-if="endTime"
+        :nowline="nowTime"
+        :deadline="endTime"
+      ></flip-countdown>
+    </client-only>
     <el-tabs v-model="activeName" @tab-click="handleRetweet">
       <div class="user-retweet-text">
         {{ $t('personal.tasks') }}
@@ -109,7 +115,8 @@ export default {
       showFollow: {},
       taskTotal: 1,
       recordTotal: 1,
-      numTime: 0,
+      nowTime: 0,
+      endTime: 0,
       timerSign: null,
       strTime: ''
     };
@@ -135,24 +142,12 @@ export default {
       const res = await this.$axios.$get('/end_activity_time');
       console.log(res);
       const { nowTime, endTime } = res.data;
-      this.numTime = endTime - nowTime;
-      this.handleCountTime();
-    },
-    handleCountTime() {
-      this.numTime--;
-      console.log(this.numTime);
-      let h, m, s, d;
-      if (this.numTime >= 0) {
-        d = Math.floor(this.numTime / 60 / 60 / 24);
-        h = Math.floor((this.numTime / 60 / 60) % 24);
-        m = Math.floor((this.numTime / 60) % 60);
-        s = Math.floor(this.numTime % 60);
-      }
-      h = h >= 10 ? h : `0${h}`;
-      m = m >= 10 ? m : `0${m}`;
-      s = s >= 10 ? s : `0${s}`;
-      this.strTime = `${d} ${h}:${m}:${s}`;
-      this.timerSign = setTimeout(this.handleCountTime, 1000);
+      this.nowTime = this.dayjs(parseInt(nowTime) * 1000).format(
+        'YYYY-MM-DD HH:mm:ss'
+      );
+      this.endTime = this.nowTime = this.dayjs(parseInt(endTime) * 1000).format(
+        'YYYY-MM-DD HH:mm:ss'
+      );
     },
     async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);

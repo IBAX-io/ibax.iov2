@@ -1210,6 +1210,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .develop-wonder-item-right-join {
     margin-top: 0;
@@ -1366,5 +1367,25 @@
   }
   .user-rules-content {
     margin-bottom: 20px;
+  }
+  .user-center-sign-right {
+    width: 65%;
+  }
+  .develop-wonder-item-left img {
+    margin: 0;
+    margin-right: 10px;
+  }
+  .user-retweet .flip-clock .flip-card {
+    font-size: 1.8rem;
+  }
+  .user-center-sign-left-chest {
+    width: 60px;
+    height: 40px;
+  }
+  .develop-honor-person-item {
+    width: 45%;
+  }
+  .user-retweet .flip-clock .flip-clock__slot {
+    font-size: 0.8rem;
   }
 }
