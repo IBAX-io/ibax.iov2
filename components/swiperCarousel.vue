@@ -25,7 +25,7 @@
             <div class="swiper-slide-content-img">
               <img :src="`${baseUrl}${item.title_icon}`" alt="title_icon" />
             </div>
-            <h6 class="title-h6">{{ item.title }}</h6>
+            <h6 class="title-h6">{{ item.title }} ({{ item.title_count }})</h6>
             <div class="swiper-slide-content-text">
               {{ item.introduction }}
             </div>
@@ -99,6 +99,7 @@ export default {
           transitionEnd() {
             const realIndex = this.realIndex;
             console.log(realIndex);
+
             vm.$emit('chackindex', realIndex);
           }
         },

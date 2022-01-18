@@ -36,7 +36,7 @@
         <div class="develop-btn animated fadeInUp">
           <a
             class="btn btn-primary"
-            href="https://github.com/IBAX-io"
+            href="https://github.com/IBAX-io/go-ibax/discussions"
             target="_blank"
           >
             {{ $t('develope.repository') }}
@@ -80,7 +80,7 @@
           </div>
           <div class="home-top-btn wow fadeInUp">
             <a
-              href="https://weaver.ibax.io/"
+              href="https://github.com/IBAX-io/go-ibax/discussions/categories/ideas"
               target="_blank"
               class="btn btn-primary"
             >
@@ -109,7 +109,7 @@
                     </p>
                   </div>
                   <a
-                    href="https://docs.ibax.io"
+                    href="https://github.com/IBAX-io/go-ibax/discussions/categories/ideas"
                     target="_blank"
                     class="develop-white-bottom wow fadeInUp"
                   >
@@ -131,7 +131,7 @@
                     </p>
                   </div>
                   <a
-                    href="https://github.com/IBAX-io/go-ibax/issues"
+                    href="https://github.com/IBAX-io/go-ibax/discussions/categories/bug-submission"
                     target="_blank"
                     class="develop-white-bottom wow fadeInUp"
                   >
@@ -166,16 +166,12 @@
                 class="develop-wonder-item"
               >
                 <div class="develop-wonder-item-left">
-                  <!--   <h6 class="title-h6">{{ item.title }}</h6> -->
-                  <h6 v-if="!isMobile" class="title-h6">sadasdasdas</h6>
+                  <!--  <h6 v-if="!isMobile" class="title-h6">sadasdasdas</h6> -->
                   <img
                     :src="item.author_icon"
                     alt="author"
                     :onerror="defaultImg"
                   />
-                  <h6 v-if="isMobile" class="title-h6">sadasdasdas</h6>
-                </div>
-                <div class="develop-wonder-item-middle">
                   <div class="develop-wonder-item-middle-box">
                     <p class="title-h7">
                       {{ item.sub_title }}
@@ -185,6 +181,10 @@
                     }}</el-button>
                     <el-button v-if="item.type === 2">BUG</el-button>
                   </div>
+                  <!-- <h6  class="title-h6">{{ item.title }}</h6> -->
+                </div>
+                <div class="develop-wonder-item-middle">
+                  <h6 class="title-h6">{{ item.title }}</h6>
                   <el-input
                     v-model="item.content"
                     class="develop-textarea"
@@ -201,10 +201,14 @@
                       >{{ item.author }}
                     </a>
                     <span>{{ $t('develope.on') }} </span>
-                    <span class="develop-wonder-item-middle-bottom-time">{{
-                      handleTimeShow(item.author_created)
-                    }}</span>
-                    <span>{{ $t('develope.on') }} </span>
+                    <span
+                      v-if="item.author_created !== 0"
+                      class="develop-wonder-item-middle-bottom-time"
+                      >{{ handleMillisecondShow(item.author_created) }}</span
+                    >
+                    <span v-if="item.author_created !== 0"
+                      >{{ $t('develope.on') }}
+                    </span>
                     <a
                       :href="item.category_url"
                       target="_blank"
@@ -213,20 +217,6 @@
                       # {{ item.category }}</a
                     >
                     <span>{{ $t('develope.mentioned') }}</span>
-                    <div class="develop-wonder-item-middle-bottom-item">
-                      <i class="iconfont el-Pionts"></i>
-                      <span class="develop-wonder-item-middle-bottom-number">{{
-                        money_format(item.points)
-                      }}</span>
-                    </div>
-                    <a
-                      :href="`${browserUrl}/transaction/${item.hash}`"
-                      target="_blank"
-                      class="develop-wonder-item-middle-bottom-name develop-wonder-item-middle-bottom-item"
-                    >
-                      <i class="iconfont el-Block"></i>
-                      {{ item.block_id }}</a
-                    >
                     <span class="develop-wonder-item-middle-bottom-auto"
                       ># {{ item.labels }}</span
                     >
@@ -245,6 +235,20 @@
                     {{ $t('develope.join') }}
                     <i class="el-icon-caret-right"></i>
                   </a>
+                  <div class="develop-wonder-item-middle-bottom-item">
+                    <i class="iconfont el-Pionts"></i>
+                    <span class="develop-wonder-item-middle-bottom-number">{{
+                      money_format(item.points)
+                    }}</span>
+                  </div>
+                  <a
+                    :href="`${browserUrl}/transaction/${item.hash}`"
+                    target="_blank"
+                    class="develop-wonder-item-middle-bottom-name develop-wonder-item-middle-bottom-item"
+                  >
+                    <i class="iconfont el-Block"></i>
+                    {{ item.block_id }}</a
+                  >
                 </div>
               </div>
             </div>
@@ -348,10 +352,15 @@
                           </a>
                           <span>{{ $t('develope.on') }} </span>
                           <span
+                            v-if="item.author_created !== 0"
                             class="develop-wonder-item-middle-bottom-time"
-                            >{{ handleTimeShow(item.author_created) }}</span
+                            >{{
+                              handleMillisecondShow(item.author_created)
+                            }}</span
                           >
-                          <span>{{ $t('develope.on') }} </span>
+                          <span v-if="item.author_created !== 0"
+                            >{{ $t('develope.on') }}
+                          </span>
                           <a
                             :href="item.category_url"
                             target="_blank"
@@ -440,10 +449,15 @@
                           </a>
                           <span>{{ $t('develope.on') }} </span>
                           <span
+                            v-if="item.author_created !== 0"
                             class="develop-wonder-item-middle-bottom-time"
-                            >{{ handleTimeShow(item.author_created) }}</span
+                            >{{
+                              handleMillisecondShow(item.author_created)
+                            }}</span
                           >
-                          <span>{{ $t('develope.on') }} </span>
+                          <span v-if="item.author_created !== 0"
+                            >{{ $t('develope.on') }}
+                          </span>
                           <a
                             :href="item.category_url"
                             target="_blank"

@@ -216,6 +216,7 @@
       justify-content: space-between;
       margin-bottom: 20px;
       color: #707070;
+      position: relative;
       &-left {
         width: 50%;
         background: rgba(255, 255, 255, 0.39);
@@ -223,24 +224,28 @@
         border-radius: 20px;
         display: flex;
         align-items: center;
-        &-box {
-          padding: 10px 20px;
-          margin: 20px;
-          border: 1px solid #e9ae4c;
-          opacity: 1;
-          border-radius: 4px;
+        &-chest {
+          width: 20%;
+          aspect-ratio: 3/2;
           cursor: pointer;
-          color: #f3ac34;
+          margin: 10px 20px;
+        }
+        &-close {
+          background: url("../images/login/box-close.png") no-repeat center;
+          background-size: 100% 100%;
+        }
+        &-open {
+          background: url("../images/login/box-open.png") no-repeat center;
+          background-size: 100% 100%;
         }
       }
       &-right {
         background: rgba(255, 255, 255, 0.39);
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        border-radius: 20px;
         width: 30%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
+        margin-left: auto;
         & > * {
           width: 100%;
           text-align: center;
@@ -254,6 +259,34 @@
           letter-spacing: 3px;
           font-weight: bolder;
           font-size: 20px;
+        }
+        .dowebok {
+          animation-duration: 2s;
+          animation-fill-mode: both;
+        }
+        &-num {
+          border-radius: 50%;
+          position: absolute;
+          background-color: rgba($color: #f3ac34, $alpha: 0.8);
+          left: 12%;
+          top: -10px;
+          padding: 10px;
+          line-height: 1em;
+          text-align: center;
+          font-weight: bolder;
+          color: #fff;
+          &::after {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 10px solid rgba($color: #f3ac34, $alpha: 0.8);
+            transform: rotate(40deg);
+          }
         }
       }
     }
@@ -419,7 +452,7 @@
   }
   &-table {
     color: #707070;
-    font-size: 18px;
+    font-size: 14px;
     margin-bottom: 10px;
     letter-spacing: 0.5px;
     border-collapse: separate;

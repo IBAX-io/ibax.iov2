@@ -105,6 +105,15 @@ export default {
                         done();
                       }
                     });
+                  } else if (res.code === -415) {
+                    // done();
+                    instance.confirmButtonLoading = false;
+                    instance.confirmButtonText = this.$t('personal.followed');
+                    this.$message({
+                      showClose: true,
+                      type: 'warning',
+                      message: res.message
+                    });
                   } else {
                     // done();
                     instance.confirmButtonLoading = false;

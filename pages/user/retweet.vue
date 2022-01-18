@@ -8,6 +8,7 @@
       />
       <span class="user-center-share-text">{{ $t('personal.for') }}</span>
     </div>
+    <div class="">{{ strTime }}</div>
     <el-tabs v-model="activeName" @tab-click="handleRetweet">
       <div class="user-retweet-text">
         {{ $t('personal.tasks') }}
@@ -86,7 +87,6 @@ export default {
     return {
       isOpen: false,
       isResize: true,
-      isIntroduce: false,
       isSourceview: false,
       address: '',
       playerVars: {},
@@ -108,7 +108,10 @@ export default {
       arrTask: [],
       showFollow: {},
       taskTotal: 1,
-      recordTotal: 1
+      recordTotal: 1,
+      numTime: 0,
+      timerSign: null,
+      strTime: ''
     };
   },
   computed: {
@@ -116,22 +119,40 @@ export default {
       return (
         'this.src="' + require('../../assets/images/login/task-error.png') + '"'
       );
-    },
-    playerIntroduce() {
-      return this.$refs.introduce.player;
     }
   },
   watch: {},
   created() {},
   mounted() {
     this.handleGetForward(this.objForward);
+    this.handleEndActivityTime();
+  },
+  beforeDestroy() {
+    clearTimeout(this.timerSign);
   },
   methods: {
-    videoEndedIntroduce() {
-      this.playerIntroduce.playVideo();
+    async handleEndActivityTime() {
+      const res = await this.$axios.$get('/end_activity_time');
+      console.log(res);
+      const { nowTime, endTime } = res.data;
+      this.numTime = endTime - nowTime;
+      this.handleCountTime();
     },
-    videoErrorIntroduce() {
-      this.isIntroduce = false;
+    handleCountTime() {
+      this.numTime--;
+      console.log(this.numTime);
+      let h, m, s, d;
+      if (this.numTime >= 0) {
+        d = Math.floor(this.numTime / 60 / 60 / 24);
+        h = Math.floor((this.numTime / 60 / 60) % 24);
+        m = Math.floor((this.numTime / 60) % 60);
+        s = Math.floor(this.numTime % 60);
+      }
+      h = h >= 10 ? h : `0${h}`;
+      m = m >= 10 ? m : `0${m}`;
+      s = s >= 10 ? s : `0${s}`;
+      this.strTime = `${d} ${h}:${m}:${s}`;
+      this.timerSign = setTimeout(this.handleCountTime, 1000);
     },
     async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
@@ -241,6 +262,15 @@ export default {
                       onClose: () => {
                         done();
                       }
+                    });
+                  } else if (res.code === -415) {
+                    //  done();
+                    instance.confirmButtonLoading = false;
+                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    this.$message({
+                      showClose: true,
+                      type: 'warning',
+                      message: res.message
                     });
                   } else {
                     //  done();

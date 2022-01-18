@@ -5,15 +5,38 @@
       <!-- sign in  -->
       <div class="user-center-sign">
         <div class="user-center-sign-left">
-          <span class="user-center-sign-left-box" @click="handleSign">{{
+          <!--   <span class="user-center-sign-left-box" @click="handleSign">{{
             strSign
-          }}</span>
-          <span>{{ $t('personal.check') }}</span>
+          }}</span> -->
+          <span
+            ref="sign"
+            class="user-center-sign-left-chest"
+            :class="{
+              'animated tada': isTaba,
+              'user-center-sign-left-close': !isSign,
+              'user-center-sign-left-open': isSign
+            }"
+            @click="handleSign"
+          ></span>
+          <div v-if="isSign" class="user-center-sign-right">
+            <div class="user-center-sign-right-time">{{ strTime }}</div>
+            <div>{{ $t('personal.time') }}</div>
+          </div>
+          <div
+            v-show="isBubble"
+            class="user-center-sign-right-num"
+            :class="{
+              'animated fadeInUp': isBubble
+            }"
+          >
+            + {{ points }}
+          </div>
+          <!--   <span>{{ $t('personal.check') }}</span> -->
         </div>
-        <div v-if="isSign" class="user-center-sign-right">
+        <!--  <div v-if="isSign" class="user-center-sign-right">
           <div class="user-center-sign-right-time">{{ strTime }}</div>
           <div>{{ $t('personal.time') }}</div>
-        </div>
+        </div> -->
       </div>
       <div class="user-center-share user-center-share-mobile">
         <div class="user-center-share-left user-center-share-left-mobile">
@@ -249,9 +272,12 @@ export default {
       strTime: '',
       strSign: this.$t('personal.daily'),
       isSign: false,
+      isTaba: false,
       nowTime: 0,
       nextCheckIn: 0,
-      timerSign: null
+      timerSign: null,
+      isBubble: false,
+      points: 0
     };
   },
   computed: {
@@ -280,25 +306,35 @@ export default {
     this.handleSignStatus();
   },
   methods: {
-    async handleSign() {
+    handleSign() {
       if (this.isSign) {
         this.$message({
           type: 'warning',
           message: this.$t('personal.today')
         });
       } else {
-        const res = await this.$axios.$post('/tw/check_in');
-        console.log(res);
-        if (res.code === 0) {
-          this.$message({
-            type: 'success',
-            message: this.$t('personal.po', { points: res.data.points })
-          });
-          this.$store.dispatch('handleGetStatistics');
-          this.handleSignStatus();
-        }
+        this.isTaba = true;
+        setTimeout(async () => {
+          this.isTaba = false;
+          const res = await this.$axios.$post('/tw/check_in');
+          console.log(res);
+          if (res.code === 0) {
+            this.points = res.data.points;
+            this.isBubble = true;
+            setTimeout(() => {
+              this.isBubble = false;
+            }, 2000);
+            /* this.$message({
+              type: 'success',
+              message: this.$t('personal.po', { points: res.data.points })
+            }); */
+            this.$store.dispatch('handleGetStatistics');
+            this.handleSignStatus();
+          }
+        }, 1000);
       }
     },
+
     async handleSignStatus() {
       const res = await this.$axios.$post('/tw/check_in_status');
       console.log(res);
@@ -445,6 +481,15 @@ export default {
                       onClose: () => {
                         done();
                       }
+                    });
+                  } else if (res.code === -415) {
+                    //  done();
+                    instance.confirmButtonLoading = false;
+                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    this.$message({
+                      showClose: true,
+                      type: 'warning',
+                      message: res.message
                     });
                   } else {
                     //  done();

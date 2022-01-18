@@ -390,7 +390,7 @@ export default {
                 {
                   title: 'personal.resources',
                   icon: 'iconfont el-supply-chain',
-                  path: '/developer/resources',
+                  path: '/developer/developer-tools',
                   key: '5-1-1'
                 },
                 {
@@ -407,7 +407,7 @@ export default {
                 {
                   title: 'personal.bounty',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/bonty',
+                  path: '/developer/engineering-bounty',
                   key: '5-2-1'
                 }
               ]
@@ -439,15 +439,17 @@ export default {
       handler() {
         const { name } = this.$route;
         const arrIntercept = [
+          'login',
           'user',
           'user-github-rules',
           'user-points',
           'user-receive',
           'user-retweet',
-          'user-rules',
+          'user-airdrop-rules',
+          'user-link-github',
           'user-share',
-          'user-account',
-          'user-record'
+          'user-redeem',
+          'user-commits'
         ];
         const boo = arrIntercept.includes(name);
         //  console.log(name);

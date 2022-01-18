@@ -121,6 +121,9 @@
         img {
           width: 120px;
           border-radius: 50%;
+          display: block;
+          margin: auto;
+          margin-bottom: 10px;
         }
       }
       &-middle {
@@ -132,9 +135,11 @@
           width: 100%;
         }
         &-box {
-          display: flex;
-          align-items: center;
+          text-align: center;
           margin-bottom: 20px;
+          p.title-h7 {
+            margin-bottom: 10px;
+          }
           .el-button {
             color: #f3ac34;
             border: 1px solid #f3ac34;
@@ -147,6 +152,7 @@
         &-bottom {
           display: flex;
           align-items: center;
+          font-size: 12px;
           span {
             margin-right: 10px;
             font-weight: bolder;
@@ -162,6 +168,9 @@
           &-item {
             display: flex;
             align-items: center;
+            .iconfont {
+              margin-right: 5px;
+            }
           }
           &-time {
             margin-right: 10px;

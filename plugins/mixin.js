@@ -133,7 +133,12 @@ Vue.mixin({
       });
     },
     handleTimeShow(millisecond) {
+      //  console.log(millisecond);
       return this.dayjs.utc(parseInt(millisecond)).format('ll');
+    },
+    handleMillisecondShow(millisecond) {
+      console.log(millisecond);
+      return this.dayjs.utc(parseInt(millisecond) * 1000).format('ll');
     },
     handleReduce(arr, key = 'id') {
       console.log(arr);

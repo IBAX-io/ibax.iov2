@@ -421,7 +421,7 @@ export default {
                 {
                   title: 'personal.resources',
                   icon: 'iconfont el-supply-chain',
-                  path: '/developer/resources',
+                  path: '/developer/developer-tools',
                   key: 'm-5-1-1'
                 }
               ]
@@ -443,7 +443,7 @@ export default {
                 {
                   title: 'personal.bounty',
                   icon: 'iconfont el-copyright',
-                  path: '/developer/bonty',
+                  path: '/developer/engineering-bounty',
                   key: 'm-5-3-1'
                 }
               ]

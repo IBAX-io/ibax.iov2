@@ -49,10 +49,14 @@
                   >{{ item.author }}
                 </a>
                 <span>{{ $t('develope.on') }} </span>
-                <span class="develop-wonder-item-middle-bottom-time">{{
-                  handleTimeShow(item.author_created)
-                }}</span>
-                <span>{{ $t('develope.on') }} </span>
+                <span
+                  v-if="item.author_created !== 0"
+                  class="develop-wonder-item-middle-bottom-time"
+                  >{{ handleMillisecondShow(item.author_created) }}</span
+                >
+                <span v-if="item.author_created !== 0"
+                  >{{ $t('develope.on') }}
+                </span>
                 <a
                   :href="item.category_url"
                   target="_blank"
@@ -137,10 +141,14 @@
                   >{{ item.author }}
                 </a>
                 <span>{{ $t('develope.on') }} </span>
-                <span class="develop-wonder-item-middle-bottom-time">{{
-                  handleTimeShow(item.author_created)
-                }}</span>
-                <span>{{ $t('develope.on') }} </span>
+                <span
+                  v-if="item.author_created !== 0"
+                  class="develop-wonder-item-middle-bottom-time"
+                  >{{ handleMillisecondShow(item.author_created) }}</span
+                >
+                <span v-if="item.author_created !== 0"
+                  >{{ $t('develope.on') }}
+                </span>
                 <a
                   :href="item.category_url"
                   target="_blank"
