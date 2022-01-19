@@ -8,13 +8,15 @@
       />
       <span class="user-center-share-text">{{ $t('personal.for') }}</span>
     </div>
-    <client-only>
-      <flip-countdown
-        v-if="endTime"
-        :nowline="nowTime"
-        :deadline="endTime"
-      ></flip-countdown>
-    </client-only>
+    <div class="user-retweet-flip">
+      <client-only>
+        <flip-countdown
+          v-if="endTime"
+          :nowline="nowTime"
+          :deadline="endTime"
+        ></flip-countdown>
+      </client-only>
+    </div>
     <el-tabs v-model="activeName" @tab-click="handleRetweet">
       <div class="user-retweet-text">
         {{ $t('personal.tasks') }}
@@ -140,12 +142,13 @@ export default {
   methods: {
     async handleEndActivityTime() {
       const res = await this.$axios.$get('/end_activity_time');
-      console.log(res);
+      // console.log(res);
       const { nowTime, endTime } = res.data;
       this.nowTime = this.dayjs(parseInt(nowTime) * 1000).format(
         'YYYY-MM-DD HH:mm:ss'
       );
-      this.endTime = this.nowTime = this.dayjs(parseInt(endTime) * 1000).format(
+      console.log(this.nowTime);
+      this.endTime = this.dayjs(parseInt(endTime) * 1000).format(
         'YYYY-MM-DD HH:mm:ss'
       );
     },

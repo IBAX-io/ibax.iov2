@@ -250,7 +250,7 @@ const member5 = require('../../assets/images/avatars/member-5.png');
 const member6 = require('../../assets/images/avatars/member-6.png');
 const member7 = require('../../assets/images/avatars/member-7.png');
 const member8 = require('../../assets/images/avatars/member-8.png');
-const jutkeyWhite = require('../../assets/images/jutkey-white.png');
+const jwhite = require('../../assets/images/jwhite.png');
 export default {
   props: {},
   data() {
@@ -330,7 +330,7 @@ export default {
           icon: 'iconfont el-pusher_logo'
         },
         {
-          img: jutkeyWhite
+          img: jwhite
         }
       ],
       arrPeople: [

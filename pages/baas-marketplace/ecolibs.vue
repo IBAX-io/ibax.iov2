@@ -329,7 +329,7 @@
 const img1 = require('../../assets/images/ecolibs-case.jpg');
 const img2 = require('../../assets/images/gif/ecolibs-weaver.gif');
 const img3 = require('../../assets/images/ecolibs-chat.jpg');
-const jutkeyBlue = require('../../assets/images/jutkey-blue.png');
+const jblue = require('../../assets/images/jblue.png');
 export default {
   props: {},
   data() {
@@ -356,7 +356,7 @@ export default {
       ],
       arrImg: [
         {
-          img: jutkeyBlue,
+          img: jblue,
           alt: 'clari'
         }
       ],
