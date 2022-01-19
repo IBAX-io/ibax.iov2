@@ -68,7 +68,7 @@
     </div>
     <h6 class="title-h6">IBAX Ranking System</h6>
     <div class="user-rules-table-box">
-      <div
+      <!--  <div
         v-for="item in arrHonor"
         :key="item.id"
         class="user-rules-table-box-item"
@@ -101,11 +101,11 @@
         >
           <span>EXP:</span>
           <span>{{ money_format(item.points_start) }}</span>
-          <span>/</span>
+          <span class="user-rules-table-box-item-line-odd">/</span>
           <span>{{ money_format(item.points_end) }}</span>
         </div>
-      </div>
-      <!-- <table ref="tableRules" class="user-rules-table">
+      </div> -->
+      <table ref="tableRules" class="user-rules-table">
         <thead>
           <tr>
             <th>Title</th>
@@ -143,7 +143,7 @@
             </td>
           </tr>
         </tbody>
-      </table> -->
+      </table>
     </div>
   </div>
 </template>

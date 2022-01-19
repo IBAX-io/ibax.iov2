@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "27238179",
+      "name": "Event Rules",
+      "font_class": "a-EventRules",
+      "unicode": "e6a5",
+      "unicode_decimal": 59045
+    },
+    {
+      "icon_id": "27238178",
+      "name": "Submission Record",
+      "font_class": "a-SubmissionRecord",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "27238155",
+      "name": "Affiliated Accounts",
+      "font_class": "a-AffiliatedAccounts",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
       "icon_id": "27216356",
       "name": "Honor System",
       "font_class": "a-HonorSystem",

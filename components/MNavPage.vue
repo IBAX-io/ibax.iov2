@@ -518,19 +518,19 @@ export default {
               content: [
                 {
                   title: 'personal.account',
-                  icon: 'iconfont el-supply-chain',
+                  icon: 'iconfont el-a-AffiliatedAccounts',
                   path: '/user/link-github',
                   key: 'm-7-3-1'
                 },
                 {
                   title: 'personal.commits',
-                  icon: 'iconfont el-supply-chain',
+                  icon: 'iconfont el-a-SubmissionRecord',
                   path: '/user/commits',
                   key: 'm-7-3-2'
                 },
                 {
                   title: 'personal.gr',
-                  icon: 'iconfont el-supply-chain',
+                  icon: 'iconfont el-a-EventRules',
                   path: '/user/github-rules',
                   key: 'm-7-3-3'
                 }

@@ -408,8 +408,9 @@
         flex-wrap: wrap;
         justify-content: space-between;
         padding-top: 10px;
+        align-content: space-between;
         &-item {
-          width: 45%;
+          width: 30%;
           background: rgba(255, 255, 255, 0.39);
           box-shadow: 0px 3px 6px rgb(0 0 0 / 15%);
           border-radius: 20px;
@@ -430,6 +431,9 @@
             span:first-child {
               margin-right: 5px;
             }
+            &-odd {
+              margin: 0 5px;
+            }
           }
           &-yellow {
             color: #f3ac34;
@@ -442,14 +446,14 @@
         }
       }
       &-header {
-        width: 30px;
-        height: 30px;
+        width: 45px;
+        height: 45px;
         border-radius: 50%;
         vertical-align: middle;
         margin-right: 10px;
       }
       &-reward {
-        width: 50%;
+        width: 35%;
         vertical-align: middle;
       }
       tr {
