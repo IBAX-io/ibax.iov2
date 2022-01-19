@@ -68,7 +68,44 @@
     </div>
     <h6 class="title-h6">IBAX Ranking System</h6>
     <div class="user-rules-table-box">
-      <table ref="tableRules" class="user-rules-table">
+      <div
+        v-for="item in arrHonor"
+        :key="item.id"
+        class="user-rules-table-box-item"
+      >
+        <div class="user-rules-table-box-item-line">
+          <img
+            class="user-rules-table-header"
+            :src="`${baseUrl}${item.title_icon}`"
+            :onerror="defaultImg"
+            alt="title_icon"
+          />
+          <span>{{ item.title }}</span>
+        </div>
+        <div class="user-rules-table-box-item-line">
+          <img
+            class="user-rules-table-reward"
+            :src="`${baseUrl}${item.reward_icon}`"
+            :onerror="defaultImg"
+            alt="reward_icon"
+          />
+        </div>
+        <div
+          class="user-rules-table-box-item-line user-rules-table-box-item-yellow"
+        >
+          <span>Monthly Reward Pool</span>
+          <span>{{ money_format(item.monthly_reward_pool) }}</span>
+        </div>
+        <div
+          class="user-rules-table-box-item-line user-rules-table-box-item-gary"
+        >
+          <span>EXP:</span>
+          <span>{{ money_format(item.points_start) }}</span>
+          <span>/</span>
+          <span>{{ money_format(item.points_end) }}</span>
+        </div>
+      </div>
+      <!-- <table ref="tableRules" class="user-rules-table">
         <thead>
           <tr>
             <th>Title</th>
@@ -106,7 +143,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </template>

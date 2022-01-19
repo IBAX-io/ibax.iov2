@@ -1,6 +1,6 @@
 <template>
   <div class="container flip-clock">
-    <template v-for="data in timeData">
+    <template v-for="data in timeData" v-show="show">
       <span
         v-show="data.show"
         :id="data.elementId"
@@ -39,7 +39,7 @@
 const uuidv4 = require('uuid/v4');
 
 export default {
-  //   name: 'flipCountdown',
+  name: 'FlipCountdown',
   filters: {
     twoDigits(value) {
       if (value.toString().length <= 1) {
@@ -49,13 +49,13 @@ export default {
     }
   },
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     deadline: {
-      type: String,
-      default: ''
+      type: String
     },
+    // eslint-disable-next-line vue/require-default-prop
     nowline: {
-      type: String,
-      default: ''
+      type: String
     },
     stop: {
       type: Boolean
@@ -83,7 +83,7 @@ export default {
     labels: {
       type: Object,
       required: false,
-      default: () => {
+      default() {
         return {
           days: 'Days',
           hours: 'Hours',
@@ -92,15 +92,15 @@ export default {
         };
       }
     },
+    // eslint-disable-next-line vue/require-default-prop
     countdownSize: {
       type: String,
-      required: false,
-      default: ''
+      required: false
     },
+    // eslint-disable-next-line vue/require-default-prop
     labelSize: {
       type: String,
-      required: false,
-      default: ''
+      required: false
     }
   },
   data() {
@@ -198,10 +198,10 @@ export default {
     }
     const endTime = this.deadline;
     const nowTime = this.nowline;
-    console.log(nowTime);
-    console.log(endTime);
     this.date = Math.trunc(Date.parse(endTime.replace(/-/g, '/')) / 1000);
-    this.now = Math.trunc(Date.parse(nowTime.replace(/-/g, '/')) / 1000);
+    if (this.nowline) {
+      this.now = Math.trunc(Date.parse(nowTime.replace(/-/g, '/')) / 1000);
+    }
     if (!this.date) {
       throw new Error("Invalid props value, correct the 'deadline'");
     }
@@ -209,17 +209,17 @@ export default {
       ++this.now;
     }, 1000);
   },
-  beforeDestroy() {
-    if (window.cancelAnimationFrame) {
-      cancelAnimationFrame(this.frame);
+  mounted() {
+    if (this.diff !== 0) {
+      this.show = true;
     }
   },
   destroyed() {
     clearInterval(this.interval);
   },
-  mounted() {
-    if (this.diff !== 0) {
-      this.show = true;
+  beforeDestroy() {
+    if (window.cancelAnimationFrame) {
+      cancelAnimationFrame(this.frame);
     }
   },
   methods: {
@@ -245,11 +245,14 @@ export default {
       if (val !== d.current) {
         d.previous = d.current;
         d.current = val;
+
         if (el) {
           el.classList.remove('flip');
-          // void el.offsetWidth;
+          // eslint-disable-next-line no-void
+          void el.offsetWidth;
           el.classList.add('flip');
         }
+
         if (idx === 0) {
           const els = el.querySelectorAll('span b');
           if (els) {
@@ -280,50 +283,41 @@ export default {
   text-align: center;
   perspective: 600px;
   margin: 0 auto;
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
 }
-
+.flip-clock *,
+.flip-clock *:before,
+.flip-clock *:after {
+  box-sizing: border-box;
+}
 .flip-clock__piece {
   display: inline-block;
   margin: 0 0.2vw;
-
-  @media (min-width: 1000px) {
+}
+@media (min-width: 1000px) {
+  .flip-clock__piece {
     margin: 0 5px;
   }
 }
-
 .flip-clock__slot {
   font-size: 1rem;
   line-height: 1.5;
   display: block;
 }
-
-$halfHeight: 0.72em;
-$borderRadius: 0.15em;
-
 .flip-card {
   display: block;
   position: relative;
-  padding-bottom: $halfHeight;
+  padding-bottom: 0.72em;
   font-size: 2.25rem;
   line-height: 0.95;
 }
-
 @media (min-width: 1000px) {
   .flip-clock__slot {
     font-size: 1.2rem;
   }
-
   .flip-card {
     font-size: 3rem;
   }
 }
-
 .flip-card__top,
 .flip-card__bottom,
 .flip-card__back-bottom,
@@ -333,14 +327,13 @@ $borderRadius: 0.15em;
   color: #cca900;
   background: #222;
   padding: 0.23em 0.15em 0.4em;
-  border-radius: $borderRadius $borderRadius 0 0;
+  border-radius: 0.15em 0.15em 0 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
   width: 2.1em;
-  height: $halfHeight;
+  height: 0.72em;
 }
-
 .flip-card__top-4digits,
 .flip-card__bottom-4digits,
 .flip-card__back-bottom-4digits,
@@ -350,14 +343,13 @@ $borderRadius: 0.15em;
   color: #cca900;
   background: #222;
   padding: 0.23em 0.15em 0.4em;
-  border-radius: $borderRadius $borderRadius 0 0;
+  border-radius: 0.15em 0.15em 0 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform-style: preserve-3d;
   width: 2.65em;
-  height: $halfHeight;
+  height: 0.72em;
 }
-
 .flip-card__bottom,
 .flip-card__back-bottom,
 .flip-card__bottom-4digits,
@@ -368,25 +360,22 @@ $borderRadius: 0.15em;
   left: 0;
   border-top: solid 1px #000;
   background: #393939;
-  border-radius: 0 0 $borderRadius $borderRadius;
+  border-radius: 0 0 0.15em 0.15em;
   pointer-events: none;
   overflow: hidden;
   z-index: 2;
 }
-
 .flip-card__back-bottom,
 .flip-card__back-bottom-4digits {
   z-index: 1;
 }
-
 .flip-card__bottom::after,
 .flip-card__back-bottom::after,
 .flip-card__bottom-4digits::after,
 .flip-card__back-bottom-4digits::after {
   display: block;
-  margin-top: -$halfHeight;
+  margin-top: -0.72em;
 }
-
 .flip-card__back::before,
 .flip-card__bottom::after,
 .flip-card__back-bottom::after,
@@ -395,7 +384,6 @@ $borderRadius: 0.15em;
 .flip-card__back-bottom-4digits::after {
   content: attr(data-value);
 }
-
 .flip-card__back,
 .flip-card__back-4digits {
   position: absolute;
@@ -404,14 +392,12 @@ $borderRadius: 0.15em;
   left: 0%;
   pointer-events: none;
 }
-
 .flip-card__back::before,
 .flip-card__back-4digits::before {
   position: relative;
   overflow: hidden;
   z-index: -1;
 }
-
 .flip .flip-card__back::before,
 .flip .flip-card__back-4digits::before {
   z-index: 1;
@@ -419,31 +405,26 @@ $borderRadius: 0.15em;
   animation-fill-mode: both;
   transform-origin: center bottom;
 }
-
 .flip .flip-card__bottom,
 .flip .flip-card__bottom-4digits {
   transform-origin: center top;
-  animation: flipBottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1);
   animation-fill-mode: both;
+  animation: flipBottom 0.6s cubic-bezier(0.15, 0.45, 0.28, 1);
 }
-
 @keyframes flipTop {
   0% {
     transform: rotateX(0deg);
     z-index: 2;
   }
-
   0%,
   99% {
     opacity: 1;
   }
-
   100% {
     transform: rotateX(-90deg);
     opacity: 0;
   }
 }
-
 @keyframes flipBottom {
   0%,
   50% {
@@ -451,11 +432,9 @@ $borderRadius: 0.15em;
     transform: rotateX(90deg);
     opacity: 0;
   }
-
   51% {
     opacity: 1;
   }
-
   100% {
     opacity: 1;
     transform: rotateX(0deg);

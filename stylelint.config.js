@@ -9,6 +9,7 @@ module.exports = {
     'property-no-unknown': null,
     'media-feature-colon-space-after': null,
     'no-duplicate-selectors': null,
-    'length-zero-no-unit': null
+    'length-zero-no-unit': null,
+    'declaration-block-no-shorthand-property-overrides': null
   }
 };
