@@ -109,8 +109,8 @@
         <thead>
           <tr>
             <th>Title</th>
-            <th colspan="2">Exp</th>
-            <th colspan="2">Monthly Reward Pool</th>
+            <th>Exp</th>
+            <th>Monthly Reward Pool</th>
           </tr>
         </thead>
         <tbody>
@@ -126,14 +126,13 @@
             </td>
             <td>
               <span>{{ money_format(item.points_start) }}</span>
-            </td>
-            <td>
+              <span class="user-rules-table-box-item-line-odd">/</span>
               <span>{{ money_format(item.points_end) }}</span>
             </td>
             <td>
-              <span>{{ money_format(item.monthly_reward_pool) }}</span>
-            </td>
-            <td>
+              <span class="user-rules-table-box-item-line-odd">{{
+                money_format(item.monthly_reward_pool)
+              }}</span>
               <img
                 class="user-rules-table-reward"
                 :src="`${baseUrl}${item.reward_icon}`"

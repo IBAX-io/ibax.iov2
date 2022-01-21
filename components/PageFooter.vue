@@ -90,7 +90,7 @@
           <i class="iconfont el-discord"></i>
         </a>
       </div>
-      <div class="footer-icon-text">IBAX FOUNDATION © 2019 - 2021</div>
+      <div class="footer-icon-text">IBAX FOUNDATION © 2019 - 2022</div>
     </div>
   </div>
 </template>

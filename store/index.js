@@ -103,7 +103,10 @@ export const actions = {
     }
   },
   async handleGetStatistics({ commit }) {
-    const data = await this.$axios.$post('/tw/get_statistics');
+    const params = {
+      language_type: 1
+    };
+    const data = await this.$axios.$post('/tw/get_statistics', params);
     // console.log(res);
     if (data.code === 0) {
       const obj = {

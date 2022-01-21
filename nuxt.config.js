@@ -116,17 +116,17 @@ export default {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'IBAX, CryptoCurrency, Bitcoin, Cross-Chain, Crypto, DeFi, Dapps,Blockchaintechnology, Corelayertechnology, Decentralizedapplication,Distributedledger, IBAXAMA,BlockChain BaaS,Mining,web3.0,blockchain,metaverse'
+          'IBAX, Crypto Currency, bitcoin, Cross-Chain, crypto, DeFi, Dapps,blockchain technology, corelayer technology, decentralized application, distributed ledger, IBAX AMA, blockChain BaaS, BaaS, blockchain as a service, mining, Web3.0, W3,blockchain, metaverse, DAO'
       },
       {
         hid: 'description',
         name: 'description',
-        content: `Secure and high performance blockchain infrastructure`
+        content: `IBAX is a fast, efficient, transparent, decentralized infrastructure public blockchain network. Everyone can create a DAO or customizable consensus mechanism ecosystem using IBAX's BaaS platform. Weaver enables low-code development and zero-code coin issuance through simple drag-and-drop , which greatly reduces the time and threshold for developing DApps.`
       },
       {
         hid: 'og:description',
         property: 'og:description',
-        content: `Secure and high performance blockchain infrastructure`
+        content: `IBAX is a fast, efficient, transparent, decentralized infrastructure public blockchain network. Everyone can create a DAO or customizable consensus mechanism ecosystem using IBAX's BaaS platform. Weaver enables low-code development and zero-code coin issuance through simple drag-and-drop , which greatly reduces the time and threshold for developing DApps.`
       },
       {
         hid: 'ie',

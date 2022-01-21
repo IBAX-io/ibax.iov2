@@ -241,7 +241,7 @@
       }
       &-right {
         background: rgba(255, 255, 255, 0.39);
-        width: 30%;
+        width: 50%;
         display: flex;
         flex-wrap: wrap;
         align-content: center;
@@ -404,11 +404,11 @@
       table-layout: fixed;
       word-wrap: break-word;
       &-box {
-        display: flex;
+        /*  display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
         padding-top: 10px;
-        align-content: space-between;
+        align-content: space-between; */
         &-item {
           width: 30%;
           background: rgba(255, 255, 255, 0.39);
