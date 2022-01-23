@@ -41,10 +41,7 @@
           >
             {{ $t('develope.repository') }}
           </a>
-          <nuxt-link
-            class="home-new-bottom link"
-            to="/feature/ecolib-governance"
-          >
+          <nuxt-link class="home-new-bottom link" to="/developer/github-rules">
             <span>{{ $t('develope.topics') }}</span>
             <i class="el-icon-right"></i>
           </nuxt-link>
@@ -186,6 +183,7 @@
                 <div class="develop-wonder-item-middle">
                   <h6 class="title-h6">{{ item.title }}</h6>
                   <el-input
+                    v-if="item.content.length >= 300"
                     v-model="item.content"
                     class="develop-textarea"
                     type="textarea"
@@ -193,6 +191,11 @@
                     readonly
                   >
                   </el-input>
+                  <div
+                    v-else
+                    class="develop-textarea-text"
+                    v-html="item.content"
+                  ></div>
                   <div class="develop-wonder-item-middle-bottom">
                     <a
                       :href="item.author_url"
@@ -255,7 +258,7 @@
             <!-- page -->
             <div
               v-if="arrDiscussion.length !== 0"
-              class="personal-tabs-task-btn"
+              class="personal-tabs-task-btn develop-tabs-task-btn"
             >
               <button
                 v-if="isMobile"
@@ -277,7 +280,7 @@
               >
               </el-pagination>
             </div>
-            <div class="home-top-btn wow fadeInUp">
+            <div class="home-top-btn wow fadeInUp develop-top-btn">
               <a
                 href="https://github.com/IBAX-io/go-ibax/discussions"
                 target="_blank"
@@ -297,7 +300,7 @@
         <el-col :xs="24" :lg="18" class="el-row-wrap">
           <div class="home-new">
             <div class="develop-discuss">
-              <img src="../../assets/images/develop-2.png" alt="develop-2" />
+              <img src="@/assets/images/develop-7.png" alt="develop-7" />
               <div class="develop-discuss-content">
                 <span class="develop-discuss-content-text">{{
                   $t('develope.bugs')
@@ -306,93 +309,15 @@
               </div>
             </div>
           </div>
-          <div class="develop-bugs">
+          <div class="develop-bugs develop-bugs-warp">
             <div class="develop-bugs-left">
               <div ref="bugsleft" class="develop-bugs-left-box">
                 <div
-                  v-for="(item, index) in arrBugs"
+                  v-for="item in arrBugs"
                   :key="item.id"
                   class="develop-bugs-item"
                 >
-                  <div v-if="index % 2 === 0" class="develop-bugs-item-even">
-                    <h6 class="title-h6 develop-bugs-item-title">
-                      <span>{{ item.title }}</span>
-                      <a
-                        :href="item.category_url"
-                        target="_blank"
-                        class="develop-wonder-item-middle-bottom-name"
-                        ># {{ item.category }}</a
-                      >
-                    </h6>
-                    <div class="develop-bugs-item-content">
-                      <div class="develop-bugs-item-content-textarea">
-                        <el-input
-                          v-model="item.content"
-                          class="develop-textarea"
-                          type="textarea"
-                          :placeholder="$t('develope.issue')"
-                          readonly
-                        >
-                        </el-input>
-                        <div class="develop-bugs-item-content-textarea-bottom">
-                          <img
-                            class="develop-bugs-item-content-textarea-img"
-                            :src="`${baseUrl}${item.level_icon}`"
-                            alt="level_icon"
-                          />
-                          <span
-                            class="develop-bugs-item-content-textarea-level"
-                            >{{ item.level_name }}</span
-                          >
-                          <a
-                            :href="item.author_url"
-                            target="_blank"
-                            class="develop-wonder-item-middle-bottom-name"
-                            >{{ item.author }}
-                          </a>
-                          <span>{{ $t('develope.on') }} </span>
-                          <span
-                            v-if="item.author_created !== 0"
-                            class="develop-wonder-item-middle-bottom-time"
-                            >{{
-                              handleMillisecondShow(item.author_created)
-                            }}</span
-                          >
-                          <span v-if="item.author_created !== 0"
-                            >{{ $t('develope.on') }}
-                          </span>
-                          <a
-                            :href="item.category_url"
-                            target="_blank"
-                            class="develop-wonder-item-middle-bottom-name"
-                          >
-                            # {{ item.category }}</a
-                          >
-                          <span>{{ $t('develope.mentioned') }}</span>
-                        </div>
-                      </div>
-                      <div class="develop-bugs-item-content-right">
-                        <div># {{ item.labels }}</div>
-                        <div>
-                          <i class="iconfont el-Pionts"></i>
-                          <span
-                            class="develop-wonder-item-middle-bottom-number"
-                            >{{ money_format(item.points) }}</span
-                          >
-                        </div>
-                        <div>
-                          <i class="iconfont el-Block"></i>
-                          <a
-                            :href="`${browserUrl}/transaction/${item.hash}`"
-                            target="_blank"
-                            class="develop-wonder-item-middle-bottom-name"
-                            >{{ item.block_id }}</a
-                          >
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div v-else class="develop-bugs-item-odd">
+                  <div class="develop-bugs-item-odd">
                     <h6 class="title-h6 develop-bugs-item-title">
                       <span>{{ item.title }}</span>
                       <a
@@ -424,6 +349,7 @@
                       </div>
                       <div class="develop-bugs-item-content-textarea">
                         <el-input
+                          v-if="item.content.length >= 300"
                           v-model="item.content"
                           class="develop-textarea"
                           type="textarea"
@@ -431,6 +357,11 @@
                           readonly
                         >
                         </el-input>
+                        <div
+                          v-else
+                          class="develop-textarea-text"
+                          v-html="item.content"
+                        ></div>
                         <div class="develop-bugs-item-content-textarea-bottom">
                           <img
                             class="develop-bugs-item-content-textarea-img"
@@ -473,7 +404,10 @@
                 </div>
               </div>
               <!-- bugs page -->
-              <div v-if="arrBugs.length !== 0" class="personal-tabs-task-btn">
+              <div
+                v-if="arrBugs.length !== 0"
+                class="personal-tabs-task-btn develop-tabs-task-btn"
+              >
                 <button
                   v-if="isMobile"
                   v-show="isMore"
@@ -494,7 +428,7 @@
                 >
                 </el-pagination>
               </div>
-              <div class="home-top-btn wow fadeInUp">
+              <div class="home-top-btn wow fadeInUp develop-top-btn">
                 <nuxt-link
                   :to="{ path: '/developer/honor-developers' }"
                   class="btn btn-primary"
@@ -506,7 +440,7 @@
             </div>
             <div :ref="isMobile ? '' : 'bugsRight'" class="develop-bugs-right">
               <h6 class="title-h6 develop-bugs-item-title">
-                <i class="iconfont el-guize1"></i>
+                <img src="@/assets/images/develop-8.png" alt="develop-8" />
                 <span>{{ $t('develope.honor') }}</span>
               </h6>
               <p class="develop-bugs-right-text">{{ $t('develope.forget') }}</p>

@@ -1,52 +1,50 @@
 <template>
   <div id="login" class="login">
-    <el-row type="flex" justify="center">
-      <el-col :sm="24" :lg="18" :md="20">
-        <el-row type="flex" justify="space-between" class="el-row-wrap">
-          <el-col v-if="isMobile" :xs="24" :lg="8">
-            <h6 class="title-h6 wow fadeInUp">{{ $t('login.join') }}</h6>
-            <div class="login-box">
-              <p class="login-text wow fadeInUp">
-                {{ $t('login.online') }}
-              </p>
-              <button class="login-btn wow fadeInUp" @click="handleLogin">
-                <i class="iconfont el-twitter"></i>
-                <span>{{ $t('login.with') }}</span>
-              </button>
-              <p class="login-rules wow fadeInUp" @click="handleRules">
-                {{ $t('personal.rules') }}
-              </p>
-            </div>
-          </el-col>
-          <el-col :xs="24" :lg="12">
-            <h3 class="title-h3 wow fadeInUp" style="text-transform: none">
-              {{ $t('login.why') }}
-            </h3>
-            <p class="wow fadeInUp">{{ $t('login.build') }}</p>
-            <p class="wow fadeInUp">{{ $t('login.has') }}</p>
-            <p class="wow fadeInUp">{{ $t('login.welcomes') }}</p>
-            <p class="wow fadeInUp login-last">{{ $t('login.team') }}</p>
-          </el-col>
-          <el-col v-if="!isMobile" :xs="24" :lg="8">
-            <h6 class="title-h6 wow fadeInUp">{{ $t('login.join') }}</h6>
-            <div class="login-box">
-              <p class="login-text wow fadeInUp">
-                {{ $t('login.online') }}
-              </p>
-              <button class="login-btn wow fadeInUp" @click="handleLogin">
-                <i class="iconfont el-twitter"></i>
-                <span>{{ $t('login.with') }}</span>
-              </button>
-              <!--  <button class="login-btn wow fadeInUp" @click="handleGithub">
+    <el-row type="flex" justify="space-between" class="el-row-wrap">
+      <el-col v-if="isMobile" :xs="24" :lg="8">
+        <h6 class="title-h6 wow fadeInUp login-title">
+          {{ $t('login.join') }}
+        </h6>
+        <div class="login-box">
+          <p class="login-text wow fadeInUp">
+            {{ $t('login.online') }}
+          </p>
+          <button class="login-btn wow fadeInUp" @click="handleLogin">
+            <i class="iconfont el-twitter"></i>
+            <span>{{ $t('login.with') }}</span>
+          </button>
+          <p class="login-rules wow fadeInUp" @click="handleRules">
+            {{ $t('personal.rules') }}
+          </p>
+        </div>
+      </el-col>
+      <el-col :xs="24" :sm="12" class="login-left">
+        <h3 class="title-h3 wow fadeInUp" style="text-transform: none">
+          {{ $t('login.why') }}
+        </h3>
+        <p class="wow fadeInUp">{{ $t('login.build') }}</p>
+        <p class="wow fadeInUp">{{ $t('login.has') }}</p>
+        <p class="wow fadeInUp">{{ $t('login.welcomes') }}</p>
+        <p class="wow fadeInUp login-last">{{ $t('login.team') }}</p>
+      </el-col>
+      <el-col v-if="!isMobile" :xs="24" :sm="12" class="login-right">
+        <h6 class="title-h6 wow fadeInUp">{{ $t('login.join') }}</h6>
+        <div class="login-box">
+          <p class="login-text wow fadeInUp">
+            {{ $t('login.online') }}
+          </p>
+          <button class="login-btn wow fadeInUp" @click="handleLogin">
+            <i class="iconfont el-twitter"></i>
+            <span>{{ $t('login.with') }}</span>
+          </button>
+          <!--  <button class="login-btn wow fadeInUp" @click="handleGithub">
                 <i class="iconfont el-github"></i>
                 <span>Github</span>
               </button> -->
-              <p class="login-rules wow fadeInUp" @click="handleRules">
-                {{ $t('personal.rules') }}
-              </p>
-            </div>
-          </el-col>
-        </el-row>
+          <p class="login-rules wow fadeInUp" @click="handleRules">
+            {{ $t('personal.rules') }}
+          </p>
+        </div>
       </el-col>
     </el-row>
   </div>

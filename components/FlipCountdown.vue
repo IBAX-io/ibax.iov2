@@ -324,7 +324,7 @@ export default {
 .flip-card__back::before,
 .flip-card__back::after {
   display: block;
-  color: #cca900;
+  color: #715df2;
   background: #222;
   padding: 0.23em 0.15em 0.4em;
   border-radius: 0.15em 0.15em 0 0;
@@ -340,7 +340,7 @@ export default {
 .flip-card__back-4digits::before,
 .flip-card__back-4digits::after {
   display: block;
-  color: #cca900;
+  color: #715df2;
   background: #222;
   padding: 0.23em 0.15em 0.4em;
   border-radius: 0.15em 0.15em 0 0;
@@ -354,7 +354,7 @@ export default {
 .flip-card__back-bottom,
 .flip-card__bottom-4digits,
 .flip-card__back-bottom-4digits {
-  color: #ffdc00;
+  color: #7866eb;
   position: absolute;
   top: 50%;
   left: 0;

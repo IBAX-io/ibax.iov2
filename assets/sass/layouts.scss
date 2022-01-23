@@ -852,6 +852,7 @@
   }
   .login {
     padding-top: 50px;
+    margin-bottom: 0;
     &-last {
       margin-bottom: 30px;
     }
@@ -1234,7 +1235,7 @@
   .develop-bugs {
     padding: 0;
   }
-  .develop-bugs-item {
+  .develop-bugs-warp .develop-bugs-item {
     padding: 0 0 20px 0;
     margin-bottom: 20px;
   }
@@ -1257,11 +1258,22 @@
     span:first-child {
       margin-right: 0;
     }
-    & > * {
-      width: 100%;
+  }
+  .develop-textarea-text {
+    word-wrap: break-word;
+  }
+  .develop-tabs-task-btn {
+    .btn-primary {
+      margin-bottom: 30px;
     }
   }
-
+  .develop-top-btn {
+    a.btn {
+      width: 100%;
+      margin: 0 0 30px 0;
+      padding: 14px 10px;
+    }
+  }
   .develop-bugs-right {
     height: auto !important;
     margin-right: 0;
@@ -1294,12 +1306,46 @@
   .user-commits .develop-bugs-item {
     padding: 0 0 20px 0;
   }
+  .user-rules-mobile {
+    padding: 50px 30px;
+  }
+  .login-title {
+    color: #707070;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .login-box {
+    margin: 0;
+  }
+  .login-text {
+    text-align: center;
+  }
+  .login-left {
+    padding: 30px;
+  }
+  .login .el-row-wrap {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .user-center-sign {
     width: 100%;
     flex-wrap: wrap;
-    & > * {
-      width: 100%;
+    height: auto;
+    margin: 20px auto;
+    justify-content: center;
+    .user-center-sign-chest {
+      position: static;
       margin-bottom: 20px;
+      height: 150px;
+    }
+    .user-center-sign-right-text {
+      margin-bottom: 10px;
+    }
+    .m-nav-login .nav-link-head img {
+      height: 48px;
+    }
+    .user-center-sign-right {
+      width: 100%;
     }
     .user-center-sign-left {
       flex-wrap: wrap;
@@ -1309,21 +1355,52 @@
         width: 100%;
       }
     }
-    .user-center-sign-right-time {
-      margin-bottom: 10px;
+  }
+  .user-center-share {
+    flex-wrap: wrap;
+    .user-center-share-item {
+      width: 50%;
+    }
+    .user-center-share-telegram {
+      img {
+        width: 50px;
+      }
+    }
+    .user-center-share-qr {
+      top: 65px;
+      right: 0;
+    }
+    .user-center-share-dialog-box {
+      width: 85%;
+    }
+    .user-center-share-dialog-close {
+      margin-left: 80%;
     }
   }
   .user-center-share-left-link .btn {
     display: none;
   }
+  .user-commits-title-link-bull {
+    display: inline-block;
+  }
   .user-center-share-left-system {
     font-size: 18px;
     line-height: 1em;
+  }
+  .user-retweet .el-tabs .el-tabs__item {
+    margin-right: 10px;
+    font-size: 12px;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  .user-commits-title-link {
+    display: block;
   }
   .user-center-share-left-link-mobile {
     .btn {
       padding: 10px;
       margin: 20px 0;
+      background-color: #715df2;
     }
   }
   .user-dialog-content .el-input {
@@ -1367,9 +1444,6 @@
   }
   .user-rules-content {
     margin-bottom: 20px;
-  }
-  .user-center-sign-right {
-    width: 65%;
   }
   .develop-wonder-item-left img {
     margin: 0;

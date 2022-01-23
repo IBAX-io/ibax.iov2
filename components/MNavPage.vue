@@ -430,17 +430,6 @@ export default {
               key: 'm-5-2',
               content: [
                 {
-                  title: 'personal.ecosystem',
-                  icon: 'iconfont el-asset-management',
-                  path: '/developer/ecosystems',
-                  key: 'm-5-2-1'
-                }
-              ]
-            },
-            {
-              key: 'm-5-3',
-              content: [
-                {
                   title: 'personal.bounty',
                   icon: 'iconfont el-copyright',
                   path: '/developer/engineering-bounty',
@@ -449,13 +438,24 @@ export default {
               ]
             },
             {
-              key: 'm-5-4',
+              key: 'm-5-3',
               content: [
                 {
                   title: 'personal.honor',
                   icon: 'iconfont el-copyright',
                   path: '/developer/honor-developers',
                   key: 'm-5-4-1'
+                }
+              ]
+            },
+            {
+              key: 'm-5-4',
+              content: [
+                {
+                  title: 'personal.ecosystem',
+                  icon: 'iconfont el-asset-management',
+                  path: '/developer/ecosystems',
+                  key: 'm-5-2-1'
                 }
               ]
             }
@@ -474,7 +474,7 @@ export default {
       ],
       arrUserNav: [
         {
-          title: 'personal.center',
+          title: 'personal.dashboard',
           key: 'm-7',
           children: [
             {

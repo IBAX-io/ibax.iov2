@@ -82,7 +82,7 @@
     justify-content: space-between;
     margin-bottom: 30px;
     img {
-      width: 90px;
+      width: 50px;
       margin-right: 10px;
     }
     &-content {
@@ -111,7 +111,7 @@
       opacity: 1;
       border-radius: 20px;
       margin-bottom: 30px;
-      cursor: pointer;
+      align-items: center;
       &:hover {
         background: #fff;
         box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%);
@@ -119,7 +119,7 @@
       &-left {
         width: 15%;
         img {
-          width: 120px;
+          width: 100px;
           border-radius: 50%;
           display: block;
           margin: auto;
@@ -141,27 +141,27 @@
             margin-bottom: 10px;
           }
           .el-button {
-            color: #f3ac34;
-            border: 1px solid #f3ac34;
+            color: #707070;
+            border: 1px solid #707070;
             padding: 0px 20px;
             height: 30px;
             line-height: 30px;
             margin-left: 20px;
+            cursor: default;
           }
         }
         &-bottom {
           display: flex;
           align-items: center;
           font-size: 12px;
-          font-weight: bolder;
           span {
             margin-right: 10px;
-            font-weight: bolder;
             font-size: 14px;
           }
           &-name {
             color: #715df2;
             margin-right: 10px;
+            cursor: pointer;
             &:hover {
               color: #f3ac34;
             }
@@ -194,12 +194,10 @@
         &-replies {
           color: #999;
           font-size: 16px;
-          text-align: right;
         }
         &-join {
           display: block;
-          color: #f3ac34;
-          margin-top: 70px;
+          color: #715df2;
         }
       }
     }
@@ -300,12 +298,16 @@
       }
     }
     &-item {
-      border-bottom: 1px solid #999;
       width: 100%;
-      padding: 20px 20px 20px 0;
-      &-title {
+      &-title.title-h6 {
         display: flex;
         align-items: center;
+        font-size: 24px;
+        justify-content: center;
+        img {
+          width: 30px;
+          margin-right: 10px;
+        }
         span:first-child {
           margin-right: 20px;
         }
@@ -321,7 +323,6 @@
         box-shadow: 0px 3px 6px rgb(0 0 0 / 15%);
         border-radius: 20px;
         padding: 20px;
-        cursor: pointer;
         &:hover {
           background: #fff;
           box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%);
@@ -332,7 +333,7 @@
         align-items: center;
         justify-content: space-between;
         &-textarea {
-          width: 75%;
+          width: 80%;
           &-bottom {
             width: 100%;
             display: flex;
@@ -353,8 +354,20 @@
           width: 15%;
           .iconfont {
             color: #715df2;
+            font-size: 24px;
+            margin-right: 5px;
+          }
+          & > * {
+            word-break: break-all;
+            display: flex;
+            align-items: center;
           }
         }
+      }
+    }
+    &-warp {
+      .develop-bugs-item {
+        padding: 20px;
       }
     }
     &-box {
@@ -369,27 +382,37 @@
       }
     }
   }
-  &-textarea .el-textarea__inner {
-    height: 150px;
-    margin-bottom: 10px;
-    overflow-y: auto;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-    scrollbar-width: thin;
-    cursor: pointer;
-    &::-webkit-scrollbar {
-      width: 6px;
+
+  &-textarea {
+    &-text {
+      color: #707070;
+      height: 150px;
+      margin-bottom: 10px;
     }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: rgba(153, 153, 153, 0.39);
-    }
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-      border-radius: 0;
-      background: rgba(255, 255, 255, 0.39);
-    }
-    &::-webkit-scrollbar-button {
-      display: none;
+    .el-textarea__inner {
+      height: 150px;
+      margin-bottom: 10px;
+      overflow-y: auto;
+      scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+      scrollbar-width: thin;
+      cursor: default;
+      font: 16px/1.8125 "Untitled Sans", "Helvetica Neue", Helvetica, sans-serif;
+      color: #707070;
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: rgba(153, 153, 153, 0.39);
+      }
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.39);
+      }
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
     }
   }
   &-honor {

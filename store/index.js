@@ -11,6 +11,7 @@ export const state = () => ({
   token: '',
   userInfo: '',
   invitecode: '',
+  userFixed: false,
   statistics: {
     points: 0,
     amount: 0,
@@ -42,6 +43,7 @@ export const mutations = {
     state.statistics.gitAmount = obj.gitAmount;
     state.statistics.weekAmount = obj.weekAmount;
     state.statistics.level_icon = obj.level_icon;
+    state.statistics.level_name = obj.level_name;
     state.statistics.time = obj.time;
   },
   handleInviteAmount(state, obj) {
@@ -62,6 +64,9 @@ export const mutations = {
   },
   handleIsFixed(state, boo) {
     state.isFixed = boo;
+  },
+  handleUserFixed(state, boo) {
+    state.userFixed = boo;
   },
   handleIsWhite(state, boo) {
     state.isWhite = boo;
@@ -115,7 +120,8 @@ export const actions = {
         gitAmount: data.data.github_statistics,
         weekAmount: data.data.this_week_statistics,
         time: data.data.next_check_in_time,
-        level_icon: data.data.level_icon
+        level_icon: data.data.level_icon,
+        level_name: data.data.level_name
       };
       commit('handleStatistics', obj);
     } else {
@@ -180,6 +186,10 @@ export const getters = {
   handleIsFixed(state) {
     const { isFixed } = state;
     return isFixed;
+  },
+  handleUserFixed(state) {
+    const { userFixed } = state;
+    return userFixed;
   },
   handleIsWhite(state) {
     const { isWhite } = state;

@@ -1,9 +1,30 @@
 .login {
-  background: url("../images/login/login.png") center no-repeat;
-  background-size: cover;
   color: #fff;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &-left {
+    background: $primary-color;
+    padding: 5% 5% 5% 12.5%;
+    position: relative;
+    box-shadow: 0 0 5px rgba(39, 66, 53, 0.1);
+    p {
+      font-size: 16px;
+    }
+    .el-twitter {
+      position: absolute;
+      font-size: 100px;
+      top: 50%;
+      left: 50%;
+      margin-top: -10%;
+      opacity: 0.2;
+    }
+  }
+  &-right {
+    background-color: #fff;
+    color: #707070;
+    padding: 5% 12.5% 5% 5%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
   h6 {
     margin-bottom: 0;
   }
@@ -15,11 +36,11 @@
     color: #fff;
     background: #4c96e3;
     padding: 12px 40px;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin: 50px auto;
+    margin: 30px auto;
+    border-radius: 30px;
     .iconfont {
       font-size: 20px;
       margin-right: 10px;
@@ -34,10 +55,6 @@
     white-space: normal;
   }
   &-box {
-    background: #fff;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.53);
-    opacity: 1;
-    border-radius: 20px;
     color: #4c96e3;
     width: 80%;
     margin: 30px auto;
@@ -96,7 +113,7 @@
       }
     }
     &-link {
-      color: #f3ac30;
+      color: #4c96e3;
       font-weight: bolder;
       margin-left: 20px;
     }
@@ -163,7 +180,7 @@
           margin: 30px 0;
         }
         .el-pagination.is-background .el-pager li:not(.disabled).active {
-          background-color: #f3ac30;
+          background-color: #715df2;
         }
       }
       &-finish {
@@ -221,13 +238,6 @@
         img {
           width: 300px;
         }
-      }
-      &-box {
-        /*  background-color: #fff;
-        padding: 30px;
-        border-radius: 18px;
-        margin-bottom: 30px;
-        box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%); */
       }
       &-head,
       &-even,
@@ -477,36 +487,6 @@
           font-size: 14px;
         }
       }
-      &-qr {
-        padding: 10px;
-        border-radius: 12px;
-        position: absolute;
-        color: #fff;
-        left: -5px;
-        bottom: 160px;
-        z-index: 300;
-        width: 300px;
-        &-text {
-          text-align: left;
-          word-break: normal;
-          line-height: 1.5em;
-          margin-bottom: 20px;
-        }
-      }
-      &-img {
-        position: absolute;
-        width: 300px;
-        left: 60px;
-        bottom: 0;
-        z-index: 300;
-        &-small {
-          position: absolute;
-          width: 70px;
-          bottom: 20px;
-          left: 10px;
-          border-radius: 12px;
-        }
-      }
     }
   }
   &-redeem {
@@ -520,6 +500,7 @@
       border-radius: 12px;
       &-text {
         font-weight: bolder;
+        margin-bottom: 0;
       }
     }
     &-content {
@@ -529,9 +510,16 @@
         padding: 10px;
         min-width: 120px;
         margin: 30px;
+        background-color: #715df2;
       }
       .home-new-bottom {
         display: inline-flex;
+        .el-icon-right {
+          color: #715df2;
+        }
+      }
+      .link {
+        color: #715df2;
       }
     }
     &-vidoe {

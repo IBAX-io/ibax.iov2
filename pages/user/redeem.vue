@@ -16,8 +16,8 @@
       {{ $t('personal.poin') }}
     </div>
     <div class="user-receive-data">
-      {{ $t('personal.yourPoints') }}: {{ money_format(statistics.amount) }}
-      {{ $t('personal.coin') }}
+      {{ $t('personal.yourCoins') }}: {{ money_format(statistics.amount) }}
+      <!--  {{ $t('personal.coin') }} -->
     </div>
     <div class="personal-redeem">
       <div
@@ -42,6 +42,9 @@
       <div v-else class="personal-redeem-box">
         <p class="personal-redeem-box-text">
           {{ $t('personal.once') }}
+        </p>
+        <p class="personal-redeem-box-text">
+          {{ $t('personal.confirm') }}
         </p>
         <div class="personal-redeem-content">
           <el-input

@@ -855,5 +855,7 @@
   "personal.issues": "解决悬赏问题",
   "personal.boun": "前往IBAX悬赏区，解决对应的问题，获得IBXC奖励以及积分奖励。",
   "personal.views": "查看积分规则",
-  "personal.out": "前往GitHub查看"
+  "personal.out": "前往GitHub查看",
+  "personal.been": "你的转推已全部完成，请明天再来看看吧",
+  "personal.committed": "这里会显示你在IBAX项目中提交的问题，如需管理他们，你需前往GitHub编辑"
 }

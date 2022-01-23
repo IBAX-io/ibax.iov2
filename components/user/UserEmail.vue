@@ -150,8 +150,8 @@ export default {
           };
           const res = await this.$axios.$post('/tw/bind_email_request', param);
           console.log(res);
+          this.emailLoading = false;
           if (res.code === 0) {
-            this.emailLoading = false;
             const sendCode = this.$t('personal.send');
             this.$message({
               showClose: true,

@@ -39,7 +39,7 @@
         </div>
         <div
           class="user-github-box-email"
-          :style="{ color: userInfo.email ? '#707070' : '#F3AC30' }"
+          :style="{ color: userInfo.email ? '#707070' : '#715df2' }"
           @click="handleEmail"
         >
           E
@@ -84,7 +84,7 @@
       </div>
       <div
         class="user-github-box-email"
-        :style="{ color: userInfo.email ? '#707070' : '#F3AC30' }"
+        :style="{ color: userInfo.email ? '#707070' : '#715df2' }"
         @click="handleEmail"
       >
         E
@@ -114,6 +114,7 @@
         <div class="develop-wonder-item-middle">
           <h6 class="title-h6">{{ item.title }}</h6>
           <el-input
+            v-if="item.content.length >= 300"
             v-model="item.content"
             class="develop-textarea"
             type="textarea"
@@ -121,6 +122,7 @@
             readonly
           >
           </el-input>
+          <div v-else class="develop-textarea-text" v-html="item.content"></div>
           <div class="develop-wonder-item-middle-bottom">
             <a
               :href="item.author_url"
@@ -145,7 +147,9 @@
               # {{ item.category }}</a
             >
             <span>{{ $t('develope.mentioned') }}</span>
-            <span class="develop-wonder-item-middle-bottom-auto"
+            <span
+              v-if="item.labels"
+              class="develop-wonder-item-middle-bottom-auto"
               ># {{ item.labels }}</span
             >
           </div>

@@ -4,39 +4,31 @@
       <user-follow></user-follow>
       <!-- sign in  -->
       <div class="user-center-sign">
-        <div class="user-center-sign-left">
-          <!--   <span class="user-center-sign-left-box" @click="handleSign">{{
-            strSign
-          }}</span> -->
-          <span
-            ref="sign"
-            class="user-center-sign-left-chest"
-            :class="{
-              'animated tada': isTaba,
-              'user-center-sign-left-close': !isSign,
-              'user-center-sign-left-open': isSign
-            }"
-            @click="handleSign"
-          ></span>
-          <div v-if="isSign" class="user-center-sign-right">
-            <div class="user-center-sign-right-time">{{ strTime }}</div>
-            <div>{{ $t('personal.time') }}</div>
-          </div>
-          <div
-            v-show="isBubble"
-            class="user-center-sign-right-num"
-            :class="{
-              'animated fadeInUp': isBubble
-            }"
-          >
-            + {{ points }}
-          </div>
-          <!--   <span>{{ $t('personal.check') }}</span> -->
-        </div>
-        <!--  <div v-if="isSign" class="user-center-sign-right">
+        <div
+          ref="sign"
+          class="user-center-sign-chest"
+          :class="{
+            'animated tada': isTaba,
+            'user-center-sign-close': !isSign,
+            'user-center-sign-open': isSign
+          }"
+          @click="handleSign"
+        ></div>
+        <div v-if="isSign" class="user-center-sign-right">
           <div class="user-center-sign-right-time">{{ strTime }}</div>
-          <div>{{ $t('personal.time') }}</div>
-        </div> -->
+          <div class="user-center-sign-right-text">
+            {{ $t('personal.time') }}
+          </div>
+        </div>
+        <div
+          v-show="isBubble"
+          class="user-center-sign-right-num"
+          :class="{
+            'animated fadeInUp': isBubble
+          }"
+        >
+          + {{ points }}
+        </div>
       </div>
       <div class="user-center-share user-center-share-mobile">
         <div class="user-center-share-left user-center-share-left-mobile">
@@ -57,91 +49,7 @@
           <i class="el-icon-arrow-right"></i>
         </nuxt-link>
       </div>
-      <div class="user-center-share">
-        <div class="user-center-share-box">
-          <div class="user-center-share-left" @click="handleCopy">
-            <img
-              src="@/assets/images/login/share-1.png"
-              alt="share-1"
-              class="user-center-share-left-img"
-            />
-            <span class="user-center-share-left-text">{{
-              $t('personal.link')
-            }}</span>
-          </div>
-          <div class="user-center-share-left" @click="handleCode">
-            <img
-              src="@/assets/images/login/share-2.png"
-              alt="share-1"
-              class="user-center-share-left-img"
-            />
-            <span class="user-center-share-left-text">{{
-              $t('personal.shareOn')
-            }}</span>
-          </div>
-          <div class="user-center-share-left" @click="handleShare">
-            <img
-              src="@/assets/images/login/share-3.png"
-              alt="share-1"
-              class="user-center-share-left-img"
-            />
-            <span class="user-center-share-left-text">{{
-              $t('personal.qr')
-            }}</span>
-          </div>
-          <!-- share link -->
-          <div
-            v-show="isCode"
-            class="personal-code-left-qr"
-            @click="handleCodeConfirm"
-          >
-            <div class="shareon" :data-url="strURL">
-              <a class="twitter"></a>
-              <a class="telegram"></a>
-              <a class="facebook"></a>
-              <a class="linkedin"></a>
-              <a class="reddit"></a>
-            </div>
-          </div>
-          <!-- share code -->
-          <div style="display: none">
-            <client-only>
-              <vue-qr
-                ref="qrCodeUrl"
-                :logo-src="logoSrc"
-                :size="150"
-                :logo-scale="logoScale"
-                :auto-color="true"
-                :dot-scale="1"
-                :text="strURL"
-                style="height: 200px; width: 200px; border-radius: 12px"
-                background-color="#274235"
-                background-dimming="#274235"
-                color-dark="#274235"
-                :margin="margin"
-                :callback="handleCodeqr"
-              />
-            </client-only>
-          </div>
-        </div>
-        <a
-          class="user-center-share-telegram"
-          href="https://t.me/IBAXNetwork"
-          target="_blank"
-        >
-          <img src="@/assets/images/login/tg.png" alt="telegram" />
-        </a>
-      </div>
-      <!-- share image -->
-      <div
-        v-show="isShore"
-        ref="shareBox"
-        class="personal-code-left-img"
-        @click="handleHtml2canvas"
-      >
-        <img src="@/assets/images/login/back.png" alt="back" />
-        <img :src="strImgUrl" alt="code" class="personal-code-left-img-small" />
-      </div>
+      <user-share></user-share>
     </div>
     <div class="user-center-share">
       <div class="user-center-share-left" style="margin-bottom: 0">
@@ -160,6 +68,7 @@
     <div class="user-center-retweet">
       <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
         <img src="@/assets/images/login/no-data.png" alt="no-data" />
+        <p>{{ $t('personal.been') }}</p>
       </div>
       <template v-else>
         <div v-for="item in arrTask" :key="item.id" class="personal-tabs-task">
@@ -248,7 +157,6 @@
   </div>
 </template>
 <script>
-import html2canvas from 'html2canvas';
 export default {
   props: {},
   data() {
@@ -262,13 +170,6 @@ export default {
       },
       arrTask: [],
       taskTotal: 1,
-      strURL: '',
-      isCode: false,
-      isShore: false,
-      margin: 15,
-      logoScale: 0.2,
-      strImgUrl: '',
-      logoSrc: require('../../assets/images/login/logo.png'),
       strTime: '',
       strSign: this.$t('personal.daily'),
       isSign: false,
@@ -298,11 +199,6 @@ export default {
   mounted() {
     this.$store.dispatch('handleGetStatistics');
     this.handleGetForward(this.objForward);
-    const invitecode = localStorage.getItem('invitecode');
-    this.strURL = `${this.baseUrl}/login?code=${invitecode}`;
-    if (this.strURL) {
-      this.shareon();
-    }
     this.handleSignStatus();
   },
   methods: {
@@ -324,10 +220,6 @@ export default {
             setTimeout(() => {
               this.isBubble = false;
             }, 2000);
-            /* this.$message({
-              type: 'success',
-              message: this.$t('personal.po', { points: res.data.points })
-            }); */
             this.$store.dispatch('handleGetStatistics');
             this.handleSignStatus();
           }
@@ -368,67 +260,11 @@ export default {
       this.strTime = `${h}:${m}:${s}`;
       this.timerSign = setTimeout(this.handleCountTime, 1000);
     },
-    handleCode() {
-      this.isCode = !this.isCode;
-      this.isShore = false;
-    },
-    handleCodeConfirm() {
-      this.isCode = false;
-    },
-    handleShare() {
-      this.isShore = !this.isShore;
-      this.isCode = false;
-    },
-    handleCopy() {
-      this.$copyText(this.strURL).then(
-        (e) => {
-          // console.log(e);
-          this.$message({
-            type: 'success',
-            message: `Copy succeeded`
-          });
-          this.isShore = false;
-          this.isCode = false;
-        },
-        (e) => {
-          console.log(e);
-          this.$message({
-            type: 'error',
-            message: `Copy failed`
-          });
-        }
-      );
-    },
-    handleCodeqr(url, qid) {
-      console.log(url);
-      console.log(qid);
-      this.strImgUrl = url;
-    },
-    async handleHtml2canvas() {
-      this.$message({
-        type: 'success',
-        message: 'Downloading'
-      });
-      const res = await html2canvas(this.$refs.shareBox);
-      console.log(res);
-      console.log(res.toDataURL('image/png'));
-      this.imgUrl = res.toDataURL('image/png');
-      console.log(this.imgUrl);
-      const a = document.createElement('a');
-      a.download = 'code-share';
-      a.href = this.imgUrl;
-      a.dispatchEvent(new MouseEvent('click'));
-      this.isShore = false;
-      this.$message({
-        type: 'success',
-        message: 'Download complete'
-      });
-    },
     async handleGetForward(params) {
       const res = await this.$axios.$post('/tw/get_activity', params);
       console.log(res);
       if (res.code === 0) {
-        if (res.data.rets.length) {
+        if (res.data.rets) {
           this.arrTask = res.data.rets;
         } else {
           this.arrTask = [];
@@ -455,7 +291,7 @@ export default {
           closeOnPressEscape: false,
           center: true,
           confirmButtonClass: 'link-btn',
-          confirmButtonText: this.$t('personal.forwarded'),
+          confirmButtonText: this.$t('personal.finished'),
           cancelButtonText: this.$t('personal.notf'),
           beforeClose: (action, instance, done) => {
             if (action === 'confirm') {
@@ -477,7 +313,7 @@ export default {
                     this.$message({
                       showClose: true,
                       type: 'success',
-                      message: this.$t('personal.forwarded'),
+                      message: this.$t('personal.finished'),
                       onClose: () => {
                         done();
                       }
@@ -485,7 +321,7 @@ export default {
                   } else if (res.code === -415) {
                     //  done();
                     instance.confirmButtonLoading = false;
-                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    instance.confirmButtonText = this.$t('personal.finished');
                     this.$message({
                       showClose: true,
                       type: 'warning',
@@ -494,7 +330,7 @@ export default {
                   } else {
                     //  done();
                     instance.confirmButtonLoading = false;
-                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    instance.confirmButtonText = this.$t('personal.finished');
                     this.$message({
                       showClose: true,
                       type: 'warning',

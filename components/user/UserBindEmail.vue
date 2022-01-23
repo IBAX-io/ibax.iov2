@@ -1,10 +1,11 @@
 <template>
   <el-dialog
     :visible.sync="objBind.isBind"
-    width="30%"
+    :width="isMobile ? '90%' : '40%'"
     :before-close="handleClose"
     :close-on-click-modal="false"
     center
+    class="user-dialog"
   >
     <div slot="title" class="user-dialog-title">
       <i class="iconfont el-Success"></i>

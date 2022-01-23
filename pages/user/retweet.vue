@@ -2,7 +2,7 @@
   <div class="user-retweet">
     <div class="user-retweet-top">
       <img
-        src="@/assets/images/login/retweet.png"
+        src="@/assets/images/login/all.png"
         alt="retweet"
         class="user-center-share-img"
       />
@@ -234,7 +234,7 @@ export default {
           closeOnPressEscape: false,
           center: true,
           confirmButtonClass: 'link-btn',
-          confirmButtonText: this.$t('personal.forwarded'),
+          confirmButtonText: this.$t('personal.finished'),
           cancelButtonText: this.$t('personal.notf'),
           beforeClose: (action, instance, done) => {
             if (action === 'confirm') {
@@ -264,7 +264,7 @@ export default {
                   } else if (res.code === -415) {
                     //  done();
                     instance.confirmButtonLoading = false;
-                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    instance.confirmButtonText = this.$t('personal.finished');
                     this.$message({
                       showClose: true,
                       type: 'warning',
@@ -273,7 +273,7 @@ export default {
                   } else {
                     //  done();
                     instance.confirmButtonLoading = false;
-                    instance.confirmButtonText = this.$t('personal.forwarded');
+                    instance.confirmButtonText = this.$t('personal.finished');
                     this.$message({
                       showClose: true,
                       type: 'warning',

@@ -3,23 +3,33 @@
     <!-- box-1 -->
     <div class="user-rules-box">
       <h6 class="title-h6">How to participate jackpot B ?</h6>
-      <p>Jackpot B has a total prize of <strong>3,500,000</strong> IBXC.</p>
-      <p>- Referral Bonus: <strong>150,000</strong> IBXC</p>
-      <p>- Referrer Ranking Contest: <strong>350,000</strong> IBXC</p>
-      <p>- Lucky winner: <strong>3,000,000 </strong> IBXC</p>
-      <p>The referral reward is limited, i.e. first come, first served.</p>
+      <p>
+        <span
+          >Jackpot B has a total prize of <strong>3,500,000</strong> IBXC.</span
+        ><br />
+        <span> - &nbsp;Referral Bonus: <strong>150,000</strong> IBXC</span
+        ><br />
+        <span
+          >-&nbsp; Referrer Ranking Contest: <strong>350,000</strong> IBXC</span
+        ><br />
+        <span>- &nbsp;Lucky winner: <strong>3,000,000 </strong> IBXC</span
+        ><br />
+        <span
+          >The referral reward is limited, i.e. first come, first served.</span
+        >
+      </p>
     </div>
     <!-- box-2 -->
     <div class="user-rules-box">
       <h6 class="title-h6">1. Referral Reward</h6>
-      <p>5 IBXC for the 1st successful referral.</p>
-      <p>1 IBXC for successful referral of 2nd-4th referral.</p>
-      <p>10 IBXC for the 5th successful referral.</p>
-      <p>1 IBXC for the 6th to 9th successful referral.</p>
-      <p style="margin-bottom: 20px">
-        20 IBXC for the 10th successful referral.
+      <p>
+        <span>5 IBXC for the 1st successful referral.</span><br />
+        <span>1 IBXC for successful referral of 2nd-4th referral.</span><br />
+        <span>10 IBXC for the 5th successful referral.</span><br />
+        <span>1 IBXC for the 6th to 9th successful referral.</span><br />
+        <span> 20 IBXC for the 10th successful referral. </span>
       </p>
-      <p style="margin-bottom: 20px">
+      <p>
         After 10 successful referrals,you will receive 1 IBXC for each
         successful referral. Number of referrals Reward (IBXC)
       </p>
