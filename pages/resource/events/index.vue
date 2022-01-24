@@ -188,6 +188,31 @@
                 </nuxt-link>
               </div>
             </template>
+            <!-- bugs page -->
+            <div
+              v-if="arrFutureEvents.length !== 0"
+              class="personal-tabs-task-btn"
+            >
+              <button
+                v-if="isMobile"
+                v-show="isMore"
+                class="btn btn-primary"
+                @click="handleMoreNext('second')"
+              >
+                {{ $t('footer.more') }}
+              </button>
+              <el-pagination
+                v-else
+                background
+                width="400"
+                hide-on-single-page
+                :page-size="secondParam.limit"
+                layout="prev, pager, next"
+                :total="moreTotal"
+                @current-change="handleCurrentChange($event, 'second')"
+              >
+              </el-pagination>
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -258,23 +283,35 @@
                 </div>
               </template>
             </div>
+            <!-- bugs page -->
+            <div
+              v-if="arrFutureEvents.length !== 0"
+              class="personal-tabs-task-btn"
+            >
+              <button
+                v-if="isMobile"
+                v-show="isBug"
+                class="btn btn-primary"
+                @click="handleMoreNext('third')"
+              >
+                {{ $t('footer.more') }}
+              </button>
+              <el-pagination
+                v-else
+                background
+                width="400"
+                hide-on-single-page
+                :page-size="thirdParam.limit"
+                layout="prev, pager, next"
+                :total="bugsTotal"
+                @current-change="handleCurrentChange($event, 'third')"
+              >
+              </el-pagination>
+            </div>
           </div>
         </el-col>
       </el-row>
     </div>
-    <!-- bottom -->
-    <!-- <page-bottom class="lime">
-      <template #btn>
-        <div class="btns-list solutions-btn">
-          <a
-            href="https://weaver.ibax.io/"
-            target="_blank"
-            class="btn btn-primary"
-            >{{ $t('footer.now') }}</a
-          >
-        </div>
-      </template>
-    </page-bottom> -->
   </div>
 </template>
 <script>
@@ -283,6 +320,8 @@ export default {
   props: {},
   data() {
     return {
+      isBug: false,
+      isMore: false,
       tabPosition: 'bottom',
       activeName: 'first',
       arrHeading: [
@@ -329,7 +368,9 @@ export default {
         type: 3,
         page: 1,
         language: 1
-      }
+      },
+      moreTotal: 1,
+      bugsTotal: 1
     };
   },
   head() {
@@ -398,7 +439,7 @@ export default {
     const secondParam = this.secondParam;
     this.handleEventsfind(secondParam);
     const thirdParam = this.thirdParam;
-    this.handleEventsfind(thirdParam);
+    this.handleThirdfind(thirdParam);
   },
   mounted() {
     const obj = { headerColor: '#274235', color: '#fff' };
@@ -447,6 +488,7 @@ export default {
     },
     async handleKeywords() {
       this.thirdParam.where.keyword = this.keywords;
+      this.thirdParam.page = 1;
       const res = await this.$axios.$post('/eventsfind', this.thirdParam);
       if (!res.data.rets) {
         this.arrWonderEvents = [];
@@ -455,26 +497,92 @@ export default {
       }
     },
     async handleEventsfind(params) {
-      console.log(params);
       const res = await this.$axios.$post('/eventsfind', params);
       // console.log(JSON.stringify(res));
       if (params.type === 1) {
         this.arrPageEvents = res.data.rets;
       } else if (params.type === 2) {
-        if (res.data.rets.length === 0) {
-          this.arrFutureEvents = [];
+        if (res.code === 0) {
+          if (res.data.rets.length) {
+            if (this.isMobile) {
+              if (params.page === 1) {
+                this.arrFutureEvents = res.data.rets;
+                this.isMore = res.data.total > res.data.rets.length;
+              } else {
+                const arrFutureEvents = this.handleReduce([
+                  ...this.arrFutureEvents,
+                  ...res.data.rets
+                ]);
+                console.log(res.data.rets);
+                this.arrFutureEvents = [...arrFutureEvents];
+                this.isMore = res.data.total > this.arrFutureEvents.length;
+              }
+            } else {
+              this.arrFutureEvents = res.data.rets;
+              this.moreTotal = res.data.total;
+            }
+          } else if (params.page !== 1) {
+            this.$message({
+              type: 'warning',
+              message: 'No more'
+            });
+          }
         } else {
-          this.arrFutureEvents = res.data.rets;
-          const obj = this.arrFutureEvents[0];
-          console.log(this.dayjs(obj.start_time).format('LLL'));
-          console.log(this.dayjs());
-          console.log(this.dayjs(obj.stop_time).diff(new Date(), 'hour'));
-          //  console.log(new Date(`${obj.start_time} CST`).getTime());
-          // console.log(JSON.stringify(this.arrFutureEvents));
+          this.arrFutureEvents = [];
         }
-      } else if (params.type === 3) {
-        this.arrWonderEvents = res.data.rets;
-        // console.log(JSON.stringify(this.arrWonderEvents));
+      }
+    },
+    async handleThirdfind(params) {
+      console.log(params);
+      const res = await this.$axios.$post('/eventsfind', params);
+      if (res.code === 0) {
+        if (res.data.rets.length) {
+          if (this.isMobile) {
+            if (params.page === 1) {
+              this.arrWonderEvents = res.data.rets;
+              this.isBug = res.data.total > res.data.rets.length;
+            } else {
+              const arrWonderEvents = this.handleReduce([
+                ...this.arrWonderEvents,
+                ...res.data.rets
+              ]);
+              console.log(res.data.rets);
+              this.arrWonderEvents = [...arrWonderEvents];
+              this.isBug = res.data.total > this.arrWonderEvents.length;
+            }
+          } else {
+            this.arrWonderEvents = res.data.rets;
+            this.bugsTotal = res.data.total;
+          }
+        } else if (params.page !== 1) {
+          this.$message({
+            type: 'warning',
+            message: 'No more'
+          });
+        }
+      } else {
+        this.arrWonderEvents = [];
+      }
+    },
+    handleMoreNext(str) {
+      if (str === 'second') {
+        this.secondParam.page++;
+        this.handleEventsfind(this.secondParam);
+      } else if (str === 'third') {
+        this.thirdParam.page++;
+        this.handleThirdfind(this.thirdParam);
+      }
+    },
+    handleCurrentChange($event, str) {
+      console.log(str);
+      if (str === 'second') {
+        console.log($event);
+        console.log(this.secondParam);
+        this.secondParam.page = $event;
+        this.handleEventsfind(this.secondParam);
+      } else if (str === 'third') {
+        this.thirdParam.page = $event;
+        this.handleThirdfind(this.thirdParam);
       }
     }
   }

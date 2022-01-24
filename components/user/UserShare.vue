@@ -26,13 +26,16 @@
       />
       <span class="user-center-share-left-text">{{ $t('personal.qr') }}</span>
     </div>
-    <a
-      class="user-center-share-item user-center-share-telegram"
-      href="https://t.me/IBAXOfficialAnnouncements"
-      target="_blank"
-    >
-      <img src="@/assets/images/login/tg.png" alt="telegram" />
-    </a>
+    <div class="user-center-share-item user-center-share-item-box">
+      <a
+        class="user-center-share-telegram"
+        href="https://t.me/IBAXOfficialAnnouncements"
+        target="_blank"
+      >
+        <img src="@/assets/images/login/tg.png" alt="telegram" />
+      </a>
+    </div>
+
     <!-- share link -->
     <div
       v-show="isCode"

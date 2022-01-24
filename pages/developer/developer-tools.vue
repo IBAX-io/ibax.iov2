@@ -81,12 +81,12 @@
               {{ $t('develope.technology') }}
             </p>
             <el-row type="flex" justify="space-between" style="flex-wrap: wrap">
-              <el-col :xs="24" :lg="11" class="bass-white-fade">
+              <el-col :xs="24" :lg="7" class="bass-white-fade">
                 <div class="bass-white-box">
                   <div class="bass-white-box-content">
                     <div class="bass-white-title wow fadeInUp">
-                      <i class="bass-white-icon iconfont el-developer"></i>
-                      <h4 class="title-h4">
+                      <i class="developer-white-icon iconfont el-developer"></i>
+                      <h4 class="title-h6">
                         {{ $t('develope.document') }}
                       </h4>
                     </div>
@@ -104,12 +104,12 @@
                   </a>
                 </div>
               </el-col>
-              <el-col :xs="24" :lg="11" class="bass-white-fade">
+              <el-col :xs="24" :lg="7" class="bass-white-fade">
                 <div class="bass-white-box">
                   <div class="bass-white-box-content">
                     <div class="bass-white-title wow fadeInUp">
-                      <i class="bass-white-icon iconfont el-forum"></i>
-                      <h4 class="title-h4 wow fadeInUp">
+                      <i class="developer-white-icon iconfont el-forum"></i>
+                      <h4 class="title-h6 wow fadeInUp">
                         {{ $t('develope.engineer') }}
                       </h4>
                     </div>
@@ -123,6 +123,29 @@
                     class="bass-white-bottom wow fadeInUp"
                   >
                     <span>{{ $t('develope.enter') }}</span>
+                    <i class="el-icon-right"></i>
+                  </a>
+                </div>
+              </el-col>
+              <el-col :xs="24" :lg="7" class="bass-white-fade">
+                <div class="bass-white-box">
+                  <div class="bass-white-box-content">
+                    <div class="bass-white-title wow fadeInUp">
+                      <i class="developer-white-icon iconfont el-activity1"></i>
+                      <h4 class="title-h6 wow fadeInUp">
+                        {{ $t('develope.questions') }}
+                      </h4>
+                    </div>
+                    <p class="wow fadeInUp">
+                      {{ $t('develope.find') }}
+                    </p>
+                  </div>
+                  <a
+                    href="https://github.com/IBAX-io/go-ibax/issues"
+                    target="_blank"
+                    class="bass-white-bottom wow fadeInUp"
+                  >
+                    <span>{{ $t('develope.bug') }}</span>
                     <i class="el-icon-right"></i>
                   </a>
                 </div>

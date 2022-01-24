@@ -107,8 +107,9 @@
             </div>
           </template>
         </div>
-        <div class="news-page">
+        <div class="personal-tabs-task-btn">
           <el-pagination
+            background
             hide-on-single-page
             :page-size="pageParams.limit"
             layout="prev, pager, next"

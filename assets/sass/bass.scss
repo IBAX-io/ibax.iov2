@@ -115,7 +115,8 @@
       font-size: 36px;
       display: flex;
       align-items: center;
-      .title-h4 {
+      .title-h6 {
+        font-size: 20px;
         margin-bottom: 0;
       }
     }
@@ -148,6 +149,10 @@
         padding: 50px 38px 72px;
         width: 100%;
       }
+    }
+    .developer-white-icon {
+      font-size: 30px;
+      margin-right: 10px;
     }
     &-icon {
       font-size: 60px;

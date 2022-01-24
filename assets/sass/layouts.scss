@@ -584,6 +584,9 @@
       }
     }
   }
+  .events .event-row {
+    margin-bottom: 30px;
+  }
   .events-email {
     flex-wrap: wrap;
     .news-select-box {
@@ -1201,6 +1204,9 @@
       margin-right: 10px;
     }
   }
+  .develop-tabs-task-page {
+    margin: 0 30px;
+  }
   .develop-wonder-item-middle-box {
     text-align: left;
   }
@@ -1378,6 +1384,7 @@
       width: 50%;
     }
     .user-center-share-telegram {
+      width: auto;
       img {
         width: 50px;
       }
@@ -1392,6 +1399,10 @@
     .user-center-share-dialog-close {
       margin-left: 80%;
     }
+  }
+  .user-center-share-item-box {
+    display: flex;
+    justify-content: center;
   }
   .user-center-share-left-link .btn {
     display: none;

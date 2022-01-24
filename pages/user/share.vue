@@ -237,14 +237,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrHistory = res.data.rets;
+              this.isMore = res.data.total > res.data.rets.length;
             } else {
               const arrHistory = this.handleReduce([
                 ...this.arrHistory,
                 ...res.data.rets
               ]);
               this.arrHistory = [...arrHistory];
+              this.isMore = res.data.total > this.arrHistory.length;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrHistory = res.data.rets;
             this.historyTotal = res.data.total;

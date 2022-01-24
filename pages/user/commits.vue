@@ -109,7 +109,7 @@
         v-if="isMobile"
         v-show="isMore"
         class="btn btn-primary"
-        @click="handleForwardNext('record')"
+        @click="handleMoreNext"
       >
         {{ $t('footer.more') }}
       </button>
@@ -134,7 +134,7 @@ export default {
     return {
       objBugs: {
         page: 1,
-        limit: 5,
+        limit: 1,
         order: 'id desc',
         language_type: 1
       },
@@ -162,14 +162,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrBugs = res.data.rets;
+              this.isMore = res.data.total > res.data.rets.length;
             } else {
               const arrBugs = this.handleReduce([
                 ...this.arrBugs,
                 ...res.data.rets
               ]);
               this.arrBugs = [...arrBugs];
+              this.isMore = res.data.total > this.arrBugs.length;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrBugs = res.data.rets;
             this.bugsTotal = res.data.total;
@@ -187,6 +188,10 @@ export default {
     handleCurrentChange(page) {
       console.log(page);
       this.objBugs.page = page;
+      this.handleGithubBugs(this.objBugs);
+    },
+    handleMoreNext() {
+      this.objBugs.page++;
       this.handleGithubBugs(this.objBugs);
     }
   }

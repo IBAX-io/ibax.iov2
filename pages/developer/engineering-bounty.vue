@@ -265,9 +265,9 @@
             >
               <button
                 v-if="isMobile"
-                v-show="isMore"
+                v-show="isDiscuss"
                 class="btn btn-primary"
-                @click="handleForwardNext('record')"
+                @click="handleMoreNext('discuss')"
               >
                 {{ $t('footer.more') }}
               </button>
@@ -415,9 +415,9 @@
               >
                 <button
                   v-if="isMobile"
-                  v-show="isMore"
+                  v-show="isBug"
                   class="btn btn-primary"
-                  @click="handleForwardNext('record')"
+                  @click="handleMoreNext('bug')"
                 >
                   {{ $t('footer.more') }}
                 </button>
@@ -504,7 +504,7 @@
                         v-if="isMobile"
                         v-show="isLead"
                         class="btn btn-primary"
-                        @click="handleForwardNext('record')"
+                        @click="handleMoreNext('lead')"
                       >
                         {{ $t('footer.more') }}
                       </button>
@@ -540,6 +540,8 @@ export default {
       timer: null,
       activityTotal: 1,
       bugsTotal: 1,
+      isDiscuss: false,
+      isBug: false,
       isMore: false,
       objActivity: {
         page: 1,
@@ -569,7 +571,11 @@ export default {
       arrLeaderboard: [],
       leaderTotal: 1,
       isLead: false,
-      objLeader: {}
+      objLeader: {},
+      objHonor: {
+        type: 1,
+        language_type: 1
+      }
     };
   },
   head() {
@@ -657,7 +663,7 @@ export default {
 
       this.objBugs.page = 1;
       this.handleGithubBugs(this.objBugs);
-      this.handleGithubTitleList();
+      this.handleGithubTitleList(this.objHonor);
       const wow = new this.WOW({
         boxClass: 'wow',
         animateClass: 'animated',
@@ -689,14 +695,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrDiscussion = res.data.rets;
+              this.isDiscuss = res.data.total > res.data.rets.length;
             } else {
               const arrDiscussion = this.handleReduce([
                 ...this.arrDiscussion,
                 ...res.data.rets
               ]);
               this.arrDiscussion = [...arrDiscussion];
+              this.isDiscuss = res.data.total > this.arrDiscussion.length;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrDiscussion = res.data.rets;
             this.activityTotal = res.data.total;
@@ -722,14 +729,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrBugs = res.data.rets;
+              this.isBug = res.data.total > res.data.rets.length;
             } else {
               const arrBugs = this.handleReduce([
                 ...this.arrBugs,
                 ...res.data.rets
               ]);
               this.arrBugs = [...arrBugs];
+              this.isBug = res.data.total > this.arrBugs.length;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrBugs = res.data.rets;
             this.bugsTotal = res.data.total;
@@ -764,8 +772,8 @@ export default {
         this.handleGithubLeaderboard(this.objLeader.title);
       }
     },
-    async handleGithubTitleList() {
-      const res = await this.$axios.$get('/github_title_list/1');
+    async handleGithubTitleList(params) {
+      const res = await this.$axios.$post('/github_title_list', params);
       console.log(JSON.stringify(res));
       if (res.code === 0 && res.data) {
         this.arrHonor = res.data;
@@ -805,14 +813,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrLeaderboard = res.data.rets;
+              this.isLead = res.data.total > res.data.rets.length;
             } else {
               const arrLeaderboard = this.handleReduce([
                 ...this.arrLeaderboard,
                 ...res.data.rets
               ]);
               this.arrLeaderboard = [...arrLeaderboard];
+              this.isLead = res.data.total > this.arrLeaderboard.length;
             }
-            this.isLead = res.data.total > res.data.rets.length;
           } else {
             this.arrLeaderboard = res.data.rets;
             this.leaderTotal = res.data.total;
@@ -828,6 +837,18 @@ export default {
         }
       } else {
         this.arrLeaderboard = [];
+      }
+    },
+    handleMoreNext(str) {
+      if (str === 'discuss') {
+        this.objActivity.page++;
+        this.handleGithubActivity(this.objActivity);
+      } else if (str === 'bug') {
+        this.objBugs.page++;
+        this.handleGithubBugs(this.objBugs);
+      } else {
+        this.objLead.page++;
+        this.handleGithubLeaderboard(this.objLeader.title, this.objLead.page);
       }
     }
   }

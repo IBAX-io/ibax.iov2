@@ -160,14 +160,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrTask = res.data.rets;
+              this.isMore = res.data.total > res.data.rets.length;
             } else {
               const arrTask = this.handleReduce([
                 ...this.arrTask,
                 ...res.data.rets
               ]);
               this.arrTask = [...arrTask];
+              this.isMore = res.data.total > this.arrTask;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrTask = res.data.rets;
             this.taskTotal = res.data.total;

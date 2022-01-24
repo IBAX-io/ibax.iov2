@@ -222,10 +222,17 @@
         }
       }
       &-telegram {
-        width: 60px;
         height: 100%;
-        display: block;
         color: #999;
+        background: red;
+        padding: 20px 10px;
+        border-radius: 30px;
+        background-color: #ddd;
+        display: flex;
+        align-items: center;
+        img {
+          width: 60px;
+        }
         &:hover {
           color: #f3ac34;
         }
@@ -714,7 +721,6 @@
         &-fork {
           margin-left: auto;
           &-text {
-            margin-left: 5px;
             p {
               padding: 0 10px;
               font-size: 12px;

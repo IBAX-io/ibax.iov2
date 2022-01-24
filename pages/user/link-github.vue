@@ -13,10 +13,19 @@
               class="user-github-box-link-git"
               :href="objStar.link"
               :target="objStar.target"
+              :style="{
+                backgroundColor: objStatus.star ? '#707070' : '#fff'
+              }"
               @click="handleStar"
             >
               <i class="iconfont el-github"></i>
-              <span>Star</span>
+              <div
+                class="user-github-box-link-fork-text"
+                :style="{ color: objStatus.star ? '#fff' : '#707070' }"
+              >
+                <p>Star</p>
+                <p v-if="objStatus.star">+1,500</p>
+              </div>
             </a>
             <a
               class="user-github-box-link-git user-github-box-link-fork"
@@ -67,10 +76,19 @@
             class="user-github-box-link-git"
             :href="objStar.link"
             :target="objStar.target"
+            :style="{
+              backgroundColor: objStatus.star ? '#707070' : '#fff'
+            }"
             @click="handleStar"
           >
             <i class="iconfont el-github"></i>
-            <span>Star</span>
+            <div
+              class="user-github-box-link-fork-text"
+              :style="{ color: objStatus.star ? '#fff' : '#707070' }"
+            >
+              <p>Star</p>
+              <p v-if="objStatus.star">+1,500</p>
+            </div>
           </a>
           <a
             class="user-github-box-link-git user-github-box-link-fork"
@@ -208,7 +226,7 @@
         v-if="isMobile"
         v-show="isMore"
         class="btn btn-primary"
-        @click="handleForwardNext('record')"
+        @click="handleMoreNext"
       >
         {{ $t('footer.more') }}
       </button>
@@ -507,14 +525,15 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrDiscussion = res.data.rets;
+              this.isMore = res.data.total > res.data.rets.length;
             } else {
               const arrDiscussion = this.handleReduce([
                 ...this.arrDiscussion,
                 ...res.data.rets
               ]);
               this.arrDiscussion = [...arrDiscussion];
+              this.isMore = res.data.total > this.arrDiscussion.length;
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrDiscussion = res.data.rets;
             this.activityTotal = res.data.total;
@@ -528,6 +547,10 @@ export default {
       } else {
         this.arrDiscussion = [];
       }
+    },
+    handleMoreNext() {
+      this.objActivity.page++;
+      this.handleGithubActivity(this.objActivity);
     }
   }
 };

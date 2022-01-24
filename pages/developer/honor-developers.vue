@@ -27,12 +27,15 @@
             </div>
           </div>
           <!-- page -->
-          <div v-if="arrLeaderboard.length !== 0" class="develop-tabs-task-btn">
+          <div
+            v-if="arrLeaderboard.length !== 0"
+            class="develop-tabs-task-page develop-tabs-task-btn"
+          >
             <button
               v-if="isMobile"
               v-show="isMore"
               class="btn btn-primary"
-              @click="handleForwardNext('record')"
+              @click="handleForwardNext"
             >
               {{ $t('footer.more') }}
             </button>
@@ -71,14 +74,18 @@ export default {
       objLead: {
         type: 2,
         source: '',
-        limit: 9,
+        limit: 12,
         page: 1,
         language_type: 1
       },
       arrLeaderboard: [],
       leaderTotal: 1,
       isMore: false,
-      objLeader: {}
+      objLeader: {},
+      objHonor: {
+        type: 2,
+        language_type: 1
+      }
     };
   },
   head() {
@@ -132,7 +139,7 @@ export default {
   computed: {},
   watch: {},
   created() {
-    this.handleGithubTitleList();
+    this.handleGithubTitleList(this.objHonor);
   },
   mounted() {
     const obj = { headerColor: '#274235', color: '#fff' };
@@ -163,8 +170,8 @@ export default {
       const isFixed = scrollTop > topHeight;
       this.$store.commit('handleIsFixed', isFixed);
     },
-    async handleGithubTitleList() {
-      const res = await this.$axios.$get('/github_title_list/1');
+    async handleGithubTitleList(params) {
+      const res = await this.$axios.$post('/github_title_list', params);
       console.log(JSON.stringify(res));
       if (res.code === 0 && res.data) {
         this.arrHonor = res.data;
@@ -194,14 +201,18 @@ export default {
           if (this.isMobile) {
             if (params.page === 1) {
               this.arrLeaderboard = res.data.rets;
+              this.isMore = res.data.total > res.data.rets.length;
             } else {
               const arrLeaderboard = this.handleReduce([
                 ...this.arrLeaderboard,
                 ...res.data.rets
               ]);
               this.arrLeaderboard = [...arrLeaderboard];
+              console.log(this.arrLeaderboard.length);
+              console.log(res.data.total);
+              this.isMore = res.data.total > this.arrLeaderboard.length;
+              console.log(this.isMore);
             }
-            this.isMore = res.data.total > res.data.rets.length;
           } else {
             this.arrLeaderboard = res.data.rets;
             this.leaderTotal = res.data.total;
@@ -218,6 +229,10 @@ export default {
       } else {
         this.arrLeaderboard = [];
       }
+    },
+    handleForwardNext() {
+      this.objLead.page++;
+      this.handleGithubLeaderboard(this.objLeader.title, this.objLead.page);
     }
   }
 };
