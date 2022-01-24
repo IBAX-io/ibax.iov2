@@ -27,10 +27,7 @@
             </div>
           </div>
           <!-- page -->
-          <div
-            v-if="arrLeaderboard.length !== 0"
-            class="personal-tabs-task-btn"
-          >
+          <div v-if="arrLeaderboard.length !== 0" class="develop-tabs-task-btn">
             <button
               v-if="isMobile"
               v-show="isMore"

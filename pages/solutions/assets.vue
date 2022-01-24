@@ -204,8 +204,12 @@
     <page-bottom class="lime" :obj="obj">
       <template #btn>
         <div class="btns-list solutions-btn">
-          <a class="btn btn-primary"> {{ $t('solutions.demo') }}</a>
-          <a class="btn btn-default"> {{ $t('nav.sign') }}</a>
+          <a class="btn btn-primary" style="display: none">
+            {{ $t('solutions.demo') }}</a
+          >
+          <nuxt-link to="/login" class="btn btn-default">
+            {{ $t('nav.sign') }}</nuxt-link
+          >
         </div>
       </template>
     </page-bottom>

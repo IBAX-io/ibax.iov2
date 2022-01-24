@@ -213,6 +213,7 @@
                       >{{ $t('develope.on') }}
                     </span>
                     <a
+                      v-if="item.category"
                       :href="item.category_url"
                       target="_blank"
                       class="develop-wonder-item-middle-bottom-name"
@@ -220,7 +221,9 @@
                       # {{ item.category }}</a
                     >
                     <span>{{ $t('develope.mentioned') }}</span>
-                    <span class="develop-wonder-item-middle-bottom-auto"
+                    <span
+                      v-if="item.labels"
+                      class="develop-wonder-item-middle-bottom-auto"
                       ># {{ item.labels }}</span
                     >
                   </div>
@@ -321,6 +324,7 @@
                     <h6 class="title-h6 develop-bugs-item-title">
                       <span>{{ item.title }}</span>
                       <a
+                        v-if="item.category"
                         :href="item.category_url"
                         target="_blank"
                         class="develop-wonder-item-middle-bottom-name"
@@ -329,7 +333,7 @@
                     </h6>
                     <div class="develop-bugs-item-content">
                       <div class="develop-bugs-item-content-right">
-                        <div># {{ item.labels }}</div>
+                        <div v-if="item.labels"># {{ item.labels }}</div>
                         <div>
                           <i class="iconfont el-Pionts"></i>
                           <span
@@ -390,6 +394,7 @@
                             >{{ $t('develope.on') }}
                           </span>
                           <a
+                            v-if="item.category"
                             :href="item.category_url"
                             target="_blank"
                             class="develop-wonder-item-middle-bottom-name"
@@ -429,13 +434,14 @@
                 </el-pagination>
               </div>
               <div class="home-top-btn wow fadeInUp develop-top-btn">
-                <nuxt-link
-                  :to="{ path: '/developer/honor-developers' }"
+                <a
+                  target="_blank"
+                  href="https://github.com/IBAX-io/go-ibax/discussions/categories/bug-submission"
                   class="btn btn-primary"
                 >
                   <span>{{ $t('develope.see') }}</span>
                   <i class="el-icon-right"></i>
-                </nuxt-link>
+                </a>
               </div>
             </div>
             <div :ref="isMobile ? '' : 'bugsRight'" class="develop-bugs-right">

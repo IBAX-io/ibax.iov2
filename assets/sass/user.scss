@@ -59,7 +59,7 @@
           font-size: 20px;
           margin-right: 10px;
         }
-        i.el-a-xingzhuang1 {
+        i.el-share {
           font-size: 10px;
         }
       }
@@ -699,6 +699,10 @@
           border-radius: 5px;
           display: flex;
           align-items: center;
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+          height: 45px;
+          width: 85px;
+          justify-content: center;
           i {
             font-size: 16px;
           }
@@ -709,6 +713,17 @@
         }
         &-fork {
           margin-left: auto;
+          &-text {
+            margin-left: 5px;
+            p {
+              padding: 0 10px;
+              font-size: 12px;
+              margin-bottom: 0;
+              text-align: center;
+              line-height: 20px;
+              height: 20px;
+            }
+          }
         }
       }
       &-email {

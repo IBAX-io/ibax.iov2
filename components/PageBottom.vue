@@ -3,11 +3,11 @@
   <div class="cta">
     <div class="container">
       <div class="text-wrap">
-        <h1 v-if="obj.path === '/about'" class="wow fadeInUp">
+        <h1 v-if="obj.path === '/contact'" class="wow fadeInUp">
           {{ $t(obj.title) }}
         </h1>
         <h1 v-else class="wow fadeInUp">{{ $t(obj.title) }}</h1>
-        <p v-if="obj.path === '/about'" class="wow fadeInUp">
+        <p v-if="obj.path === '/contact'" class="wow fadeInUp">
           {{ $t(obj.label) }}
         </p>
         <p v-else class="wow fadeInUp">
@@ -23,7 +23,7 @@
           >{{ $t('footer.now') }}</a
         >
         <nuxt-link
-          v-if="obj.path === '/about'"
+          v-if="obj.path === '/contact'"
           :to="obj.path"
           class="btn btn-default"
           >{{ $t(obj.text) }}</nuxt-link

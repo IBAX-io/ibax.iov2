@@ -420,7 +420,7 @@ export default {
               content: [
                 {
                   title: 'personal.resources',
-                  icon: 'iconfont el-supply-chain',
+                  icon: 'iconfont el-Resources',
                   path: '/developer/developer-tools',
                   key: 'm-5-1-1'
                 }
@@ -431,7 +431,7 @@ export default {
               content: [
                 {
                   title: 'personal.bounty',
-                  icon: 'iconfont el-copyright',
+                  icon: 'iconfont el-a-Offerareward',
                   path: '/developer/engineering-bounty',
                   key: 'm-5-3-1'
                 }
@@ -442,7 +442,7 @@ export default {
               content: [
                 {
                   title: 'personal.honor',
-                  icon: 'iconfont el-copyright',
+                  icon: 'iconfont el-a-HonoraryDeveloper',
                   path: '/developer/honor-developers',
                   key: 'm-5-4-1'
                 }
@@ -453,7 +453,7 @@ export default {
               content: [
                 {
                   title: 'personal.ecosystem',
-                  icon: 'iconfont el-asset-management',
+                  icon: 'iconfont el-Ecology1',
                   path: '/developer/ecosystems',
                   key: 'm-5-2-1'
                 }
@@ -494,19 +494,19 @@ export default {
               content: [
                 {
                   title: 'personal.ret',
-                  icon: 'iconfont el-xuanzhuan',
+                  icon: 'iconfont el-Forwarding',
                   path: '/user/retweet',
                   key: 'm-7-2-1'
                 },
                 {
                   title: 'personal.referrals',
-                  icon: 'iconfont el-a-xingzhuang1',
+                  icon: 'iconfont el-share1',
                   path: '/user/share',
                   key: 'm-7-2-2'
                 },
                 {
                   title: 'personal.ruless',
-                  icon: 'iconfont el-guize1',
+                  icon: 'iconfont el-a-Airdroprules',
                   path: '/user/airdrop-rules',
                   key: 'm-7-2-3'
                 }
@@ -518,19 +518,19 @@ export default {
               content: [
                 {
                   title: 'personal.account',
-                  icon: 'iconfont el-a-AffiliatedAccounts',
+                  icon: 'iconfont el-Associations',
                   path: '/user/link-github',
                   key: 'm-7-3-1'
                 },
                 {
                   title: 'personal.commits',
-                  icon: 'iconfont el-a-SubmissionRecord',
+                  icon: 'iconfont el-Submit1',
                   path: '/user/commits',
                   key: 'm-7-3-2'
                 },
                 {
                   title: 'personal.gr',
-                  icon: 'iconfont el-a-EventRules',
+                  icon: 'iconfont el-a-EventRules1',
                   path: '/user/github-rules',
                   key: 'm-7-3-3'
                 }
@@ -541,7 +541,7 @@ export default {
               content: [
                 {
                   title: 'personal.geti',
-                  icon: 'iconfont el-a-xingzhuang1',
+                  icon: 'iconfont el-share1',
                   key: 'm-7-4-1',
                   path: '/user/redeem'
                 }

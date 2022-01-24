@@ -17,7 +17,7 @@
     </div>
     <div class="user-receive-data">
       {{ $t('personal.yourCoins') }}: {{ money_format(statistics.amount) }}
-      <!--  {{ $t('personal.coin') }} -->
+      <!-- {{ $t('personal.coin') }} -->
     </div>
     <div class="personal-redeem">
       <div
@@ -62,11 +62,13 @@
             </button>
           </div>
           <a
-            class="home-new-bottom link"
+            class="home-new-bottom link personal-redeem-link"
             href="https://weaver.ibax.io/"
             target="_blank"
           >
-            <span>{{ $t('personal.werver') }}</span>
+            <span class="personal-redeem-link-text">{{
+              $t('personal.werver')
+            }}</span>
             <i class="el-icon-right"></i>
           </a>
         </div>

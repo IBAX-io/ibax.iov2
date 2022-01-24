@@ -123,19 +123,19 @@ export default {
               title: 'personal.ret',
               path: '/user/retweet',
               key: '1-1',
-              icon: 'iconfont el-xuanzhuan'
+              icon: 'iconfont el-Forwarding'
             },
             {
               title: 'personal.referrals',
               path: '/user/share',
               key: '1-2',
-              icon: 'iconfont el-a-xingzhuang1'
+              icon: 'iconfont el-share1'
             },
             {
               title: 'personal.ruless',
               path: '/user/airdrop-rules',
               key: '1-3',
-              icon: 'iconfont el-guize1'
+              icon: 'iconfont el-a-Airdroprules'
             }
           ]
         },
@@ -149,19 +149,19 @@ export default {
               title: 'personal.account',
               path: '/user/link-github',
               key: '2-1',
-              icon: 'iconfont el-a-AffiliatedAccounts'
+              icon: 'iconfont el-Associations'
             },
             {
               title: 'personal.commits',
               path: '/user/commits',
               key: '2-2',
-              icon: 'iconfont el-a-SubmissionRecord'
+              icon: 'iconfont el-Submit1'
             },
             {
               title: 'personal.gr',
               path: '/user/github-rules',
               key: '2-3',
-              icon: 'iconfont el-a-EventRules'
+              icon: 'iconfont el-a-EventRules1'
             }
           ]
         },
@@ -238,33 +238,33 @@ export default {
           this.isShow = 1;
           break;
         case '/user/share':
-          this.heightVar = `110px`;
-          this.topVal = '85px';
+          this.heightVar = `115px`;
+          this.topVal = '90px';
           this.isShow = 1;
           break;
         case '/user/airdrop-rules':
-          this.heightVar = `145px`;
-          this.topVal = '120px';
+          this.heightVar = `155px`;
+          this.topVal = '130px';
           this.isShow = 1;
           break;
         case '/user/link-github':
-          this.heightVar = `230px`;
-          this.topVal = '205px';
+          this.heightVar = `235px`;
+          this.topVal = '210px';
           this.isShow = 1;
           break;
         case '/user/commits':
-          this.heightVar = `275px`;
-          this.topVal = '245px';
+          this.heightVar = `280px`;
+          this.topVal = '255px';
           this.isShow = 1;
           break;
         case '/user/github-rules':
-          this.heightVar = `310px`;
-          this.topVal = '285px';
+          this.heightVar = `320px`;
+          this.topVal = '295px';
           this.isShow = 1;
           break;
         case '/user/redeem':
           this.heightVar = `100%`;
-          this.topVal = '328px';
+          this.topVal = '338px';
           this.isShow = 1;
           break;
         default:

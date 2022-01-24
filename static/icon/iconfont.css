@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2762091 */
-  src: url('iconfont.woff2?t=1642583564778') format('woff2'),
-       url('iconfont.woff?t=1642583564778') format('woff'),
-       url('iconfont.ttf?t=1642583564778') format('truetype');
+  src: url('iconfont.woff2?t=1643007531089') format('woff2'),
+       url('iconfont.woff?t=1643007531089') format('woff'),
+       url('iconfont.ttf?t=1643007531089') format('truetype');
 }
 
 .iconfont {
@@ -13,16 +13,52 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.el-a-EventRules:before {
+.el-share1:before {
+  content: "\e6ab";
+}
+
+.el-Resources:before {
+  content: "\e6a6";
+}
+
+.el-a-Offerareward:before {
   content: "\e6a5";
 }
 
-.el-a-SubmissionRecord:before {
-  content: "\e6a4";
+.el-a-HonoraryDeveloper:before {
+  content: "\e6a3";
 }
 
-.el-a-AffiliatedAccounts:before {
-  content: "\e6a3";
+.el-Ecology1:before {
+  content: "\e695";
+}
+
+.el-get:before {
+  content: "\e694";
+}
+
+.el-Discussion:before {
+  content: "\e693";
+}
+
+.el-a-EventRules1:before {
+  content: "\e6aa";
+}
+
+.el-Forwarding:before {
+  content: "\e6a9";
+}
+
+.el-a-Airdroprules:before {
+  content: "\e6a7";
+}
+
+.el-Associations:before {
+  content: "\e69b";
+}
+
+.el-Submit1:before {
+  content: "\e6a4";
 }
 
 .el-a-HonorSystem:before {
@@ -61,10 +97,6 @@
   content: "\e696";
 }
 
-.el-Marshal:before {
-  content: "\e69b";
-}
-
 .el-Pionts:before {
   content: "\e69a";
 }
@@ -75,18 +107,6 @@
 
 .el-a-BigData:before {
   content: "\e698";
-}
-
-.el-a-xingzhuang1:before {
-  content: "\e695";
-}
-
-.el-guize1:before {
-  content: "\e694";
-}
-
-.el-xuanzhuan:before {
-  content: "\e693";
 }
 
 .el-gerenzhuye:before {

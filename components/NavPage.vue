@@ -317,12 +317,6 @@ export default {
                   icon: 'iconfont el-Download',
                   link: 'https://github.com/orgs/IBAX-io/repositories',
                   key: '3-2-3'
-                },
-                {
-                  title: 'resource.economic',
-                  icon: 'iconfont el-performance',
-                  link: 'https://bit.ly/3Ek5vBM',
-                  key: '3-2-4'
                 }
               ]
             },
@@ -389,13 +383,13 @@ export default {
               content: [
                 {
                   title: 'personal.resources',
-                  icon: 'iconfont el-supply-chain',
+                  icon: 'iconfont el-Resources',
                   path: '/developer/developer-tools',
                   key: '5-1-1'
                 },
                 {
                   title: 'personal.ecosystem',
-                  icon: 'iconfont el-asset-management',
+                  icon: 'iconfont el-Ecology1',
                   path: '/developer/ecosystems',
                   key: '5-1-2'
                 }
@@ -406,7 +400,7 @@ export default {
               content: [
                 {
                   title: 'personal.bounty',
-                  icon: 'iconfont el-copyright',
+                  icon: 'iconfont el-a-Offerareward',
                   path: '/developer/engineering-bounty',
                   key: '5-2-1'
                 }
@@ -417,7 +411,7 @@ export default {
               content: [
                 {
                   title: 'personal.honor',
-                  icon: 'iconfont el-copyright',
+                  icon: 'iconfont el-a-HonoraryDeveloper',
                   path: '/developer/honor-developers',
                   key: '5-3-1'
                 }
@@ -459,6 +453,8 @@ export default {
           this.activeIndex = '/resource/events';
         } else if (name === 'baas-marketplace-ecolibs') {
           this.activeIndex = '/baas-marketplace';
+        } else if (name === 'developer-github-rules') {
+          this.activeIndex = '/developer/engineering-bounty';
         } else if (boo) {
           this.activeIndex = '/';
         } else {

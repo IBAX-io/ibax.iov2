@@ -20,9 +20,9 @@
                 {{ $t('market.foundation') }}
               </p>
               <p class="home-new-bottom animated fadeInUp">
-                <button class="btn btn-primary">
+                <a href="/resource/events" class="btn btn-primary">
                   {{ $t('market.join') }}
-                </button>
+                </a>
               </p>
             </el-col>
             <!--   <el-col :xs="23" :lg="6">

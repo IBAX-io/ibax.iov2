@@ -347,7 +347,7 @@ export default {
     return {
       isOpen: false,
       obj: {
-        path: '/about',
+        path: '/contact',
         text: 'nav.about',
         label: 'footer.compete',
         title: 'footer.creative'

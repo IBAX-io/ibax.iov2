@@ -432,7 +432,7 @@
           </ul>
         </div>
         <div class="home-top-btn">
-          <nuxt-link to="/about" class="btn btn-primary">{{
+          <nuxt-link to="/contact" class="btn btn-primary">{{
             $t('nav.about')
           }}</nuxt-link>
         </div>

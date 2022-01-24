@@ -118,7 +118,7 @@
                     </p>
                   </div>
                   <a
-                    href="https://github.com/IBAX-io/go-ibax/issues"
+                    href="https://github.com/IBAX-io/go-ibax/discussions/categories/ideas"
                     target="_blank"
                     class="bass-white-bottom wow fadeInUp"
                   >
@@ -402,7 +402,7 @@ export default {
   data() {
     return {
       obj: {
-        path: '/about',
+        path: '/contact',
         text: 'nav.about',
         label: 'footer.compete',
         title: 'footer.creative'

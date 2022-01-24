@@ -200,10 +200,14 @@
                     </h4>
                     <p class="wow fadeInUp">{{ $t('market.help') }}</p>
                   </div>
-                  <div class="bass-white-bottom wow fadeInUp">
+                  <a
+                    href="https://docs.ibax.io"
+                    target="_blank"
+                    class="bass-white-bottom wow fadeInUp"
+                  >
                     <span>{{ $t('market.view') }}</span>
                     <i class="el-icon-right"></i>
-                  </div>
+                  </a>
                 </div>
               </el-col>
               <el-col :xs="24" :lg="11" class="el-row-wrap-content">
@@ -215,10 +219,13 @@
                     </h4>
                     <p class="wow fadeInUp">{{ $t('market.watch') }}</p>
                   </div>
-                  <div class="bass-white-bottom wow fadeInUp">
+                  <nuxt-link
+                    to="/resource/video-resources"
+                    class="bass-white-bottom wow fadeInUp"
+                  >
                     <span>{{ $t('market.view') }}</span>
                     <i class="el-icon-right"></i>
-                  </div>
+                  </nuxt-link>
                 </div>
               </el-col>
             </el-row>
@@ -371,7 +378,7 @@
             >{{ $t('footer.now') }}</a
           >
           <nuxt-link
-            v-if="obj.path === '/about'"
+            v-if="obj.path === '/contact'"
             :to="obj.path"
             class="btn btn-default"
             >{{ $t(obj.text) }}</nuxt-link
@@ -414,7 +421,7 @@ export default {
         title: 'bass.now',
         label: 'footer.fast',
         text: 'nav.about',
-        path: '/about'
+        path: '/contact'
       }
     };
   },

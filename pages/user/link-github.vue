@@ -22,10 +22,19 @@
               class="user-github-box-link-git user-github-box-link-fork"
               :href="objFork.link"
               :target="objFork.target"
+              :style="{
+                backgroundColor: objStatus.fork ? '#707070' : '#fff'
+              }"
               @click="handleFork"
             >
               <i class="iconfont el-github"></i>
-              <span>Fork</span>
+              <div
+                class="user-github-box-link-fork-text"
+                :style="{ color: objStatus.fork ? '#fff' : '#707070' }"
+              >
+                <p>Fork</p>
+                <p v-if="objStatus.fork">+1,500</p>
+              </div>
             </a>
           </div>
         </div>
@@ -67,10 +76,19 @@
             class="user-github-box-link-git user-github-box-link-fork"
             :href="objFork.link"
             :target="objFork.target"
+            :style="{
+              backgroundColor: objStatus.fork ? '#707070' : '#fff'
+            }"
             @click="handleFork"
           >
             <i class="iconfont el-github"></i>
-            <span>Fork</span>
+            <div
+              class="user-github-box-link-fork-text"
+              :style="{ color: objStatus.fork ? '#fff' : '#707070' }"
+            >
+              <p>Fork</p>
+              <p v-if="objStatus.fork">+1,500</p>
+            </div>
           </a>
         </div>
       </div>

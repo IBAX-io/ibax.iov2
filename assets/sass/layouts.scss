@@ -1201,6 +1201,12 @@
       margin-right: 10px;
     }
   }
+  .develop-wonder-item-middle-box {
+    text-align: left;
+  }
+  .develop-wonder-item-middle-box .el-button {
+    margin-left: 0;
+  }
   .develop-wonder-item-middle-bottom {
     flex-wrap: wrap;
     .iconfont {
@@ -1355,6 +1361,16 @@
         width: 100%;
       }
     }
+  }
+  /*  .personal-redeem-link {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 12px;
+    }
+  } */
+  .personal-redeem-link-text {
+    font-size: 12px;
   }
   .user-center-share {
     flex-wrap: wrap;
