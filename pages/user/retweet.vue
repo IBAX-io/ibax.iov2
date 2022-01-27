@@ -251,7 +251,7 @@ export default {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
                     instance.confirmButtonLoading = false;
-                    this.objForward.page = 1;
+                    // this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
                     this.$store.dispatch('handleGetStatistics');
                     this.$message({
