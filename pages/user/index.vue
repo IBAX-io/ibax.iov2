@@ -3,31 +3,34 @@
     <div class="user-center-box">
       <user-follow></user-follow>
       <!-- sign in  -->
-      <div class="user-center-sign">
-        <div
-          ref="sign"
-          class="user-center-sign-chest"
-          :class="{
-            'animated tada': isTaba,
-            'user-center-sign-close': !isSign,
-            'user-center-sign-open': isSign
-          }"
-          @click="handleSign"
-        ></div>
-        <div v-if="isSign" class="user-center-sign-right">
-          <div class="user-center-sign-right-time">{{ strTime }}</div>
-          <div class="user-center-sign-right-text">
-            {{ $t('personal.time') }}
+      <div class="user-center-sign" style="display: none">
+        <div class="user-center-sign-box">
+          <div class="user-center-sign-box-top">
+            <div class="user-center-sign-box-time">{{ strTime }}</div>
+            <div class="user-center-sign-box-text">
+              {{ $t('personal.time') }}
+            </div>
           </div>
-        </div>
-        <div
-          v-show="isBubble"
-          class="user-center-sign-right-num"
-          :class="{
-            'animated fadeInUp': isBubble
-          }"
-        >
-          + {{ points }}
+          <div
+            ref="sign"
+            class="user-center-sign-chest"
+            :class="{
+              'animated tada': isTaba,
+              'user-center-sign-close': !isSign,
+              'user-center-sign-open': isSign
+            }"
+            @click="handleSign"
+          ></div>
+
+          <div
+            v-show="isBubble"
+            class="user-center-sign-box-num"
+            :class="{
+              'animated fadeInUp': isBubble
+            }"
+          >
+            + {{ points }}
+          </div>
         </div>
       </div>
       <div class="user-center-share user-center-share-mobile">
@@ -49,6 +52,7 @@
           <i class="el-icon-arrow-right"></i>
         </nuxt-link>
       </div>
+      <p class="user-end">{{ $t('personal.airdrophas') }}</p>
       <user-share></user-share>
     </div>
     <div class="user-center-share">
@@ -60,11 +64,13 @@
         />
         <span class="user-center-share-text">{{ $t('personal.our') }}</span>
       </div>
+
       <nuxt-link :to="{ name: 'user-points' }">
         <span>{{ $t('personal.point') }}</span>
         <i class="el-icon-arrow-right"></i>
       </nuxt-link>
     </div>
+    <p class="user-end">{{ $t('personal.pointshas') }}</p>
     <div class="user-center-retweet">
       <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
         <img src="@/assets/images/login/no-data.png" alt="no-data" />
@@ -197,7 +203,6 @@ export default {
     clearTimeout(this.timerSign);
   },
   mounted() {
-    this.$store.dispatch('handleGetStatistics');
     this.handleGetForward(this.objForward);
     this.handleSignStatus();
   },
@@ -241,6 +246,7 @@ export default {
           this.numTime = nextCheckIn - nowTime;
           this.handleCountTime();
         } else {
+          this.strTime = `00:00:00`;
           this.strSign = this.$t('personal.daily');
         }
       }

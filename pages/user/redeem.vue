@@ -1,15 +1,27 @@
 <template>
   <div class="user-receive">
-    <div class="user-receive-top">
-      <img
-        src="@/assets/images/login/receive.png"
-        alt="share"
-        class="user-center-share-img"
-      />
-      <span class="user-center-share-text">{{ $t('personal.bind') }}</span>
-    </div>
+    <template v-if="binding.status && binding.blockId">
+      <div class="user-receive-end">
+        {{ $t('personal.process') }}
+      </div>
+    </template>
+    <template v-else>
+      <div class="user-receive-end">
+        {{ $t('personal.ended') }}
+      </div>
+      <div class="user-receive-top">
+        <img
+          src="@/assets/images/login/receive.png"
+          alt="share"
+          class="user-center-share-img"
+        />
+        <span class="user-center-share-text user-receive-top-text">{{
+          $t('personal.bind')
+        }}</span>
+      </div>
+    </template>
     <p class="user-receive-text">
-      {{ $t('personal.will') }}
+      <!--  {{ $t('personal.will') }} -->
     </p>
     <div class="user-receive-data">
       {{ $t('personal.yourPoints') }}: {{ money_format(statistics.points) }}

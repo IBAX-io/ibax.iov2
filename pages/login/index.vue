@@ -13,8 +13,11 @@
             <i class="iconfont el-twitter"></i>
             <span>{{ $t('login.with') }}</span>
           </button>
+          <p class="login-rules wow fadeInUp" @click="handleGrRules">
+            {{ $t('personal.gr') }}
+          </p>
           <p class="login-rules wow fadeInUp" @click="handleRules">
-            {{ $t('personal.rules') }}
+            {{ $t('personal.ruless') }}
           </p>
         </div>
       </el-col>
@@ -41,8 +44,11 @@
                 <i class="iconfont el-github"></i>
                 <span>Github</span>
               </button> -->
+          <p class="login-rules wow fadeInUp" @click="handleGrRules">
+            {{ $t('personal.gr') }}
+          </p>
           <p class="login-rules wow fadeInUp" @click="handleRules">
-            {{ $t('personal.rules') }}
+            {{ $t('personal.ruless') }}
           </p>
         </div>
       </el-col>
@@ -134,6 +140,9 @@ export default {
     this.domGlobal.removeEventListener('scroll', this.handleLoginScroll, true);
   },
   methods: {
+    handleGrRules() {
+      this.$router.push({ name: 'developer-github-rules' });
+    },
     handleRules() {
       this.$router.push({ name: 'login-rules' });
     },

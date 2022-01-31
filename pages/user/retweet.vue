@@ -8,7 +8,8 @@
       />
       <span class="user-center-share-text">{{ $t('personal.for') }}</span>
     </div>
-    <div class="user-retweet-flip">
+    <p class="user-end">{{ $t('personal.liquidating') }}</p>
+    <div class="user-retweet-flip" style="display: none">
       <client-only>
         <flip-countdown
           v-if="endTime"
@@ -251,7 +252,7 @@ export default {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
                     instance.confirmButtonLoading = false;
-                    // this.objForward.page = 1;
+                    //  this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
                     this.$store.dispatch('handleGetStatistics');
                     this.$message({

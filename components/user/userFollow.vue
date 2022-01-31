@@ -13,7 +13,7 @@
         >
         @{{ showFollow.followsUserName }}
       </a>
-      <span v-else> {{ $t('personal.get') }} </span>
+      <span v-else> {{ $t('personal.get') }}, </span>
       <a
         v-if="!showFollow.status"
         :href="showFollow.link"

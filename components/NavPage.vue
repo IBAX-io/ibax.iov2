@@ -443,7 +443,8 @@ export default {
           'user-link-github',
           'user-share',
           'user-redeem',
-          'user-commits'
+          'user-commits',
+          'login-rules'
         ];
         const boo = arrIntercept.includes(name);
         //  console.log(name);

@@ -72,7 +72,8 @@ export default {
     return {
       domGlobal: '',
       domHeaderTop: '',
-      visibilityHeight: 10
+      visibilityHeight: 10,
+      topFooter: 0
     };
   },
   computed: {
@@ -98,6 +99,7 @@ export default {
     });
     this.$store.commit('handleChangeLang', val);
     this.$nextTick(() => {
+      console.log(this.$refs.footer.getBoundingClientRect().top);
       this.domGlobal = document.getElementById('global').firstChild;
       this.domHeaderTop = this.$refs.headerTop.$el;
       console.log(this.domGlobal);
@@ -128,6 +130,7 @@ export default {
       const isFixed = scrollTop > topHeight;
       // const bottom = this.$refs.footer.getBoundingClientRect();
       //  console.log(bottom);
+      console.log(this.$refs.footer.offsetTop);
       if (this.isMobile) {
         this.$store.commit('handleIsFixed', isFixed);
       } else {

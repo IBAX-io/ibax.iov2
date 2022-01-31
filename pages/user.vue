@@ -179,6 +179,7 @@ export default {
       return 'this.src="' + require('../assets/images/login/default.jpg') + '"';
     },
     statistics() {
+      console.log(this.$store.getters.handleStatistics);
       return this.$store.getters.handleStatistics;
     },
     userFixed() {
@@ -200,9 +201,9 @@ export default {
     // console.log(this.$route.name);
     const path = this.$route.path;
     this.handleRoute(path);
-    this.$store.dispatch('handleGetStatistics');
   },
   mounted() {
+    this.$store.dispatch('handleGetStatistics');
     if (this.token) {
       const str = localStorage.getItem('user');
       if (str === 'twitter') {

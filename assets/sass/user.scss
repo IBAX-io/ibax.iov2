@@ -3,6 +3,14 @@
   // padding-left: 20px;
   padding-top: 20px;
   border-top: 1px solid rgba($color: #264234, $alpha: 0.2);
+  &-end {
+    font-size: 14px;
+    color: #999;
+    margin-left: 40px;
+  }
+  &-score {
+    color: #707070;
+  }
   &-box {
     display: flex;
     justify-content: space-between;
@@ -143,7 +151,6 @@
       &-left {
         display: flex;
         align-items: center;
-        margin-bottom: 30px;
         &-img {
           width: 50px;
           cursor: pointer;
@@ -194,7 +201,6 @@
         }
         &-bottom {
           color: #707070;
-          font-weight: bolder;
           margin-left: 30px;
           margin-bottom: 10px;
         }
@@ -224,10 +230,8 @@
       &-telegram {
         height: 100%;
         color: #999;
-        background: red;
         padding: 20px 10px;
         border-radius: 30px;
-        background-color: #ddd;
         display: flex;
         align-items: center;
         img {
@@ -293,18 +297,16 @@
       border-bottom: 1px solid #ddd;
     }
     &-sign {
-      width: 480px;
-      margin: 50px auto;
-      position: relative;
-      height: 70px;
+      margin: 0 auto;
+      margin-bottom: 30px;
       display: flex;
+      align-items: center;
+      justify-content: center;
       &-chest {
-        width: 150px;
+        width: 100px;
         aspect-ratio: 1/1;
         cursor: pointer;
-        position: absolute;
-        left: 20px;
-        bottom: -30px;
+        margin: 20px auto;
       }
       &-close {
         background: url("../images/login/box-close.png") no-repeat center;
@@ -314,25 +316,21 @@
         background: url("../images/login/box-open.png") no-repeat center;
         background-size: 100% 100%;
       }
-      &-right {
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
-        margin-left: auto;
-        background: rgba(255, 255, 255, 0.39);
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      &-box {
+        width: 350px;
         border-radius: 20px;
-        & > * {
-          width: 100%;
+        background: rgba(113, 93, 242, 0.2);
+        position: relative;
+        &-top {
           text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          background: #715df2;
+          border-radius: 20px 20px 0px 0px;
+          color: #fff;
+          padding: 20px 0;
+          line-height: 1.5em;
         }
         &-time {
-          color: #715df2;
           letter-spacing: 3px;
-          font-weight: bolder;
           font-size: 20px;
         }
         .dowebok {
@@ -343,8 +341,8 @@
           border-radius: 50%;
           position: absolute;
           background-color: rgba($color: #f3ac34, $alpha: 0.8);
-          left: 180px;
-          top: -50px;
+          top: 30%;
+          right: 5%;
           padding: 10px;
           line-height: 1em;
           text-align: center;
@@ -364,6 +362,11 @@
           }
         }
       }
+      &-text {
+        margin-left: 5%;
+        color: #707070;
+        letter-spacing: 2px;
+      }
     }
   }
   &-retweet {
@@ -372,11 +375,14 @@
       width: 100%;
       overflow: hidden;
     }
+    .user-end {
+      text-align: center;
+    }
     &-top {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
     &-text {
       color: #999;
@@ -427,6 +433,24 @@
     }
   }
   &-rules {
+    &-end {
+      background: rgba(229, 229, 229, 0.39);
+      border: 4px solid #6c62ea;
+      border-radius: 20px;
+      padding: 10px;
+      margin-bottom: 30px;
+    }
+    &-title {
+      margin-bottom: 20px;
+      color: #715df2;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      img {
+        width: 30px;
+        margin-right: 10px;
+      }
+    }
     .title-h6 {
       font-size: 20px;
       font-weight: 500;
@@ -621,12 +645,22 @@
     }
   }
   &-receive {
+    &-end {
+      color: #715df2;
+      font-size: 20px;
+      font-weight: bolder;
+    }
     &-top {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
+      font-size: 20px;
+      &-text {
+        font-weight: bolder;
+        color: #715df2;
+      }
       img {
-        width: 30px;
+        width: 20px;
         margin-right: 10px;
       }
     }

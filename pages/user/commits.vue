@@ -134,7 +134,7 @@ export default {
     return {
       objBugs: {
         page: 1,
-        limit: 1,
+        limit: 5,
         order: 'id desc',
         language_type: 1
       },

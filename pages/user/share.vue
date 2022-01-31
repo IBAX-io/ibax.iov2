@@ -11,6 +11,7 @@
           $t('personal.together')
         }}</span>
       </div>
+      <p class="user-end">{{ $t('personal.referralshas') }}</p>
       <user-share></user-share>
     </div>
     <el-tabs v-model="shareName" @tab-click="handleTabsShare">

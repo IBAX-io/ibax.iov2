@@ -1148,6 +1148,7 @@
   }
   .personal-score-text {
     padding-bottom: 10px;
+    font-size: 12px;
   }
   .personal-tabs-record-head > *:first-child,
   .personal-tabs-record-even > *:first-child,
@@ -1339,16 +1340,23 @@
     padding-left: 0;
     padding-right: 0;
   }
+  .user-end {
+    margin-left: 30px;
+  }
   .user-center-sign {
     width: 100%;
     flex-wrap: wrap;
     height: auto;
     margin: 20px auto;
     justify-content: center;
+    .user-center-sign-box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
     .user-center-sign-chest {
       position: static;
       margin-bottom: 20px;
-      height: 150px;
+      height: 100px;
     }
     .user-center-sign-right-text {
       margin-bottom: 10px;
