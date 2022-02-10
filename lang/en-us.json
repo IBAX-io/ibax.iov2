@@ -783,7 +783,7 @@
   "personal.center": "Personal Center",
   "personal.airdrop": "IBAX Ranking System",
   "personal.ret": "Retweet to Earn",
-  "personal.list": "Ranking List",
+  "personal.list": "Points History",
   "personal.referrals": "Share with Friends",
   "personal.ruless": "Airdrop Rule",
   "personal.git": "GitHub",
@@ -874,5 +874,5 @@
   "personal.rank": "Ranking Rules",
   "personal.getpoint": "Get IBAX Point",
   "personal.tuned": "Stay tuned to IBAX for new events every day.",
-  "personal.represent": "IBAX points represent the contribution to IBAX, the higher the IBAX points you acquire the more rewards you will get, for more details "
+  "personal.represent": "IBAX points represent contributions to the IBAX network, and the more points you acquire, the more rewards you will get "
 }

@@ -309,6 +309,11 @@
           width: 60px;
           display: block;
         }
+        &-time {
+          color: #715df2;
+          font-weight: 500;
+          font-size: 18px;
+        }
       }
       &-right {
         margin-left: 10%;
@@ -814,18 +819,18 @@
     &-title {
       margin-bottom: 30px;
       &-link {
-        display: inline-flex;
-        align-items: center;
         color: #999;
         background-color: #fff;
         padding: 5px 20px;
         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         border-radius: 4px;
         cursor: pointer;
+        display: inline-block;
         &-rank {
           color: #715df2;
         }
         &-bull {
+          display: inline-block;
           border-radius: 50%;
           background-color: #999;
           width: 10px;

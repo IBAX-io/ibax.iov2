@@ -97,7 +97,10 @@
               <p class="wow fadeInUp">
                 {{ $t('solutions.credit') }}
               </p>
-              <div class="home-new-bottom link wow fadeInUp">
+              <div
+                class="home-new-bottom link wow fadeInUp"
+                style="display: none"
+              >
                 <span> {{ $t('home.using') }}</span>
                 <i class="el-icon-right"></i>
               </div>

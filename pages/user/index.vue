@@ -23,10 +23,13 @@
           ></div> -->
         <div class="user-center-sign-left" @click="handleSign">
           <div class="user-center-sign-left-img">
-            <img src="@/assets/images/login/sign.png" alt="sign" />
+            <img :src="isSign ? signNo : sign" alt="sign" />
           </div>
           <div class="user-center-sign-left-text">
-            {{ $t('personal.getpoint') }}
+            <div>{{ $t('personal.getpoint') }}</div>
+            <div v-if="isSign" class="user-center-sign-left-time">
+              {{ strTime }}
+            </div>
           </div>
         </div>
         <div class="user-center-sign-right">
@@ -171,10 +174,14 @@
   </div>
 </template>
 <script>
+const sign = require('../../assets/images/login/sign.png');
+const signNo = require('../../assets/images/login/sign-no.png');
 export default {
   props: {},
   data() {
     return {
+      sign,
+      signNo,
       objForward: {
         where: '',
         order: 'id desc',
