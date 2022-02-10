@@ -17,8 +17,7 @@
     padding-bottom: 50px;
   }
   &-left {
-    min-width: 150px;
-    margin-right: 7%;
+    width: 230px;
     position: relative;
     margin-bottom: 200px;
     &-fixed {
@@ -120,13 +119,13 @@
   &-right {
     flex: 1;
     width: 0;
+    margin-left: 3%;
   }
   &-center {
     width: 100%;
     &-box {
       position: relative;
       margin-bottom: 30px;
-      padding-bottom: 30px;
       border-bottom: 1px solid #ddd;
     }
     &-share {
@@ -297,11 +296,23 @@
       border-bottom: 1px solid #ddd;
     }
     &-sign {
-      margin: 0 auto;
+      position: relative;
       margin-bottom: 30px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      color: #999;
+      &-left {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        img {
+          width: 60px;
+          display: block;
+        }
+      }
+      &-right {
+        margin-left: 10%;
+      }
       &-chest {
         width: 100px;
         aspect-ratio: 1/1;
@@ -341,8 +352,8 @@
           border-radius: 50%;
           position: absolute;
           background-color: rgba($color: #f3ac34, $alpha: 0.8);
-          top: 30%;
-          right: 5%;
+          top: -20px;
+          left: 60px;
           padding: 10px;
           line-height: 1em;
           text-align: center;
@@ -381,7 +392,6 @@
     &-top {
       display: flex;
       align-items: center;
-      justify-content: center;
       margin-bottom: 10px;
     }
     &-text {
@@ -645,10 +655,15 @@
     }
   }
   &-receive {
+    &-status {
+      color: #999;
+      font-size: 20px;
+      font-weight: 600;
+    }
     &-end {
       color: #715df2;
       font-size: 20px;
-      font-weight: bolder;
+      font-weight: 600;
     }
     &-top {
       display: flex;
@@ -656,11 +671,11 @@
       margin-bottom: 20px;
       font-size: 20px;
       &-text {
-        font-weight: bolder;
         color: #715df2;
+        font-weight: 600;
       }
       img {
-        width: 20px;
+        width: 25px;
         margin-right: 10px;
       }
     }
@@ -717,6 +732,7 @@
           display: flex;
           line-height: 1.3em;
           align-items: center;
+          justify-content: center;
           i {
             font-size: 20px;
           }
@@ -806,6 +822,9 @@
         box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
         border-radius: 4px;
         cursor: pointer;
+        &-rank {
+          color: #715df2;
+        }
         &-bull {
           border-radius: 50%;
           background-color: #999;

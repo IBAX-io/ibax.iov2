@@ -1,11 +1,13 @@
 <template>
   <div class="user-receive">
     <template v-if="binding.status && binding.blockId">
+      <div class="user-receive-status">{{ $t('personal.bind') }}</div>
       <div class="user-receive-end">
         {{ $t('personal.process') }}
       </div>
     </template>
     <template v-else>
+      <div class="user-receive-status">{{ $t('personal.soon') }}</div>
       <div class="user-receive-end">
         {{ $t('personal.ended') }}
       </div>
@@ -24,11 +26,14 @@
       <!--  {{ $t('personal.will') }} -->
     </p>
     <div class="user-receive-data">
-      {{ $t('personal.yourPoints') }}: {{ money_format(statistics.points) }}
+      {{ $t('personal.yourPoints') }}:
+      {{ money_format(statistics.points_history) }}
       {{ $t('personal.poin') }}
     </div>
     <div class="user-receive-data">
-      {{ $t('personal.yourCoins') }}: {{ money_format(statistics.amount) }}
+      {{ $t('personal.yourCoins') }}:
+      {{ money_format(statistics.invite_history) }}
+      IBXC
       <!-- {{ $t('personal.coin') }} -->
     </div>
     <div class="personal-redeem">
@@ -55,9 +60,9 @@
         <p class="personal-redeem-box-text">
           {{ $t('personal.once') }}
         </p>
-        <p class="personal-redeem-box-text">
+        <!--  <p class="personal-redeem-box-text">
           {{ $t('personal.confirm') }}
-        </p>
+        </p> -->
         <div class="personal-redeem-content">
           <el-input
             v-model="address"
@@ -118,22 +123,24 @@ export default {
         status: false,
         account: '',
         blockId: 0
-      }
+      },
+      statistics: {}
     };
   },
   computed: {
     playerIntroduce() {
       return this.$refs.introduce.player;
-    },
-    statistics() {
-      return this.$store.getters.handleStatistics;
     }
+    /*  statistics() {
+      return this.$store.getters.handleStatistics;
+    } */
   },
   watch: {},
   created() {
-    this.$store.dispatch('handleGetStatistics');
+    // this.$store.dispatch('handleGetStatistics');
   },
   mounted() {
+    this.handleGetHistoryStatistics();
     this.handleGetBlock();
   },
   methods: {
@@ -142,6 +149,13 @@ export default {
     },
     videoErrorIntroduce() {
       this.isIntroduce = false;
+    },
+    async handleGetHistoryStatistics() {
+      const res = await this.$axios.$post('/tw/get_history_statistics');
+      console.log(res);
+      if (res.code === 0) {
+        this.statistics = res.data;
+      }
     },
     async handleGetBlock() {
       const res = await this.$axios.$post('/tw/get_binding_status');

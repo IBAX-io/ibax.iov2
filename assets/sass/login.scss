@@ -30,6 +30,7 @@
   }
   &-text {
     letter-spacing: 2px;
+    font-weight: bolder;
   }
   &-btn {
     color: #fff;
@@ -55,6 +56,8 @@
   }
   &-box {
     color: #4c96e3;
+    width: 80%;
+    margin: 30px auto;
     padding: 30px;
   }
 }

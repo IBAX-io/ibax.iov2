@@ -128,14 +128,15 @@ export default {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = this.domHeaderTop.offsetTop;
       const isFixed = scrollTop > topHeight;
-      // const bottom = this.$refs.footer.getBoundingClientRect();
-      //  console.log(bottom);
-      console.log(this.$refs.footer.offsetTop);
-      if (this.isMobile) {
+      /*  const bottom = this.$refs.footer.getBoundingClientRect();
+      console.log(bottom.bottom); */
+      //   console.log(this.$refs.footer.offsetTop);
+      this.$store.commit('handleIsFixed', isFixed);
+      /* if (this.isMobile) {
         this.$store.commit('handleIsFixed', isFixed);
       } else {
         this.$store.commit('handleUserFixed', isFixed);
-      }
+      } */
     },
     handleChange(val, oldVal) {
       this.locale = this.$i18n.messages[val];

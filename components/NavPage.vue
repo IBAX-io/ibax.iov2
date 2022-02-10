@@ -439,6 +439,7 @@ export default {
           'user-points',
           'user-receive',
           'user-retweet',
+          'user-list',
           'user-airdrop-rules',
           'user-link-github',
           'user-share',

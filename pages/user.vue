@@ -117,66 +117,79 @@ export default {
           title: 'personal.airdrop',
           key: '1',
           isSelect: false,
-          rules: ['/user/retweet', '/user/share', '/user/airdrop-rules'],
-          children: [
-            {
-              title: 'personal.ret',
-              path: '/user/retweet',
-              key: '1-1',
-              icon: 'iconfont el-Forwarding'
-            },
-            {
-              title: 'personal.referrals',
-              path: '/user/share',
-              key: '1-2',
-              icon: 'iconfont el-share1'
-            },
-            {
-              title: 'personal.ruless',
-              path: '/user/airdrop-rules',
-              key: '1-3',
-              icon: 'iconfont el-a-Airdroprules'
-            }
-          ]
-        },
-        {
-          title: 'personal.git',
-          key: '2',
-          isSelect: false,
-          rules: ['/user/link-github', '/user/commits', '/user/github-rules'],
+          rules: [
+            '/user/link-github',
+            '/user/retweet',
+            '/user/commits',
+            '/user/list',
+            '/user/share',
+            '/user/github-rules'
+          ],
           children: [
             {
               title: 'personal.account',
               path: '/user/link-github',
-              key: '2-1',
+              key: '1-1',
               icon: 'iconfont el-Associations'
+            },
+            {
+              title: 'personal.ret',
+              path: '/user/retweet',
+              key: '1-2',
+              icon: 'iconfont el-Forwarding'
             },
             {
               title: 'personal.commits',
               path: '/user/commits',
-              key: '2-2',
+              key: '1-3',
               icon: 'iconfont el-Submit1'
             },
             {
-              title: 'personal.gr',
+              title: 'personal.list',
+              path: '/user/list',
+              key: '1-4',
+              icon: 'iconfont el-a-HonorList'
+            },
+            {
+              title: 'personal.rank',
               path: '/user/github-rules',
-              key: '2-3',
+              key: '1-5',
               icon: 'iconfont el-a-EventRules1'
             }
           ]
+        },
+        {
+          title: 'personal.referrals',
+          path: '/user/share',
+          key: '2',
+          rules: []
         },
         {
           title: 'personal.geti',
           key: '3',
           path: '/user/redeem',
           rules: []
+        },
+        {
+          title: 'personal.completed',
+          key: '4',
+          isSelect: false,
+          rules: ['/user/airdrop-rules'],
+          children: [
+            {
+              title: 'personal.air',
+              path: '/user/airdrop-rules',
+              key: '4-1',
+              icon: 'iconfont el-a-Airdroprules'
+            }
+          ]
         }
       ]
     };
   },
   computed: {
     defaultImg() {
-      return 'this.src="' + require('../assets/images/login/default.jpg') + '"';
+      return 'this.src="' + require('../assets/images/login/default.png') + '"';
     },
     statistics() {
       console.log(this.$store.getters.handleStatistics);
@@ -233,39 +246,44 @@ export default {
           this.topVal = '60px';
           this.heightVar = this.isShow = 0;
           break;
-        case '/user/retweet':
+        case '/user/link-github':
           this.heightVar = `80px`;
-          this.topVal = '55px';
+          this.topVal = '50px';
           this.isShow = 1;
           break;
-        case '/user/share':
+        case '/user/retweet':
           this.heightVar = `115px`;
           this.topVal = '90px';
           this.isShow = 1;
           break;
-        case '/user/airdrop-rules':
-          this.heightVar = `155px`;
-          this.topVal = '130px';
-          this.isShow = 1;
-          break;
-        case '/user/link-github':
-          this.heightVar = `235px`;
-          this.topVal = '210px';
-          this.isShow = 1;
-          break;
         case '/user/commits':
-          this.heightVar = `280px`;
-          this.topVal = '255px';
+          this.heightVar = `160px`;
+          this.topVal = '135px';
+          this.isShow = 1;
+          break;
+        case '/user/list':
+          this.heightVar = `205px`;
+          this.topVal = '175px';
           this.isShow = 1;
           break;
         case '/user/github-rules':
-          this.heightVar = `320px`;
-          this.topVal = '295px';
+          this.heightVar = `255px`;
+          this.topVal = '215px';
+          this.isShow = 1;
+          break;
+        case '/user/share':
+          this.heightVar = `285px`;
+          this.topVal = '255px';
           this.isShow = 1;
           break;
         case '/user/redeem':
+          this.heightVar = `325px`;
+          this.topVal = '300px';
+          this.isShow = 1;
+          break;
+        case '/user/airdrop-rules':
           this.heightVar = `100%`;
-          this.topVal = '338px';
+          this.topVal = '380px';
           this.isShow = 1;
           break;
         default:

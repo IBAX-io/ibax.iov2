@@ -13,11 +13,8 @@
             <i class="iconfont el-twitter"></i>
             <span>{{ $t('login.with') }}</span>
           </button>
-          <p class="login-rules wow fadeInUp" @click="handleGrRules">
-            {{ $t('personal.gr') }}
-          </p>
           <p class="login-rules wow fadeInUp" @click="handleRules">
-            {{ $t('personal.ruless') }}
+            {{ $t('personal.gr') }}
           </p>
         </div>
       </el-col>

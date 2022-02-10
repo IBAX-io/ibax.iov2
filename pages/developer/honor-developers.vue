@@ -47,6 +47,7 @@
               :page-size="objLead.limit"
               layout="prev, pager, next"
               :total="leaderTotal"
+              :current-page="objLead.page"
               @current-change="handleCurrentChange"
             >
             </el-pagination>
@@ -74,7 +75,7 @@ export default {
       objLead: {
         type: 2,
         source: '',
-        limit: 12,
+        limit: 1,
         page: 1,
         language_type: 1
       },

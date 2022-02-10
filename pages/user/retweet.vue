@@ -8,7 +8,6 @@
       />
       <span class="user-center-share-text">{{ $t('personal.for') }}</span>
     </div>
-    <p class="user-end">{{ $t('personal.liquidating') }}</p>
     <div class="user-retweet-flip" style="display: none">
       <client-only>
         <flip-countdown
@@ -18,73 +17,75 @@
         ></flip-countdown>
       </client-only>
     </div>
-    <el-tabs v-model="activeName" @tab-click="handleRetweet">
-      <div class="user-retweet-text">
-        {{ $t('personal.tasks') }}
-      </div>
-      <el-tab-pane :label="$t('personal.campaign')" name="first">
-        <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
-          <img src="@/assets/images/login/no-data.png" alt="no-data" />
+    <div class="user-retweet-text">
+      {{ $t('personal.tasks') }}
+      <nuxt-link
+        :to="{ path: '/user/github-rules' }"
+        class="user-commits-title-link-rank"
+      >
+        {{ $t('personal.rank') }}
+      </nuxt-link>
+    </div>
+    <!--  <el-tabs v-model="activeName" @tab-click="handleRetweet">
+      <el-tab-pane :label="$t('personal.campaign')" name="first"> -->
+    <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
+      <img src="@/assets/images/login/no-data.png" alt="no-data" />
+    </div>
+    <template v-else>
+      <div v-for="item in arrTask" :key="item.id" class="personal-tabs-task">
+        <div v-if="item.status" class="personal-tabs-task-finish">
+          <img src="@/assets/images/login/finished.png" alt="finished" />
         </div>
-        <template v-else>
-          <div
-            v-for="item in arrTask"
-            :key="item.id"
-            class="personal-tabs-task"
-          >
-            <div v-if="item.status" class="personal-tabs-task-finish">
-              <img src="@/assets/images/login/finished.png" alt="finished" />
-            </div>
-            <a
-              v-else
-              class="personal-tabs-task-left"
-              :href="item.status ? 'javascript:void(0);' : item.link"
-              :target="item.status ? '' : '_blank'"
-              @click="handleForwardTask(item)"
-            >
-              <div>{{ $t('personal.retweet') }}</div>
-              <div class="personal-tabs-task-left-bottom">
-                +{{ item.points }} <i class="el-icon-arrow-right"></i>
-              </div>
-            </a>
-
-            <div class="personal-tabs-task-middle">
-              <div v-html="item.content"></div>
-            </div>
-            <div class="personal-tabs-task-right">
-              <img
-                :src="`${baseUrl}${item.image}`"
-                alt="task"
-                :onerror="defaultImg"
-              />
-            </div>
+        <a
+          v-else
+          class="personal-tabs-task-left"
+          :href="item.status ? 'javascript:void(0);' : item.link"
+          :target="item.status ? '' : '_blank'"
+          @click="handleForwardTask(item)"
+        >
+          <div>{{ $t('personal.retweet') }}</div>
+          <div class="personal-tabs-task-left-bottom">
+            +{{ item.points }} <i class="el-icon-arrow-right"></i>
           </div>
-        </template>
-        <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
-          <button
-            v-if="isMobile"
-            v-show="isMore"
-            class="btn btn-primary"
-            @click="handleForwardNext('task')"
-          >
-            {{ $t('footer.more') }}
-          </button>
-          <el-pagination
-            v-else
-            hide-on-single-page
-            background
-            :page-size="objForward.limit"
-            layout="prev, pager, next"
-            :total="taskTotal"
-            @current-change="handleCurrentChange($event, 'task')"
-          >
-          </el-pagination>
+        </a>
+
+        <div class="personal-tabs-task-middle">
+          <div v-html="item.content"></div>
         </div>
-      </el-tab-pane>
+        <div class="personal-tabs-task-right">
+          <img
+            :src="`${baseUrl}${item.image}`"
+            alt="task"
+            :onerror="defaultImg"
+          />
+        </div>
+      </div>
+    </template>
+    <div v-if="arrTask.length !== 0" class="personal-tabs-task-btn">
+      <button
+        v-if="isMobile"
+        v-show="isMore"
+        class="btn btn-primary"
+        @click="handleForwardNext('task')"
+      >
+        {{ $t('footer.more') }}
+      </button>
+      <el-pagination
+        v-else
+        hide-on-single-page
+        background
+        :page-size="objForward.limit"
+        layout="prev, pager, next"
+        :total="taskTotal"
+        @current-change="handleCurrentChange($event, 'task')"
+      >
+      </el-pagination>
+    </div>
+    <!-- </el-tab-pane>
       <el-tab-pane :label="$t('personal.redeemed')" name="second">
         <user-rercord v-if="activeName === 'second'"></user-rercord>
       </el-tab-pane>
-    </el-tabs>
+    </el-tabs> -->
   </div>
 </template>
 <script>
@@ -252,7 +253,7 @@ export default {
                   console.log(res);
                   if (res.code === 0 && res.data.status) {
                     instance.confirmButtonLoading = false;
-                    //  this.objForward.page = 1;
+                    this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
                     this.$store.dispatch('handleGetStatistics');
                     this.$message({

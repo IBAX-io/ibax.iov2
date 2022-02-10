@@ -493,46 +493,45 @@ export default {
               key: 'm-7-2',
               content: [
                 {
-                  title: 'personal.ret',
-                  icon: 'iconfont el-Forwarding',
-                  path: '/user/retweet',
-                  key: 'm-7-2-1'
-                },
-                {
-                  title: 'personal.referrals',
-                  icon: 'iconfont el-share1',
-                  path: '/user/share',
-                  key: 'm-7-2-2'
-                },
-                {
-                  title: 'personal.ruless',
-                  icon: 'iconfont el-a-Airdroprules',
-                  path: '/user/airdrop-rules',
-                  key: 'm-7-2-3'
-                }
-              ]
-            },
-            {
-              title: 'personal.git',
-              key: 'm-7-3',
-              content: [
-                {
                   title: 'personal.account',
                   icon: 'iconfont el-Associations',
                   path: '/user/link-github',
-                  key: 'm-7-3-1'
+                  key: 'm-7-2-1'
+                },
+                {
+                  title: 'personal.ret',
+                  icon: 'iconfont el-Forwarding',
+                  path: '/user/retweet',
+                  key: 'm-7-2-2'
                 },
                 {
                   title: 'personal.commits',
                   icon: 'iconfont el-Submit1',
                   path: '/user/commits',
-                  key: 'm-7-3-2'
+                  key: 'm-7-2-3'
                 },
                 {
-                  title: 'personal.gr',
-                  icon: 'iconfont el-a-EventRules1',
+                  title: 'personal.list',
+                  path: '/user/list',
+                  key: 'm-7-2-4',
+                  icon: 'iconfont el-a-HonorList'
+                },
+                {
+                  title: 'personal.rank',
                   path: '/user/github-rules',
-                  key: 'm-7-3-3'
+                  key: '1-5',
+                  icon: 'iconfont el-a-EventRules1'
+                }
+              ]
+            },
+            {
+              key: 'm-7-3',
+              content: [
+                {
+                  title: 'personal.referrals',
+                  icon: 'iconfont el-share1',
+                  path: '/user/share',
+                  key: 'm-7-3-1'
                 }
               ]
             },
@@ -541,9 +540,21 @@ export default {
               content: [
                 {
                   title: 'personal.geti',
-                  icon: 'iconfont el-share1',
+                  icon: 'iconfont el-Success',
                   key: 'm-7-4-1',
                   path: '/user/redeem'
+                }
+              ]
+            },
+            {
+              title: 'personal.completed',
+              key: 'm-7-5',
+              content: [
+                {
+                  title: 'personal.air',
+                  path: '/user/airdrop-rules',
+                  key: 'm-7-5-1',
+                  icon: 'iconfont el-a-Airdroprules'
                 }
               ]
             }

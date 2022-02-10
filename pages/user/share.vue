@@ -11,89 +11,88 @@
           $t('personal.together')
         }}</span>
       </div>
-      <p class="user-end">{{ $t('personal.referralshas') }}</p>
       <user-share></user-share>
     </div>
-    <el-tabs v-model="shareName" @tab-click="handleTabsShare">
-      <div class="user-retweet-text">
-        {{ $t('personal.refer') }}
+    <div class="user-retweet-text">
+      {{ $t('personal.refer') }}
+    </div>
+    <!--  <el-tabs v-model="shareName" @tab-click="handleTabsShare">
+      <el-tab-pane :label="$t('personal.sharer')" name="one"> -->
+    <div v-if="arrHistory.length === 0" class="personal-tabs-record-img">
+      <img src="@/assets/images/login/no-data.png" alt="no-data" />
+    </div>
+    <div v-else class="personal-tabs-record-box">
+      <div class="personal-tabs-record-head">
+        <div>{{ $t('personal.id') }}</div>
+        <div>{{ $t('personal.join') }}</div>
+        <div>{{ $t('personal.ge') }}</div>
       </div>
-      <el-tab-pane :label="$t('personal.sharer')" name="one">
-        <div v-if="arrHistory.length === 0" class="personal-tabs-record-img">
-          <img src="@/assets/images/login/no-data.png" alt="no-data" />
+      <div
+        v-for="(item, index) in arrHistory"
+        :key="index"
+        class="personal-tabs-record-even"
+        :class="{ 'personal-tabs-record-odd': (index + 1) % 2 !== 0 }"
+      >
+        <div class="personal-tabs-record-head-text">
+          {{ item.username }}
         </div>
-        <div v-else class="personal-tabs-record-box">
-          <div class="personal-tabs-record-head">
-            <div>{{ $t('personal.id') }}</div>
-            <div>{{ $t('personal.join') }}</div>
-            <div>{{ $t('personal.ge') }}</div>
-          </div>
-          <div
-            v-for="(item, index) in arrHistory"
-            :key="index"
-            class="personal-tabs-record-even"
-            :class="{ 'personal-tabs-record-odd': (index + 1) % 2 !== 0 }"
-          >
-            <div class="personal-tabs-record-head-text">
-              {{ item.username }}
-            </div>
-            <div class="personal-tabs-record-head-text">
-              {{ handleTimeShow(item.time) }}
-            </div>
-            <div class="personal-tabs-record-head-text">
-              {{ item.ibxc }}&nbsp;&nbsp;IBXC
-            </div>
-          </div>
-          <div v-if="arrHistory.length !== 0" class="personal-tabs-task-btn">
-            <button
-              v-if="isMobile"
-              v-show="isMore"
-              class="btn btn-primary"
-              @click="handleShareNext('history')"
-            >
-              {{ $t('footer.more') }}
-            </button>
-            <el-pagination
-              v-else
-              background
-              hide-on-single-page
-              :page-size="objInvite.limit"
-              layout="prev, pager, next"
-              :total="historyTotal"
-              @current-change="handleCurrentShare($event, 'history')"
-            >
-            </el-pagination>
-          </div>
+        <div class="personal-tabs-record-head-text">
+          {{ handleTimeShow(item.time) }}
         </div>
-      </el-tab-pane>
-      <el-tab-pane :label="$t('personal.ranking')" name="two">
-        <div v-if="arrRanking.length === 0" class="personal-tabs-record-img">
-          <img src="@/assets/images/login/no-data.png" alt="no-data" />
+        <div class="personal-tabs-record-head-text">
+          {{ item.ibxc }}&nbsp;&nbsp;IBXC
         </div>
-        <div v-else class="personal-share-ranking">
-          <h6 class="title-h6">End Time: Feb 1st, 2022 EST</h6>
-          <div
-            v-for="(item, index) in arrRanking"
-            :key="index"
-            class="personal-tabs-record-even"
-            :class="{ 'personal-tabs-record-odd': (index + 1) % 2 !== 0 }"
-          >
-            <div class="personal-tabs-record-head-text">
-              {{ item.username }}
-            </div>
-            <div class="personal-tabs-record-head-text">
-              {{ item.award }}&nbsp;&nbsp;IBXC
-            </div>
-            <div class="personal-tabs-record-head-text">
-              {{ item.number }}&nbsp;&nbsp;people
-            </div>
-          </div>
+      </div>
+      <div v-if="arrHistory.length !== 0" class="personal-tabs-task-btn">
+        <button
+          v-if="isMobile"
+          v-show="isMore"
+          class="btn btn-primary"
+          @click="handleShareNext('history')"
+        >
+          {{ $t('footer.more') }}
+        </button>
+        <el-pagination
+          v-else
+          background
+          hide-on-single-page
+          :page-size="objInvite.limit"
+          layout="prev, pager, next"
+          :total="historyTotal"
+          @current-change="handleCurrentShare($event, 'history')"
+        >
+        </el-pagination>
+      </div>
+    </div>
+    <!-- </el-tab-pane>
+      <el-tab-pane :label="$t('personal.ranking')" name="two"> -->
+    <!--  <div v-if="arrRanking.length === 0" class="personal-tabs-record-img">
+      <img src="@/assets/images/login/no-data.png" alt="no-data" />
+    </div>
+    <div v-else class="personal-share-ranking">
+      <h6 class="title-h6">End Time: Feb 1st, 2022 EST</h6>
+      <div
+        v-for="(item, index) in arrRanking"
+        :key="index"
+        class="personal-tabs-record-even"
+        :class="{ 'personal-tabs-record-odd': (index + 1) % 2 !== 0 }"
+      >
+        <div class="personal-tabs-record-head-text">
+          {{ item.username }}
         </div>
-        <!--  <div>
+        <div class="personal-tabs-record-head-text">
+          {{ item.award }}&nbsp;&nbsp;IBXC
+        </div>
+        <div class="personal-tabs-record-head-text">
+          {{ item.number }}&nbsp;&nbsp;people
+        </div>
+      </div>
+    </div> -->
+    <!--  <div>
           {{ $t('personal.friends') }}
         </div> -->
-      </el-tab-pane>
-    </el-tabs>
+    <!--  </el-tab-pane>
+    </el-tabs> -->
   </div>
 </template>
 <script>

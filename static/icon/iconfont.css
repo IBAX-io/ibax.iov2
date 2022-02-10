@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2762091 */
-  src: url('iconfont.woff2?t=1643007531089') format('woff2'),
-       url('iconfont.woff?t=1643007531089') format('woff'),
-       url('iconfont.ttf?t=1643007531089') format('truetype');
+  src: url('iconfont.woff2?t=1644404112327') format('woff2'),
+       url('iconfont.woff?t=1644404112327') format('woff'),
+       url('iconfont.ttf?t=1644404112327') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.el-a-HonorList:before {
+  content: "\e6a8";
 }
 
 .el-share1:before {

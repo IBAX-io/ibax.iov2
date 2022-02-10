@@ -3,8 +3,8 @@
     <div class="user-center-box">
       <user-follow></user-follow>
       <!-- sign in  -->
-      <div class="user-center-sign" style="display: none">
-        <div class="user-center-sign-box">
+      <div class="user-center-sign">
+        <!-- <div class="user-center-sign-box">
           <div class="user-center-sign-box-top">
             <div class="user-center-sign-box-time">{{ strTime }}</div>
             <div class="user-center-sign-box-text">
@@ -20,17 +20,27 @@
               'user-center-sign-open': isSign
             }"
             @click="handleSign"
-          ></div>
-
-          <div
-            v-show="isBubble"
-            class="user-center-sign-box-num"
-            :class="{
-              'animated fadeInUp': isBubble
-            }"
-          >
-            + {{ points }}
+          ></div> -->
+        <div class="user-center-sign-left" @click="handleSign">
+          <div class="user-center-sign-left-img">
+            <img src="@/assets/images/login/sign.png" alt="sign" />
           </div>
+          <div class="user-center-sign-left-text">
+            {{ $t('personal.getpoint') }}
+          </div>
+        </div>
+        <div class="user-center-sign-right">
+          {{ $t('personal.tuned') }}
+        </div>
+        <div
+          v-show="isBubble"
+          class="user-center-sign-box-num"
+          :class="{
+            'animated fadeInUp': isBubble
+          }"
+        >
+          + {{ points }}
+          <!-- </div> -->
         </div>
       </div>
       <div class="user-center-share user-center-share-mobile">
@@ -46,13 +56,12 @@
         </div>
         <nuxt-link :to="{ name: 'user-share' }">
           <span
-            >{{ $t('personal.week') }} +
+            >{{ $t('personal.week') }}
             {{ money_format(statistics.weekAmount) }}</span
           >
           <i class="el-icon-arrow-right"></i>
         </nuxt-link>
       </div>
-      <p class="user-end">{{ $t('personal.airdrophas') }}</p>
       <user-share></user-share>
     </div>
     <div class="user-center-share">
@@ -70,7 +79,6 @@
         <i class="el-icon-arrow-right"></i>
       </nuxt-link>
     </div>
-    <p class="user-end">{{ $t('personal.pointshas') }}</p>
     <div class="user-center-retweet">
       <div v-if="arrTask.length === 0" class="personal-tabs-record-img">
         <img src="@/assets/images/login/no-data.png" alt="no-data" />
