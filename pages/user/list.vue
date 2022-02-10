@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="user-commits-title">
-      <div class="user-commits-title-link">
+      <div class="user-commits-title-link" style="cursor: default">
         <span class="user-commits-title-link-bull"></span>
         <span>{{ $t('personal.represent') }}</span>
         <nuxt-link
