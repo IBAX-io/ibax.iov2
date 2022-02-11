@@ -1,6 +1,6 @@
 <template>
   <div>
-    <user-follow :show-follow="showFollow"></user-follow>
+    <user-follow></user-follow>
     <div class="user-center-share-left">
       <img
         src="@/assets/images/login/all-1.png"

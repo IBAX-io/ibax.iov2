@@ -18,7 +18,7 @@
         <div class="personal-tabs-record-head-text">
           {{ handleTimeShow(item.time) }}
         </div>
-        <div class="personal-tabs-record-head-text">
+        <div v-if="objType" class="personal-tabs-record-head-text">
           <span>{{ objType[item.type] }}</span>
         </div>
         <div class="personal-tabs-record-head-text">
@@ -95,8 +95,8 @@ export default {
           } else {
             this.pointRecord = res.data.rets;
             this.recordTotal = res.data.total;
-            this.handleGetPointsType(this.objLang);
           }
+          this.handleGetPointsType(this.objLang);
         } else if (params.page !== 1) {
           this.$message({
             type: 'warning',
@@ -108,11 +108,12 @@ export default {
       }
     },
     async handleGetPointsType(params) {
-      console.log(params);
+      //  console.log(params);
       const res = await this.$axios.$get(
         `/get_points_type/${params.languageType}`
       );
       if (res.code === 0) {
+        // console.log(res.data);
         this.objType = res.data;
       }
     },

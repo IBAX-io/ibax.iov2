@@ -50,7 +50,9 @@
             {{ $t(item.title) }}
           </nuxt-link>
         </div>
-        <h6 class="title-h6" style="margin-top: 20px; margin-bottom: 10px">
+      </el-col>
+      <el-col :xs="12" :lg="5">
+        <h6 class="title-h6">
           {{ $t('footer.more') }}
         </h6>
         <div v-for="item in arrAbout" :key="item.path" class="footer-link">
@@ -218,9 +220,24 @@ export default {
       ],
       arrDevelop: [
         {
-          title: 'footer.developer',
-          path: '/developer',
-          key: '1'
+          title: 'personal.resources',
+          path: '/developer/developer-tools',
+          key: '5-1-1'
+        },
+        {
+          title: 'personal.bounty',
+          path: '/developer/engineering-bounty',
+          key: '5-2-1'
+        },
+        {
+          title: 'personal.honor',
+          path: '/developer/honor-developers',
+          key: '5-3-1'
+        },
+        {
+          title: 'personal.ecosystem',
+          path: '/developer/ecosystems',
+          key: '5-1-2'
         }
       ],
       arrAbout: [

@@ -7,7 +7,7 @@ export default {
     console.log(to);
     if (to.name === 'developer')
       next({
-        path: '/developer/resources'
+        path: '/developer/developer-tools'
       });
     else next();
   },
