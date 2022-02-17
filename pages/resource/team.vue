@@ -162,23 +162,26 @@
         </div>
         <el-row type="flex" justify="center">
           <el-col :xs="23" :sm="22" :md="20" :lg="18">
-            <vue-slick-carousel
-              v-bind="settings"
-              ref="carousel"
-              @afterChange="handleAfterChange"
-            >
-              <a
-                v-for="(item, index) in arrPeople"
-                :key="index"
-                class="team-slick-item"
+            <client-only>
+              <vue-slick-carousel
+                ref="carousel"
+                :slides-to-show="4"
+                :focus-on-select="true"
+                @afterChange="handleAfterChange"
               >
-                <div class="team-slick-item-img">
-                  <img :src="item.img" :alt="item.img" />
-                  <div>{{ item.name }}</div>
-                  <div>{{ item.position }}</div>
-                </div>
-              </a>
-            </vue-slick-carousel>
+                <a
+                  v-for="(item, index) in arrPeople"
+                  :key="index"
+                  class="team-slick-item"
+                >
+                  <div class="team-slick-item-img">
+                    <img :src="item.img" :alt="item.img" />
+                    <div>{{ item.name }}</div>
+                    <div>{{ item.position }}</div>
+                  </div>
+                </a>
+              </vue-slick-carousel>
+            </client-only>
           </el-col>
         </el-row>
       </div>
@@ -236,9 +239,10 @@
   </div>
 </template>
 <script>
-const ceo1 = require('../../assets/images/avatars/ceo-1.jpg');
-const ceo2 = require('../../assets/images/avatars/ceo-2.jpg');
-const ceo3 = require('../../assets/images/avatars/ceo-3.jpg');
+const ceo1 = require('../../assets/images/avatars/ceo-1.png');
+const ceo2 = require('../../assets/images/avatars/ceo-2.png');
+const ceo3 = require('../../assets/images/avatars/ceo-3.png');
+const ceo4 = require('../../assets/images/avatars/ceo-4.png');
 const adviser1 = require('../../assets/images/avatars/adviser-1.png');
 const adviser2 = require('../../assets/images/avatars/adviser-2.png');
 const adviser3 = require('../../assets/images/avatars/adviser-3.png');
@@ -346,6 +350,11 @@ export default {
         },
         {
           img: ceo3,
+          name: 'Gianluca Matrullo',
+          position: 'CMO'
+        },
+        {
+          img: ceo4,
           name: 'Simon Hemmrich',
           position: 'Senior Consultant'
         }
@@ -368,19 +377,61 @@ export default {
       },
       iconList: [],
       settings: {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 824,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      },
+      /*  settings: {
         variableWidth: true,
-        dots: false,
+        dots: true,
         infinite: true,
         centerMode: true,
-        initialSlide: 0,
         speed: 500,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
+        arrows: true,
+        slidesToShow: 4,
+        slidesToScroll: 4,
         swipe: true,
-        centerPadding: '20px'
-        // swipeToSlide: true
-      },
+        centerPadding: '20px',
+        swipeToSlide: true
+      }, */
       obj: {
         dots: true,
         infinite: false,
