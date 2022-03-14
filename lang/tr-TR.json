@@ -188,7 +188,7 @@
     "bass.cross": "IBAX ağındaki genel muhasebe temel düğümleri (CLB'ler), CLB performansını ve dağıtımını gerektiği gibi yapılandırma esnekliğiyle, çabanın tekrarılmadan, dış sistem verilerine kolayca erişmek ve bağlantılar oluşturmak veya verileri kendiniz işlemek ve biçimlendirmek için çapraz On-chain tasarlanmıştır.",
     "bass.transmission": "Çapraz zincir iletimi",
     "bass.promote": "Blockchain'ler arasında değer alışverişini teşvik edin",
-    "bass.sets": "cross-chain gerçek bir iletişim çözümü, yalnızca dijital varlıkların iletimi değil, aynı zamanda cross-chainnde zengin veri kümelerinin ve akıllı sözleşme işlemlerinin iletimi ve ayrıca dApp'ye özel verilerin, NFT'lerin iletimidir. , ve bunun gibi.",
+    "bass.sets": "Cross-chain gerçek bir iletişim çözümü, yalnızca dijital varlıkların iletimi değil, aynı zamanda cross-chainde zengin veri kümelerinin ve akıllı sözleşme işlemlerinin iletimi ve ayrıca dApp'ye özel verilerin, NFT'lerin iletimidir. , ve bunun gibi.",
     "feature.efficiency": "Performans, verimlilik ve güvenlik IBAX'in temelleridir",
     "feature.encryption": "Asimetrik şifreleme temelinde, fonların ve iletişimin güvenliğini sağlamak için P2P ağı ile birden çok iç içe şifreleme gerçekleştirilebilir.",
     "feature.network": "IBAX ağı yalnızca çeşitli blok zincirleri ve cross-chain varlıklarla etkileşime giremez, aynı zamanda düzenli CRM veri iletişimi etkileşimlerini tamamlamak için özel düğüm CLB ile işbirliği yapabilir.",
