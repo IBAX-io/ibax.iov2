@@ -110,6 +110,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../assets/js/public';
 export default {
   props: {},
   data() {
@@ -117,7 +118,7 @@ export default {
       arrHonor: [],
       objHonor: {
         type: 2,
-        language_type: 1
+        language: 'en'
       }
     };
   },
@@ -128,9 +129,16 @@ export default {
       );
     }
   },
-  watch: {},
+  watch: {
+    lang() {
+      this.objHonor.language = this.lang;
+      this.handleGithubTitleList(this.objRocrad);
+    }
+  },
   created() {},
   mounted() {
+    const lang = handleGetLang();
+    this.objHonor.language = lang;
     this.handleGithubTitleList(this.objHonor);
   },
   methods: {

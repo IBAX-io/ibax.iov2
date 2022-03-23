@@ -8,7 +8,7 @@
       ></i>
     </nuxt-link>
     <div class="m-nav-icon">
-      <div class="nav-right-dropdown" style="display: none">
+      <div class="nav-right-dropdown">
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             <i class="iconfont el-translate" :style="{ color: colorText }"></i>
@@ -115,7 +115,7 @@
           </el-collapse-item>
           <nuxt-link
             v-else
-            :key="item.key"
+            :key="item.title"
             :to="item.path"
             :style="{ color: colorText }"
             class="m-nav-aside-title-single"

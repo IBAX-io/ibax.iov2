@@ -158,13 +158,13 @@ export default {
         },
         page: 1,
         limit: 9,
-        language: 1
+        language: 'en'
       },
       pageParams: {
         total: 0,
         page: 1,
         limit: 10,
-        language: 1
+        language: 'en'
       },
       langType: 1,
       topParams: {
@@ -176,7 +176,7 @@ export default {
         istop: true,
         start_limit: 0,
         end_limit: 1,
-        language: 1
+        language: 'en'
       },
       arrNews: [],
       objTop: []
@@ -222,22 +222,21 @@ export default {
   computed: {},
   watch: {
     lang() {
-      const langType = this.handleGetLanguage(this.lang);
-      this.langType = langType;
-      this.params.language = langType;
+      console.log(this.lang);
+      this.langType = this.lang;
+      this.params.language = this.lang;
       this.handleNewsList(this.params);
-      this.topParams.language = langType;
+      this.topParams.language = this.lang;
       this.handleNewsIstop(this.topParams);
       this.handleNewsource(this.langType);
     }
   },
   created() {
     const lang = handleGetLang();
-    const langType = this.handleGetLanguage(lang);
-    this.langType = langType;
-    this.params.language = langType;
+    this.langType = lang;
+    this.params.language = lang;
     this.handleNewsList(this.params);
-    this.topParams.language = langType;
+    this.topParams.language = lang;
     this.handleNewsIstop(this.topParams);
     this.handleNewsource(this.langType);
   },

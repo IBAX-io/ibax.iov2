@@ -102,6 +102,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../assets/js/public';
 export default {
   layout: 'userLayouts',
   props: {},
@@ -112,6 +113,9 @@ export default {
       topVal: 0,
       isShow: 0,
       numHeight: 0,
+      statisParams: {
+        language: 'en'
+      },
       arrUserNav: [
         {
           title: 'personal.airdrop',
@@ -201,6 +205,10 @@ export default {
     }
   },
   watch: {
+    lang() {
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+    },
     $route: {
       handler(val, oldVal) {
         // console.log(val.name);
@@ -216,7 +224,9 @@ export default {
     this.handleRoute(path);
   },
   mounted() {
-    this.$store.dispatch('handleGetStatistics');
+    const lang = handleGetLang();
+    this.statisParams.language = lang;
+    this.$store.dispatch('handleGetStatistics', this.statisParams);
     if (this.token) {
       const str = localStorage.getItem('user');
       if (str === 'twitter') {

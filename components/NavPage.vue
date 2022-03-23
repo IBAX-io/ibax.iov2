@@ -55,7 +55,7 @@
                     </div>
                   </div>
                 </el-menu-item>
-                <el-menu-item v-else :key="item.key" class="el-menu-nav-item">
+                <el-menu-item v-else :key="item.title" class="el-menu-nav-item">
                   <a
                     :href="item.link"
                     target="_blank"
@@ -85,7 +85,7 @@
           </el-menu-item>
           <el-menu-item
             v-else
-            :key="items.path"
+            :key="items.title"
             :index="items.path"
             style="display: none"
           >
@@ -95,7 +95,7 @@
       </template>
     </el-menu>
     <div class="nav-right">
-      <div class="nav-right-dropdown" style="display: none">
+      <div class="nav-right-dropdown nav-right-lang">
         <!--   <div class="nav-right-dropdown"> -->
         <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">

@@ -6,10 +6,7 @@
           <nuxt-link to="/">
             <i class="iconfont el-logo1" style="color: #274235"></i>
           </nuxt-link>
-          <div
-            class="nav-right-dropdown about-left-box-icon-right"
-            style="display: none"
-          >
+          <div class="nav-right-dropdown about-left-box-icon-right">
             <el-dropdown @command="handleCommand">
               <span class="el-dropdown-link">
                 <i class="iconfont el-translate" style="color: #274235"></i>

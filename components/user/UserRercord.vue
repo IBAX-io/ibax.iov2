@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   props: {},
   data() {
@@ -64,13 +65,21 @@ export default {
       },
       objType: {},
       objLang: {
-        languageType: 1
+        language: 'en'
       }
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    lang() {
+      this.langType = this.lang;
+      this.objLang.language = this.lang;
+      this.handlePointRecord(this.objRocrad);
+    }
+  },
   created() {
+    const lang = handleGetLang();
+    this.objLang.language = lang;
     this.objRocrad.page = 1;
     this.handlePointRecord(this.objRocrad);
   },
@@ -109,9 +118,7 @@ export default {
     },
     async handleGetPointsType(params) {
       //  console.log(params);
-      const res = await this.$axios.$get(
-        `/get_points_type/${params.languageType}`
-      );
+      const res = await this.$axios.$get(`/get_points_type/${params.language}`);
       if (res.code === 0) {
         // console.log(res.data);
         this.objType = res.data;

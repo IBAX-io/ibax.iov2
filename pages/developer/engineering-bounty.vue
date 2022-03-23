@@ -530,6 +530,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   props: {},
   data() {
@@ -548,14 +549,14 @@ export default {
         limit: 5,
         order: 'id desc',
         type: 1,
-        language_type: 1
+        language: 'en'
       },
       objBugs: {
         page: 1,
         limit: 5,
         order: 'id desc',
         type: 2,
-        language_type: 1
+        language: 'en'
       },
       arrDiscussion: [],
       arrBugs: [],
@@ -566,7 +567,7 @@ export default {
         source: '',
         limit: 5,
         page: 1,
-        language_type: 1
+        language: 'en'
       },
       arrLeaderboard: [],
       leaderTotal: 1,
@@ -574,7 +575,7 @@ export default {
       objLeader: {},
       objHonor: {
         type: 1,
-        language_type: 1
+        language: 'en'
       }
     };
   },
@@ -634,6 +635,13 @@ export default {
     }
   },
   watch: {
+    lang() {
+      this.objBugs.language = this.lang;
+      this.objActivity.language = this.lang;
+      this.objHonor.language = this.lang;
+      this.objLead.language = this.lang;
+      this.handleGithubTitleList(this.objRocrad);
+    },
     arrBugs: {
       handler(val) {
         this.$nextTick(() => {
@@ -663,6 +671,11 @@ export default {
 
       this.objBugs.page = 1;
       this.handleGithubBugs(this.objBugs);
+      const lang = handleGetLang();
+      this.objBugs.language = lang;
+      this.objActivity.language = lang;
+      this.objHonor.language = lang;
+      this.objLead.language = lang;
       this.handleGithubTitleList(this.objHonor);
       const wow = new this.WOW({
         boxClass: 'wow',

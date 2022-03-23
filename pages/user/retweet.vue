@@ -89,6 +89,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   components: {},
   layout: 'newsLayouts',
@@ -122,7 +123,10 @@ export default {
       nowTime: 0,
       endTime: 0,
       timerSign: null,
-      strTime: ''
+      strTime: '',
+      statisParams: {
+        language: 'en'
+      }
     };
   },
   computed: {
@@ -132,11 +136,18 @@ export default {
       );
     }
   },
-  watch: {},
+  watch: {
+    lang() {
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+    }
+  },
   created() {},
   mounted() {
     this.handleGetForward(this.objForward);
     this.handleEndActivityTime();
+    const lang = handleGetLang();
+    this.statisParams.language = lang;
   },
   beforeDestroy() {
     clearTimeout(this.timerSign);
@@ -255,7 +266,10 @@ export default {
                     instance.confirmButtonLoading = false;
                     this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
-                    this.$store.dispatch('handleGetStatistics');
+                    this.$store.dispatch(
+                      'handleGetStatistics',
+                      this.statisParams
+                    );
                     this.$message({
                       showClose: true,
                       type: 'success',

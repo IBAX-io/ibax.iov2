@@ -128,6 +128,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   props: {},
   data() {
@@ -136,7 +137,7 @@ export default {
         page: 1,
         limit: 5,
         order: 'id desc',
-        language_type: 1
+        language: 'en'
       },
       arrBugs: [],
       bugsTotal: 1,
@@ -144,10 +145,17 @@ export default {
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    lang() {
+      this.objBugs.language = this.lang;
+      this.handleGithubBugs(this.objBugs);
+    }
+  },
   created() {},
   mounted() {
     this.objBugs.page = 1;
+    const lang = handleGetLang();
+    this.objBugs.language = lang;
     this.handleGithubBugs(this.objBugs);
   },
   methods: {

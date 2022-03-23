@@ -174,6 +174,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 const sign = require('../../assets/images/login/sign.png');
 const signNo = require('../../assets/images/login/sign-no.png');
 export default {
@@ -199,7 +200,10 @@ export default {
       nextCheckIn: 0,
       timerSign: null,
       isBubble: false,
-      points: 0
+      points: 0,
+      statisParams: {
+        language: 'en'
+      }
     };
   },
   computed: {
@@ -212,12 +216,19 @@ export default {
       return this.$store.getters.handleStatistics;
     }
   },
-  watch: {},
+  watch: {
+    lang() {
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+    }
+  },
   created() {},
   beforeDestroy() {
     clearTimeout(this.timerSign);
   },
   mounted() {
+    const lang = handleGetLang();
+    this.statisParams.language = lang;
     this.handleGetForward(this.objForward);
     this.handleSignStatus();
   },
@@ -240,7 +251,7 @@ export default {
             setTimeout(() => {
               this.isBubble = false;
             }, 2000);
-            this.$store.dispatch('handleGetStatistics');
+            this.$store.dispatch('handleGetStatistics', this.statisParams);
             this.handleSignStatus();
           }
         }, 1000);
@@ -330,7 +341,10 @@ export default {
                     instance.confirmButtonLoading = false;
                     this.objForward.page = 1;
                     this.handleGetForward(this.objForward);
-                    this.$store.dispatch('handleGetStatistics');
+                    this.$store.dispatch(
+                      'handleGetStatistics',
+                      this.statisParams
+                    );
                     this.$message({
                       showClose: true,
                       type: 'success',

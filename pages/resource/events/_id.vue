@@ -142,10 +142,10 @@ export default {
     return {
       obj: {
         email: '',
-        language_type: 1
+        language: 'en'
       },
       arrEvents: [],
-      langType: 1
+      langType: 'en'
     };
   },
   head() {
@@ -214,19 +214,15 @@ export default {
   computed: {},
   watch: {
     lang() {
-      const langType = this.handleGetLanguage(this.lang);
-      console.log(langType);
-      this.langType = langType;
-      this.obj.language_type = langType;
+      this.langType = this.lang;
+      this.obj.language = this.lang;
       this.handleArrEvents(this.langType);
     }
   },
   created() {
     const lang = handleGetLang();
-    const langType = this.handleGetLanguage(lang);
-    console.log(langType);
-    this.langType = langType;
-    this.obj.language_type = langType;
+    this.langType = lang;
+    this.obj.language = lang;
     this.handleArrEvents(this.langType);
   },
   mounted() {

@@ -219,7 +219,7 @@ export default {
   proxy: {
     '/api': {
       // target: 'https://testnet-us-34-86-177-19.ibax.io:9095',
-      target: 'http://192.168.1.191:8888',
+      target: 'http://192.168.1.194:8888',
       // target: 'https://ibax.io',
       changeOrigin: true,
       pathRewrite: {

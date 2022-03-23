@@ -110,6 +110,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   props: {},
   data() {
@@ -124,7 +125,10 @@ export default {
         account: '',
         blockId: 0
       },
-      statistics: {}
+      statistics: {},
+      statisParams: {
+        language: 'en'
+      }
     };
   },
   computed: {
@@ -135,13 +139,20 @@ export default {
       return this.$store.getters.handleStatistics;
     } */
   },
-  watch: {},
+  watch: {
+    lang() {
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+    }
+  },
   created() {
     // this.$store.dispatch('handleGetStatistics');
   },
   mounted() {
     this.handleGetHistoryStatistics();
     this.handleGetBlock();
+    const lang = handleGetLang();
+    this.statisParams.language = lang;
   },
   methods: {
     videoEndedIntroduce() {
@@ -206,7 +217,10 @@ export default {
                   instance.confirmButtonLoading = false;
                   instance.confirmButtonText = this.$t('personal.submit');
                   this.handleGetBlock();
-                  this.$store.dispatch('handleGetStatistics');
+                  this.$store.dispatch(
+                    'handleGetStatistics',
+                    this.statisParams
+                  );
                   this.$message({
                     showClose: true,
                     type: 'success',

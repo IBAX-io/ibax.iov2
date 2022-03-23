@@ -2,7 +2,7 @@ import { handleTokenCookie } from '../assets/js/public';
 export const state = () => ({
   headerColor: '#274235',
   color: '#fff',
-  locales: ['zh', 'en', 'tw'],
+  locales: ['zh-CN', 'en', 'zh-TW', 'tr-TR', 'fr', 'de'],
   lang: 'en',
   domClass: 'subMenu--horizontal',
   isTop: true,
@@ -107,10 +107,7 @@ export const actions = {
       handleTokenCookie('token', '', -1);
     }
   },
-  async handleGetStatistics({ commit }) {
-    const params = {
-      language_type: 1
-    };
+  async handleGetStatistics({ commit }, params) {
     const data = await this.$axios.$post('/tw/get_statistics', params);
     // console.log(res);
     if (data.code === 0) {
@@ -166,17 +163,14 @@ export const getters = {
   },
   handleColor(state) {
     const { color } = state;
-
     return color;
   },
   handlePopperClass(state) {
     const { domClass } = state;
-
     return domClass;
   },
   handleBoxShadow(state) {
     const { boxShadow } = state;
-
     return boxShadow;
   },
   handleIsTop(state) {

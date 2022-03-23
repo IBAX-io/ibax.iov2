@@ -116,11 +116,11 @@ export default {
     return {
       obj: {
         email: '',
-        language_type: 1
+        language: 1
       },
       objNews: '',
       arrNew: [],
-      langType: 1
+      langType: 'en'
     };
   },
   head() {
@@ -189,16 +189,16 @@ export default {
   computed: {},
   watch: {
     lang() {
-      const langType = this.handleGetLanguage(this.lang);
+      const langType = this.lang;
       this.langType = langType;
-      this.obj.language_type = langType;
+      this.obj.language = langType;
     }
   },
   created() {
     const lang = handleGetLang();
-    const langType = this.handleGetLanguage(lang);
+    const langType = lang;
     this.langType = langType;
-    this.obj.language_type = langType;
+    this.obj.language = langType;
     this.handleNewsrandow(this.langType);
   },
   mounted() {

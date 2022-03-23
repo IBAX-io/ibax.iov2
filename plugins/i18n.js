@@ -4,15 +4,21 @@ import zhCN from 'element-ui/lib/locale/lang/zh-CN';
 import zhTW from 'element-ui/lib/locale/lang/zh-TW';
 import zhBG from 'element-ui/lib/locale/lang/en';
 import frLocale from 'element-ui/lib/locale/lang/fr';
+import trLocale from 'element-ui/lib/locale/lang/tr-TR';
+import deLocale from 'element-ui/lib/locale/lang/de';
 import { handleGetLang } from '../assets/js/public.js';
 const en = require('@/lang/en-us.json');
 const zh = require('@/lang/zh-cn.json');
 const tw = require('@/lang/zh-tw.json');
-const french = require('@/lang/french.json');
+const fr = require('@/lang/french.json');
+const tr = require('@/lang/tr-TR.json');
+const ge = require('@/lang/german.json');
 const mergeZH = Object.assign({}, zhCN, zh);
 const mergeEN = Object.assign({}, zhBG, en);
 const mergeTW = Object.assign({}, zhTW, tw);
-const mergeFR = Object.assign({}, frLocale, french);
+const mergeFR = Object.assign({}, frLocale, fr);
+const mergeTR = Object.assign({}, trLocale, tr);
+const mergeDE = Object.assign({}, deLocale, ge);
 Vue.use(VueI18n);
 export default ({ app, store }) => {
   let strLang = handleGetLang();
@@ -26,9 +32,11 @@ export default ({ app, store }) => {
     fallbackLocale: strLang,
     messages: {
       en: mergeEN,
-      zh: mergeZH,
-      tw: mergeTW,
-      fr: mergeFR
+      'zh-CN': mergeZH,
+      'zh-TW': mergeTW,
+      fr: mergeFR,
+      'tr-TR': mergeTR,
+      de: mergeDE
     },
     silentTranslationWarn: true
   });

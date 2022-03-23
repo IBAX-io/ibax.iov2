@@ -28,6 +28,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   props: {},
   data() {
@@ -39,13 +40,23 @@ export default {
         page: 1,
         limit: 5,
         type: 1
+      },
+      statisParams: {
+        language: 'en'
       }
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    lang() {
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+    }
+  },
   created() {},
   mounted() {
+    const lang = handleGetLang();
+    this.statisParams.language = lang;
     this.handleGetFollow(this.objFollow);
   },
   methods: {
@@ -95,7 +106,10 @@ export default {
                     // done();
                     instance.confirmButtonLoading = false;
                     this.handleGetFollow(this.objFollow);
-                    this.$store.dispatch('handleGetStatistics');
+                    this.$store.dispatch(
+                      'handleGetStatistics',
+                      this.statisParams
+                    );
                     this.$emit('already');
                     this.$message({
                       showClose: true,

@@ -367,7 +367,7 @@ export default {
         limit: 9,
         type: 3,
         page: 1,
-        language: 1
+        language: 'en'
       },
       moreTotal: 1,
       bugsTotal: 1
@@ -414,7 +414,7 @@ export default {
   watch: {
     lang() {
       // console.log(this.lang);
-      const langType = this.handleGetLanguage(this.lang);
+      const langType = this.lang;
       this.langType = langType;
       this.firstParam.language = langType;
       this.secondParam.language = langType;
@@ -429,7 +429,7 @@ export default {
   },
   created() {
     const lang = handleGetLang();
-    const langType = this.handleGetLanguage(lang);
+    const langType = lang;
     this.langType = langType;
     this.firstParam.language = langType;
     this.secondParam.language = langType;

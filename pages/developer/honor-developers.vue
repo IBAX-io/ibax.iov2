@@ -63,6 +63,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public';
 export default {
   components: {},
   props: {},
@@ -75,9 +76,9 @@ export default {
       objLead: {
         type: 2,
         source: '',
-        limit: 1,
+        limit: 24,
         page: 1,
-        language_type: 1
+        language: 'en'
       },
       arrLeaderboard: [],
       leaderTotal: 1,
@@ -85,7 +86,7 @@ export default {
       objLeader: {},
       objHonor: {
         type: 2,
-        language_type: 1
+        language: 'en'
       }
     };
   },
@@ -138,8 +139,17 @@ export default {
     };
   },
   computed: {},
-  watch: {},
+  watch: {
+    lang() {
+      this.objHonor.language = this.lang;
+      this.objLead.language = this.lang;
+      this.handleGithubTitleList(this.objRocrad);
+    }
+  },
   created() {
+    const lang = handleGetLang();
+    this.objHonor.language = lang;
+    this.objLead.language = lang;
     this.handleGithubTitleList(this.objHonor);
   },
   mounted() {

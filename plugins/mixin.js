@@ -15,29 +15,37 @@ Vue.mixin({
           lang: 'en'
         },
         {
+          label: 'Deutsch',
+          lang: 'de'
+        },
+        {
           label: 'Français',
           lang: 'fr'
         },
         {
-          label: 'Español',
-          lang: 'es'
-        },
-        {
-          label: '简体中文',
-          lang: 'zh'
+          label: 'Türk',
+          lang: 'tr-TR'
         },
         {
           label: '繁體中文',
-          lang: 'tw'
+          lang: 'zh-TW'
         },
         {
+          label: '简体中文',
+          lang: 'zh-CN'
+        }
+        /* {
+          label: 'Español',
+          lang: 'es'
+        }, */
+        /* {
           label: '한국인',
           lang: 'sk'
         },
         {
           label: '日本語',
           lang: 'jp'
-        }
+        } */
       ],
       arrType: [
         {

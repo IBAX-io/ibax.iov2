@@ -252,6 +252,7 @@
 <script>
 import UserEmail from '../../components/user/UserEmail';
 import UserBindEmail from '../../components/user/UserBindEmail';
+import { handleGetLang } from '../../assets/js/public';
 export default {
   components: {
     UserEmail,
@@ -269,7 +270,7 @@ export default {
         limit: 5,
         order: 'id desc',
         type: 1,
-        language_type: 1
+        language: 'en'
       },
       arrDiscussion: [],
       isEmail: false,
@@ -285,6 +286,9 @@ export default {
       objFork: {
         link: 'https://github.com/IBAX-io/go-ibax/fork',
         target: '_blank'
+      },
+      statisParams: {
+        language: 'en'
       }
     };
   },
@@ -298,16 +302,27 @@ export default {
       return this.$store.getters.handleStatistics;
     }
   },
-  watch: {},
+  watch: {
+    lang() {
+      this.objActivity.language = this.lang;
+      this.statisParams.language = this.lang;
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
+      this.handleGithubActivity(this.objActivity);
+    }
+  },
   created() {},
   mounted() {
     this.$nextTick(() => {
+      console.log('=======');
       const w = this.$refs.userGithub.offsetWidth;
       console.log(w);
       this.$refs.userGithub.style.height = w * (600 / 1135) + 'px';
     });
     this.handleGithubInfo();
     this.objActivity.page = 1;
+    const lang = handleGetLang();
+    this.objActivity.language = lang;
+    this.statisParams.language = lang;
     this.handleGithubActivity(this.objActivity);
     this.$store.dispatch('handleGetTwitterUser');
   },
@@ -355,7 +370,10 @@ export default {
                   if (res.code === 0 && res.data.status) {
                     instance.confirmButtonLoading = false;
                     this.handleStatus();
-                    this.$store.dispatch('handleGetStatistics');
+                    this.$store.dispatch(
+                      'handleGetStatistics',
+                      this.statisParams
+                    );
                     this.$message({
                       showClose: true,
                       type: 'success',
@@ -426,7 +444,10 @@ export default {
                   if (res.code === 0 && res.data.status) {
                     instance.confirmButtonLoading = false;
                     this.handleStatus();
-                    this.$store.dispatch('handleGetStatistics');
+                    this.$store.dispatch(
+                      'handleGetStatistics',
+                      this.statisParams
+                    );
                     this.$message({
                       showClose: true,
                       type: 'success',
