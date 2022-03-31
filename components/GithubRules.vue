@@ -132,7 +132,7 @@ export default {
   watch: {
     lang() {
       this.objHonor.language = this.lang;
-      this.handleGithubTitleList(this.objRocrad);
+      this.handleGithubTitleList(this.objHonor);
     }
   },
   created() {},
