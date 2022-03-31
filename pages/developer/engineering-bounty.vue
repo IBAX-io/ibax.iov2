@@ -640,7 +640,7 @@ export default {
       this.objActivity.language = this.lang;
       this.objHonor.language = this.lang;
       this.objLead.language = this.lang;
-      this.handleGithubTitleList(this.objRocrad);
+      this.handleGithubTitleList(this.objHonor);
     },
     arrBugs: {
       handler(val) {
