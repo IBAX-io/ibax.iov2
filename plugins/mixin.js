@@ -11,28 +11,28 @@ Vue.mixin({
       baseUrl: 'https://ibax.io',
       arrLang: [
         {
-          label: 'English',
-          lang: 'en'
-        },
-        {
           label: 'Deutsch',
           lang: 'de'
+        },
+        {
+          label: 'English',
+          lang: 'en'
         },
         {
           label: 'Français',
           lang: 'fr'
         },
         {
-          label: 'Türk',
+          label: 'Türkçe',
           lang: 'tr-TR'
-        },
-        {
-          label: '繁體中文',
-          lang: 'zh-TW'
         },
         {
           label: '简体中文',
           lang: 'zh-CN'
+        },
+        {
+          label: '繁體中文',
+          lang: 'zh-TW'
         }
         /* {
           label: 'Español',
