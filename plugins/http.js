@@ -37,6 +37,7 @@ export default function ({ $axios, redirect, store }) {
     } else {
       return response;
     }
+    return response;
   });
   $axios.onError((error) => {
     console.log(error.response);

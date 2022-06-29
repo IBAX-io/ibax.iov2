@@ -1,5 +1,18 @@
 <template>
   <div class="user-receive">
+    <div class="user-commits-title">
+      <div class="user-commits-title-link" style="cursor: default">
+        <span class="user-commits-title-link-bull"></span>
+        <span>{{ $t('personal.result') }}</span>
+        <nuxt-link
+          :to="{ path: '/user/finish' }"
+          class="user-commits-title-link-rank"
+        >
+          {{ $t('personal.chec') }}
+        </nuxt-link>
+        <i class="el-icon-right"></i>
+      </div>
+    </div>
     <template v-if="binding.status && binding.blockId">
       <div class="user-receive-status">{{ $t('personal.bind') }}</div>
       <div class="user-receive-end">
@@ -25,14 +38,14 @@
     <p class="user-receive-text">
       <!--  {{ $t('personal.will') }} -->
     </p>
-    <div class="user-receive-data">
+    <!--  <div class="user-receive-data">
       {{ $t('personal.yourPoints') }}:
       {{ money_format(statistics.points_history) }}
       {{ $t('personal.poin') }}
-    </div>
+    </div> -->
     <div class="user-receive-data">
       {{ $t('personal.yourCoins') }}:
-      {{ money_format(statistics.invite_history) }}
+      {{ money_format(statistics.reward) }}
       IBXC
       <!-- {{ $t('personal.coin') }} -->
     </div>

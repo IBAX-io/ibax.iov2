@@ -304,16 +304,16 @@ export default {
   },
   watch: {
     lang() {
+      console.log(this.lang);
       this.objActivity.language = this.lang;
       this.statisParams.language = this.lang;
-      this.$store.dispatch('handleGetStatistics', this.statisParams);
       this.handleGithubActivity(this.objActivity);
+      this.$store.dispatch('handleGetStatistics', this.statisParams);
     }
   },
   created() {},
   mounted() {
     this.$nextTick(() => {
-      console.log('=======');
       const w = this.$refs.userGithub.offsetWidth;
       console.log(w);
       this.$refs.userGithub.style.height = w * (600 / 1135) + 'px';

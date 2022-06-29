@@ -18,7 +18,8 @@ export default function ({
     'user-rules',
     'user-share',
     'user-commits',
-    'user-github-rules'
+    'user-github-rules',
+    'user-finish'
   ];
   const arrFromName = [
     'user',
@@ -29,7 +30,8 @@ export default function ({
     'user-rules',
     'user-share',
     'user-commits',
-    'user-github-rules'
+    'user-github-rules',
+    'user-finish'
   ];
   const arrLogin = ['login'];
   //  current leave route

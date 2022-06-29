@@ -641,6 +641,8 @@ export default {
       this.objHonor.language = this.lang;
       this.objLead.language = this.lang;
       this.handleGithubTitleList(this.objHonor);
+      this.handleGithubActivity(this.objActivity);
+      this.handleGithubBugs(this.objBugs);
     },
     arrBugs: {
       handler(val) {
@@ -655,10 +657,7 @@ export default {
       deep: true
     }
   },
-  created() {
-    this.objActivity.page = 1;
-    this.handleGithubActivity(this.objActivity);
-  },
+  created() {},
   mounted() {
     const obj = { headerColor: '#274235', color: '#fff' };
     this.$store.commit('handleChangeColor', obj);
@@ -670,13 +669,15 @@ export default {
       this.$refs.bugsRight.style.height = heightLeft + 'px'; */
 
       this.objBugs.page = 1;
-      this.handleGithubBugs(this.objBugs);
+      this.objActivity.page = 1;
       const lang = handleGetLang();
       this.objBugs.language = lang;
       this.objActivity.language = lang;
       this.objHonor.language = lang;
       this.objLead.language = lang;
       this.handleGithubTitleList(this.objHonor);
+      this.handleGithubActivity(this.objActivity);
+      this.handleGithubBugs(this.objBugs);
       const wow = new this.WOW({
         boxClass: 'wow',
         animateClass: 'animated',

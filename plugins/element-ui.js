@@ -39,7 +39,9 @@ import {
   CollapseItem,
   Card,
   Form,
-  FormItem
+  FormItem,
+  Table,
+  TableColumn
 } from 'element-ui';
 
 Vue.use(Scrollbar);
@@ -79,6 +81,8 @@ Vue.use(TimelineItem);
 Vue.use(Card);
 Vue.use(Form);
 Vue.use(FormItem);
+Vue.use(Table);
+Vue.use(TableColumn);
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
 Vue.prototype.$alert = MessageBox.alert;

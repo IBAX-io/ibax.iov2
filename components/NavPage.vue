@@ -445,7 +445,8 @@ export default {
           'user-share',
           'user-redeem',
           'user-commits',
-          'login-rules'
+          'login-rules',
+          'user-end'
         ];
         const boo = arrIntercept.includes(name);
         //  console.log(name);

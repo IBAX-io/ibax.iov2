@@ -911,4 +911,19 @@
       }
     }
   }
+  &-finish {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    &-end {
+      margin: 0 5px;
+    }
+    &-table {
+      width: 100%;
+      margin: 30px 0;
+      .el-table {
+        font-size: 12px;
+      }
+    }
+  }
 }
