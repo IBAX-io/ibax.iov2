@@ -896,5 +896,6 @@
   "personal.inited": "<span class='user-commits-title-link-rank'> {person} </span>Freunde eingeladen",
   "personal.recoins": "Empfehlungs-Münzen",
   "personal.result": "Die IBAX-Airdrop-Kampagne ist beendet,",
-  "personal.chec": "überprüfen Sie das Liquidationsergebnis"
+  "personal.chec": "überprüfen Sie das Liquidationsergebnis",
+  "personal.number": "Empfehlungen"
 }

@@ -896,5 +896,6 @@
   "personal.inited": "<span class='user-commits-title-link-rank'> {person} </span>arkadaş davet etti",
   "personal.recoins": "Yönlendirme Paraları",
   "personal.result": "IBAX airdrop kampanyası sona erdi,",
-  "personal.chec": "tasfiye sonucunu kontrol edin"
+  "personal.chec": "tasfiye sonucunu kontrol edin",
+  "personal.number": "Referans"
 }

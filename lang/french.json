@@ -896,5 +896,6 @@
   "personal.inited": "Invité <span class='user-commits-title-link-rank'> {person} </span> amis",
   "personal.recoins": "Pièces de parrainage",
   "personal.result": "La campagne IBAX airdrop est terminée,",
-  "personal.chec": "vérifiez le résultat de la liquidation"
+  "personal.chec": "vérifiez le résultat de la liquidation",
+  "personal.number": "Parrainages"
 }
