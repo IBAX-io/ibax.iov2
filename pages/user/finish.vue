@@ -13,7 +13,7 @@
         <i class="el-icon-right"></i>
       </div>
     </div>
-    <div class="user-finish">
+    <div v-if="result" class="user-finish">
       <span>{{ $t('personal.getted') }}：</span>
       <span v-if="result.reward" class="user-commits-title-link-rank"
         >{{ result.reward.total }} IBXC</span
@@ -82,9 +82,14 @@
             <span v-if="scope.row.reward">{{ scope.row.reward.invite }}</span>
           </template>
         </el-table-column>
+        <el-table-column :label="$t('personal.number')">
+          <template slot-scope="scope">
+            <span>{{ scope.row.invite_number }}</span>
+          </template>
+        </el-table-column>
         <el-table-column :label="$t('personal.referr')">
           <template slot-scope="scope">
-            <span v-if="scope.row.reward">{{ scope.row.reward.invite }}</span>
+            <span v-if="scope.row.rank">{{ scope.row.rank.invite }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.rewards')">
@@ -156,11 +161,13 @@ export default {
     async handleGetAirdropResultList(params) {
       const res = await this.$axios.$post('/tw/airdrop_result_list', params);
       console.log(JSON.stringify(res));
-      if (res.code === 0) {
+      if (res.code === 0 && res.data.list) {
         this.tableData = res.data.list;
         this.pageNum.total = res.data.total;
         this.pageNum.page = res.data.page;
         this.pageNum.limit = res.data.limit;
+      } else {
+        this.tableData = [];
       }
     },
     handleChangePage(page) {

@@ -896,5 +896,6 @@
   "personal.inited": "Invited <span class='user-commits-title-link-rank'> {person} <span> friends",
   "personal.recoins": "Referral Coins",
   "personal.result": "IBAX airdrop campaign has ended, ",
-  "personal.chec": "check the liquidation result"
+  "personal.chec": "check the liquidation result",
+  "personal.number": "Referrals"
 }

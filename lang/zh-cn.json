@@ -896,5 +896,6 @@
   "personal.inited": "推荐好友<span class='user-commits-title-link-rank'> {person} </span>人",
   "personal.recoins": "推荐得币",
   "personal.result": "IBAX空投活动已结束，",
-  "personal.chec": "查看清算结果"
+  "personal.chec": "查看清算结果",
+  "personal.number": "推荐人数"
 }
