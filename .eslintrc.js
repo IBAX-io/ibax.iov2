@@ -16,6 +16,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/no-v-html': 0,
     'array-callback-return': 0,
-    'vue/valid-v-show': 0
+    'vue/valid-v-show': 0,
+    'no-sequences': 0
   }
 };

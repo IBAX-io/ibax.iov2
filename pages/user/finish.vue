@@ -62,9 +62,7 @@
         </el-table-column>
         <el-table-column prop="name" :label="$t('personal.poi')">
           <template slot-scope="scope">
-            <span v-if="scope.row.points_total">{{
-              scope.row.points_total
-            }}</span>
+            <span>{{ scope.row.points_total }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="`${$t('personal.red')}(IBXC)`">
