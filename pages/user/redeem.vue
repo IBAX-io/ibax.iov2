@@ -13,17 +13,17 @@
         <i class="el-icon-right"></i>
       </div>
     </div>
-    <template v-if="binding.status && binding.blockId">
+    <!--   <template >
       <div class="user-receive-status">{{ $t('personal.bind') }}</div>
-      <div class="user-receive-end">
+        <div class="user-receive-end">
         {{ $t('personal.process') }}
       </div>
-    </template>
-    <template v-else>
-      <div class="user-receive-status">{{ $t('personal.soon') }}</div>
-      <div class="user-receive-end">
+    </template> -->
+    <template v-if="!binding.status && !binding.blockId">
+      <!--  <div class="user-receive-status">{{ $t('personal.soon') }}</div> -->
+      <!-- <div class="user-receive-end">
         {{ $t('personal.ended') }}
-      </div>
+      </div> -->
       <div class="user-receive-top">
         <img
           src="@/assets/images/login/receive.png"
@@ -35,9 +35,9 @@
         }}</span>
       </div>
     </template>
-    <p class="user-receive-text">
-      <!--  {{ $t('personal.will') }} -->
-    </p>
+    <!--  <p class="user-receive-text">
+       {{ $t('personal.will') }}
+    </p> -->
     <!--  <div class="user-receive-data">
       {{ $t('personal.yourPoints') }}:
       {{ money_format(statistics.points_history) }}

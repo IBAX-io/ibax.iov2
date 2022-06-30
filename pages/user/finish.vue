@@ -16,27 +16,29 @@
     <div v-if="result" class="user-finish">
       <span>{{ $t('personal.getted') }}：</span>
       <span v-if="result.reward" class="user-commits-title-link-rank"
-        >{{ result.reward.total }} IBXC</span
+        >{{ money_format(result.reward.total) }} IBXC</span
       >
       <span>，{{ $t('personal.total') }}：</span>
       <span v-if="result.rank" class="user-commits-title-link-rank"
-        >{{ result.rank.total }}
+        >{{ money_format(result.rank.total) }}
       </span>
       <span class="user-finish-end">.</span>
       <span>{{ $t('personal.aird') }}：</span>
       <span class="user-commits-title-link-rank"
-        >{{ result.points_total }}
+        >{{ money_format(result.points_total) }}
       </span>
-      <span>，{{ $t('personal.coinns') }}：</span>
+      <span>. &nbsp;{{ $t('personal.coinns') }}：</span>
       <span v-if="result.reward" class="user-commits-title-link-rank"
-        >{{ result.reward.exchange }} IBXC，</span
+        >{{ money_format(result.reward.exchange) }} IBXC，</span
       >
       <div
-        v-html="$t('personal.inited', { person: result.invite_number })"
+        v-html="
+          $t('personal.inited', { person: money_format(result.invite_number) })
+        "
       ></div>
       <span>，{{ $t('personal.recoins') }}：</span>
       <span v-if="result.reward" class="user-commits-title-link-rank"
-        >{{ result.reward.invite }} IBXC</span
+        >{{ money_format(result.reward.invite) }} IBXC</span
       >
     </div>
     <div class="user-finish-table">
@@ -52,48 +54,60 @@
         </el-table-column>
         <el-table-column :label="$t('personal.overall')">
           <template slot-scope="scope">
-            <span v-if="scope.row.rank">{{ scope.row.rank.total }}</span>
+            <span v-if="scope.row.rank">{{
+              money_format(scope.row.rank.total)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.airdro')">
           <template slot-scope="scope">
-            <span v-if="scope.row.reward">{{ scope.row.reward.total }}</span>
+            <span v-if="scope.row.reward">{{
+              money_format(scope.row.reward.total)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="name" :label="$t('personal.poi')">
           <template slot-scope="scope">
-            <span>{{ scope.row.points_total }}</span>
+            <span>{{ money_format(scope.row.points_total) }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="`${$t('personal.red')}(IBXC)`">
           <template slot-scope="scope">
-            <span v-if="scope.row.reward">{{ scope.row.reward.exchange }}</span>
+            <span v-if="scope.row.reward">{{
+              money_format(scope.row.reward.exchange)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.ranks')">
           <template slot-scope="scope">
-            <span v-if="scope.row.rank">{{ scope.row.rank.points }}</span>
+            <span v-if="scope.row.rank">{{
+              money_format(scope.row.rank.points)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.bonus')">
           <template slot-scope="scope">
-            <span v-if="scope.row.reward">{{ scope.row.reward.invite }}</span>
+            <span v-if="scope.row.reward">{{
+              money_format(scope.row.reward.invite)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.number')">
           <template slot-scope="scope">
-            <span>{{ scope.row.invite_number }}</span>
+            <span>{{ money_format(scope.row.invite_number) }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.referr')">
           <template slot-scope="scope">
-            <span v-if="scope.row.rank">{{ scope.row.rank.invite }}</span>
+            <span v-if="scope.row.rank">{{
+              money_format(scope.row.rank.invite)
+            }}</span>
           </template>
         </el-table-column>
         <el-table-column :label="$t('personal.rewards')">
           <template slot-scope="scope">
             <span v-if="scope.row.reward">{{
-              scope.row.reward.invite_rank
+              money_format(scope.row.reward.invite_rank)
             }}</span>
           </template>
         </el-table-column>

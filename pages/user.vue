@@ -181,16 +181,16 @@ export default {
           rules: ['/user/airdrop-rules'],
           children: [
             {
-              title: 'personal.air',
-              path: '/user/airdrop-rules',
-              key: '4-1',
-              icon: 'iconfont el-a-Airdroprules'
-            },
-            {
               title: 'personal.finishend',
               path: '/user/finish',
               key: '4-2',
               icon: 'iconfont el-jieshu'
+            },
+            {
+              title: 'personal.air',
+              path: '/user/airdrop-rules',
+              key: '4-1',
+              icon: 'iconfont el-a-Airdroprules'
             }
           ]
         }
@@ -297,12 +297,12 @@ export default {
           this.topVal = '300px';
           this.isShow = 1;
           break;
-        case '/user/airdrop-rules':
+        case '/user/finish':
           this.heightVar = `400px`;
           this.topVal = '380px';
           this.isShow = 1;
           break;
-        case '/user/finish':
+        case '/user/airdrop-rules':
           this.heightVar = `100%`;
           this.topVal = '420px';
           this.isShow = 1;
