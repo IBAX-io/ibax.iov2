@@ -62,7 +62,7 @@
         </p>
         <a
           class="btn btn-primary"
-          :href="`${browserUrl}/transaction/${binding.hash}`"
+          :href="`${browserUrl}/blockchain/hash/${binding.hash}`"
           target="_blank"
         >
           <span>{{ $t('personal.view') }}</span>
