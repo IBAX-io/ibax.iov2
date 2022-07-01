@@ -100,10 +100,10 @@ Vue.mixin({
   created() {
     if (process.env.NUXT_ENV.MODE === 'dev') {
       this.baseUrl = 'http://192.168.1.192:8888';
-      this.browserUrl = 'https://node27.ibax.io:8810';
+      this.browserUrl = 'https://node23.ibax.io:8810';
     } else if (process.env.NUXT_ENV.MODE === 'test') {
       this.baseUrl = 'https://testnet-us-34-86-177-19.ibax.io';
-      this.browserUrl = 'https://node27.ibax.io:8810';
+      this.browserUrl = 'https://node23.ibax.io:8810';
     } else {
       this.baseUrl = 'https://ibax.io';
       this.browserUrl = 'https://scan.ibax.io';
