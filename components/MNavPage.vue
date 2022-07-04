@@ -535,7 +535,7 @@ export default {
                 }
               ]
             },
-            {
+            /*  {
               key: 'm-7-4',
               content: [
                 {
@@ -545,15 +545,21 @@ export default {
                   path: '/user/redeem'
                 }
               ]
-            },
+            }, */
             {
               title: 'personal.completed',
               key: 'm-7-5',
               content: [
                 {
+                  title: 'personal.finishend',
+                  path: '/user/finish',
+                  key: 'm-7-5-1',
+                  icon: 'iconfont el-jieshu'
+                },
+                {
                   title: 'personal.air',
                   path: '/user/airdrop-rules',
-                  key: 'm-7-5-1',
+                  key: 'm-7-5-2',
                   icon: 'iconfont el-a-Airdroprules'
                 }
               ]

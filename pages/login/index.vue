@@ -2,9 +2,9 @@
   <div id="login" class="login">
     <el-row type="flex" justify="space-between" class="el-row-wrap">
       <el-col v-if="isMobile" :xs="24" :lg="8">
-        <h6 class="title-h6 wow fadeInUp login-title">
+        <!--   <h6 class="title-h6 wow fadeInUp login-title">
           {{ $t('login.join') }}
-        </h6>
+        </h6> -->
         <div class="login-box">
           <p class="login-text wow fadeInUp">
             {{ $t('login.online') }}
@@ -28,7 +28,7 @@
         <p class="wow fadeInUp login-last">{{ $t('login.team') }}</p>
       </el-col>
       <el-col v-if="!isMobile" :xs="24" :sm="12" class="login-right">
-        <h6 class="title-h6 wow fadeInUp">{{ $t('login.join') }}</h6>
+        <!--  <h6 class="title-h6 wow fadeInUp">{{ $t('login.join') }}</h6> -->
         <div class="login-box">
           <p class="login-text wow fadeInUp">
             {{ $t('login.online') }}

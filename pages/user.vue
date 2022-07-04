@@ -168,12 +168,12 @@ export default {
           key: '2',
           rules: []
         },
-        {
+        /* {
           title: 'personal.geti',
           key: '3',
           path: '/user/redeem',
           rules: []
-        },
+        }, */
         {
           title: 'personal.completed',
           key: '4',

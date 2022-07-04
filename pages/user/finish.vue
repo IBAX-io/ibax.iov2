@@ -4,13 +4,13 @@
       <div class="user-commits-title-link" style="cursor: default">
         <span class="user-commits-title-link-bull"></span>
         <span>{{ $t('personal.mainnet') }}</span>
-        <nuxt-link
+        <!--  <nuxt-link
           :to="{ path: '/user/redeem' }"
           class="user-commits-title-link-rank"
         >
           {{ $t('personal.connect') }}
         </nuxt-link>
-        <i class="el-icon-right"></i>
+        <i class="el-icon-right"></i> -->
       </div>
     </div>
     <div v-if="result" class="user-finish">
