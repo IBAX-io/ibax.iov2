@@ -292,19 +292,19 @@ export default {
           this.topVal = '255px';
           this.isShow = 1;
           break;
-        case '/user/redeem':
+        /*   case '/user/redeem':
           this.heightVar = `325px`;
           this.topVal = '300px';
           this.isShow = 1;
-          break;
+          break; */
         case '/user/finish':
-          this.heightVar = `400px`;
-          this.topVal = '380px';
+          this.heightVar = `370px`;
+          this.topVal = '340px';
           this.isShow = 1;
           break;
         case '/user/airdrop-rules':
           this.heightVar = `100%`;
-          this.topVal = '420px';
+          this.topVal = '380px';
           this.isShow = 1;
           break;
         default:

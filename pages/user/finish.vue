@@ -132,7 +132,7 @@
         href="https://bit.ly/IBAXAirdropDistribution"
         target="_blank"
         class="btn btn-primary"
-        >{{ $t('personal.chec') }}</a
+        >{{ $t('personal.down') }}</a
       >
     </div>
   </div>
