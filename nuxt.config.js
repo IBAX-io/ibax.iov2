@@ -100,7 +100,8 @@ export default {
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: 'Secure and high performance blockchain infrastructure'
+        content:
+          'Secure and high performance Web 3.0 based blockchain infrastructure'
       },
       {
         hid: 'og:type',
@@ -116,7 +117,7 @@ export default {
         hid: 'keywords',
         name: 'keywords',
         content:
-          'IBAX, Crypto Currency, bitcoin, Cross-Chain, crypto, DeFi, Dapps,blockchain technology, corelayer technology, decentralized application, distributed ledger, IBAX AMA, blockChain BaaS, BaaS, blockchain as a service, mining, Web3.0, W3,blockchain, metaverse, DAO'
+          'IBAX, Crypto Currency, bitcoin, Cross-Chain, crypto, DeFi, Dapps,blockchain technology, corelayer technology, decentralized application, distributed ledger, IBAX AMA, blockChain BaaS, BaaS, blockchain as a service, mining, web3, web 3.0, W3,blockchain, metaverse, DAO'
       },
       {
         hid: 'description',
