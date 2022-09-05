@@ -572,15 +572,15 @@
   </div>
 </template>
 <script>
-const img1 = require('../assets/images/img/NFT.png');
-const img2 = require('../assets/images/img/mining.png');
-const img3 = require('../assets/images/img/distribution.png');
-const img4 = require('../assets/images/img/private.png');
-const img5 = require('../assets/images/img/foundation.png');
-const img6 = require('../assets/images/img/genesis.png');
-const img7 = require('../assets/images/img/team.png');
-const img8 = require('../assets/images/img/partners.png');
-const img9 = require('../assets/images/img/all.png');
+const img1 = require('../assets/images/img/1.png');
+const img2 = require('../assets/images/img/2.png');
+const img3 = require('../assets/images/img/3.png');
+const img4 = require('../assets/images/img/4.png');
+const img5 = require('../assets/images/img/5.png');
+const img6 = require('../assets/images/img/6.png');
+const img7 = require('../assets/images/img/7.png');
+const img8 = require('../assets/images/img/8.png');
+const img9 = require('../assets/images/img/9.png');
 const technology = require('../assets/images/technology.jpg');
 const videos = require('../assets/images/videos.jpg');
 const events = require('../assets/images/events.jpg');
@@ -608,7 +608,7 @@ export default {
           img: img2
         },
         {
-          label: 'home.fixed',
+          label: 'home.ieo',
           sort: 'c',
           img: img3
         },
@@ -671,8 +671,14 @@ export default {
       ],
       arrTags: [
         {
-          id: 4,
+          id: 3,
           label: 'home.private',
+          img: img3,
+          boo: false
+        },
+        {
+          id: 4,
+          label: 'home.ieo',
           img: img4,
           boo: false
         },
@@ -727,13 +733,13 @@ export default {
           label: 'home.min',
           img: img2,
           boo: false
-        },
-        {
+        }
+        /* {
           id: 3,
           label: 'home.fixed',
           img: img3,
           boo: false
-        }
+        } */
       ],
       arrText: [
         {
@@ -1103,7 +1109,7 @@ export default {
       } else if (obj.name === 'second') {
         this.arrShow = this.arrTags;
         const arrshow = this.arrShow.map((item) => {
-          if (item.id === 4) {
+          if (item.id === 3) {
             item.boo = true;
           } else {
             item.boo = false;
