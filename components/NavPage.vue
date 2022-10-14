@@ -279,7 +279,7 @@ export default {
                 {
                   title: 'resource.white',
                   icon: 'iconfont el-whitepaper',
-                  link: 'https://bit.ly/3pZHrj4',
+                  link: 'https://github.com/IBAX-io/whitepaper',
                   key: '3-1-2'
                 },
                 {

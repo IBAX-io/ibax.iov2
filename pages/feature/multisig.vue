@@ -21,7 +21,7 @@
               <!--  <p>{{ $t('bass.downloaded') }}</p> -->
               <p class="home-new-bottom animated fadeInUp">
                 <a
-                  href="https://weaver.ibax.io/"
+                  href="https://weaver.ibax.network/"
                   target="_blank"
                   class="btn btn-primary"
                   >{{ $t('high.start') }}</a

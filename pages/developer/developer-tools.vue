@@ -63,7 +63,7 @@
       </p>
       <div class="home-top-btn wow fadeInUp">
         <a
-          href="https://weaver.ibax.io/"
+          href="https://weaver.ibax.network/"
           target="_blank"
           class="btn btn-primary"
           >{{ $t('home.using') }}</a

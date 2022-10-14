@@ -165,7 +165,7 @@
         <el-col :xs="24" :lg="12" class="el-row-wrap">
           <h2 class="bass-h2 wow fadeInUp">
             <a
-              href="https://weaver.ibax.io"
+              href="https://weaver.ibax.network"
               target="_blank"
               style="color: #1f1f24"
             >
@@ -315,7 +315,7 @@
       <template #btn>
         <div class="btns-list solutions-btn">
           <a
-            href="https://weaver.ibax.io/"
+            href="https://weaver.ibax.network/"
             target="_blank"
             class="btn btn-primary"
             >{{ $t('footer.now') }}</a
@@ -369,14 +369,14 @@ export default {
           small: 'market.download'
         },
         {
-          url: 'https://weaver.ibax.io/',
+          url: 'https://weaver.ibax.network/',
           img: img2,
           title: 'market.management',
           content: 'market.Weaver',
           small: 'home.using'
         },
         {
-          url: 'https://weaver.ibax.io/',
+          url: 'https://weaver.ibax.network/',
           img: img3,
           title: 'market.information',
           content: 'market.tool',

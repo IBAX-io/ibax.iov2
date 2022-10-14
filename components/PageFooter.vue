@@ -158,7 +158,7 @@ export default {
         {
           title: 'resource.white',
           // path: '/resource/white-paper',
-          link: 'https://bit.ly/3pZHrj4',
+          link: 'https://github.com/IBAX-io/whitepaper',
           key: '2'
         },
         {
@@ -197,7 +197,7 @@ export default {
         },
         {
           title: 'resource.economic',
-          link: 'https://bit.ly/3Ek5vBM',
+          link: 'https://github.com/IBAX-io/whitepaper',
           key: '9'
         }
       ],

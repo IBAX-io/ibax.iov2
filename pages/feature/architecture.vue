@@ -12,7 +12,7 @@
               <p class="home-new-p animated fadeInUp">{{ $t('high.low') }}</p>
               <p class="home-new-bottom animated fadeIn">
                 <a
-                  href="https://weaver.ibax.io/"
+                  href="https://weaver.ibax.network/"
                   target="_blank"
                   class="btn btn-primary"
                   >{{ $t('high.start') }}</a

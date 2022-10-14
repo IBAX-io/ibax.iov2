@@ -93,7 +93,7 @@
           </div>
           <a
             class="home-new-bottom link personal-redeem-link"
-            href="https://weaver.ibax.io/"
+            href="https://weaver.ibax.network/"
             target="_blank"
           >
             <span class="personal-redeem-link-text">{{
