@@ -27,7 +27,7 @@
                     </p>
                     <div class="bass-top-box-content-btn animated fadeInUp">
                       <a
-                        href="https://weaver.ibax.io/"
+                        href="https://weaver.ibax.network/"
                         target="_blank"
                         class="btn btn-primary"
                         >{{ $t('bass.ecolog') }}</a
@@ -72,7 +72,7 @@
                     </p>
                     <div class="bass-top-box-content-btn animated fadeInUp">
                       <a
-                        href="https://weaver.ibax.io/"
+                        href="https://weaver.ibax.network/"
                         target="_blank"
                         class="btn btn-primary"
                       >
@@ -116,7 +116,7 @@
                     </p>
                     <div class="bass-top-box-content-btn animated fadeInUp">
                       <a
-                        href="https://weaver.ibax.io/"
+                        href="https://weaver.ibax.network/"
                         target="_blank"
                         class="btn btn-primary"
                       >
@@ -372,7 +372,7 @@
       <template #btn>
         <div class="btns-list solutions-btn">
           <a
-            href="https://weaver.ibax.io/"
+            href="https://weaver.ibax.network/"
             target="_blank"
             class="btn btn-primary"
             >{{ $t('footer.now') }}</a

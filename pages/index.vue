@@ -14,7 +14,7 @@
           </div>
           <div class="home-top-btn animated fadeInUp">
             <a
-              href="https://weaver.ibax.io/"
+              href="https://weaver.ibax.network/"
               target="_blank"
               class="btn btn-primary"
               >{{ $t('home.using') }}</a
@@ -248,7 +248,7 @@
                     {{ $t('home.matter') }}
                   </p>
                   <a
-                    href="https://bit.ly/3Ek5vBM"
+                    href="https://github.com/IBAX-io/whitepaper"
                     target="_blank"
                     class="home-new-bottom link"
                   >

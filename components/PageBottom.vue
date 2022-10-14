@@ -17,7 +17,7 @@
       <slot v-if="$slots.btn" name="btn"> </slot>
       <div v-else class="btns-list wow fadeInUp">
         <a
-          href="https://weaver.ibax.io/"
+          href="https://weaver.ibax.network/"
           target="_blank"
           class="btn btn-primary"
           >{{ $t('footer.now') }}</a

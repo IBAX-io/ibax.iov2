@@ -19,14 +19,14 @@
               </p>
               <p class="home-new-bottom wow fadeInUp">
                 <a
-                  href="https://weaver.ibax.io/"
+                  href="https://weaver.ibax.network/"
                   target="_blank"
                   class="btn btn-primary"
                   >{{ $t('solutions.watch') }}</a
                 >
                 <a
                   style="display: none"
-                  href="https://weaver.ibax.io/"
+                  href="https://weaver.ibax.network/"
                   target="_blank"
                   class="btn btn-default"
                   >{{ $t('nav.sign') }}</a

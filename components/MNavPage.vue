@@ -296,7 +296,7 @@ export default {
                 {
                   title: 'resource.white',
                   icon: 'iconfont el-whitepaper',
-                  link: 'https://bit.ly/3pZHrj4',
+                  link: 'https://github.com/IBAX-io/whitepaper',
                   key: 'm-3-1-2'
                 },
                 {
@@ -344,7 +344,7 @@ export default {
                 {
                   title: 'resource.economic',
                   icon: 'iconfont el-performance',
-                  link: 'https://bit.ly/3Ek5vBM',
+                  link: 'https://github.com/IBAX-io/whitepaper',
                   key: 'm-3-2-4'
                 }
               ]
