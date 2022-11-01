@@ -155,6 +155,21 @@ export default {
       {
         async: 'async',
         src: 'https://www.googletagmanager.com/gtag/js?id=G-3P74G75LD1'
+      },
+      {
+        charset: 'UTF-8',
+        id: 'LA_COLLECT',
+        src: '/plugins/js-sdk-pro.min.js'
+      },
+      {
+        charset: 'UTF-8',
+        id: 'LA_COLLECT_EVENT',
+        src: '/plugins/js-sdk-event.min.js'
+      },
+      {
+        charset: 'UTF-8',
+        id: 'LA_COLLECT_INIT',
+        src: '/plugins/sdkla.js'
       }
     ]
   },
@@ -169,6 +184,7 @@ export default {
     '@/plugins/http.js',
     '@/plugins/day.js',
     { src: '@/plugins/analytics.js', ssr: false },
+    { src: '@/plugins/sdkla.js', ssr: false },
     { src: '@/plugins/wow.js', ssr: false },
     { src: '@/plugins/vueSroll.js', ssr: false },
     { src: '@/plugins/vueP5.js', ssr: false },
