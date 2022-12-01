@@ -516,20 +516,47 @@
       margin: 30px auto;
       .notes {
         text-align: left;
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 20px;
       }
       .user-dialog-content .el-form-item {
         margin-bottom: 10px;
         padding-bottom: 0;
+        // border-bottom: 1px solid #37383c;
+        ::-webkit-input-placeholder {
+          /* Chrome/Opera/Safari */
+          font-size: 16px !important;
+        }
+        ::-moz-placeholder {
+          /* Firefox 19+ */
+          font-size: 16px !important;
+        }
+        :-ms-input-placeholder {
+          /* IE 10+ */
+          font-size: 16px !important;
+        }
+        :-moz-placeholder {
+          /* Firefox 18- */
+          font-size: 16px !important;
+        }
+        .el-input__prefix {
+          left: -5px;
+        }
+        .el-input__icon {
+          font-size: 20px;
+        }
       }
       .user-dialog-content .el-form-item__error {
         top: 40px;
+        font-size: 10px;
       }
       .user-dialog-content .el-input {
-        width: calc(100% - 130px);
+        width: calc(100% - 108px);
       }
       .btn-primary {
         padding: 10px;
-        min-width: 120px;
+        min-width: 100px;
         margin: 30px;
         background-color: #715df2;
       }

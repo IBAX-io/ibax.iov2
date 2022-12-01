@@ -100,7 +100,9 @@
                 clearable
                 :placeholder="$t('personal.bindEmail')"
                 style="width: 100%"
-              ></el-input>
+              >
+                <i slot="prefix" class="el-input__icon el-icon-message"></i>
+              </el-input>
             </el-form-item>
             <div class="notes">{{ $t('personal.startEmail') }}</div>
             <el-form-item label="" prop="code" class="user-dialog-content-item">
@@ -109,7 +111,12 @@
                 type="text"
                 autocomplete="off"
                 clearable
-              ></el-input>
+              >
+                <i
+                  slot="prefix"
+                  class="el-input__icon el-icon-chat-dot-round"
+                ></i>
+              </el-input>
               <button
                 type="button"
                 :disabled="isDisabl"
@@ -126,10 +133,15 @@
                 :disabled="binding.status"
                 :placeholder="$t('personal.your')"
                 style="width: 100%"
-              ></el-input>
+              >
+                <i
+                  slot="prefix"
+                  class="el-input__icon el-icon-delete-location"
+                ></i>
+              </el-input>
             </el-form-item>
             <div class="notes">{{ $t('personal.once') }}</div>
-            <el-form-item>
+            <el-form-item style="margin-top: 50px">
               <button
                 class="btn btn-primary"
                 :disabled="binding.status"
