@@ -561,6 +561,12 @@ export default {
                   path: '/user/airdrop-rules',
                   key: 'm-7-5-2',
                   icon: 'iconfont el-a-Airdroprules'
+                },
+                {
+                  title: 'personal.geti',
+                  icon: 'iconfont el-Success',
+                  key: 'm-7-5-3',
+                  path: '/user/redeem'
                 }
               ]
             }
