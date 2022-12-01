@@ -103,10 +103,10 @@ Vue.mixin({
       this.browserUrl = 'https://node23.ibax.io:8810';
     } else if (process.env.NUXT_ENV.MODE === 'test') {
       this.baseUrl = 'https://testnet-us-34-86-177-19.ibax.io';
-      this.browserUrl = 'https://node23.ibax.io:8810';
+      this.browserUrl = 'https://testscan.ibax.network';
     } else {
       this.baseUrl = 'https://ibax.io';
-      this.browserUrl = 'https://scan.ibax.io';
+      this.browserUrl = 'https://scan.ibax.network';
     }
   },
   mounted() {
@@ -131,7 +131,7 @@ Vue.mixin({
             //  console.log(serverTime);
             // console.log(this.dayjs.utc(serverTime).second());
             console.log(serverTime.valueOf());
-            /*  
+            /*
             console.log(new Date().valueOf()); */
             resolve(serverTime);
           } else {
@@ -217,6 +217,7 @@ Vue.mixin({
       this.$store.commit('handleChangeLang', val);
       this.$i18n.locale = val;
       handleSaveCookie('lang', { lang: val }, 365);
+      window.location.reload();
     },
     async handleSignOut(val) {
       if (val === 'out') {
@@ -270,13 +271,13 @@ Vue.mixin({
       }
       return str;
     },
-    /* og:type 
-    og:title 
-       og:description 
-       og:url 
-       og:image 
-       og:site_name 
-       og:videosrc Flas 
+    /* og:type
+    og:title
+       og:description
+       og:url
+       og:image
+       og:site_name
+       og:videosrc Flas
        og:audiosrc  */
     $seo(title, type, content, keyWord, author, robots, payload = []) {
       // console.log(robots);

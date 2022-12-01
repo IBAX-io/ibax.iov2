@@ -502,9 +502,31 @@
         margin-bottom: 0;
       }
     }
+    &-wrap {
+      // text-align: left;
+      &-change {
+        color: #715df2;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    }
     &-content {
       width: 50%;
       margin: 30px auto;
+      .notes {
+        text-align: left;
+      }
+      .user-dialog-content .el-form-item {
+        margin-bottom: 10px;
+        padding-bottom: 0;
+      }
+      .user-dialog-content .el-form-item__error {
+        top: 40px;
+      }
+      .user-dialog-content .el-input {
+        width: calc(100% - 130px);
+      }
       .btn-primary {
         padding: 10px;
         min-width: 120px;

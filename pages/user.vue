@@ -168,12 +168,6 @@ export default {
           key: '2',
           rules: []
         },
-        /* {
-          title: 'personal.geti',
-          key: '3',
-          path: '/user/redeem',
-          rules: []
-        }, */
         {
           title: 'personal.completed',
           key: '4',
@@ -191,6 +185,13 @@ export default {
               path: '/user/airdrop-rules',
               key: '4-1',
               icon: 'iconfont el-a-Airdroprules'
+            },
+            {
+              title: 'personal.geti',
+              key: '3',
+              path: '/user/redeem',
+              icon: 'iconfont el-code'
+              // rules: []
             }
           ]
         }
@@ -292,19 +293,19 @@ export default {
           this.topVal = '255px';
           this.isShow = 1;
           break;
-        /*   case '/user/redeem':
-          this.heightVar = `325px`;
-          this.topVal = '300px';
-          this.isShow = 1;
-          break; */
         case '/user/finish':
           this.heightVar = `370px`;
           this.topVal = '340px';
           this.isShow = 1;
           break;
         case '/user/airdrop-rules':
-          this.heightVar = `100%`;
+          this.heightVar = `410px`;
           this.topVal = '380px';
+          this.isShow = 1;
+          break;
+        case '/user/redeem':
+          this.heightVar = `100%`;
+          this.topVal = '420px';
           this.isShow = 1;
           break;
         default:

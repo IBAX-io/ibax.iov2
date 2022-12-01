@@ -58,7 +58,6 @@
         <div
           class="user-github-box-email"
           :style="{ color: userInfo.email ? '#707070' : '#715df2' }"
-          @click="handleEmail"
         >
           E
         </div>
@@ -121,7 +120,6 @@
       <div
         class="user-github-box-email"
         :style="{ color: userInfo.email ? '#707070' : '#715df2' }"
-        @click="handleEmail"
       >
         E
       </div>

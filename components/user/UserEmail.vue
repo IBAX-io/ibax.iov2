@@ -122,7 +122,10 @@ export default {
           if (res.code === 0) {
             this.$message({
               type: 'success',
-              message: 'success'
+              message: 'success',
+              onClose: () => {
+                window.location.reload();
+              }
             });
             this.$store.dispatch('handleGetTwitterUser');
             this.$refs.emailForm.resetFields();
