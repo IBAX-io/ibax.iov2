@@ -925,11 +925,22 @@ export default {
       wow.init();
     });
     this.domGlobal.addEventListener('scroll', this.handleScroll, true);
+    const fss = this.isEmailAvailable('1231.13rergmail.com');
+    console.log(fss);
   },
   destroyed() {
     this.domGlobal.removeEventListener('scroll', this.handleScroll, true);
   },
   methods: {
+    isEmailAvailable(obj) {
+      const email =
+        // eslint-disable-next-line no-useless-escape
+        /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+      if (!email.test(obj)) {
+        return false;
+      }
+      return true;
+    },
     handleScroll() {
       const scrollTop = this.domGlobal.scrollTop;
       const topHeight = document.getElementById('headerTop').offsetTop;

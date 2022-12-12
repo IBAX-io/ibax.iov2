@@ -192,7 +192,10 @@ export default {
   },
   props: {},
   data() {
-    const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    //  const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+    const reg =
+      // eslint-disable-next-line no-useless-escape
+      /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
     const validateEmail = (rule, value, callback) => {
       if (value === '') {
         callback(new Error(this.$t('personal.can')));
