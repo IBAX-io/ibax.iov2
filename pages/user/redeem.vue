@@ -173,7 +173,7 @@
             :resize="isResize"
             :fit-parent="isResize"
             :player-vars="playerVars"
-            video-id="kOWd-uIGwa4"
+            video-id="MAISPQB5By0"
             @ended="videoEndedIntroduce"
             @error="videoErrorIntroduce"
           ></youtube>
