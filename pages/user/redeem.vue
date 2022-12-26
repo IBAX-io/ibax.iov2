@@ -94,7 +94,7 @@
             <el-form-item label="" prop="email">
               <el-input
                 v-model="bindInfo.email"
-                type="text"
+                type="email"
                 :disabled="binding.status"
                 autocomplete="off"
                 clearable
@@ -196,6 +196,7 @@ export default {
     const reg =
       // eslint-disable-next-line no-useless-escape
       /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    // eslint-disable-next-line no-unused-vars
     const validateEmail = (rule, value, callback) => {
       if (value === '') {
         callback(new Error(this.$t('personal.can')));
@@ -251,7 +252,19 @@ export default {
         keyId: ''
       },
       emailrules: {
-        email: [{ required: true, validator: validateEmail, trigger: 'blur' }],
+        email: [
+          {
+            required: true,
+            message: this.$t('personal.can'),
+            trigger: 'blur'
+          },
+          {
+            required: true,
+            type: 'email',
+            message: this.$t('personal.enter'),
+            trigger: ['blur', 'change']
+          }
+        ],
         code: [{ required: true, validator: validateCode, trigger: 'blur' }],
         keyId: [{ required: true, validator: validateAddress, trigger: 'blur' }]
       }
