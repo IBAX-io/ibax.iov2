@@ -4,17 +4,17 @@
 
 ```bash
 # install dependencies
-$ pnpm install
+$ yarn install
 
 # serve with hot reload at localhost:3000
-$ pnpm  dev
+$ yarn dev
 
 # build for production and launch server
-$ pnpm  build
-$ pnpm  start
+$ yarn build
+$ yarn start
 
 # generate static project
-$ pnpm generate
+$ yarn generate
 
 # run Docker
 $ docker build -t ibax/ibaxiov2 -f Dockerfile .
