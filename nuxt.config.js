@@ -13,6 +13,7 @@ const plugins = [
 if (process.env.NODE_ENV !== 'production') {
   pattern = true;
 } else {
+  // @ts-ignore
   plugins.push('transform-remove-console');
   pattern = false;
 }
@@ -155,26 +156,11 @@ export default {
       {
         async: 'async',
         src: 'https://www.googletagmanager.com/gtag/js?id=G-3P74G75LD1'
-      },
-      {
-        charset: 'UTF-8',
-        id: 'LA_COLLECT',
-        src: '/plugins/js-sdk-pro.min.js'
-      },
-      {
-        charset: 'UTF-8',
-        id: 'LA_COLLECT_EVENT',
-        src: '/plugins/js-sdk-event.min.js'
-      },
-      {
-        charset: 'UTF-8',
-        id: 'LA_COLLECT_INIT',
-        src: '/plugins/sdkla.js'
       }
     ]
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['element-ui/lib/theme-chalk/display.css', '@/assets/sass/index.scss'],
+  css: ['element-ui/lib/theme-chalk/display.css', './assets/sass/index.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -184,7 +170,6 @@ export default {
     '@/plugins/http.js',
     '@/plugins/day.js',
     { src: '@/plugins/analytics.js', ssr: false },
-    { src: '@/plugins/sdkla.js', ssr: false },
     { src: '@/plugins/wow.js', ssr: false },
     { src: '@/plugins/vueSroll.js', ssr: false },
     { src: '@/plugins/vueP5.js', ssr: false },
@@ -222,8 +207,13 @@ export default {
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/sitemap',
-    'nuxt-client-init-module'
+    'nuxt-client-init-module',
+    'nuxtjs-microsoft-clarity'
   ],
+  microsoftClarity: {
+    // Options
+    id: 'hbev6h4dfq'
+  },
   sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

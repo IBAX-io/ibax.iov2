@@ -92,7 +92,7 @@
           <i class="iconfont el-discord"></i>
         </a>
       </div>
-      <div class="footer-icon-text">IBAX FOUNDATION © 2019 - 2022</div>
+      <div class="footer-icon-text">IBAX FOUNDATION © 2019 - {{ endTime }}</div>
     </div>
   </div>
 </template>
@@ -101,6 +101,7 @@ export default {
   props: {},
   data() {
     return {
+      endTime: '2022',
       arrFeature: [
         {
           title: 'nav.high',
@@ -266,7 +267,9 @@ export default {
   },
   computed: {},
   watch: {},
-  created() {},
+  created() {
+    this.endTime = new Date().getFullYear();
+  },
   mounted() {},
   methods: {}
 };
