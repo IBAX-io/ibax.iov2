@@ -4,21 +4,22 @@
 
 ```bash
 # install dependencies
-$ yarn install
+$ pnpm install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ pnpm  dev
 
 # build for production and launch server
-$ yarn build
-$ yarn start
+$ pnpm  build
+$ pnpm  start
 
 # generate static project
-$ yarn generate
+$ pnpm generate
 
 # run Docker
 $ docker build -t ibax/ibaxiov2 -f Dockerfile .
 $ docker run --name ibaxiov2 -d ibax/ibaxiov2
+$ docker-compose build --no-cache && docker-compose stop ibaxiov2 && docker-compose up  -d ibaxiov2
 
 ```
 
