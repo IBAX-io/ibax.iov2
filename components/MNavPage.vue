@@ -135,7 +135,10 @@
           class="nav-link-head"
           :style="{ color: colorText }"
         >
-          <img :src="userInfo.image_url" alt="head" />
+          <div style="display: flex; align-items: center">
+            <img src="@/assets/images/login/default.png" alt="head" />
+            <span style="margin-left: 10px">{{ userInfo.name }}</span>
+          </div>
         </nuxt-link>
         <div class="nav-link-head-out" @click="handleSignOut('out')">
           <i class="iconfont el-out"></i>
