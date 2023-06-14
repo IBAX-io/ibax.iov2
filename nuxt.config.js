@@ -170,6 +170,7 @@ export default {
     '@/plugins/http.js',
     '@/plugins/day.js',
     { src: '@/plugins/analytics.js', ssr: false },
+    // { src: '@/plugins/clarity.js', ssr: false },
     { src: '@/plugins/wow.js', ssr: false },
     { src: '@/plugins/vueSroll.js', ssr: false },
     { src: '@/plugins/vueP5.js', ssr: false },
@@ -212,13 +213,7 @@ export default {
   ],
   microsoftClarity: {
     // Options
-    id: 'hbev6h4dfq'
-  },
-  publicRuntimeConfig: {
-    microsoftClarity: {
-      // Options
-      id: 'hbev6h4dfq'
-    }
+    id: 'hberjxzdhk'
   },
   sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
