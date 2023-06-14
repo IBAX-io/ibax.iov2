@@ -122,7 +122,8 @@
             class="el-dropdown-span nav-link-head-box"
             :style="{ color: colorText }"
           >
-            <img :src="userInfo.image_url" alt="head" />
+            <!--   <img :src="userInfo.image_url" alt="head" /> -->
+            <img src="@/assets/images/login/default.png" alt="head" />
             <span>{{ userInfo.name }}</span>
           </div>
           <el-dropdown-menu slot="dropdown">
