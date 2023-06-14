@@ -214,6 +214,12 @@ export default {
     // Options
     id: 'hbev6h4dfq'
   },
+  publicRuntimeConfig: {
+    microsoftClarity: {
+      // Options
+      id: 'hbev6h4dfq'
+    }
+  },
   sitemap: !pattern ? sitemap : '',
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
