@@ -31,21 +31,21 @@ Vue.mixin({
           lang: 'zh-CN'
         },
         {
-          label: '繁體中文',
-          lang: 'zh-TW'
-        }
-        /* {
-          label: 'Español',
-          lang: 'es'
-        }, */
-        /* {
-          label: '한국인',
-          lang: 'sk'
+          label: 'Tiếng Việt',
+          lang: 'vi'
+        },
+        {
+          label: '한국어',
+          lang: 'ko'
         },
         {
           label: '日本語',
-          lang: 'jp'
-        } */
+          lang: 'ja'
+        },
+        {
+          label: '繁體中文',
+          lang: 'zh-TW'
+        }
       ],
       arrType: [
         {

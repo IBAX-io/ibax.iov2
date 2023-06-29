@@ -101,8 +101,7 @@ export default {
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content:
-          'Secure and high performance Web 3.0 based blockchain infrastructure'
+        content: 'Secure and high performance Web 3.0 blockchain infrastructure'
       },
       {
         hid: 'og:type',
