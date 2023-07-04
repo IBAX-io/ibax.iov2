@@ -167,6 +167,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../assets/js/public.js';
 export default {
   props: {},
   data() {
@@ -588,6 +589,13 @@ export default {
     } else {
       this.arrNavAll = this.arrNav;
     }
+    const html = document.getElementsByTagName('html');
+    //  console.log('🚀 ~ file: NavPage.vue:490 ~ mounted ~ html:', html[0]);
+    const val = handleGetLang();
+    const arr = ['ar', 'he'];
+    const isBoo = arr.includes(val);
+    console.log('🚀 ~ file: NavPage.vue:494 ~ mounted ~ isBoo:', isBoo);
+    html[0].style.direction = isBoo ? 'rtl' : '';
   },
   methods: {
     handleOpenNav() {

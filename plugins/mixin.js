@@ -11,8 +11,20 @@ Vue.mixin({
       baseUrl: 'https://ibax.io',
       arrLang: [
         {
-          label: 'Deutsch',
-          lang: 'de'
+          label: 'العربية',
+          lang: 'ar'
+        },
+        {
+          label: 'বাংলা',
+          lang: 'bn'
+        },
+        {
+          label: '简体中文',
+          lang: 'zh-CN'
+        },
+        {
+          label: '繁體中文',
+          lang: 'zh-TW'
         },
         {
           label: 'English',
@@ -23,28 +35,33 @@ Vue.mixin({
           lang: 'fr'
         },
         {
-          label: 'Türkçe',
-          lang: 'tr-TR'
+          label: 'Deutsch',
+          lang: 'de'
         },
         {
-          label: '简体中文',
-          lang: 'zh-CN'
-        },
-        {
-          label: 'Tiếng Việt',
-          lang: 'vi'
-        },
-        {
-          label: '한국어',
-          lang: 'ko'
+          label: 'עִבְרִית',
+          lang: 'he'
         },
         {
           label: '日本語',
           lang: 'ja'
         },
         {
-          label: '繁體中文',
-          lang: 'zh-TW'
+          label: '한국어',
+          lang: 'ko'
+        },
+        {
+          label: 'Español',
+          lang: 'es'
+        },
+        {
+          label: 'Türkçe',
+          lang: 'tr-TR'
+        },
+
+        {
+          label: 'Tiếng Việt',
+          lang: 'vi'
         }
       ],
       arrType: [

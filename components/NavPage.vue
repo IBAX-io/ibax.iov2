@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <div :class="{ nav: isTop, 'nav-white': !isTop }">
     <div class="nav-index">
       <nuxt-link :to="{ name: 'index' }">
@@ -486,6 +486,13 @@ export default {
         this.$store.dispatch('handleGetGithubUser');
       }
     }
+    const html = document.getElementsByTagName('html');
+    //  console.log('🚀 ~ file: NavPage.vue:490 ~ mounted ~ html:', html[0]);
+    const val = handleGetLang();
+    const arr = ['ar', 'he'];
+    const isBoo = arr.includes(val);
+    console.log('🚀 ~ file: NavPage.vue:494 ~ mounted ~ isBoo:', isBoo);
+    html[0].style.direction = isBoo ? 'rtl' : '';
   },
   methods: {
     handleSelect(path, keyPath) {
