@@ -18,25 +18,25 @@
   text-transform: capitalize;
 }
 .title-h1-plus {
-  font-size: 90px;
+  font-size: 80px;
   line-height: 1.067;
   margin: 0;
   padding-bottom: 34px;
   text-transform: capitalize;
 }
 .title-h2 {
-  font-size: 50px;
+  font-size: 40px;
   //  font-size: 70px;
   line-height: 1.0625;
   text-transform: capitalize;
 }
 .title-h2-plus {
-  font-size: 50px;
+  font-size: 40px;
   line-height: 1.0625;
   margin-bottom: 24px;
 }
 .title-h3 {
-  font-size: 50px;
+  font-size: 30px;
   line-height: 1.127;
   text-transform: capitalize;
 }
@@ -72,7 +72,7 @@
   margin-bottom: 100px;
   &-text {
     text-transform: uppercase;
-    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    font: 700 16px/2 'Apercu Mono', 'Helvetica Neue', Helvetica, sans-serif;
     letter-spacing: 0.1em;
   }
 }
@@ -284,11 +284,17 @@
     background-color: $primary-color;
     opacity: 1;
   }
-  .el-carousel .el-carousel__indicators--outside .el-carousel__indicator.is-active button {
+  .el-carousel
+    .el-carousel__indicators--outside
+    .el-carousel__indicator.is-active
+    button {
     background-color: #f3ac34;
     opacity: 1;
   }
-  .el-carousel .el-carousel__indicators--outside .el-carousel__indicator:hover button {
+  .el-carousel
+    .el-carousel__indicators--outside
+    .el-carousel__indicator:hover
+    button {
     background-color: #f3ac34;
     opacity: 1;
   }
@@ -657,7 +663,7 @@
   }
   .col-r-learn {
     color: #7856ff;
-    font: 500 16px/1 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+    font: 500 16px/1 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
     display: flex;
     align-items: center;
     .el-icon-right {
@@ -714,7 +720,7 @@
     }
   }
   .section-impact .impact .data .no {
-    font: 700 55px/1.127 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+    font: 700 55px/1.127 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
   }
   .partners-carousel {
     .el-carousel .el-carousel__container {

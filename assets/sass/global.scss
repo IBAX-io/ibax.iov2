@@ -38,7 +38,7 @@ q::before,
 q::after,
 blockquote::before,
 blockquote::after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -82,22 +82,26 @@ summary {
   font-style: italic;
 } */
 @font-face {
-  font-family: "Untitled Sans Regular";
-  src: url("./font/Untitled Sans Regular/Untitled Sans Regular.eot") format("truetype");
-  src: url("./font/Untitled Sans Regular/Untitled Sans Regular.woff2") format("woff2"),
-    url("./font/Untitled Sans Regular/Untitled Sans Regular.woff") format("woff"),
-    url("./font/Untitled Sans Regular/Untitled Sans Regular.ttf") format("truetype"),
-    url("./font/Untitled Sans Regular/Untitled Sans Regular.svg") format("svg");
+  font-family: 'Untitled Sans Regular';
+  src: url('./font/Untitled Sans Regular/Untitled Sans Regular.eot')
+    format('truetype');
+  src: url('./font/Untitled Sans Regular/Untitled Sans Regular.woff2')
+      format('woff2'),
+    url('./font/Untitled Sans Regular/Untitled Sans Regular.woff')
+      format('woff'),
+    url('./font/Untitled Sans Regular/Untitled Sans Regular.ttf')
+      format('truetype'),
+    url('./font/Untitled Sans Regular/Untitled Sans Regular.svg') format('svg');
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: "Untitled Sans Light";
-  src: url("./font/Untitled Sans/Untitled Sans Light.eot") format("truetype");
-  src: url("./font/Untitled Sans/Untitled Sans Light.woff2") format("woff2"),
-    url("./font/Untitled Sans/Untitled Sans Light.woff") format("woff"),
-    url("./font/Untitled Sans/Untitled Sans Light.ttf") format("truetype"),
-    url("./font/Untitled Sans/Untitled Sans Light.svg") format("svg");
+  font-family: 'Untitled Sans Light';
+  src: url('./font/Untitled Sans/Untitled Sans Light.eot') format('truetype');
+  src: url('./font/Untitled Sans/Untitled Sans Light.woff2') format('woff2'),
+    url('./font/Untitled Sans/Untitled Sans Light.woff') format('woff'),
+    url('./font/Untitled Sans/Untitled Sans Light.ttf') format('truetype'),
+    url('./font/Untitled Sans/Untitled Sans Light.svg') format('svg');
 }
 .h,
 .h1,
@@ -113,7 +117,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
   font-weight: 700;
   margin: 0 0 0.5em;
   color: inherit;
@@ -128,15 +132,21 @@ h2 {
 img {
   width: 100%;
 }
+::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
 html,
 body,
 #__nuxt {
-  font: 18px/1.778 "Untitled Sans Regular", "Helvetica Neue", Helvetica, sans-serif;
+  font: 18px/1.778 'Untitled Sans Regular', 'Helvetica Neue', Helvetica,
+    sans-serif;
   // background-color: #1f1f24;
   // background-color: $primary-color;
   color: #fff;
   height: 100%;
   letter-spacing: -0.03em;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 p {
   margin: 0 0 1em;
@@ -183,7 +193,7 @@ p {
     font-size: 20px;
   }
   &-h6 {
-    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    font: 700 16px/2 'Apercu Mono', 'Helvetica Neue', Helvetica, sans-serif;
     letter-spacing: 0.1em;
   }
   .global-fixed {
@@ -200,14 +210,16 @@ p {
       border-radius: 16px;
       padding: 14px 20px;
       border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 0 0 2px rgb(0 0 0 / 80%), 0 4px 12px rgb(0 0 0 / 36%), inset 0 0 0 0.5px rgb(237 237 237 / 36%);
+      box-shadow: 0 0 2px rgb(0 0 0 / 80%), 0 4px 12px rgb(0 0 0 / 36%),
+        inset 0 0 0 0.5px rgb(237 237 237 / 36%);
       background-color: $primary-color;
     }
     .global-fixed-white {
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 16px;
       padding: 14px 20px;
-      box-shadow: inset 0 0 0 0.5px rgb(114 111 111 / 20%), 0 0 15px rgb(0 0 0 / 5%);
+      box-shadow: inset 0 0 0 0.5px rgb(114 111 111 / 20%),
+        0 0 15px rgb(0 0 0 / 5%);
       background-color: #fff;
     }
     /* moblie */
@@ -262,7 +274,7 @@ p {
   .subtitle {
     display: block;
     text-transform: uppercase;
-    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    font: 700 16px/2 'Apercu Mono', 'Helvetica Neue', Helvetica, sans-serif;
     letter-spacing: 0.1em;
     position: relative;
     margin-bottom: 14px;
@@ -275,7 +287,7 @@ p {
 .btn {
   cursor: pointer;
   display: inline-block;
-  font: 500 16px/1 "Apercu Pro", "Helvetica Neue", "Helvetica", sans-serif;
+  font: 500 16px/1 'Apercu Pro', 'Helvetica Neue', 'Helvetica', sans-serif;
   padding: 16px 26px;
   text-align: center;
   border-radius: 8px;
@@ -299,7 +311,7 @@ p {
       background-color: #fcfcfc;
     }
   }
-  &[disabled="disabled"] {
+  &[disabled='disabled'] {
     background-color: rgb(236, 245, 255, 0.5);
     cursor: not-allowed;
     color: rgba($color: #1e1e1e, $alpha: 0.5);
@@ -327,7 +339,7 @@ p {
   border-top: 1px solid #e0e3ed;
   .title-h6 {
     color: #1f1f24;
-    font: 700 13px/1.3 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+    font: 700 13px/1.3 'Apercu Mono', 'Helvetica Neue', Helvetica, sans-serif;
     margin-bottom: 30px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -379,16 +391,16 @@ p {
   padding: 20px !important;
   border-radius: 14px !important;
 }
-.el-dropdown-menu.el-popper[x-placement^="bottom"] .popper__arrow {
+.el-dropdown-menu.el-popper[x-placement^='bottom'] .popper__arrow {
   border-bottom-color: #8f8989 !important;
 }
-.el-dropdown-menu.el-popper[x-placement^="bottom"] .popper__arrow::after {
+.el-dropdown-menu.el-popper[x-placement^='bottom'] .popper__arrow::after {
   border-bottom-color: $primary-color !important;
 }
 
 .link {
   transition: color 0.1s ease-out;
-  font: 700 18px/1.3 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font: 700 18px/1.3 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
   color: $btn-color;
   position: relative;
   &:hover {
@@ -397,7 +409,7 @@ p {
 }
 .blue {
   transition: color 0.1s ease-out;
-  font: 700 18px/1.3 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+  font: 700 18px/1.3 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
   color: $primary-color;
   position: relative;
   &:hover {
@@ -435,7 +447,7 @@ p {
     top: 0;
     z-index: 10;
     height: 100%;
-    background: url("/video/poster.jpg") no-repeat center;
+    background: url('/video/poster.jpg') no-repeat center;
     background-size: 100% 100%;
     img {
       width: 80px;
