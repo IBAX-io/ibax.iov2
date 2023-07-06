@@ -19,28 +19,32 @@ Vue.mixin({
           lang: 'bn'
         },
         {
-          label: '简体中文',
-          lang: 'zh-CN'
-        },
-        {
-          label: '繁體中文',
-          lang: 'zh-TW'
+          label: 'Deutsch',
+          lang: 'de'
         },
         {
           label: 'English',
           lang: 'en'
         },
         {
+          label: 'Español',
+          lang: 'es'
+        },
+        {
           label: 'Français',
           lang: 'fr'
         },
         {
-          label: 'Deutsch',
-          lang: 'de'
-        },
-        {
           label: 'עִבְרִית',
           lang: 'he'
+        },
+        {
+          label: 'Türkçe',
+          lang: 'tr-TR'
+        },
+        {
+          label: 'Tiếng Việt',
+          lang: 'vi'
         },
         {
           label: '日本語',
@@ -51,17 +55,12 @@ Vue.mixin({
           lang: 'ko'
         },
         {
-          label: 'Español',
-          lang: 'es'
+          label: '简体中文',
+          lang: 'zh-CN'
         },
         {
-          label: 'Türkçe',
-          lang: 'tr-TR'
-        },
-
-        {
-          label: 'Tiếng Việt',
-          lang: 'vi'
+          label: '繁體中文',
+          lang: 'zh-TW'
         }
       ],
       arrType: [
