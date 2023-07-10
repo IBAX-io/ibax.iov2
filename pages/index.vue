@@ -4,7 +4,10 @@
       <el-row type="flex" justify="center">
         <el-col :xs="24" :sm="22" :md="20" :lg="18">
           <div class="home-top">
-            <h1 class="title-h1-plus animated fadeInUp">
+            <h1
+              class="title-h1-plus animated fadeInUp"
+              style="line-height: 1.5"
+            >
               {{ $t('home.start') }}
             </h1>
             <p class="p-lead animated fadeInUp">{{ $t('home.performance') }}</p>

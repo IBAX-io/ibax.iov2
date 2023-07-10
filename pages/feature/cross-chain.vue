@@ -183,7 +183,7 @@
                 </p>
               </el-col>
               <el-col :xs="24" :lg="11">
-                <div class="home-tag wow fadeInUp">
+                <div class="home-tag wow fadeInUp home-tag-tabs">
                   <el-tabs v-model="activeName" :tab-position="tabPosition">
                     <el-tab-pane
                       v-for="item in arrTags"

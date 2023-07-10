@@ -24,11 +24,11 @@
           </div>
         </div>
         <div class="about-left-box-head">
-          <img
+          <!--  <img
             class="icon"
             src="https://px6vg4ekvl21gtxs836x5jyx-wpengine.netdna-ssl.com/wp-content/uploads/2020/11/ico-contact.svg"
             alt=""
-          />
+          /> -->
           <span>{{ $t('about.contact') }}</span>
         </div>
         <h1 class="title-h4">{{ $t('about.can') }}</h1>
@@ -110,6 +110,7 @@
   </div>
 </template>
 <script>
+import { handleGetLang } from '../../assets/js/public.js';
 export default {
   layout: 'aboutLayouts',
   props: {},
@@ -173,7 +174,15 @@ export default {
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    const html = document.getElementsByTagName('html');
+    //  console.log('🚀 ~ file: NavPage.vue:490 ~ mounted ~ html:', html[0]);
+    const val = handleGetLang();
+    const arr = ['ar', 'he'];
+    const isBoo = arr.includes(val);
+    console.log('🚀 ~ file: NavPage.vue:494 ~ mounted ~ isBoo:', isBoo);
+    html[0].style.direction = isBoo ? 'rtl' : '';
+  },
   methods: {
     async handleSend() {
       if (this.params.message === '') {

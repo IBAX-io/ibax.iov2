@@ -19,7 +19,7 @@
                     }}</span>
                   </div>
                   <div class="bass-top-box-content">
-                    <h2 class="bass-h2 animated fadeInUp">
+                    <h2 class="bass-h4 animated fadeInUp">
                       {{ $t('bass.ecology') }}
                     </h2>
                     <p class="bass-top-box-content-text animated fadeInUp">
@@ -64,7 +64,7 @@
                     }}</span>
                   </div>
                   <div class="bass-top-box-content">
-                    <h2 class="bass-h2 animated fadeInUp">
+                    <h2 class="bass-h4 animated fadeInUp">
                       {{ $t('bass.issue') }}
                     </h2>
                     <p class="bass-top-box-content-text animated fadeInUp">
@@ -108,7 +108,7 @@
                     <span>{{ $t('bass.smart') }}</span>
                   </div>
                   <div class="bass-top-box-content">
-                    <h2 class="bass-h2 animated fadeInUp">
+                    <h2 class="bass-h4 animated fadeInUp">
                       {{ $t('bass.contract') }}
                     </h2>
                     <p class="bass-top-box-content-text animated fadeInUp">
