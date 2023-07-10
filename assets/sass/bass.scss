@@ -22,10 +22,10 @@
     text-align: center;
     margin-bottom: 80px;
     display: block;
-    font: 700 16px/2 "Apercu Mono", "Helvetica Neue", "Helvetica", sans-serif;
+    font: 700 16px/2 'Apercu Mono', 'Helvetica Neue', 'Helvetica', sans-serif;
     letter-spacing: 0.1em;
     &-text {
-      font-family: "Apercu Pro", "Helvetica Neue", "Helvetica", sans-serif;
+      font-family: 'Apercu Pro', 'Helvetica Neue', 'Helvetica', sans-serif;
       text-transform: uppercase;
       font-size: 14px;
       letter-spacing: 2.62px;
@@ -55,7 +55,8 @@
       &-title {
         background: #335646;
         border-radius: 7px 7px 0 0;
-        font: 700 16px/1 "Apercu Mono", "Helvetica Neue", "Helvetica", sans-serif;
+        font: 700 16px/1 'Apercu Mono', 'Helvetica Neue', 'Helvetica',
+          sans-serif;
         padding: 14px 12px 10px;
         text-align: center;
         letter-spacing: 1.5px;
@@ -157,6 +158,7 @@
     &-icon {
       font-size: 60px;
       margin-right: 20px;
+      margin-left: 20px;
     }
     &-bottom {
       padding: 0 38px 37px;
@@ -191,7 +193,8 @@
     }
     &-img {
       height: 20px;
-      background: url("../../assets/images/grad-color.png") 0 0/100% 100% no-repeat;
+      background: url('../../assets/images/grad-color.png') 0 0/100% 100%
+        no-repeat;
     }
     &-text {
       text-align: center;
@@ -239,7 +242,8 @@
         overflow: hidden;
         margin-bottom: 25px;
         transition: box-shadow 0.3s ease-in-out;
-        transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out,
+          -webkit-box-shadow 0.3s ease-in-out;
         position: relative;
         &:hover {
           box-shadow: 0 0 10px rgb(0 0 0 / 20%);

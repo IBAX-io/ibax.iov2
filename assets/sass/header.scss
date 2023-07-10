@@ -50,6 +50,7 @@
   }
   &-index {
     width: 106px;
+    margin-left: 10px;
     &-img {
       width: 65px;
     }
@@ -109,7 +110,8 @@
           }
         }
         &-img {
-          width: 25px;
+          // width: 25px;
+          margin-left: 10px;
           img {
             width: 100%;
           }
@@ -249,7 +251,7 @@
   font-weight: 500;
   font-size: 18px;
   &-middle {
-    margin-right: 30px;
+    margin: 0 30px;
   }
 }
 .el-menu--horizontal .nav-child .el-menu-item.is-active {
@@ -283,9 +285,6 @@
   .btn-primary {
     text-align: center;
     min-width: 120px;
-  }
-  &-lang {
-    margin-right: 30px;
   }
 }
 .nuxt-link-exact-active {
@@ -397,7 +396,7 @@ a.nav-active-link {
     display: flex;
     align-items: center;
     .nav-right-dropdown {
-      margin-right: 20px;
+      margin: 0 20px;
       margin-top: 0;
     }
   }
@@ -467,6 +466,7 @@ a.nav-active-link {
         font-weight: 700;
         height: 50px;
         line-height: 50px;
+        margin: 0 20px;
       }
     }
     &-box {
@@ -516,7 +516,6 @@ a.nav-active-link {
   }
   .el-collapse {
     width: 100%;
-    padding: 0 25px;
     border-top: none;
     border-bottom: none;
     height: 100%;
@@ -525,6 +524,7 @@ a.nav-active-link {
     position: relative;
     .el-collapse-item {
       border-bottom: 2px solid rgba(252, 252, 252, 0.1);
+      margin: 0 20px;
     }
     .el-collapse-item__header {
       background-color: transparent;
@@ -572,7 +572,7 @@ a.nav-active-link {
         }
         &-out {
           display: flex;
-          margin-right: 25px;
+          margin: 20px;
           align-items: center;
           border: 2px solid #c4c4c4;
           height: 44px;
@@ -580,10 +580,9 @@ a.nav-active-link {
           border-radius: 8px;
           font-weight: normal;
           justify-content: center;
-          margin-top: 20px;
           .el-out {
             font-size: 20px;
-            margin-right: 5px;
+            margin: 0 5px;
           }
         }
       }
@@ -614,7 +613,7 @@ a.nav-active-link {
   img {
     width: 24px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin: 0 10px;
   }
   span {
     font-size: 18px;

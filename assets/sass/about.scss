@@ -18,8 +18,8 @@
         display: flex;
         margin-bottom: 30px;
         align-items: center;
+        justify-content: space-between;
         &-right {
-          margin-left: auto;
           margin-top: 0;
           cursor: pointer;
         }
@@ -59,7 +59,7 @@
         }
       }
       .award-list .logo-hold {
-        margin-right: 11px;
+        margin: 0 11px;
         .iconfont {
           color: #1f1f24;
           font-size: 30px;
@@ -97,8 +97,8 @@
     width: 50%;
     background-color: $primary-color;
     min-height: 100vh;
-    padding-top: 40px;
-    padding-left: 75px;
+    padding: 40px 75px 0 75px;
+    // padding-left: 75px;
     // padding: 53px 30px 50px 79px;
     &-box {
       width: 100%;
@@ -144,7 +144,8 @@
       font-size: 16px;
     }
     .el-timeline-item__timestamp {
-      font: 18px/1.778 "Untitled Sans Light", "Helvetica Neue", Helvetica, sans-serif;
+      font: 18px/1.778 'Untitled Sans Light', 'Helvetica Neue', Helvetica,
+        sans-serif;
       font-size: 20px;
       color: #37383c;
       font-weight: bolder;

@@ -41,7 +41,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        content: "";
+        content: '';
         background-color: rgba(#244134, 0.8);
         z-index: 1;
         width: 100%;
@@ -118,7 +118,7 @@
       font-weight: bolder;
       cursor: pointer;
       .el-icon-right {
-        margin-left: 5px;
+        margin: 0 5px;
         font-weight: bold;
         font-size: 20px;
         color: #f3ac34;
@@ -146,7 +146,7 @@
       &-text {
         margin-left: 10px;
         text-transform: uppercase;
-        font: 700 16px/2 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+        font: 700 16px/2 'Apercu Mono', 'Helvetica Neue', Helvetica, sans-serif;
         letter-spacing: 0.1em;
       }
       img {
@@ -178,6 +178,7 @@
     .el-tabs__active-bar {
       background-color: $btn-color-hover;
       height: 3px;
+      display: none;
     }
     &-item {
       font-weight: bolder;
@@ -220,13 +221,13 @@
       margin-bottom: 20px;
       align-items: center;
       &-li {
-        font: 18px/1.52 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+        font: 18px/1.52 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
         letter-spacing: -0.03em;
         margin-top: 24px;
         padding-left: 20px;
         position: relative;
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           background: #fff;
           width: 8px;
@@ -239,13 +240,14 @@
       }
       strong {
         letter-spacing: 2px;
-        font: 700 13px/1.615 "Apercu Mono", "Helvetica Neue", Helvetica, sans-serif;
+        font: 700 13px/1.615 'Apercu Mono', 'Helvetica Neue', Helvetica,
+          sans-serif;
         text-transform: uppercase;
       }
       .iconfont {
         color: $btn-color;
         font-size: 25px;
-        margin-right: 10px;
+        margin: 0 10px;
       }
       &-h4 {
         // padding-right: 36px;
@@ -270,7 +272,8 @@
       &-name {
         margin-left: 20px;
         &-strong {
-          font: 700 21px/1.14 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+          font: 700 21px/1.14 'Apercu Pro', 'Helvetica Neue', Helvetica,
+            sans-serif;
         }
         &-text {
           font-weight: 300;
@@ -279,7 +282,7 @@
     }
     &-right {
       margin-bottom: 20px;
-      font: 300 18px/1.52 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+      font: 300 18px/1.52 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
       letter-spacing: -0.03em;
     }
     &-mark {
@@ -405,7 +408,7 @@
   }
 }
 .home-new-title .el-iconfont {
-  margin-right: 10px;
+  margin: 0 10px;
 }
 .home-bottom-index {
   position: relative;
@@ -443,7 +446,7 @@
   position: relative;
   margin-top: 30px;
   &::before {
-    content: "";
+    content: '';
     width: 100%;
     background-color: #8f8f91;
     height: 1px;
@@ -462,7 +465,7 @@
     position: relative;
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       background-color: #f3ac34;
       height: 2px;
       width: 100%;

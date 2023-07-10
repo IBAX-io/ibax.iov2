@@ -35,7 +35,13 @@
     <div class="media-a">
       <el-row type="flex" justify="center">
         <el-col :xs="24" :lg="18">
-          <div v-if="arrPageEvents.length === 0" class="news-no">Loading</div>
+          <div
+            v-if="arrPageEvents.length === 0"
+            class="personal-tabs-record-img"
+          >
+            <img src="@/assets/images/login/no-data.png" alt="no-data" />
+          </div>
+          <!--  <div v-if="arrPageEvents.length === 0" class="news-no">Loading</div> -->
           <template v-else>
             <div
               v-for="item in arrPageEvents"
@@ -138,8 +144,11 @@
                 {{ $t('events.next') }}
               </h2>
             </div>
-            <div v-if="arrFutureEvents.length === 0" class="news-no">
-              Loading
+            <div
+              v-if="arrFutureEvents.length === 0"
+              class="personal-tabs-record-img"
+            >
+              <img src="@/assets/images/login/no-data.png" alt="no-data" />
             </div>
             <template v-else>
               <div
@@ -245,10 +254,16 @@
             <div class="events-more-content">
               <div
                 v-if="arrWonderEvents.length === 0"
+                class="personal-tabs-record-img news-no wow fadeInUp"
+              >
+                <img src="@/assets/images/login/no-data.png" alt="no-data" />
+              </div>
+              <!--   <div
+                v-if="arrWonderEvents.length === 0"
                 class="news-no wow fadeInUp"
               >
                 Loading
-              </div>
+              </div> -->
               <template v-else>
                 <div
                   v-for="item in arrWonderEvents"

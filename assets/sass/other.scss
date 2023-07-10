@@ -5,7 +5,7 @@
     padding: 40px 0;
   }
   &-easeplus {
-    font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+    font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
     border-left: 2px solid #f3ac34;
     height: 100px;
     padding-left: 10px;
@@ -14,7 +14,7 @@
     display: table-cell;
     vertical-align: middle;
     & > * {
-      line-height: 1;
+      line-height: 1.5;
       width: 100%;
     }
     &-strong {
@@ -23,7 +23,7 @@
     }
   }
   &-ease {
-    font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+    font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
     border-left: 2px solid #f3ac34;
     height: 100px;
     padding-left: 10px;
@@ -31,7 +31,7 @@
     align-items: center;
     font-size: 24px;
     font-weight: 400;
-    line-height: 1.333;
+    //  line-height: 1.333;
   }
   &-center {
     text-align: center;
@@ -47,7 +47,7 @@
       }
     }
     &-box {
-      font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
       font-size: 32px;
       line-height: 1.5;
       margin-bottom: 32px;
@@ -59,7 +59,7 @@
       }
     }
     &-span {
-      font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
       font-size: 32px;
       line-height: 1.5;
       margin-bottom: 32px;
@@ -68,14 +68,14 @@
       letter-spacing: -0.05em;
     }
     &-strong {
-      font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
       font-weight: 700;
       font-size: 32px;
       line-height: 1.5;
       letter-spacing: -0.05em;
     }
     &-bottom {
-      font-family: "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+      font-family: 'Apercu Pro', 'Helvetica Neue', Helvetica, sans-serif;
       font-style: normal;
       font-size: 18px;
       line-height: 1.333;
@@ -139,6 +139,7 @@
   color: #1f1f24;
   .home-tag .el-tabs__item {
     color: #8f8f91;
+    padding: 0 20px !important;
   }
   .home-tag .el-tabs__item.is-active,
   .home-tag .el-tabs__item:hover {
@@ -148,7 +149,8 @@
 .high-bottom {
   padding: 100px 0;
   &-box {
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+      -webkit-box-shadow 0.3s ease-in-out;
     display: block;
     width: 100%;
     color: #1f1f24;
@@ -184,7 +186,7 @@
   &-h6 {
     color: #626266;
     margin-bottom: 51px;
-    font: 18px/1.778 "Untitled Sans", "Helvetica Neue", Helvetica, sans-serif;
+    font: 18px/1.778 'Untitled Sans', 'Helvetica Neue', Helvetica, sans-serif;
   }
   &-more {
     display: block;
