@@ -200,7 +200,7 @@
       padding-right: 30px;
       margin: 0 auto;
       text-align: center;
-      font: 18px/1.778 "Untitled Sans", "Helvetica Neue", Helvetica, sans-serif;
+      font: 18px/1.778 'Untitled Sans', 'Helvetica Neue', Helvetica, sans-serif;
       h2 {
         color: #7856ff;
         margin-bottom: 8px;
@@ -250,7 +250,8 @@
         margin: 0 auto;
         .name {
           display: block;
-          font: 700 18px/1.222 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+          font: 700 18px/1.222 'Apercu Pro', 'Helvetica Neue', Helvetica,
+            sans-serif;
           margin-bottom: 6px;
         }
         .post {
@@ -280,7 +281,8 @@
       color: #1f1f24;
       &-img {
         width: 100%;
-        transition: box-shadow 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+        transition: box-shadow 0.3s ease-in-out,
+          -webkit-box-shadow 0.3s ease-in-out;
         border-radius: 18px;
         overflow: hidden;
         margin-bottom: 27px;
@@ -294,7 +296,8 @@
         border-radius: 18px;
         .team-slick-item-img {
           border-radius: 18px;
-          box-shadow: 0 0 12px rgb(31 31 36 / 16%), 0 4px 48px rgb(31 31 36 / 8%);
+          box-shadow: 0 0 12px rgb(31 31 36 / 16%),
+            0 4px 48px rgb(31 31 36 / 8%);
           img {
             border-radius: 18px;
           }
@@ -350,7 +353,8 @@
       padding: 34px;
       height: 100%;
       .place {
-        font: 700 24px/1.375 "Apercu Pro", "Helvetica Neue", Helvetica, sans-serif;
+        font: 700 24px/1.375 'Apercu Pro', 'Helvetica Neue', Helvetica,
+          sans-serif;
         color: #80e1d9;
         display: block;
         margin-bottom: 1px;
