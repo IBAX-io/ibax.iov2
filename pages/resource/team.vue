@@ -144,7 +144,7 @@
         >
       </div>
     </div>
-    <div class="team-leader">
+    <!--  <div class="team-leader">
       <div class="team-leader-top">
         <h2 class="h1 wow fadeInUp">{{ $t('resourse.person') }}</h2>
         <p class="wow fadeInUp">
@@ -185,7 +185,7 @@
           </el-col>
         </el-row>
       </div>
-    </div>
+    </div> -->
     <div class="team-bod">
       <div class="container">
         <h3 class="wow fadeInUp">{{ $t('resourse.senior') }}</h3>
